@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>89844005-efa2-451c-bb62-d541cc4242db</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>v0449_shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Confapp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Context.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Datalog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Eventlog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Reportbody.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Reportheader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\S7evtlog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Tblcodicidisegni.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Utenti.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\def.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\Variab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\dbGeneric.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)v0449-shared\v0449-shared.shproj.user" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)CL\" />
+  </ItemGroup>
+</Project>

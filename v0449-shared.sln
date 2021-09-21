@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "v0449-shared", "v0449-shared\v0449-shared.shproj", "{89844005-EFA2-451C-BB62-D541CC4242DB}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		v0449-shared\v0449-shared.projitems*{89844005-efa2-451c-bb62-d541cc4242db}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F266F406-D49E-4911-9068-F36FDC249423}
+	EndGlobalSection
+EndGlobal
