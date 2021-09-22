@@ -155,5 +155,31 @@ namespace v0449_shared
     }
 
 
+
+    public void scriviRiga(intestazioneProva value)
+    {
+      MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
+
+      string comandoSql = "INSERT INTO reportheader (" +
+             "rhCodiceUtente, rhNomeUtente, rhSerialeProva, rhTipo, rhNomeProva, rhSerialeMezzo, rhDate) " +
+             "VALUES ( ?Utente, ?NomeUtente, ?SerialePr, ?Tipo, ?Nome, ?SerialeMez, now())";
+      MySqlCommand comandoDB = new MySqlCommand(comandoSql, connessioneDB);
+      comandoDB.Parameters.AddWithValue("?Utente", value.idOperatore);
+      comandoDB.Parameters.AddWithValue("?NomeUtente", value.nomeOperatore);
+      comandoDB.Parameters.AddWithValue("?SerialePr", value.serialeProva);
+      comandoDB.Parameters.AddWithValue("?Tipo", value.tipoProva);
+      comandoDB.Parameters.AddWithValue("?Nome", value.nomeProva);
+      comandoDB.Parameters.AddWithValue("?SerialeMez", value.serialeMezzo);
+      connessioneDB.Open();
+
+      MySqlTransaction transazioneDB = connessioneDB.BeginTransaction();
+      comandoDB.Transaction = transazioneDB;
+
+      comandoDB.ExecuteNonQuery();
+      transazioneDB.Commit();
+      connessioneDB.Close();
+      connessioneDB = null;
+    }
+
   }
 }

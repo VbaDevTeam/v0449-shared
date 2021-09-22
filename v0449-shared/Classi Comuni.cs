@@ -4,6 +4,7 @@ using VbaLib;
 using System.Text;
 using Grpc.Core;
 using V0449GRpc;
+using V0449GRpcMicroS;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.IO;
@@ -465,7 +466,78 @@ namespace v0449_shared
       return Task.FromResult(new data2Hmi { XmlSer = appData });
     }
   }
-  
+
+  class v0449MicroSClient
+  {
+    readonly v0449gRpcMicroS.v0449gRpcMicroSClient client;
+
+    public v0449MicroSClient(v0449gRpcMicroS.v0449gRpcMicroSClient client)
+    {
+      this.client = client;
+    }
+
+    public async Task GenerateReport(string initDate, string endDate, int reportId, int userId, string path)
+    {
+      try
+      {
+        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
+        //    hiLon);
+
+        svcReportRequest request = new svcReportRequest
+        { 
+          InitRepo = initDate,
+          EndRepo = endDate,
+          IdReport = reportId, 
+          IdUser = 1,
+          PathToSave = path
+        };
+
+        using (var call = client.GenerateReport(request))
+        {
+          var responseStream = call.ResponseStream;
+          StringBuilder responseLog = new StringBuilder("Result: ");
+
+          while (await responseStream.MoveNext())
+          {
+            svcReportResponse response = responseStream.Current;
+            responseLog.Append(response.ToString());
+          }
+          //Log(responseLog.ToString());
+        }
+      }
+      catch (RpcException e)
+      {
+        //Log("RPC failed " + e);
+        throw;
+      }
+    }
+
+  }
+
+  class v0449gRpcMicroSImpl : v0449gRpcMicroS.v0449gRpcMicroSBase
+  {
+    public override async Task GenerateReport(svcReportRequest request, IServerStreamWriter<svcReportResponse> responseStream, ServerCallContext context)
+    {
+      List<svcReportResponse> result = new List<svcReportResponse>();
+
+      for (int n = 0; n < 100; n++)
+      {
+        Random rnd = new Random();
+        result.Add(new svcReportResponse { StateSrv = rnd.Next(), PercWork = rnd.Next() });
+      }
+
+      foreach (var response in result)
+      {
+        await responseStream.WriteAsync(response);
+      }
+    }
+
+  }
+
+
+
+
+
   public class ComRt2Plc
   {
     public UInt16[] diFs = new UInt16[4];
