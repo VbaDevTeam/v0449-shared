@@ -469,6 +469,9 @@ namespace v0449_shared
 
   class v0449MicroSClient
   {
+    public event getProgressRepo gProgressRepo;
+    public event getEndGenerRepo gEndGenerRepo;
+
     readonly v0449gRpcMicroS.v0449gRpcMicroSClient client;
 
     public v0449MicroSClient(v0449gRpcMicroS.v0449gRpcMicroSClient client)
@@ -478,6 +481,7 @@ namespace v0449_shared
 
     public async Task GenerateReport(string initDate, string endDate, int reportId, int userId, string path)
     {
+      int counter = 0;
       try
       {
         //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
@@ -499,9 +503,12 @@ namespace v0449_shared
 
           while (await responseStream.MoveNext())
           {
+            counter++;
             svcReportResponse response = responseStream.Current;
+            gProgressRepo?.Invoke(response.ToString());
             responseLog.Append(response.ToString());
           }
+          gEndGenerRepo?.Invoke(responseLog.ToString());
           //Log(responseLog.ToString());
         }
       }
@@ -514,25 +521,7 @@ namespace v0449_shared
 
   }
 
-  class v0449gRpcMicroSImpl : v0449gRpcMicroS.v0449gRpcMicroSBase
-  {
-    public override async Task GenerateReport(svcReportRequest request, IServerStreamWriter<svcReportResponse> responseStream, ServerCallContext context)
-    {
-      List<svcReportResponse> result = new List<svcReportResponse>();
-
-      for (int n = 0; n < 100; n++)
-      {
-        Random rnd = new Random();
-        result.Add(new svcReportResponse { StateSrv = rnd.Next(), PercWork = rnd.Next() });
-      }
-
-      foreach (var response in result)
-      {
-        await responseStream.WriteAsync(response);
-      }
-    }
-
-  }
+  
 
 
 
