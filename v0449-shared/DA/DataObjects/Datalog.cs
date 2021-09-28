@@ -13,7 +13,7 @@ namespace v0449_shared
     {
       get; set;
     }
-    public long? DlTimeStTk
+    public DateTime? DlTimeStTk
     {
       get; set;
     }
