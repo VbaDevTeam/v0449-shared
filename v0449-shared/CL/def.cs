@@ -6,8 +6,9 @@ namespace v0449_shared
   {
     #region def
     //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
-    public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
-
+    public const string strDbName = "v0387_hosestress";
+    public const string strConnDb = @"Database="+ strDbName + ";Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+    public const string strDbTableData = strDbName + ".datalog";
     #region Canali analogici
 
     #region AI chNames Siemens
