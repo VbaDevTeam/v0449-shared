@@ -69,6 +69,7 @@ namespace v0449_shared
     public int cntCicStepTot;
     public int tappo;
 
+    public double scanCycle;
 
     public BitInt[] statiBanco = new BitInt[1];
     //public BitInt[] alSistema = new BitInt[3];
@@ -145,8 +146,6 @@ namespace v0449_shared
     public bool lanciaForm;
 
     public bool systemAlarms;
-
-
 
 
     #region DVP

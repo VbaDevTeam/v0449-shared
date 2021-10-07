@@ -678,10 +678,17 @@ namespace v0449_shared
 
         if (_what == (int)V.saveType.TestConf)
         {
-          XmlSerializer ser = new XmlSerializer(typeof(DATA_CONF_TEST));
-          v.dataConfTest = (DATA_CONF_TEST)ser.Deserialize(reader);
-          if (loaded != null)
-            loaded((int)V.saveType.TestConf);
+          try
+          {
+            XmlSerializer ser = new XmlSerializer(typeof(DATA_CONF_TEST));
+             v.dataConfTest = (DATA_CONF_TEST)ser.Deserialize(reader);
+            if (loaded != null)
+              loaded((int)V.saveType.TestConf);
+          }
+          catch (System.InvalidOperationException e)
+          {
+
+          }
         }
 
         if (_what == (int)V.saveType.TestConf_act)
