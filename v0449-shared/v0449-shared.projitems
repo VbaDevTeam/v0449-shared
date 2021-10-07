@@ -34,4 +34,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)CL\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)codice da tenere1.txt" />
+  </ItemGroup>
 </Project>

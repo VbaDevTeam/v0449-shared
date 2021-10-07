@@ -9,6 +9,13 @@ namespace v0449_shared
     public const string strDbName = "v0387_hosestress";
     public const string strConnDb = @"Database="+ strDbName + ";Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
     public const string strDbTableData = strDbName + ".datalog";
+
+    //definizione percorso generale modelli report prove
+    public const string strReport_ModelBasePath = @"D:\dataapplications\v0449\Report\Modello\";
+    public const string strReport_ModelName = "v0449_model.xlsx";
+    public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
+
+
     #region Canali analogici
 
     #region AI chNames Siemens
@@ -1897,22 +1904,64 @@ namespace v0449_shared
     ,{1001, "rientro reset                                   "}
   };
 
-  //  public static Dictionary<int, string> faseFrigo = new Dictionary<int, string>(){
-  //   {0  , "init: in teoria solo al power on plc				     "}
-  //  ,{10 , "attesa richiesta marcia                          "}
-  //  ,{20 , "avviamento pompa circolazione                    "}
-  //  ,{30 , "attende flusso                                   "}
-  //  ,{40 , "pronto alla marcia - attesa richiesta freddo     "}
-  //  ,{50 , "Alimentazione liquida                            "}
-  //  ,{60 , "Funzionamento normale                            "}
-  //  ,{70 , "pump down                                        "}
-  //  ,{80 , "riposo da fermo (antiripetizione)                "}
-  //  ,{90 , "attesa arresto flusso                            "}
-  //  ,{1000, "gestione fault                                  "}
-  //  ,{1001, "rientro reset                                   "}
-  //};
+    //  public static Dictionary<int, string> faseFrigo = new Dictionary<int, string>(){
+    //   {0  , "init: in teoria solo al power on plc				     "}
+    //  ,{10 , "attesa richiesta marcia                          "}
+    //  ,{20 , "avviamento pompa circolazione                    "}
+    //  ,{30 , "attende flusso                                   "}
+    //  ,{40 , "pronto alla marcia - attesa richiesta freddo     "}
+    //  ,{50 , "Alimentazione liquida                            "}
+    //  ,{60 , "Funzionamento normale                            "}
+    //  ,{70 , "pump down                                        "}
+    //  ,{80 , "riposo da fermo (antiripetizione)                "}
+    //  ,{90 , "attesa arresto flusso                            "}
+    //  ,{1000, "gestione fault                                  "}
+    //  ,{1001, "rientro reset                                   "}
+    //};
+
+    public enum ptrFaseGenRepo
+    {
+      _00_Init = 00,
+      _10_InWorking = 10,
+      _20_avviamentoPompa = 20,
+      _30_attendeFlusso = 30,
+      _40_pronto_richiesta_freddo = 40,
+      _50_alimentazione_liquida = 50,
+      _60_funzione_Normale = 60,
+      _70_pump_down = 70,
+      _80_riposo_fermo = 80,
+      _90_pump_down = 90,
+      _1000_NoRulesFUser = 1000,
+      _1010_NoHeaderOnDb = 1010,
+    };
 
 
+    public static Dictionary<int, string> faseGenReport = new Dictionary<int, string>(){
+     {0  , "Attesa richieste				                         "}
+    ,{1  , "Verifica diritti utente                          "}
+    ,{2  , "Verifica esistenza database                      "}
+    ,{3  , "Attesa richieste				                         "}
+    ,{4  , "Attesa richieste				                         "}
+    ,{10 , "In lavorazione                                   "}
+    ,{20 , "Recupero dati da database                        "}
+    ,{30 , "Analisi dati                                     "}
+    ,{40 , "Apertura modello report                          "}
+    ,{50 , "Scrittura dati su modello                        "}
+    ,{60 , "Salvataggio temporaneo                           "}
+    ,{70 , "pump down                                        "}
+    ,{80 , "riposo da fermo (antiripetizione)                "}
+    ,{500 , "Attenzione! La selezione non racchiude dati sul Database!    "}
+    ,{510 , "Attenzione! attesa arresto flusso                            "}
+    ,{520 , "Attenzione! attesa arresto flusso                            "}
+    ,{530 , "Attenzione! attesa arresto flusso                            "}
+    ,{540 , "Attenzione! attesa arresto flusso                            "}
+    ,{1000, "Errore! Utente con diritti insufficienti, Contattare l'amministratore "}
+    ,{1010, "Errore! Identificativo prova non trovato sul Database!        "}
+    ,{1020, "Errore! Database irragiungibile!                "}
+    ,{1030, "Errore! Identificativo prova non trovato        "}
+    ,{1040, "Errore! Identificativo prova non trovato        "}
+    ,{1050, "Errore! Timount il server non rispode.          "}
+  };
 
 
     #endregion

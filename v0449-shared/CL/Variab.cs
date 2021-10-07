@@ -48,10 +48,7 @@ namespace v0449_shared
 
     #endregion
 
-    //definizione percorso generale modelli report prove
-    public const string strReport_ModelBasePath = @"D:\dataapplications\v0449\Report\Modello\";
-    public const string strReport_ModelName = "v0449_model.xlsx";
-    public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
+
 
     //costanti gestione "ini"
     public enum saveType { Application = 1, User, Recipe, TestConf, Test, Working, TestConf_act };
