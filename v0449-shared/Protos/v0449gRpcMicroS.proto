@@ -42,8 +42,10 @@ message svcReportResponse {
   int64 percWork = 2;
   //State of complete
   bool status = 3;
-  //Message of status
+  //Message of state
   string myMessage = 4;
+  //Return the token
+  string activeToken = 5;
 }
 
 
@@ -62,14 +64,14 @@ message svcReportRequest {
   //identificator of user do make a request
   int64 idUser = 5;
   //Path where microservicesave the file 
-  string pathToSave = 6;
+  string pathToSave = 5;
+
 }
 
 // Request staus 
-message svcStatusRequest{
-  //Request status
-  int64 myRequest = 1;
-
+message svcStatusRequest {
+  string getStatus = 1;
+  string tokenRequest = 2;
 }
 
 

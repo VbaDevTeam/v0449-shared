@@ -535,6 +535,34 @@ namespace v0449_shared
 
 
 
+    public void reqGen(string initDate, string endDate, int reportId, int userId, string path)
+    {
+      int counter = 0;
+      try
+      {
+        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
+        //    hiLon);
+
+        svcReportRequest request = new svcReportRequest
+        {
+          InitRepo = initDate,
+          EndRepo = endDate,
+          IdReport = reportId,
+          IdUser = userId,
+          PathToSave = path
+        };
+        Console.WriteLine();
+        svcReportResponse response = client.reqGen(request);
+        Console.WriteLine(response.MyMessage);
+        Console.WriteLine();
+
+      }
+      catch (RpcException e)
+      {
+        //Log("RPC failed " + e);
+        throw;
+      }
+    }
 
 
   }
