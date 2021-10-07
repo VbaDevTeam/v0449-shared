@@ -29,8 +29,7 @@ package v0449gRpcMicroS;
 service v0449gRpcMicroS {
   // Sends a command to generate report
   rpc reqGen(svcReportRequest) returns (svcReportResponse) {}
-
-  rpc GenerateReport(svcReportRequest) returns (svcReportResponse) {}
+  rpc reqStatus(svcStatusRequest) returns (svcReportResponse) {}
   rpc GenerateReport(svcReportRequest) returns (stream svcReportResponse) {}
 
 }
@@ -43,6 +42,8 @@ message svcReportResponse {
   int64 percWork = 2;
   //State of complete
   bool status = 3;
+  //Message of status
+  string myMessage = 4;
 }
 
 
@@ -54,16 +55,22 @@ message svcReportRequest {
   string initRepo = 1;
   //datetime of end period of report
   string endRepo =2;
+  //divisor
+  int64 divisor = 3;
   //identificator of header report
-  int64 idReport = 3;
+  int64 idReport = 4;
   //identificator of user do make a request
-  int64 idUser = 4;
+  int64 idUser = 5;
   //Path where microservicesave the file 
-  string pathToSave = 5;
+  string pathToSave = 6;
 }
 
 // Request staus 
+message svcStatusRequest{
+  //Request status
+  int64 myRequest = 1;
 
+}
 
 
 
