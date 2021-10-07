@@ -64,14 +64,15 @@ message svcReportRequest {
   //identificator of user do make a request
   int64 idUser = 5;
   //Path where microservicesave the file 
-  string pathToSave = 5;
+  string pathToSave = 6;
 
 }
 
 // Request staus 
 message svcStatusRequest {
-  string getStatus = 1;
-  string tokenRequest = 2;
+  int64 MyRequest = 1;
+  string getStatus = 2;
+  string tokenRequest = 3;
 }
 
 
