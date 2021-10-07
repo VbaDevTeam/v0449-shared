@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Confapp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\ContextMini.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Context.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Datalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Eventlog.cs" />
@@ -34,5 +35,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)CL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)codice da tenere1.txt" />
   </ItemGroup>
 </Project>

@@ -8,7 +8,15 @@ namespace v0449_shared
 
     #region def
     //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
-    public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+    public const string strDbName = "v0387_hosestress";
+    public const string strConnDb = @"Database="+ strDbName + ";Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+    public const string strDbTableData = strDbName + ".datalog";
+
+    //definizione percorso generale modelli report prove
+    public const string strReport_ModelBasePath = @"D:\dataapplications\v0449\Report\Modello\";
+    public const string strReport_ModelName = "v0449_model.xlsx";
+    public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
+
 
     #region Canali analogici
 
@@ -23,7 +31,7 @@ namespace v0449_shared
       , AItFLUIPROV         //TEMP      temperatura fluido circolante
       , AItRISCFLPR         //TEMP      temperat.riscaldatore fluido circolante
       , AItCELLCLIM         //TEMP      temperatura cella climatica
-      , AItVASCFRI1         //TEMP      temperatura vasca 1°stadio
+      , AItVASCFRI1         //TEMP      temperatura vasca 1Â°stadio
       , AIcESCUVIBR         //VOLT      escursione vibratore
       , AIaACCEVIBR         //VOLT      accelerazione vibratore
       , AItCENTOLIO         //TEMP      temperatura centralina olio
@@ -44,7 +52,7 @@ namespace v0449_shared
       , "AItFLUIPROV "        //TEMP      temperatura fluido circolante
       , "AItRISCFLPR "        //TEMP      temperat.riscaldatore fluido circolante
       , "AItCELLCLIM "        //TEMP      temperatura cella climatica
-      , "AItVASCFRI1 "        //TEMP      temperatura vasca 1°stadio
+      , "AItVASCFRI1 "        //TEMP      temperatura vasca 1Â°stadio
       , "AIcESCUVIBR "        //VOLT      escursione vibratore
       , "AIaACCEVIBR "        //VOLT      accelerazione vibratore
       , "AItCENTOLIO "        //TEMP      temperatura centralina olio
@@ -69,7 +77,7 @@ namespace v0449_shared
       , " temperatura fluido circolante             "
       , " temperat.riscaldatore fluido circolante   "
       , " temperatura cella climatica               "
-      , " temperatura vasca 1°stadio                "
+      , " temperatura vasca 1Â°stadio                "
       , " escursione vibratore                      "
       , " accelerazione vibratore                   "
       , " temperatura centralina olio               "
@@ -94,7 +102,7 @@ namespace v0449_shared
       , " temperatura fluido circolante             "
       , " temperat.riscaldatore fluido circolante   "
       , " temperatura cella climatica               "
-      , " temperatura vasca 1°stadio                "
+      , " temperatura vasca 1Â°stadio                "
       , " escursione vibratore                      "
       , " accelerazione vibratore                   "
       , " temperatura centralina olio               "
@@ -215,10 +223,10 @@ namespace v0449_shared
         ,"vWe009_2.regolatore corsa cil.pressione indietro          "
         ,"vWe010_2.regolatore corsa cil.pressione avanti            "
         ,"vWe011_Riserva                                            "
-        ,"vWe012_0.termostato di minima 1° stadio gr.frigorifero    "
-        ,"vWe013_0.flussostato 1° stadio gruppo frigorifero         "
-        ,"vWe014_0.fl circ.fl. in cella da 1° st./fl cond. 2° st    "
-        ,"vWe015_0.livello fluido vasca 1° stadio gr.frigorifero    "
+        ,"vWe012_0.termostato di minima 1Â° stadio gr.frigorifero    "
+        ,"vWe013_0.flussostato 1Â° stadio gruppo frigorifero         "
+        ,"vWe014_0.fl circ.fl. in cella da 1Â° st./fl cond. 2Â° st    "
+        ,"vWe015_0.livello fluido vasca 1Â° stadio gr.frigorifero    "
       };
 
     public static string[] we0Nick =
@@ -312,11 +320,11 @@ namespace v0449_shared
         ,"vWe102_0.vibratore posizionato                            "
         ,"vWe103_0.spina vibratore introdotta                       "
         ,"vWe104_0.gruppo vibratore in marcia                       "
-        ,"vWe105_0.interv.prot.mot.compressore 1°st.gr.frigor.      "
-        ,"vWe106_0.interv.prot.mot.compressore 2°st.gr.frigor.      "
+        ,"vWe105_0.interv.prot.mot.compressore 1Â°st.gr.frigor.      "
+        ,"vWe106_0.interv.prot.mot.compressore 2Â°st.gr.frigor.      "
         ,"vWe107_0.interv.prot.mot.pompa circolazione               "
-        ,"vWe108_0.interv.prot.mot.pompa raffr.vasca 1°st.frigor.   "
-        ,"vWe109_0.interv.prot.mot.pompa raffr.cella da 1° stadio   "
+        ,"vWe108_0.interv.prot.mot.pompa raffr.vasca 1Â°st.frigor.   "
+        ,"vWe109_0.interv.prot.mot.pompa raffr.cella da 1Â° stadio   "
         ,"vWe110_0.interv.prot.mot.ventilazione cella               "
         ,"vWe111_1.interv.prot.motore pompa P4                      "
         ,"vWe112_2.interv.prot.mot.regol.corsa cilindro pressione   "
@@ -520,10 +528,10 @@ namespace v0449_shared
 
     public static string[] we3Descr =
       {
-         "vWe300_0.sovrapressione 1° stadio gr.frigorifero       "
-        ,"vWe301_0.bassa pressione 1° st.gr.frigorifero          "
-        ,"vWe302_0.sovrapressione 2° stadio gr.frigorifero         "
-        ,"vWe303_0.bassa pressione 2° st.gr.frigorifero            "
+         "vWe300_0.sovrapressione 1Â° stadio gr.frigorifero       "
+        ,"vWe301_0.bassa pressione 1Â° st.gr.frigorifero          "
+        ,"vWe302_0.sovrapressione 2Â° stadio gr.frigorifero         "
+        ,"vWe303_0.bassa pressione 2Â° st.gr.frigorifero            "
         ,"vWe304_  "
         ,"vWe305_  "
         ,"vWe306_  "
@@ -633,10 +641,10 @@ namespace v0449_shared
 
     public static string[] wu0Descr =
       {
-         "vWu000_0.marcia compressore 1°stadio                  "
-        ,"vWu001_0.marcia compressore 2°stadio                  "
+         "vWu000_0.marcia compressore 1Â°stadio                  "
+        ,"vWu001_0.marcia compressore 2Â°stadio                  "
         ,"vWu002_0.marcia avanti pompa circolazione fluido      "
-        ,"vWu003_0.marcia pompa raffredd.vasca 1°stadio         "
+        ,"vWu003_0.marcia pompa raffredd.vasca 1Â°stadio         "
         ,"vWu004_0.marcia pompa raffreddamento cella            "
         ,"vWu005_0.abilitazione filtro elettrostatico           "
         ,"vWu006_0.abilitazione resistenze fluido circolante    "
@@ -750,8 +758,8 @@ namespace v0449_shared
         ,"vWu110_1.esclusione circolaz.fluido nel riscaldatore         "
         ,"vWu111_0.circolaz.acqua raffredd.circuito di prova           "
         ,"vWu112_0.spurgo fluido circuito di prova                     "
-        ,"vWu113_0.acqua raffredd.condensatore 1°st.frigor.            "
-        ,"vWu114_0.mandata fluido freddo alla cella da 1°st.frigor.    "
+        ,"vWu113_0.acqua raffredd.condensatore 1Â°st.frigor.            "
+        ,"vWu114_0.mandata fluido freddo alla cella da 1Â°st.frigor.    "
         ,"vWu115_0.svuotamento fluido freddo dalla cella               "
       };
 
@@ -842,12 +850,12 @@ namespace v0449_shared
 
     public static string[] wu2Descr =
       {
-         "circol.acqua raffredd.condensatore 1°st.frigor. "
-        ,"mandata fluido freddo alla cella da 1°st.frigor."
+         "circol.acqua raffredd.condensatore 1Â°st.frigor. "
+        ,"mandata fluido freddo alla cella da 1Â°st.frigor."
         ,"svuotamento fluido freddo dalla cella           "
-        ,"mandata fluido freddo al condens.da 2°stadio    "
-        ,"mandata gas alla cella da 2°stadio frigor.      "
-        ,"mandata gas evaporat.gruppo frigor.1°stadio     "
+        ,"mandata fluido freddo al condens.da 2Â°stadio    "
+        ,"mandata gas alla cella da 2Â°stadio frigor.      "
+        ,"mandata gas evaporat.gruppo frigor.1Â°stadio     "
         ,"ev ventilazione esterna                         "
         ,"ev circolaz.H2o raffr.fluido circolante         "
         ,"  riserva                                       "
@@ -1477,14 +1485,14 @@ namespace v0449_shared
         ,"0.all. trafilamento fluido da elementi in prova "
         ,"0.all. pressione aria sufficiente "
         ,"1.all. livello olio centralina insufficiente "
-        ,"0.all. sovrapressione 1° stadio gr.frigorifero "
-        ,"0.all. termostato di minima 1° stadio gr.frigorifero "
-        ,"0.all. flussostato 1° stadio gruppo frigorifero "
-        ,"0.all. fl circ.fl. in cella da 1° st./fl cond. 2° st "
-        ,"0.all. livello fluido vasca 1° stadio gr.frigorifero "
-        ,"0.all. sovrapressione 2° stadio gr.frigorifero "
-        ,"0.all. insufficiente pressione 2° st.gr.frigorifero "
-        ,"0.all. interv.prot.mot.compressore 1°st.gr.frigor. "
+        ,"0.all. sovrapressione 1Â° stadio gr.frigorifero "
+        ,"0.all. termostato di minima 1Â° stadio gr.frigorifero "
+        ,"0.all. flussostato 1Â° stadio gruppo frigorifero "
+        ,"0.all. fl circ.fl. in cella da 1Â° st./fl cond. 2Â° st "
+        ,"0.all. livello fluido vasca 1Â° stadio gr.frigorifero "
+        ,"0.all. sovrapressione 2Â° stadio gr.frigorifero "
+        ,"0.all. insufficiente pressione 2Â° st.gr.frigorifero "
+        ,"0.all. interv.prot.mot.compressore 1Â°st.gr.frigor. "
       };
 
     public static string[] wa0Nick =
@@ -1573,9 +1581,9 @@ namespace v0449_shared
 
     public static string[] wa1Descr =
   {
-         "0.all. interv.prot.mot.compressore 2°st.gr.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
+         "0.all. interv.prot.mot.compressore 2Â°st.gr.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.vasca 1Â°st.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.cella da 1Â° stadio"
         ,"1 all interv. prot.mot.pompe P1-P2"
         ,"0.all. interv.prot.motore pompa P3"
         ,"1.all. interv.prot.motore pompa P4"
@@ -1938,7 +1946,7 @@ namespace v0449_shared
       , aiPT1650valle       //TEMP      temperatura fluido circolante
       , aiPT2630monte       //TEMP      temperat.riscaldatore fluido circolante
       , aiPT2650valle       //TEMP      temperatura cella climatica
-      , ai4vRiserva         //TEMP      temperatura vasca 1°stadio
+      , ai4vRiserva         //TEMP      temperatura vasca 1Â°stadio
       , ai5vRiserva         //VOLT      escursione vibratore
       , aiTT1170risc        //VOLT      accelerazione vibratore
       , aiTT2170risc        //TEMP      temperatura centralina olio
@@ -1959,7 +1967,7 @@ namespace v0449_shared
       , "aiPT1650valle"        //TEMP      temperatura fluido circolante
       , "aiPT2630monte"        //TEMP      temperat.riscaldatore fluido circolante
       , "aiPT2650valle"        //TEMP      temperatura cella climatica
-      , "ai4vRiserva  "        //TEMP      temperatura vasca 1°stadio
+      , "ai4vRiserva  "        //TEMP      temperatura vasca 1Â°stadio
       , "ai5vRiserva  "        //VOLT      escursione vibratore
       , "aiTT1170risc "        //VOLT      accelerazione vibratore
       , "aiTT2170risc "        //TEMP      temperatura centralina olio
@@ -2092,6 +2100,23 @@ namespace v0449_shared
       , ac2
     }
 
+    public enum ptrFaseGenRepo
+    {
+      _00_Init = 00,
+      _10_InWorking = 10,
+      _20_avviamentoPompa = 20,
+      _30_attendeFlusso = 30,
+      _40_pronto_richiesta_freddo = 40,
+      _50_alimentazione_liquida = 50,
+      _60_funzione_Normale = 60,
+      _70_pump_down = 70,
+      _80_riposo_fermo = 80,
+      _90_pump_down = 90,
+      _1000_NoRulesFUser = 1000,
+      _1010_NoHeaderOnDb = 1010,
+    };
+
+
     #region input
 
     #region We0
@@ -2155,6 +2180,32 @@ namespace v0449_shared
         ,""
       };
 
+    public static Dictionary<int, string> faseGenReport = new Dictionary<int, string>(){
+     {0  , "Attesa richieste				                         "}
+    ,{1  , "Verifica diritti utente                          "}
+    ,{2  , "Verifica esistenza database                      "}
+    ,{3  , "Attesa richieste				                         "}
+    ,{4  , "Attesa richieste				                         "}
+    ,{10 , "In lavorazione                                   "}
+    ,{20 , "Recupero dati da database                        "}
+    ,{30 , "Analisi dati                                     "}
+    ,{40 , "Apertura modello report                          "}
+    ,{50 , "Scrittura dati su modello                        "}
+    ,{60 , "Salvataggio temporaneo                           "}
+    ,{70 , "pump down                                        "}
+    ,{80 , "riposo da fermo (antiripetizione)                "}
+    ,{500 , "Attenzione! La selezione non racchiude dati sul Database!    "}
+    ,{510 , "Attenzione! attesa arresto flusso                            "}
+    ,{520 , "Attenzione! attesa arresto flusso                            "}
+    ,{530 , "Attenzione! attesa arresto flusso                            "}
+    ,{540 , "Attenzione! attesa arresto flusso                            "}
+    ,{1000, "Errore! Utente con diritti insufficienti, Contattare l'amministratore "}
+    ,{1010, "Errore! Identificativo prova non trovato sul Database!        "}
+    ,{1020, "Errore! Database irragiungibile!                "}
+    ,{1030, "Errore! Identificativo prova non trovato        "}
+    ,{1040, "Errore! Identificativo prova non trovato        "}
+    ,{1050, "Errore! Timount il server non rispode.          "}
+  };
 
     public static string[] we0Plc =
   {
@@ -2434,10 +2485,10 @@ namespace v0449_shared
 
     public static string[] we3Descr =
       {
-         "vWe300_0.sovrapressione 1° stadio gr.frigorifero       "
-        ,"vWe301_0.bassa pressione 1° st.gr.frigorifero          "
-        ,"vWe302_0.sovrapressione 2° stadio gr.frigorifero         "
-        ,"vWe303_0.bassa pressione 2° st.gr.frigorifero            "
+         "vWe300_0.sovrapressione 1Â° stadio gr.frigorifero       "
+        ,"vWe301_0.bassa pressione 1Â° st.gr.frigorifero          "
+        ,"vWe302_0.sovrapressione 2Â° stadio gr.frigorifero         "
+        ,"vWe303_0.bassa pressione 2Â° st.gr.frigorifero            "
         ,"vWe304_  "
         ,"vWe305_  "
         ,"vWe306_  "
@@ -2547,10 +2598,10 @@ namespace v0449_shared
 
     public static string[] wu0Descr =
       {
-         "vWu000_0.marcia compressore 1°stadio                  "
-        ,"vWu001_0.marcia compressore 2°stadio                  "
+         "vWu000_0.marcia compressore 1Â°stadio                  "
+        ,"vWu001_0.marcia compressore 2Â°stadio                  "
         ,"vWu002_0.marcia avanti pompa circolazione fluido      "
-        ,"vWu003_0.marcia pompa raffredd.vasca 1°stadio         "
+        ,"vWu003_0.marcia pompa raffredd.vasca 1Â°stadio         "
         ,"vWu004_0.marcia pompa raffreddamento cella            "
         ,"vWu005_0.abilitazione filtro elettrostatico           "
         ,"vWu006_0.abilitazione resistenze fluido circolante    "
@@ -2664,8 +2715,8 @@ namespace v0449_shared
         ,"vWu110_1.esclusione circolaz.fluido nel riscaldatore         "
         ,"vWu111_0.circolaz.acqua raffredd.circuito di prova           "
         ,"vWu112_0.spurgo fluido circuito di prova                     "
-        ,"vWu113_0.acqua raffredd.condensatore 1°st.frigor.            "
-        ,"vWu114_0.mandata fluido freddo alla cella da 1°st.frigor.    "
+        ,"vWu113_0.acqua raffredd.condensatore 1Â°st.frigor.            "
+        ,"vWu114_0.mandata fluido freddo alla cella da 1Â°st.frigor.    "
         ,"vWu115_0.svuotamento fluido freddo dalla cella               "
       };
 
@@ -2756,12 +2807,12 @@ namespace v0449_shared
 
     public static string[] wu2Descr =
       {
-         "circol.acqua raffredd.condensatore 1°st.frigor. "
-        ,"mandata fluido freddo alla cella da 1°st.frigor."
+         "circol.acqua raffredd.condensatore 1Â°st.frigor. "
+        ,"mandata fluido freddo alla cella da 1Â°st.frigor."
         ,"svuotamento fluido freddo dalla cella           "
-        ,"mandata fluido freddo al condens.da 2°stadio    "
-        ,"mandata gas alla cella da 2°stadio frigor.      "
-        ,"mandata gas evaporat.gruppo frigor.1°stadio     "
+        ,"mandata fluido freddo al condens.da 2Â°stadio    "
+        ,"mandata gas alla cella da 2Â°stadio frigor.      "
+        ,"mandata gas evaporat.gruppo frigor.1Â°stadio     "
         ,"ev ventilazione esterna                         "
         ,"ev circolaz.H2o raffr.fluido circolante         "
         ,"  riserva                                       "
@@ -3391,14 +3442,14 @@ namespace v0449_shared
         ,"0.all. trafilamento fluido da elementi in prova "
         ,"0.all. pressione aria sufficiente "
         ,"1.all. livello olio centralina insufficiente "
-        ,"0.all. sovrapressione 1° stadio gr.frigorifero "
-        ,"0.all. termostato di minima 1° stadio gr.frigorifero "
-        ,"0.all. flussostato 1° stadio gruppo frigorifero "
-        ,"0.all. fl circ.fl. in cella da 1° st./fl cond. 2° st "
-        ,"0.all. livello fluido vasca 1° stadio gr.frigorifero "
-        ,"0.all. sovrapressione 2° stadio gr.frigorifero "
-        ,"0.all. insufficiente pressione 2° st.gr.frigorifero "
-        ,"0.all. interv.prot.mot.compressore 1°st.gr.frigor. "
+        ,"0.all. sovrapressione 1Â° stadio gr.frigorifero "
+        ,"0.all. termostato di minima 1Â° stadio gr.frigorifero "
+        ,"0.all. flussostato 1Â° stadio gruppo frigorifero "
+        ,"0.all. fl circ.fl. in cella da 1Â° st./fl cond. 2Â° st "
+        ,"0.all. livello fluido vasca 1Â° stadio gr.frigorifero "
+        ,"0.all. sovrapressione 2Â° stadio gr.frigorifero "
+        ,"0.all. insufficiente pressione 2Â° st.gr.frigorifero "
+        ,"0.all. interv.prot.mot.compressore 1Â°st.gr.frigor. "
       };
 
     public static string[] wa0Nick =
@@ -3487,9 +3538,9 @@ namespace v0449_shared
 
     public static string[] wa1Descr =
   {
-         "0.all. interv.prot.mot.compressore 2°st.gr.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
+         "0.all. interv.prot.mot.compressore 2Â°st.gr.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.vasca 1Â°st.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.cella da 1Â° stadio"
         ,"1 all interv. prot.mot.pompe P1-P2"
         ,"0.all. interv.prot.motore pompa P3"
         ,"1.all. interv.prot.motore pompa P4"
