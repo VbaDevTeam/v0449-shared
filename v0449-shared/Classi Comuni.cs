@@ -479,9 +479,11 @@ namespace v0449_shared
       this.client = client;
     }
 
-    public async Task GenerateReport(string initDate, string endDate, int reportId, int userId, string path)
+
+
+    //public async Task reqGen(string initDate, string endDate, int reportId, int userId, string path)
+    public svcReportResponse reqGen(string initDate, string endDate, int reportId, int userId, string path)
     {
-      int counter = 0;
       try
       {
         //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
@@ -492,25 +494,13 @@ namespace v0449_shared
           InitRepo = initDate,
           EndRepo = endDate,
           IdReport = reportId, 
-          IdUser = 1,
+          IdUser = userId,
           PathToSave = path
         };
 
-        using (var call = client.GenerateReport(request))
-        {
-          var responseStream = call.ResponseStream;
-          StringBuilder responseLog = new StringBuilder("Result: ");
+        svcReportResponse response = client.reqGen(request);
 
-          while (await responseStream.MoveNext())
-          {
-            counter++;
-            svcReportResponse response = responseStream.Current;
-            gProgressRepo?.Invoke(response.ToString());
-            responseLog.Append(response.ToString());
-          }
-          gEndGenerRepo?.Invoke(responseLog.ToString());
-          //Log(responseLog.ToString());
-        }
+        return response;
       }
       catch (RpcException e)
       {
@@ -518,6 +508,34 @@ namespace v0449_shared
         throw;
       }
     }
+
+
+    public svcReportResponse reqStatus(int cmdReq)
+    {
+      try
+      {
+        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
+        //    hiLon);
+
+        svcStatusRequest request = new svcStatusRequest
+        {
+          MyRequest = cmdReq,
+        };
+
+        svcReportResponse response = client.reqStatus(request);
+
+        return response;
+      }
+      catch (RpcException e)
+      {
+        //Log("RPC failed " + e);
+        throw;
+      }
+    }
+
+
+
+
 
   }
 

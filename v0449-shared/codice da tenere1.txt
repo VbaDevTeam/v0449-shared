@@ -1,0 +1,82 @@
+﻿        DateTime dTimeInit = DateTime.Parse(initDate);
+        DateTime dTimeEnd = DateTime.Parse(endDate);
+
+
+        
+    public int generReport(string initDate, string endDate, int idReport, int idUser, string path)
+    {
+      running = true;
+      Utente utRequest = testUser(idUser);
+
+      if ((utRequest.Diritti.Value & (int)DEF.dirittiVal.Report) != 0)
+      {
+        long ticks = DateTime.Now.Ticks;
+        Console.WriteLine();
+        Console.WriteLine("Ingresso in funzione generazione report: " + ticks.ToString());
+
+
+        long ticksInitContext = DateTime.Now.Ticks - ticks;
+        Console.WriteLine();
+        Console.WriteLine("Ingresso in funzione generazione report: " + (ticksInitContext / 10000).ToString() + " Millisecond");
+        DateTime dTimeInit = DateTime.Parse(initDate);
+        DateTime dTimeEnd = DateTime.Parse(endDate);
+
+
+
+        SLDocument sl = new SLDocument(DEF.strReport_ModelBasePath + DEF.strReport_ModelName);
+        //SLDocument sl = new SLDocument("/home/teo/Documenti/v0449/Report/Modello/" + v0449_shared.V.strReport_ModelName);
+
+        List<Datalog> myDlog = new List<Datalog>(sr.NoXmlSrv.dataContext.Datalogs.ToList().Where(e => e.DlTimeSt > dTimeInit && e.DlTimeSt < dTimeEnd).OrderBy(e => e.DlOrd).OrderBy(e => e.DlTflOut).ToList());
+
+        long ticksLinq = DateTime.Now.Ticks - ticks - ticksInitContext;
+        Console.WriteLine();
+        Console.WriteLine("Recupero dati da context tramite LINQ: " + (ticksLinq / 10000).ToString() + " Millisecond");
+
+        int line = 5;
+        foreach (Datalog tmp in myDlog)
+        {
+          sl.SetCellValue(line, 1, tmp.DlId);
+          sl.SetCellValue(line, 2, (int)tmp.DlOrd);
+          sl.SetCellValue(line, 3, (double)tmp.DlPrIn);
+          sl.SetCellValue(line, 4, (DateTime)tmp.DlTimeSt);
+          sl.SetCellValue(line, 5, (double)tmp.DlTcella);
+          sl.SetCellValue(line, 6, (double)tmp.DlTflIn);
+          line++;
+        }
+        long ticksPass = DateTime.Now.Ticks - ticks;
+        Console.WriteLine("Termine generazione report in: " + (ticksPass / 10000).ToString() + " Millisecond");
+        Console.WriteLine("Quantità di record elaborati: " + myDlog.Count.ToString());
+        Console.WriteLine();
+
+
+        #region charting
+
+        ////double fChartHeight = 55.0;
+        ////double fChartWidth = 17.5;
+
+        ////SLChart chart;
+
+        //////chart = sl.CreateChart("B2", "G6");
+        ////chart = sl.CreateChart(5, 2, line, 5);
+        ////chart.SetChartType(SLLineChartType.Line);
+        ////chart.SetChartPosition(1, 9, 1 + fChartHeight, 9 + fChartWidth);
+        ////sl.InsertChart(chart);
+
+
+        #endregion
+
+        Console.WriteLine("Avvio Salvataggio su rete: '" + DEF.strReport_ModelBasePath + "app_" + DEF.strReport_ModelName + " '");
+        sl.SaveAs(DEF.strReport_ModelBasePath + "app_" + DEF.strReport_ModelName);
+        long ticksPassSave = DateTime.Now.Ticks - ticks;
+        Console.WriteLine("Termine salvataggio report: " + (ticksPassSave / 10000).ToString() + " Millisecond");
+        Console.WriteLine();
+        return 200;
+      }
+      else
+      {
+        Console.WriteLine();
+        Console.WriteLine("Attenzione diritti insufficienti, non è possibile generare il report");
+        Console.WriteLine();
+        return 500;
+      }
+    }
