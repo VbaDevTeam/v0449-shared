@@ -8,6 +8,7 @@ using V0449GRpcMicroS;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.Json;
 
 namespace v0449_shared
 {
@@ -451,6 +452,11 @@ namespace v0449_shared
       return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
     }
 
+    //public override Task<dataAnswer> get(dataRequest request, ServerCallContext context)
+    //{
+    //  return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
+    //}
+
     public override Task<data2Hmi> xchRtData(data2Plc request, ServerCallContext context)
     {
       TextReader reader = new StringReader(request.XmlSer);
@@ -464,6 +470,15 @@ namespace v0449_shared
       string appData = outApp.ToString();
 
       return Task.FromResult(new data2Hmi { XmlSer = appData });
+    }
+
+    public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
+    {
+      v.comRt2Plc = JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
+
+      var options = new JsonSerializerOptions { WriteIndented = true };
+      string jsonString = JsonSerializer.Serialize(v.comRt2Hmi, options);
+      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
     }
   }
 
@@ -539,12 +554,12 @@ namespace v0449_shared
 
   }
 
-  
 
 
 
 
 
+#if v0449
   public class ComRt2Plc
   {
     public UInt16[] diFs = new UInt16[4];
@@ -607,7 +622,178 @@ namespace v0449_shared
     public Int16 tappo;
     public int cmdRespSrv;
     public bool recDataOn;
+  }
+#elif v0470
 
+  public class ComRt2Plc
+  {
+    public ComRt2Plc()
+    {
+      diFs = new UInt16[4];
+      diFv = new UInt16[4];
+      doFs = new UInt16[4];
+      doFv = new UInt16[4];
+      c1 = new();
+      c2 = new();
+    }
+    public UInt16[] diFs { get; set; }
+    public UInt16[] diFv { get; set; }
+    public UInt16[] doFs { get; set; }
+    public UInt16[] doFv { get; set; }
+    public C2Plc c1 { get; set; }
+    public C2Plc c2 { get; set; }
+  }
+  public class C2Plc
+  {
+    public C2Plc()
+    {
+      cmdReq = new UInt16[1];
+    }
+    public UInt16[] cmdReq { get; set; }
+
+    public Int16 spTCeMan_d { get; set; }
+    public Int16 spTFlMan_d { get; set; }
+    public Int16 spPLavMan_d { get; set; }
+    public Int16 spPRipMan_d { get; set; }
+    public Int16 spTRampaPMan_c { get; set; }
+    public Int16 spQFlMan_c { get; set; }
+    public Int16 spTCarico_c { get; set; }
+    public Int16 spTScarco_c { get; set; }
+    public Int16 spOverpPerc { get; set; }
+    public int cmdReqCli { get; set; }
+    public int ricNoToSend { get; set; }
 
   }
+  //public class ComRt2Plc
+  //{
+  //  public ComRt2Plc()
+  //  {
+  //    diFs = new UInt16[4];
+  //    diFv = new UInt16[4];
+  //    doFs = new UInt16[4];
+  //    doFv = new UInt16[4];
+  //    cmdReq = new UInt16[1];
+  //  }
+  //  public UInt16[] diFs { get; set; }
+  //  public UInt16[] diFv { get; set; }
+  //  public UInt16[] doFs { get; set; }
+  //  public UInt16[] doFv { get; set; }
+  //  public UInt16[] cmdReq { get; set; }
+
+  //  public Int16 spTVasca_d { get; set; }
+  //  public Int16 spTCeMan_d { get; set; }
+  //  public Int16 spTFlMan_d { get; set; }
+  //  public Int16 spPLavMan_d { get; set; }
+  //  public Int16 spPRipMan_d { get; set; }
+  //  public Int16 spTRampaPMan_c { get; set; }
+  //  public Int16 spQFlMan_c { get; set; }
+  //  public Int16 spTCarico_c { get; set; }
+  //  public Int16 spTScarco_c { get; set; }
+  //  public Int16 spOverpPerc { get; set; }
+  //  public int cmdReqCli { get; set; }
+  //  public int ricNoToSend { get; set; }
+
+  //}
+  //public class ComRt2Hmi
+  //{
+  //  public ComRt2Hmi()
+  //  {
+  //    AI = new short[18];
+  //    alarms = new ushort[5];
+  //  }
+  //  public UInt16 di0 { get; set; }
+  //  public UInt16 di1 { get; set; }//;
+  //  public UInt16 di2 { get; set; }//;
+  //  public UInt16 di3 { get; set; }//;
+  //  public UInt16 do0 { get; set; }//;
+  //  public UInt16 do1 { get; set; }//;
+  //  public UInt16 do2 { get; set; }//;
+  //  public UInt16 do3 { get; set; }//;
+  //  public UInt16 cmdStAut { get; set; }//;
+  //  public UInt16 cmdStMan { get; set; }//;
+  //  public UInt16 cmdSt { get; set; }//;
+  //  public Int16[] AI { get; set; }//;
+  //  public UInt16[] alarms { get; set; }//;
+  //  public Int16 ptrPh1Frig { get; set; }//;
+  //  public Int16 ptrPhRiscCe { get; set; }//;
+  //  public Int16 ptrPhRaffrCe { get; set; }//;
+  //  public Int16 ptrPhCompCe { get; set; }//;
+  //  public Int16 ptrPhTest { get; set; }//;
+  //  public Int16 ptrPhPulsa { get; set; }//;
+  //  public Int16 idNo { get; set; }//;
+  //  public Int16 flVari { get; set; }//;
+  //  public Int16 ptrStep { get; set; }//;
+  //  public Int16 cntRip { get; set; }//;
+  //  public Int16 spTCeAut_d { get; set; }//;
+  //  public Int16 spTFlAut_d { get; set; }//;
+  //  public Int16 spPresFl_d { get; set; }//;
+  //  public Int16 pidPwRisCe_d { get; set; }//;
+  //  public Int16 pidPwRafCe_d { get; set; }//;
+  //  public Int16 pidPwRisFl_d { get; set; }//;
+  //  public Int16 pidPwRafFl_d { get; set; }//;
+  //  public Int16 cntTmStep { get; set; }//;
+  //  public int cntCicStep { get; set; }//;
+  //  public int cntTmTest { get; set; }//;
+  //  public int cntCicTest { get; set; }//;
+  //  public DateTime tmSync { get; set; }//;
+  //  public Int16 tappo { get; set; }//;
+  //  public int cmdRespSrv { get; set; }//;
+  //  public bool recDataOn { get; set; }//;
+  //}
+
+  public class ComRt2Hmi
+  {
+    public ComRt2Hmi()
+    {
+      AI = new short[18];
+      alarms = new ushort[5];
+      c1 = new C2Hmi();
+      c2 = new C2Hmi();
+    }
+    public UInt16 di0 { get; set; }
+    public UInt16 di1 { get; set; }//;
+    public UInt16 di2 { get; set; }//;
+    public UInt16 di3 { get; set; }//;
+    public UInt16 do0 { get; set; }//;
+    public UInt16 do1 { get; set; }//;
+    public UInt16 do2 { get; set; }//;
+    public UInt16 do3 { get; set; }//;
+    public Int16[] AI { get; set; }//;
+    public UInt16[] alarms { get; set; }//;
+    public DateTime tmSync { get; set; }//;
+    public int cmdRespSrv { get; set; }//;
+    public bool recDataOn { get; set; }//;
+    public C2Hmi c1 { get; set; }
+    public C2Hmi c2 { get; set; }
+  }
+  public class C2Hmi
+  {
+    public C2Hmi()
+    {
+    }
+    public Int16 spTCeMan_d { get; set; }//;
+    public UInt16 cmdStAut { get; set; }//;
+    public UInt16 cmdStMan { get; set; }//;
+    public UInt16 cmdSt { get; set; }//;
+    public Int16 flVari { get; set; }//;
+    public Int16 ptrPhTest { get; set; }//;
+    public Int16 ptrPhPulsa { get; set; }//;
+    public Int16 idNo { get; set; }//;
+    public Int16 ptrStep { get; set; }//;
+    public Int16 cntRip { get; set; }//;
+    public Int16 spTCeAut_d { get; set; }//;
+    public Int16 spTFlAut_d { get; set; }//;
+    public Int16 spPresFl_d { get; set; }//;
+    public Int16 pidPwRisFl_d { get; set; }//;
+    public Int16 pidPwRafFl_d { get; set; }//;
+    public Int16 cntTmStep { get; set; }//;
+    public int cntCicStep { get; set; }//;
+    public int cntTmTest { get; set; }//;
+    public int cntCicTest { get; set; }//;
+    public int cmdRespSrv { get; set; }//;
+    public bool recDataOn { get; set; }//;
+  }
+#endif
 }
+
+
