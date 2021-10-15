@@ -13,7 +13,7 @@ namespace v0449_shared
 {
   public delegate void syncDb();
 
-
+  //prova commit
   [Serializable()]
   public class PASSO
   {
