@@ -1958,7 +1958,8 @@ namespace v0449_shared
       , TT2680valle         //TEMP      temperatura vapore frigo 1
       , TT2120refr          //TEMP      temperatura liquido frigo 2
       , TT2175risc          //TEMP      temperatura vapore frigo 2
-
+      , QC1                 //PORT      portata fluido circuito 1 
+      , QC2                 //PORT      portata fluido circuito 2 
     }
 
     public static string[] aiChNamesS7 =
@@ -1979,6 +1980,9 @@ namespace v0449_shared
       , "TT2680valle  "        //TEMP      temperatura vapore frigo 1
       , "TT2120refr   "        //TEMP      temperatura liquido frigo 2
       , "TT2175risc   "        //TEMP      temperatura vapore frigo 2
+      , "QC1"
+      , "QC2"
+
 
       };
 
@@ -2004,6 +2008,8 @@ namespace v0449_shared
       , " temperatura valle C2            "
       , " temperatura refrigerata C2      "
       , " temperatura riscaldatore 2 C2   "
+      , " portata fluido circuito 1       "
+      , " portata fluido circuito 2       "
 
       };
 
@@ -2029,6 +2035,8 @@ namespace v0449_shared
       , " temperatura valle C2            "
       , " temperatura refrigerata C2      "
       , " temperatura riscaldatore 2 C2   "
+      , " portata fluido circuito 1       "
+      , " portata fluido circuito 2       "
     };
     #endregion
 
