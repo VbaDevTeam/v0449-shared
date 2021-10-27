@@ -273,18 +273,11 @@ namespace v0449_shared
             .HasMaxLength(200)
             .HasColumnName("rhNomeProva");
 
-        entity.Property(e => e.RhNomeUtente)
+        entity.Property(e => e.rhSerialiItems)
             .IsRequired()
-            .HasMaxLength(45)
-            .HasColumnName("rhNomeUtente");
+            .HasMaxLength(255)
+            .HasColumnName("rhSerialiItems");
 
-        entity.Property(e => e.RhSerialeMezzo)
-            .IsRequired()
-            .HasMaxLength(45)
-            .HasColumnName("rhSerialeMezzo");
-
-        entity.Property(e => e.RhSerialeProva)
-            .HasColumnType("int unsigned");
       });
 
       modelBuilder.Entity<S7evtlog>(entity => {

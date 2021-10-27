@@ -11,7 +11,7 @@ namespace v0449_shared
 {
   class dbGeneric
   {
-    Context dataContext = new Context();
+    ContextMini dataContext = new();
     public V v = new();
 
     public enum dbDlCn
@@ -34,11 +34,11 @@ namespace v0449_shared
       return pippo;
     }
 
-    public List<Datalog> loadDataChTest()
-    {
-      DateTime start = DateTime.Now.AddHours(-3);
-      return dataContext.Datalogs.ToList().Where(en => en.DlTimeSt > start).OrderBy(en => en.DlId).ToList();
-    }
+    //public List<Datalog> loadDataChTest()
+    //{
+    //  DateTime start = DateTime.Now.AddHours(-3);
+    //  return dataContext.Datalogs.ToList().Where(en => en.DlTimeSt > start).OrderBy(en => en.DlId).ToList();
+    //}
 
     public int deleteCodDisegno(int id)
     {
@@ -161,7 +161,7 @@ namespace v0449_shared
       MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
 
       string comandoSql = "INSERT INTO reportheader (" +
-             "rhCodiceUtente, rhNomeUtente, rhSerialeProva, rhTipo, rhNomeProva, rhSerialeMezzo, rhDate) " +
+             "rhCodiceUtente, rhNomeUtente, rhSerialeProva, rhTipo, rhNomeProva, rhSerialiItems, rhDate) " +
              "VALUES ( ?Utente, ?NomeUtente, ?SerialePr, ?Tipo, ?Nome, ?SerialeMez, now())";
       MySqlCommand comandoDB = new MySqlCommand(comandoSql, connessioneDB);
       comandoDB.Parameters.AddWithValue("?Utente", value.idOperatore);

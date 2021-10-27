@@ -10,10 +10,8 @@ namespace v0449_shared
         public int RhId { get; set; }
         public int RhCdId { get; set; }
         public int RhCodiceUtente { get; set; }
-        public string RhNomeUtente { get; set; }
-        public int RhSerialeProva { get; set; }
         public string RhNomeProva { get; set; }
-        public string RhSerialeMezzo { get; set; }
+        public string rhSerialiItems { get; set; }
         public DateTime RhDate { get; set; }
     }
 }
