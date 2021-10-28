@@ -92,6 +92,9 @@ namespace v0449_shared
 
   public class NO_XML
   {
+    public string strNameDb = "";
+
+
     public bool testDone = true;
     public bool recData = false;
 
