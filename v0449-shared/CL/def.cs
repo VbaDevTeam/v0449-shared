@@ -43,6 +43,8 @@ namespace v0449_shared
       , AItLOPRFRIG1        //TEMP      temperatura vapore frigo 1
       , AItHIPRFRIG2        //TEMP      temperatura liquido frigo 2
       , AItLOPRFRIG2        //TEMP      temperatura vapore frigo 2
+      , QC1                 //PORT      portata fluido circuito 1 
+      , QC2                 //PORT      portata fluido circuito 2 
 
     }
 
@@ -64,6 +66,8 @@ namespace v0449_shared
       , "AItLOPRFRIG1"        //TEMP      temperatura vapore frigo 1
       , "AItHIPRFRIG2"        //TEMP      temperatura liquido frigo 2
       , "AItLOPRFRIG2"        //TEMP      temperatura vapore frigo 2
+      , "QC1"                 //PORT      portata fluido circuito 1 
+      , "QC2"                 //PORT      portata fluido circuito 2 
 
       };
 
@@ -89,6 +93,8 @@ namespace v0449_shared
       , " temperatura vapore frigo 1                "
       , " temperatura liquido frigo 2               "
       , " temperatura vapore frigo 2                "
+      , " portata C1               "
+      , " portata C2               "
 
       };
 
@@ -114,7 +120,8 @@ namespace v0449_shared
       , " temperatura vapore frigo 1                "
       , " temperatura liquido frigo 2               "
       , " temperatura vapore frigo 2                "
-
+      , " portata C1               "
+      , " portata C2               "
     };
     #endregion
 
