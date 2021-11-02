@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Linq;
 using v0449_shared;
+using VbaLib;
 
 namespace v0449_shared
 {
@@ -53,7 +54,7 @@ namespace v0449_shared
       int result = 1;
 
       //preparazione e scrittura su database
-      MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
+      MySqlConnection connessioneDB = new MySqlConnection(mainAppParam.strConnDb);
 
       string comandoSQL = "";
       comandoSQL = "INSERT INTO tblCodiciDisegni " +
@@ -93,7 +94,7 @@ namespace v0449_shared
     {
       int result = 1;
       //preparazione e scrittura su database
-      MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
+      MySqlConnection connessioneDB = new MySqlConnection(mainAppParam.strConnDb);
 
       string comandoSQL = "call duplicateTestConf" +
          "(" + whatGet + ")";
@@ -120,7 +121,7 @@ namespace v0449_shared
     {
       int result = 1;
       //preparazione e scrittura su database
-      MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
+      MySqlConnection connessioneDB = new MySqlConnection(mainAppParam.strConnDb);
       if (request.Length > 44) request = request.Substring(0, 44);
       string comandoSQL = "";
       comandoSQL = "INSERT INTO tblBotLog " +
@@ -158,7 +159,7 @@ namespace v0449_shared
 
     public void scriviRiga(intestazioneProva value)
     {
-      MySqlConnection connessioneDB = new MySqlConnection(DEF.strConnDb);
+      MySqlConnection connessioneDB = new MySqlConnection(mainAppParam.strConnDb);
 
       string comandoSql = "INSERT INTO reportheader (" +
              "rhCodiceUtente, rhNomeUtente, rhSerialeProva, rhTipo, rhNomeProva, rhSerialiItems, rhDate) " +

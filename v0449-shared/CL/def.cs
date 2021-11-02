@@ -7,15 +7,6 @@ namespace v0449_shared
 #if v0449
 
     #region def
-    //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
-    public const string strDbName = "0449-dbHP";
-    public const string strConnDb = @"Database="+ strDbName + ";Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
-    public const string strDbTableData = strDbName + ".datalog";
-
-    //definizione percorso generale modelli report prove
-    public const string strReport_ModelBasePath = @"D:\dataapplications\v0449\Report\Modello\";
-    public const string strReport_ModelName = "v0449_model.xlsx";
-    public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
 
 
     #region Canali analogici
