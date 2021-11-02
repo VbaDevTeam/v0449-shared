@@ -262,6 +262,14 @@ namespace v0449_shared
             .HasColumnType("int unsigned")
             .HasColumnName("rhCdId");
 
+        entity.Property(e => e.RhCdCaSetNo)
+            .HasColumnType("int unsigned")
+            .HasColumnName("rhCdCaSetNo");
+
+        entity.Property(e => e.RhState)
+            .HasColumnType("int unsigned")
+            .HasColumnName("rhState");
+
         entity.Property(e => e.RhCodiceUtente)
               .HasColumnType("int unsigned")
               .HasColumnName("rhCodiceUtente");
@@ -273,7 +281,7 @@ namespace v0449_shared
             .HasMaxLength(200)
             .HasColumnName("rhNomeProva");
 
-        entity.Property(e => e.rhSerialiItems)
+        entity.Property(e => e.RhSerialiItems)
             .IsRequired()
             .HasMaxLength(255)
             .HasColumnName("rhSerialiItems");

@@ -41,6 +41,9 @@ namespace v0449_shared
     //  return dataContext.Datalogs.ToList().Where(en => en.DlTimeSt > start).OrderBy(en => en.DlId).ToList();
     //}
 
+
+
+
     public int deleteCodDisegno(int id)
     {
       (from p in dataContext.Tblcodicidisegnis
@@ -155,6 +158,27 @@ namespace v0449_shared
       return result;
     }
 
+
+    public uint selectVersConfTest(int caSetNoLoc)
+    {
+      uint result = 0;
+      string comandoSQL = " SELECT max(caId) FROM confapp where caType = 'TestConf' and caSetNo = " + caSetNoLoc + ";";
+      MySqlConnection connessioneDB = new MySqlConnection(mainAppParam.strConnDb);
+      connessioneDB.Open();
+      MySqlCommand comandoDB = new MySqlCommand();
+      comandoDB.CommandText = comandoSQL;
+      comandoDB.Connection = connessioneDB;
+      MySqlDataReader readerDB = comandoDB.ExecuteReader();
+      while (readerDB.Read())
+      {
+        result = (uint)readerDB[0];
+      }
+      readerDB.Close();
+      readerDB = null;
+      connessioneDB.Close();
+      connessioneDB = null;
+      return result;
+    }
 
 
     public void scriviRiga(intestazioneProva value)
