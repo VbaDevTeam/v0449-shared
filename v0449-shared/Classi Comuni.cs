@@ -555,6 +555,15 @@ namespace v0449_shared
   }
 
 
+  public class configData
+  {
+    public string ipServer { get; set; }
+    public string portServer { get; set; }
+    public string ipServerDb { get; set; }
+    public string strDbName { get; set; }
+    public string userDb { get; set; }
+    public string passDb { get; set; }
+  }
 
 
 
