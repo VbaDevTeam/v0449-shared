@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 //using MySql.EntityFrameworkCore;
+using VbaLib;
 
 #nullable disable
 
@@ -9,8 +10,16 @@ namespace v0449_shared
 {
   public partial class ContextMini : DbContext
   {
+
+    string myConnDb = "server=mysqlsrv;port=3306;user=root;password=mysqlpwd;database=0449-dbHP";
+
     public ContextMini()
     {
+    }
+
+    public ContextMini(string strConnDb)
+    {
+      myConnDb = strConnDb;
     }
 
     public ContextMini(DbContextOptions<Context> options)
@@ -53,7 +62,7 @@ namespace v0449_shared
       if (!optionsBuilder.IsConfigured)
       {
         //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        optionsBuilder.UseMySQL("server=mysqlsrv;port=3306;user=root;password=mysqlpwd;database=0449-dbHP");
+        optionsBuilder.UseMySQL(myConnDb);
       }
     }
 
