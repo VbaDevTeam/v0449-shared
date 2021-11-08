@@ -200,9 +200,48 @@ namespace v0449_shared
     public int loops;
     public List<PASSO> passiProva;
     public string numeroDisegno;
+    public int durataTotale;
 
     public DATA_CONF_TEST()
     {
+    }
+
+    public int getDurataTot()
+    {
+
+      int appDurata = 0;
+
+      for (int n = 0; n < passiProva.Count; n++)
+      {
+        int tmCicloDura = 0;
+        int tmCicloPulsa = 0;
+        bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
+        bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
+
+
+
+        if (chkFineCiclo)
+          tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());
+        
+        if (chkFinePulsa)
+        {
+          tmCicloPulsa = int.Parse(passiProva[n].tmSalita.ValOut.ToString());
+          tmCicloPulsa += int.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
+          tmCicloPulsa += int.Parse(passiProva[n].tmDisces.ValOut.ToString());
+          tmCicloPulsa += int.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+        }
+
+        if (tmCicloDura > tmCicloPulsa) 
+        {
+          appDurata += tmCicloDura;
+        } 
+        else 
+        {
+          appDurata += tmCicloPulsa;
+        }
+      }
+      durataTotale = appDurata * loops;
+      return durataTotale;
     }
 
 
