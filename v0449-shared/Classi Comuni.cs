@@ -573,10 +573,10 @@ namespace v0449_shared
   {
     public ComRt2Plc()
     {
-      diFs = new UInt16[3];
-      diFv = new UInt16[3];
-      doFs = new UInt16[3];
-      doFv = new UInt16[3];
+      diFs = new UInt16[4];
+      diFv = new UInt16[4];
+      doFs = new UInt16[4];
+      doFv = new UInt16[4];
       c1 = new();
 //      c2 = new();
     }
