@@ -37,7 +37,7 @@ namespace v0449_shared
     #region local_variables
     protected S7Client Client;
     protected V v = new();
-    ContextMini dataContext = new ContextMini();
+
 
 
     protected byte[] bufRd = new byte[65536];
