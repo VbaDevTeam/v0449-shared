@@ -48,13 +48,9 @@ namespace v0449_shared
     public List<string> serialiProva = new List<string>();
     public DateTime dataCreazione;
     public DateTime dataInizio;
-    
 
     //Dati da PLC
-
-
     public int passoCorrente;
-
 
     private int durataTotale;
     public int DurataTotale {
@@ -168,35 +164,20 @@ namespace v0449_shared
       }
       catch (Exception ex)
       {
-
         reader = lCMini.Confapps.ToList().Where(a => a.CaType == "TestConf").Max().ToString();
       }
-
-        
-
-      //var stream = new MemoryStream();
-      //var writer = new StreamWriter(stream);
-      //writer.Write(reader);
-      //writer.Flush();
-      //stream.Position = 0;
-
-
       var serializer = new XmlSerializer(typeof(DATA_CONF_TEST));
-
       using (TextReader ddsreader = new StringReader(reader))
       {
         myConfTest = (DATA_CONF_TEST)serializer.Deserialize(ddsreader);
       }
-
 
     }
 
     public void initInternal(Reportheader lrHeader)
     {
       rHeader = lrHeader;
-
     }
-
 
     public bool creaHeaderTest(Reportheader lrHeader)
     {
@@ -216,7 +197,6 @@ namespace v0449_shared
     {
       lCMini.SaveChanges();
     }
-
   }
 
 
@@ -268,37 +248,6 @@ namespace v0449_shared
     public ParametroVba prAcqAlt = new ParametroVba(2, 500, "Perioro alta freq. (Sec)");
     public ParametroVba tmAcqAlt = new ParametroVba(2, 500, "Tempo   alta freq. (Sec)");
 
-
-
-
-    ////Generali
-    //public ParametroVba durataPasso = new ParametroVba();
-    //public ParametroVba tmFineCiclo = new ParametroVba();
-    //public ParametroVba tmFinePulsa = new ParametroVba();
-
-    ////Pulsazione
-    //public ParametroVba abilPuls = new ParametroVba();
-    //public ParametroVba numePuls = new ParametroVba();
-    //public ParametroVba abilSinu = new ParametroVba();
-    //public ParametroVba frPulsaS = new ParametroVba();
-    //public ParametroVba tmSalita = new ParametroVba();
-    //public ParametroVba tmAltaSt = new ParametroVba();
-    //public ParametroVba tmDisces = new ParametroVba();
-    //public ParametroVba tmBassaS = new ParametroVba();
-
-
-    ////Acquisizione                           
-    //public ParametroVba abilAcqu = new ParametroVba();
-    //public ParametroVba frAcqBas = new ParametroVba();
-    //public ParametroVba frAcqAlt = new ParametroVba();
-    //public ParametroVba prAcqAlt = new ParametroVba();
-    //public ParametroVba tmAcqAlt = new ParametroVba();
-
-
-
-
-
-
     public BitInt bitCmd = new BitInt();
 
 
@@ -343,11 +292,7 @@ namespace v0449_shared
 
     public List<ParametroVba> getGenericParam()
     {
-      //durataPasso.Descrizione = "Durata passo";
-      //tmFineCiclo.Descrizione = "Attendi fine tempo";
-      //tmFinePulsa.Descrizione = "Attendi fine n pulsa";
       tmp1.Clear();
-
       tmp1.Add(durataPasso);
       tmp1.Add(blFineCiclo);
       tmp1.Add(blFinePulsa);
@@ -646,20 +591,10 @@ namespace v0449_shared
   class v0449gRpcSvcImpl : v0449gRpcSvc.v0449gRpcSvcBase
   {
     V v = new();
-    // Server side handler of the SayHello RPC
-    //public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-    //{
-    //  return Task.FromResult(new HelloReply { Message = "Adesso puoi andare affanculo, " + request.Name });
-    //}
     public override Task<dataAnswer> getRtData(dataRequest request, ServerCallContext context)
     {
       return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
     }
-
-    //public override Task<dataAnswer> get(dataRequest request, ServerCallContext context)
-    //{
-    //  return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
-    //}
 
     public override Task<data2Hmi> xchRtData(data2Plc request, ServerCallContext context)
     {
@@ -760,7 +695,6 @@ namespace v0449_shared
 
   }
 
-
   public class configData
   {
     public string ipServer { get; set; }
@@ -770,7 +704,6 @@ namespace v0449_shared
     public string userDb { get; set; }
     public string passDb { get; set; }
   }
-
 
 
 
@@ -827,8 +760,8 @@ public class ComRt2Hmi
   {
     AI = new short[18];
     alarms = new ushort[5];
-    c1 = new C2Hmi();
-    c2 = new C2Hmi();
+    c1 = new CXHmi();
+    c2 = new CXHmi();
   }
   public UInt16 di0 { get; set; }
   public UInt16 di1 { get; set; }//;
@@ -843,12 +776,13 @@ public class ComRt2Hmi
   public DateTime tmSync { get; set; }//;
   public int cmdRespSrv { get; set; }//;
   public bool recDataOn { get; set; }//;
-  public C2Hmi c1 { get; set; }
-  public C2Hmi c2 { get; set; }
+  public bool comunicOn { get; set; }//;
+  public CXHmi c1 { get; set; }
+  public CXHmi c2 { get; set; }
 }
-public class C2Hmi
+public class CXHmi
 {
-  public C2Hmi()
+  public CXHmi()
   {
   }
   public Int16 comStatus { get; set; }//;
@@ -871,17 +805,18 @@ public class C2Hmi
   public Int16 spTCeAut_d { get; set; }//;
   public Int16 spTFlAut_d { get; set; }//;
   public Int16 spPresFl_d { get; set; }//;
-    public Int16 pidPwRisCe_d { get; set; }//;
-    public Int16 pidPwRafCe_d { get; set; }//;
-    public Int16 pidPwRisFl_d { get; set; }//;
-    public Int16 pidPwRafFl_d { get; set; }//;
-    public Int16 cntTmStep { get; set; }//;
+  public Int16 pidPwRisCe_d { get; set; }//;
+  public Int16 pidPwRafCe_d { get; set; }//;
+  public Int16 pidPwRisFl_d { get; set; }//;
+  public Int16 pidPwRafFl_d { get; set; }//;
+  public Int16 cntTmStep { get; set; }//;
   public int cntCicStep { get; set; }//;
   public int cntTmTest { get; set; }//;
   public int cntCicTest { get; set; }//;
   public int cmdRespSrv { get; set; }//;
   public bool recDataOn { get; set; }//;
-} 
+
+ } 
 
 #elif v0470
 
