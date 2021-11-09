@@ -135,6 +135,7 @@ namespace v0449_shared
       creaHeaderTest(lrHeader);
       saveContext();
       initInternal(lrHeader);
+      initConfTest();
     }
 
     public PROVA(int idProvaC)
@@ -145,16 +146,7 @@ namespace v0449_shared
       initInternal(rHeader);
 
       //
-      string reader = lCMini.Confapps.Find(rHeader.RhCdCaSetNo).CaConfigData;
-
-      var stream = new MemoryStream();
-      var writer = new StreamWriter(stream);
-      writer.Write(reader);
-      writer.Flush();
-      stream.Position = 0;
-  
-      XmlSerializer ser = new XmlSerializer(typeof(DATA_CONF_TEST));
-      myConfTest = (DATA_CONF_TEST)ser.Deserialize(stream);
+      initConfTest();
 
     }
 
@@ -165,6 +157,38 @@ namespace v0449_shared
       {
         serialiProva.Add(a);
       }
+    }
+
+    private void initConfTest()
+    {
+      string reader;
+      try
+      {
+        reader = lCMini.Confapps.Find(rHeader.RhCdCaSetNo).CaConfigData;
+      }
+      catch (Exception ex)
+      {
+
+        reader = lCMini.Confapps.ToList().Where(a => a.CaType == "TestConf").Max().ToString();
+      }
+
+        
+
+      //var stream = new MemoryStream();
+      //var writer = new StreamWriter(stream);
+      //writer.Write(reader);
+      //writer.Flush();
+      //stream.Position = 0;
+
+
+      var serializer = new XmlSerializer(typeof(DATA_CONF_TEST));
+
+      using (TextReader ddsreader = new StringReader(reader))
+      {
+        myConfTest = (DATA_CONF_TEST)serializer.Deserialize(ddsreader);
+      }
+
+
     }
 
     public void initInternal(Reportheader lrHeader)

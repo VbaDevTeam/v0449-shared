@@ -177,6 +177,7 @@ namespace v0449_shared
               .HasColumnName("rhCodiceUtente");
 
         entity.Property(e => e.RhDate).HasColumnName("rhDate");
+        entity.Property(e => e.RhDateStart).HasColumnName("rhDateStart");
 
         entity.Property(e => e.RhNomeProva)
             .IsRequired()
