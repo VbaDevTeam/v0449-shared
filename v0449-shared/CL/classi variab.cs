@@ -52,7 +52,7 @@ namespace v0449_shared
     public int ptrComprCella;
     public int ptrPhTest;
     public int ptrPhPulsa;
-    public int idRicOnPlc = -1;
+    public int idOnPlc = -1;
 
     public BitInt flagPlc = new BitInt();
     public bool flTestAlive;
