@@ -13,16 +13,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\Sharp7.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Confapp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Confapp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\ContextMini.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Context.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Datalog.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Eventlog.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Reportbody.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Reportheader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\S7evtlog.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Tblcodicidisegni.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Utenti.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Datalog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Eventlog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Reportheader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Tblcodicidisegni.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Utenti.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\def.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\Variab.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\dbGeneric.cs" />
@@ -35,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)CL\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)codice da tenere1.txt" />

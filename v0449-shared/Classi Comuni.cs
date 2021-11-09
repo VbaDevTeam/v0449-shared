@@ -9,6 +9,8 @@ using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace v0449_shared
 {
@@ -16,6 +18,208 @@ namespace v0449_shared
 
   //prova commit
   [Serializable()]
+
+
+
+  public class PROVA
+  {
+    private ContextMini lCMini;
+
+    public DATA_CONF_TEST myConfTest;
+    public Reportheader rHeader;
+
+    //
+    /// <summary>
+    /// Struttura ReportHeader
+    /// </summary>
+    /// 
+    ///rHeader.RhId --> Identificativo Prova
+    ///rHeader.RhCodiceUtente --> Identificativo Utente
+    ///rHeader.RhCdId --> Identificativo Codice Disegno
+    ///rHeader.RhNomeProva --> Nome esteso della prova
+    ///rHeader.RhSerialiItems --> Json contenente le stringe dei seriali prova
+    ///rHeader.RhCdCaSetNo --> identificativo record confapp per dataconftest
+    ///rHeader.RhState --> stato della prova
+
+
+    public int idProva;
+    public int versioneRicetta;
+    public string nomeProva;
+    public List<string> serialiProva = new List<string>();
+    public DateTime dataCreazione;
+    public DateTime dataInizio;
+    
+
+    //Dati da PLC
+
+
+    public int passoCorrente;
+
+
+    private int durataTotale;
+    public int DurataTotale {
+      get => durataTotale; 
+      set 
+      {
+        durataTotale = value;
+        GgTotali = ((durataTotale / 3600) / 24);
+        OreTotali = (durataTotale / 3600) % 24;
+        int appOreTrascorse = (durataTotale / 3600);
+        MmTotali = (durataTotale - (appOreTrascorse * 3600)) / 60;
+      }
+    }
+
+    private int tempoTrascorso;
+    public int TempoTrascorso { 
+      get => tempoTrascorso; 
+      set { 
+        tempoTrascorso = value;
+
+        //Inizializzazione Trascorsi
+        GgTrascorsi =  ((tempoTrascorso / 3600) / 24);
+        OreTrascorse = (tempoTrascorso / 3600) % 24;
+        int appOreTrascorse = (tempoTrascorso / 3600);
+        MmTrascorsi = (tempoTrascorso - (appOreTrascorse * 3600)) / 60;
+
+        //Inizializzazione Trascorsi
+        //GgTotali
+        GgMancanti = GgTotali - GgTrascorsi;
+        OreMancanti = OreTotali - OreTrascorse;
+        MmMancanti = MmTotali - MmTrascorsi;
+      }
+    }
+
+
+    //Giorni totali
+    private int ggTotali;
+    public int GgTotali { get => ggTotali; set => ggTotali = value; }
+    //Ore totali
+    private int oreTotali;
+    public int OreTotali { get => oreTotali; set => oreTotali = value; }
+
+    //Minuti totali
+    private int mmTotali;
+    public int MmTotali { get => mmTotali; set => mmTotali = value; }
+
+
+    //Giorni trascorsi
+
+    private int ggTrascorsi;
+    public int GgTrascorsi { get => ggTrascorsi; set => ggTrascorsi = value; }
+
+    //Ore trascorse
+    private int oreTrascorse;
+    public int OreTrascorse { get => oreTrascorse; set => oreTrascorse = value; }
+
+    //Minuti trascorsi
+    private int mmTrascorsi;
+    public int MmTrascorsi { get => mmTrascorsi; set => mmTrascorsi = value; }
+
+
+    //Giorni mancanti
+    private int ggMancanti;
+    public int GgMancanti { get => ggMancanti; set => ggMancanti = value; }
+
+    //Ore mancanti
+    private int oreMancanti;
+    public int OreMancanti { get => oreMancanti; set => oreMancanti = value; }
+    
+    //minuti mancanti
+    private int mmMancanti;
+    public int MmMancanti { get => mmMancanti; set => mmMancanti = value; }
+
+
+    public PROVA(Reportheader lrHeader)
+    {
+      lCMini = new ContextMini();
+      creaHeaderTest(lrHeader);
+      saveContext();
+      initInternal(lrHeader);
+      initConfTest();
+    }
+
+    public PROVA(int idProvaC)
+    {
+      lCMini = new ContextMini();
+      idProva = idProvaC;
+      rHeader = lCMini.Reportheaders.Find(idProvaC);
+      initInternal(rHeader);
+
+      //
+      initConfTest();
+
+    }
+
+    public void gestSeriali()
+    {
+      string[] result = JsonConvert.DeserializeObject<string[]>(rHeader.RhSerialiItems);
+      foreach (string a in result)
+      {
+        serialiProva.Add(a);
+      }
+    }
+
+    private void initConfTest()
+    {
+      string reader;
+      try
+      {
+        reader = lCMini.Confapps.Find(rHeader.RhCdCaSetNo).CaConfigData;
+      }
+      catch (Exception ex)
+      {
+
+        reader = lCMini.Confapps.ToList().Where(a => a.CaType == "TestConf").Max().ToString();
+      }
+
+        
+
+      //var stream = new MemoryStream();
+      //var writer = new StreamWriter(stream);
+      //writer.Write(reader);
+      //writer.Flush();
+      //stream.Position = 0;
+
+
+      var serializer = new XmlSerializer(typeof(DATA_CONF_TEST));
+
+      using (TextReader ddsreader = new StringReader(reader))
+      {
+        myConfTest = (DATA_CONF_TEST)serializer.Deserialize(ddsreader);
+      }
+
+
+    }
+
+    public void initInternal(Reportheader lrHeader)
+    {
+      rHeader = lrHeader;
+
+    }
+
+
+    public bool creaHeaderTest(Reportheader lrHeader)
+    {
+      try
+      {
+        lCMini.Reportheaders.Add(lrHeader);
+        return true;
+      }
+      catch(Exception ex)
+      {
+        return false;
+      }
+    }
+
+
+    public void saveContext()
+    {
+      lCMini.SaveChanges();
+    }
+
+  }
+
+
   public class PASSO
   {
     public int stepNum;
@@ -474,10 +678,12 @@ namespace v0449_shared
 
     public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
     {
-      v.comRt2Plc = JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
+      v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
 
+      //Utilizzo libreria Newtonsoft.Json
       var options = new JsonSerializerOptions { WriteIndented = true };
-      string jsonString = JsonSerializer.Serialize(v.comRt2Hmi, options);
+      
+      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
       return Task.FromResult(new data2HmiJs { JsSer = jsonString });
     }
   }

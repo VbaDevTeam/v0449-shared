@@ -15,5 +15,6 @@ namespace v0449_shared
         public string RhNomeProva { get; set; }
         public string RhSerialiItems { get; set; }
         public DateTime RhDate { get; set; }
-    }
+        public DateTime RhDateStart { get; set; }
+  }
 }

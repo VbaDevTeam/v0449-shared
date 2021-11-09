@@ -36,18 +36,12 @@ namespace v0449_shared
     {
       get; set;
     }
-    public virtual DbSet<Reportbody> Reportbodies
-    {
-      get; set;
-    }
+
     public virtual DbSet<Reportheader> Reportheaders
     {
       get; set;
     }
-    public virtual DbSet<S7evtlog> S7evtlogs
-    {
-      get; set;
-    }
+
     public virtual DbSet<Tblcodicidisegni> Tblcodicidisegnis
     {
       get; set;
@@ -155,68 +149,6 @@ namespace v0449_shared
             .HasDefaultValueSql("''");
       });
 
-      modelBuilder.Entity<Reportbody>(entity => {
-        entity.HasKey(e => e.RbId)
-            .HasName("PRIMARY");
-
-        entity.ToTable("reportbody");
-
-        entity.Property(e => e.RbId)
-            .HasColumnType("int unsigned")
-            .HasColumnName("rbId");
-
-        entity.Property(e => e.RbAngolo).HasColumnName("rbAngolo");
-
-        entity.Property(e => e.RbAngoloMax).HasColumnName("rbAngoloMax");
-
-        entity.Property(e => e.RbAngoloMin).HasColumnName("rbAngoloMin");
-
-        entity.Property(e => e.RbDurata).HasColumnName("rbDurata");
-
-        entity.Property(e => e.RbEsito)
-            .IsRequired()
-            .HasMaxLength(45)
-            .HasColumnName("rbEsito");
-
-        entity.Property(e => e.RbFase)
-            .HasColumnType("int unsigned")
-            .HasColumnName("rbFase");
-
-        entity.Property(e => e.RbGiriMotore).HasColumnName("rbGiriMotore");
-
-        entity.Property(e => e.RbGiriPompa).HasColumnName("rbGiriPompa");
-
-        entity.Property(e => e.RbGiriPompaMax).HasColumnName("rbGiriPompaMax");
-
-        entity.Property(e => e.RbGiriPompaMin).HasColumnName("rbGiriPompaMin");
-
-        entity.Property(e => e.RbPortata).HasColumnName("rbPortata");
-
-        entity.Property(e => e.RbPortataMax).HasColumnName("rbPortataMax");
-
-        entity.Property(e => e.RbPortataMin).HasColumnName("rbPortataMin");
-
-        entity.Property(e => e.RbPressAsp).HasColumnName("rbPressAsp");
-
-        entity.Property(e => e.RbPressDiff).HasColumnName("rbPressDiff");
-
-        entity.Property(e => e.RbPressDiffMax).HasColumnName("rbPressDiffMax");
-
-        entity.Property(e => e.RbPressDiffMin).HasColumnName("rbPressDiffMin");
-
-        entity.Property(e => e.RbPressMan).HasColumnName("rbPressMan");
-
-        entity.Property(e => e.RbRhId)
-            .HasColumnType("int unsigned")
-            .HasColumnName("rbRhId");
-
-        entity.Property(e => e.RbTempFluido).HasColumnName("rbTempFluido");
-
-        entity.Property(e => e.RbTempFluidoMax).HasColumnName("rbTempFluidoMax");
-
-        entity.Property(e => e.RbTempFluidoMin).HasColumnName("rbTempFluidoMin");
-      });
-
       modelBuilder.Entity<Reportheader>(entity => {
         entity.HasKey(e => e.RhId)
             .HasName("PRIMARY");
@@ -245,6 +177,7 @@ namespace v0449_shared
               .HasColumnName("rhCodiceUtente");
 
         entity.Property(e => e.RhDate).HasColumnName("rhDate");
+        entity.Property(e => e.RhDateStart).HasColumnName("rhDateStart");
 
         entity.Property(e => e.RhNomeProva)
             .IsRequired()
@@ -256,43 +189,6 @@ namespace v0449_shared
             .HasMaxLength(255)
             .HasColumnName("rhSerialiItems");
 
-      });
-
-      modelBuilder.Entity<S7evtlog>(entity => {
-        entity.HasKey(e => e.EventId)
-            .HasName("PRIMARY");
-
-        entity.ToTable("s7evtlog");
-
-        entity.HasComment("Storicizzazione eventi sistema");
-
-        entity.Property(e => e.EventId)
-            .HasColumnType("int unsigned")
-            .HasColumnName("eventId");
-
-        entity.Property(e => e.Attivazione).HasColumnName("attivazione");
-
-        entity.Property(e => e.CodiceEvento)
-            .HasColumnType("int unsigned")
-            .HasColumnName("codiceEvento");
-
-        entity.Property(e => e.DescrEvento)
-            .IsRequired()
-            .HasColumnName("descrEvento");
-
-        entity.Property(e => e.Info)
-            .IsRequired()
-            .HasColumnName("info");
-
-        entity.Property(e => e.IstanteEvento)
-            .HasColumnName("istanteEvento")
-            .HasDefaultValueSql("'2000-01-01 00:00:00'");
-
-        entity.Property(e => e.TipoEvento)
-            .IsRequired()
-            .HasMaxLength(45)
-            .HasColumnName("tipoEvento")
-            .HasDefaultValueSql("''");
       });
 
       modelBuilder.Entity<Tblcodicidisegni>(entity => {

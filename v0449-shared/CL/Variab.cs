@@ -688,13 +688,13 @@ namespace v0449_shared
           }
         }
 
-        if (_what == (int)V.saveType.TestConf_act)
-        {
-          XmlSerializer ser = new XmlSerializer(typeof(DATA_CONF_TEST));
-          v.dataConfTest_act = (DATA_CONF_TEST)ser.Deserialize(reader);
-          if (loaded != null)
-            loaded((int)V.saveType.TestConf_act);
-        }
+        //if (_what == (int)V.saveType.TestConf_act)
+        //{
+        //  XmlSerializer ser = new XmlSerializer(typeof(DATA_CONF_TEST));
+        //  v.dataConfTest_act = (DATA_CONF_TEST)ser.Deserialize(reader);
+        //  if (loaded != null)
+        //    loaded((int)V.saveType.TestConf_act);
+        //}
 
         if (_what == (int)V.saveType.Working)
         {
