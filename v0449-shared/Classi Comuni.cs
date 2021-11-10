@@ -141,9 +141,11 @@ namespace v0449_shared
       Context appContext = new Context();
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
-			initInternal(rHeader);
-			initConfTest();
-
+      if (rHeader!=null)
+      {
+        initInternal(rHeader);
+        initConfTest();
+      }
 		}
 
     public void gestSeriali()
