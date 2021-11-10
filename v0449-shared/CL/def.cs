@@ -837,10 +837,10 @@ namespace v0449_shared
      , vWu206_LSu0SBLOPORT
      , vWu207_RSu1MODURICE
      , vWu208_RSu1MODURIFL
-     , vWu209_EVu2CIRCMOPR
-     , vWu210_EVu2CIRCVAPR
-     , vWu211_EVu2PRESCIRC
-     , vWu212_RISERVA
+     , vWu209_CTu1POMPECEN
+     , vWu210_EVu2CIRCMOPR
+     , vWu211_EVu2CIRCVAPR
+     , vWu212_EVu2PRESCIRC
      , vWu213_RISERVA
      , vWu214_RISERVA
      , vWu215_RISERVA
@@ -856,10 +856,10 @@ namespace v0449_shared
         ,"mandata gas evaporat.gruppo frigor.1°stadio     "
         ,"ev ventilazione esterna                         "
         ,"ev circolaz.H2o raffr.fluido circolante         "
+        ,"telerutt. comando centralina oleo              "
         ,"ev circolaz. monte prova                        "
         ,"ev circolaz. valle prova                        "
-        ,"ev pressurizzazione circuito prova              "
-        ,"  riserva                                       "
+        ,"ev pressurizzazione circuito prova  riserva     "
         ,"  riserva                                       "
         ,"  riserva                                       "
         ,"  riserva                                       "
@@ -877,10 +877,10 @@ namespace v0449_shared
         ,"vWu206_LSu0SBLOPORT "
         ,"vWu207_RSu1MODURICE "
         ,"vWu208_RSu1MODURIFL "
-        ,"vWu209_EVu2CIRCMOPR "
-        ,"vWu210_EVu2CIRCVAPR "
-        ,"vWu211_EVu2PRESCIRC "
-        ,"vWu212_RISERVA      "
+        ,"vWu209_CTu1POMPECEN "
+        ,"vWu210_EVu2CIRCMOPR "
+        ,"vWu211_EVu2CIRCVAPR "
+        ,"vWu212_EVu2PRESCIRC "
         ,"vWu213_RISERVA      "
         ,"vWu214_RISERVA      "
         ,"vWu215_RISERVA      "
