@@ -750,7 +750,7 @@ namespace v0449_shared
     public Int16 spOverpPerc { get; set; }
     public Int16 comStatus { get; set; }
     public int cmdReqCli { get; set; }
-    public int ricNoToSend { get; set; }
+    public int testNoToSend { get; set; }
 
   }
 

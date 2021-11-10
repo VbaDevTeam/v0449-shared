@@ -110,7 +110,7 @@ namespace v0449_shared
     public bool flCCW = false; //verso rotazione trascinamento opposto a pompe mandata e refrigerante
     public int scrReq;
     public bool sendRecipe = false;
-    public int ricNoSend = 0;
+    public int testNoSend = 0;
 
 
     public ushort statusIO;

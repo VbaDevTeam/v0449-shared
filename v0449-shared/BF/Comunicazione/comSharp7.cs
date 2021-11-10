@@ -75,10 +75,7 @@ namespace v0449_shared
     protected bool closing = false;
     protected bool commClosed = false;
 
-    private int countCycleProg = 0;
-    private int countCycleSave = 120;
-    private int numPassi = 0;
-    private int numScritture = 0;
+
 
     private long appScanTime = DateTime.Now.Ticks;
 
