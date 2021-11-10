@@ -137,14 +137,14 @@ namespace v0449_shared
     public PROVA(int idProvaC)
     {
       lCMini = new ContextMini(mainAppParam.strConnDb);
+      ContextMini appMini = new ContextMini(mainAppParam.strConnDb);
+      Context appContext = new Context();
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
-      initInternal(rHeader);
+			initInternal(rHeader);
+			initConfTest();
 
-      //
-      initConfTest();
-
-    }
+		}
 
     public void gestSeriali()
     {
