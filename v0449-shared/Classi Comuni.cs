@@ -127,7 +127,7 @@ namespace v0449_shared
 
     public PROVA(Reportheader lrHeader)
     {
-      lCMini = new ContextMini();
+      lCMini = new ContextMini(mainAppParam.strConnDb);
       creaHeaderTest(lrHeader);
       saveContext();
       initInternal(lrHeader);
@@ -136,7 +136,7 @@ namespace v0449_shared
 
     public PROVA(int idProvaC)
     {
-      lCMini = new ContextMini();
+      lCMini = new ContextMini(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
       initInternal(rHeader);
