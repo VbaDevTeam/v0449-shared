@@ -44,7 +44,9 @@ namespace v0449_shared
 
     public int idProva;
     public int versioneRicetta;
+    public string nomeRicetta;
     public string nomeProva;
+   
     public List<string> serialiProva = new List<string>();
     public DateTime dataCreazione;
     public DateTime dataInizio;
@@ -131,7 +133,6 @@ namespace v0449_shared
       creaHeaderTest(lrHeader);
       saveContext();
       initInternal(lrHeader);
-      initConfTest();
     }
 
     public PROVA(int idProvaC)
@@ -144,9 +145,9 @@ namespace v0449_shared
       if (rHeader!=null)
       {
         initInternal(rHeader);
-        initConfTest();
+
       }
-		}
+    }
 
     public void gestSeriali()
     {
@@ -157,8 +158,10 @@ namespace v0449_shared
       }
     }
 
-    private void initConfTest()
+    public void initInternal(Reportheader lrHeader)
     {
+
+      rHeader = lrHeader;
       string reader;
       try
       {
@@ -174,11 +177,10 @@ namespace v0449_shared
         myConfTest = (DATA_CONF_TEST)serializer.Deserialize(ddsreader);
       }
 
-    }
+      nomeProva = rHeader.RhNomeProva;
+      nomeRicetta = lCMini.Tblcodicidisegnis.ToList().Where(e => e.CdId == rHeader.RhCdId).First().CdName;
+      DurataTotale = myConfTest.durataTotale;
 
-    public void initInternal(Reportheader lrHeader)
-    {
-      rHeader = lrHeader;
     }
 
     public bool creaHeaderTest(Reportheader lrHeader)
