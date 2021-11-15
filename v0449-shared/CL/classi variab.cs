@@ -201,20 +201,29 @@ namespace v0449_shared
     public List<PASSO> passiProva;
     public string numeroDisegno;
     public int durataTotale;
+    public int cicliTotale;
 
     public DATA_CONF_TEST()
     {
     }
 
+
+    public int getCicliTot()
+    {
+      for (int n = 0; n < passiProva.Count; n++)
+        cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
+
+      return cicliTotale;
+    }
+
     public int getDurataTot()
     {
-
       int appDurata = 0;
 
       for (int n = 0; n < passiProva.Count; n++)
       {
         int tmCicloDura = 0;
-        int tmCicloPulsa = 0;
+        double tmCicloPulsa = 0;
         bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
         bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
 
@@ -225,10 +234,14 @@ namespace v0449_shared
         
         if (chkFinePulsa)
         {
-          tmCicloPulsa = int.Parse(passiProva[n].tmSalita.ValOut.ToString());
-          tmCicloPulsa += int.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
-          tmCicloPulsa += int.Parse(passiProva[n].tmDisces.ValOut.ToString());
-          tmCicloPulsa += int.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+          double app = double.Parse(passiProva[n].tmSalita.ValOut.ToString());
+          tmCicloPulsa = app;
+          app = double.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
+          tmCicloPulsa += app;
+          app = double.Parse(passiProva[n].tmDisces.ValOut.ToString());
+          tmCicloPulsa += app;
+          app = double.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+          tmCicloPulsa += app;
         }
 
         if (tmCicloDura > tmCicloPulsa) 
@@ -237,7 +250,7 @@ namespace v0449_shared
         } 
         else 
         {
-          appDurata += tmCicloPulsa;
+          appDurata += (int)tmCicloPulsa;
         }
       }
       durataTotale = appDurata * loops;

@@ -51,8 +51,7 @@ namespace v0449_shared
     public DateTime dataCreazione;
     public DateTime dataInizio;
 
-    //Dati da PLC
-    public int passoCorrente;
+ 
 
     private int durataTotale;
     public int DurataTotale {
@@ -66,6 +65,22 @@ namespace v0449_shared
         MmTotali = (durataTotale - (appOreTrascorse * 3600)) / 60;
       }
     }
+
+    private int cicliTotali;
+    public int CicliTotali { get => cicliTotali; set => cicliTotali = value; }
+
+
+
+
+    //Dati da PLC
+    public int passoCorrente;
+
+    private int nCiclo;
+    public int NCiclo { get => nCiclo; set => nCiclo = value; }
+
+    private int nRipetizione;
+    public int NRipetizione { get => nRipetizione; set => nRipetizione = value; }
+
 
     private int tempoTrascorso;
     public int TempoTrascorso { 
@@ -180,6 +195,7 @@ namespace v0449_shared
       nomeProva = rHeader.RhNomeProva;
       nomeRicetta = lCMini.Tblcodicidisegnis.ToList().Where(e => e.CdId == rHeader.RhCdId).First().CdName;
       DurataTotale = myConfTest.durataTotale;
+      CicliTotali = myConfTest.cicliTotale;
 
     }
 
