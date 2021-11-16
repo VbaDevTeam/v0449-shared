@@ -723,6 +723,8 @@ namespace v0449_shared
     public string strDbName { get; set; }
     public string userDb { get; set; }
     public string passDb { get; set; }
+    public string nameApp { get; set; }
+
   }
 
 
