@@ -69,14 +69,31 @@ namespace v0449_shared
     private int cicliTotali;
     public int CicliTotali { get => cicliTotali; set => cicliTotali = value; }
 
+    private int cicliFatti;
+    public int CicliFatti { get => cicliFatti; set => cicliFatti = value; }
 
+
+    private int cicliRimanti;
+    public int CicliRimanti { get => cicliRimanti; set => cicliRimanti = value; }
 
 
     //Dati da PLC
     public int passoCorrente;
 
     private int nCiclo;
-    public int NCiclo { get => nCiclo; set => nCiclo = value; }
+    public int NCiclo
+    {
+      get => nCiclo;
+      set
+      {
+        nCiclo = value;
+        CicliFatti = nCiclo;
+        CicliRimanti = CicliTotali - CicliFatti;
+      }
+    }
+
+
+
 
     private int nRipetizione;
     public int NRipetizione { get => nRipetizione; set => nRipetizione = value; }
@@ -140,7 +157,6 @@ namespace v0449_shared
     //minuti mancanti
     private int mmMancanti;
     public int MmMancanti { get => mmMancanti; set => mmMancanti = value; }
-
 
     public PROVA(Reportheader lrHeader)
     {
