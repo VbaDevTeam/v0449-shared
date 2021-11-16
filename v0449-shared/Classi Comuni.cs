@@ -111,11 +111,13 @@ namespace v0449_shared
         int appOreTrascorse = (tempoTrascorso / 3600);
         MmTrascorsi = (tempoTrascorso - (appOreTrascorse * 3600)) / 60;
 
-        //Inizializzazione Trascorsi
-        //GgTotali
-        GgMancanti = GgTotali - GgTrascorsi;
-        OreMancanti = OreTotali - OreTrascorse;
-        MmMancanti = MmTotali - MmTrascorsi;
+        //Inizializzazione mancanti
+        int tempoMancante = durataTotale - tempoTrascorso;
+
+        GgMancanti = ((tempoMancante / 3600) / 24);
+        OreMancanti = (tempoMancante / 3600) % 24;
+        int appOreMancante = (tempoMancante / 3600);
+        MmMancanti = (tempoMancante - (appOreMancante * 3600)) / 60;
       }
     }
 
