@@ -846,7 +846,7 @@ public class CXHmi
   public Int16 pidPwRafCe_d { get; set; }//;
   public Int16 pidPwRisFl_d { get; set; }//;
   public Int16 pidPwRafFl_d { get; set; }//;
-  public Int16 cntTmStep { get; set; }//;
+  public int cntTmStep { get; set; }//;
   public int cntCicStep { get; set; }//;
   public int cntTmTest { get; set; }//;
   public int cntCicTest { get; set; }//;
