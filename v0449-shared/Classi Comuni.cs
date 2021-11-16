@@ -146,7 +146,6 @@ namespace v0449_shared
     {
       lCMini = new ContextMini(mainAppParam.strConnDb);
       creaHeaderTest(lrHeader);
-      saveContext();
       initInternal(lrHeader);
     }
 
