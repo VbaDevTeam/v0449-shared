@@ -747,6 +747,9 @@ namespace v0449_shared
 
 
 #if v0449
+
+
+
   public class ComRt2Plc
   {
     public ComRt2Plc()
@@ -769,6 +772,10 @@ namespace v0449_shared
     public C2Plc c1 { get; set; }
     //public C2Plc c2 { get; set; }
   }
+
+
+
+
   public class C2Plc
   {
     public C2Plc()
@@ -792,6 +799,8 @@ namespace v0449_shared
     public int testNoToSend { get; set; }
 
   }
+
+
 
 public class ComRt2Hmi
 {
