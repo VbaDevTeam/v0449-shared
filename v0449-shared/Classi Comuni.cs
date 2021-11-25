@@ -797,7 +797,7 @@ public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
-    AI = new short[18];
+    AI = new short[22];
     alarms = new ushort[5];
     c1 = new CXHmi();
     c2 = new CXHmi();

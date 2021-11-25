@@ -5,7 +5,7 @@ namespace v0449_shared
   public class DEF
   {
 
-#if v0449
+#if v0449ex
 
     #region def
 
@@ -3900,17 +3900,15 @@ namespace v0449_shared
     #endregion
     #endregion
 
-#elif v0387
+#elif v0449
 
     #region def
 
     #region Canali analogici
 
-    #region AI chNames Siemens
-
     #region AI1
 
-    public enum chNoS7ai1
+    public enum chNoS7ai
     {
       //SM1231 AI4 x HF, la seconda, Ai
         
@@ -3932,6 +3930,10 @@ namespace v0449_shared
       , AIqPRIMSALT		//NULL			riserva					
       , AIqMAINRAFF		//NULL			riserva
       , VPoRAFFMAIN 	//VOLT?			posizione virtuale valvola raffreddamento
+      , VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio
+      , MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento
+      , MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione
+      , MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio
 
     }
 
@@ -3955,10 +3957,13 @@ namespace v0449_shared
       , "AIqPRIMSALT"    //NULL	    riserva					
       , "AIqMAINRAFF"    //NULL	    riserva
       , "VPoRAFFMAIN"    //VOLT?	  posizione virtuale valvola raffreddamento
+      , "VPoRAFFINTE" 	//VOLT?			posizione virtuale valvola circ. intermedio"
+      , "MPoALIMENTO" 	//VOLT?			velocità virtuale pompa alimento"
+      , "MPoCIRCPROV" 	//VOLT?			velocità virtuale pompa circolazione"
+      , "MPoRAFFINTE" 	//VOLT?			velocità virtuale pompa circ. intermedio"
 
       };
 
-    #endregion
 
     #region AI1 label short Siemens
 
@@ -3982,6 +3987,10 @@ namespace v0449_shared
       , " riserva					                           "
       , " riserva                                    "
       , " posizione virtuale valvola raffreddamento  "
+      , " posizione virtuale valvola circ. intermedio  "
+      , " velocità virtuale pompa alimento  "
+      , " velocità virtuale pompa circolazione  "
+      , " velocità virtuale pompa circ. intermedio  "
 
       };
 
@@ -4009,59 +4018,13 @@ namespace v0449_shared
       , " riserva					                           "
       , " riserva                                    "
       , " posizione virtuale valvola raffreddamento  "
+      , " posizione virtuale valvola circ. intermedio  "
+      , " velocità virtuale pompa alimento  "
+      , " velocità virtuale pompa circolazione  "
+      , " velocità virtuale pompa circ. intermedio  "
     };
     #endregion
-   
-    #region AI2
-
-     public enum chNoS7ai2
-    {
-      //SM1231 AI4 x HF, la seconda, Ai
-        
-        VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio
-      , MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento
-      , MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione
-      , MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio
-      
-    }
-
-    public static string[] aiChNamesS7 =
-      {
-        "VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio"
-      , "MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento"
-      , "MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione"
-      , "MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio"
-
-      };
-
     #endregion
-
-    #region AI2 label short Siemens
-
-    public static string[] aiLabelShortS7 =
-      {
-        " posizione virtuale valvola circ. intermedio  "
-      , " velocità virtuale pompa alimento  "
-      , " velocità virtuale pompa circolazione  "
-      , " velocità virtuale pompa circ. intermedio  "
-      
-      };
-
-    #endregion
-
-    #region AI2 label Long Siemens
-
-    public static string[] aiLabelLongS7 =
-      {
-        " posizione virtuale valvola circ. intermedio  "
-      , " velocità virtuale pompa alimento  "
-      , " velocità virtuale pompa circolazione  "
-      , " velocità virtuale pompa circ. intermedio  "
-      
-      };
-
-    #endregion
-
     #region Ao channel names Siemens
 
     public enum aoChNoS7
@@ -4106,6 +4069,7 @@ namespace v0449_shared
     #endregion
 
 
+
     #endregion
 
     #region I/O digitali
@@ -4115,19 +4079,20 @@ namespace v0449_shared
       ec0
       , ec1
       , ec2
-      , ec3
+//      , ec3
     }
     public enum Wuxxx
     {
       uc0
       , uc1
-      , uc2
+//      , uc2
     }
     public enum Waxxx
     {
       ac0
       , ac1
       , ac2
+      , ac3
     }
 
     #region input
@@ -4358,7 +4323,7 @@ namespace v0449_shared
      , vWe211_PUeSTOPAUTO
      , vWe212_PUeALARACKN
      , vWe213_PUeALARREST
-     , vWe214_Riserva
+     , vWe214_SLeCICLAUTO
      , vWe215_Riserva
     }
 
@@ -4378,7 +4343,7 @@ namespace v0449_shared
         ,"vWe211.Riserva "
         ,"vWe212.Pulsante marcia ciclo automatico "
         ,"vWe213.pulsante arresto ciclo automatico "
-        ,"vWe214.Riserva  "
+        ,"vWe214.Selettore virtuale ciclo automatico  "
         ,"vWe215.Riserva  "
       };
 
@@ -4398,7 +4363,7 @@ namespace v0449_shared
         ,"vWe211_PUeSTOPAUTO"
         ,"vWe212_PUeALARACKN"
         ,"vWe213_PUeALARREST"
-        ,"vWe214_Riserva"
+        ,"vWe214_SLeCICLAUTO"
         ,"vWe215_Riserva"
       };
 
@@ -4802,7 +4767,7 @@ namespace v0449_shared
         ,"??????"
         ,"??????"
         ,"??????"
-        ,"??????
+        ,"??????"
         ,"??????"
         ,"??????"
         ,"??????"
@@ -5541,7 +5506,7 @@ namespace v0449_shared
         ,"29 - anomalia comando chiusura valvola ritorno     "
         ,"30 - anomalia comando apertura valvola press       "
         ,"31 - anomalia comando chiusura valvola press       "
-      };                                                     "
+      };                                                     
 
     public static string[] wa1Nick =
       {
@@ -5870,8 +5835,7 @@ namespace v0449_shared
     #endregion
     #endregion
 
-    #endregion
-
+    
 
 #endif
 
