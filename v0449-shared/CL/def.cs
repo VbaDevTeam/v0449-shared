@@ -1923,12 +1923,12 @@ namespace v0449_shared
 
 
 
-#endregion
-#endregion
+    #endregion
+    #endregion
 
 #elif v0470
 
-#region def
+    #region def
     //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
     //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
 
@@ -1941,9 +1941,9 @@ namespace v0449_shared
     public const string strReport_ModelName = "v0449_model.xlsx";
     public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
 
-#region Canali analogici
+    #region Canali analogici
 
-#region AI chNames Siemens
+    #region AI chNames Siemens
 
 
     public enum chNoS7ai
@@ -1994,9 +1994,9 @@ namespace v0449_shared
 
       };
 
-#endregion
+    #endregion
 
-#region AI label short Siemens
+    #region AI label short Siemens
 
     public static string[] aiLabelShortS7 =
       {
@@ -2021,9 +2021,9 @@ namespace v0449_shared
 
       };
 
-#endregion
+    #endregion
 
-#region AI label Long Siemens
+    #region AI label Long Siemens
 
     public static string[] aiLabelLongS7 =
       {
@@ -2046,9 +2046,9 @@ namespace v0449_shared
       , " portata fluido circuito 1       "
       , " portata fluido circuito 2       "
     };
-#endregion
+    #endregion
 
-#region Ao channel names Siemens
+    #region Ao channel names Siemens
 
     public enum aoChNoS7
     {
@@ -2067,9 +2067,9 @@ namespace v0449_shared
         ,"s7ANoJ530RAFF"
         ,"s7ANoRiserva3"
       };
-#endregion
+    #endregion
 
-#region Ao label short Siemens
+    #region Ao label short Siemens
     public static string[] aoLabelShortS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -2078,9 +2078,9 @@ namespace v0449_shared
         ,"Comando drive raffreddamento"
         ,"Riserva canale 3"
       };
-#endregion
+    #endregion
 
-#region Ao label long Siemens
+    #region Ao label long Siemens
     public static string[] aoLabelLongS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -2089,12 +2089,12 @@ namespace v0449_shared
         ,"Comando drive raffreddamento"
         ,"Riserva canale 3"
       };
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
-#region I/O digitali
+    #region I/O digitali
 
     public enum Wexxx
     {
@@ -2133,9 +2133,9 @@ namespace v0449_shared
     };
 
 
-#region input
+    #region input
 
-#region We0
+    #region We0
     public enum We0
     {
        iFT1410_port_C_1_
@@ -2263,9 +2263,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region We1
+    #region We1
     public enum We1
     {
        iRBK1220_pompAlim
@@ -2368,9 +2368,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region We2
+    #region We2
     public enum We2
     {
        vWe200_RISERVA
@@ -2475,9 +2475,9 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#region We3
+    #region We3
     public enum We3
     {
        vWe300_RISERVA
@@ -2582,15 +2582,15 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
 
-#region output
+    #region output
 
-#region Wu0
+    #region Wu0
     public enum Wu0
     {
        vWu000_q0_0Riserva
@@ -2693,9 +2693,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region Wu1
+    #region Wu1
     public enum Wu1
     {
        vWu100_uKM1220_pompalim	
@@ -2798,9 +2798,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region Wu2
+    #region Wu2
     public enum Wu2
     {
        uKM2220_pompalim	
@@ -2905,9 +2905,9 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#region Wu3
+    #region Wu3
     public enum Wu3
     {
        vWu300_RISERVA
@@ -3012,14 +3012,14 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#endregion
-#endregion
+    #endregion
+    #endregion
 
 
 
-#region DIRITTI
+    #region DIRITTI
 
     public static string[] dirittiLabel =
     {
@@ -3042,11 +3042,11 @@ namespace v0449_shared
       Manutenzione = 0x0020,
       Test = 0x0040,
     }
-#endregion
+    #endregion
 
 
 #if v0449
-#region allarmi 0449
+    #region allarmi 0449
     public enum Wa00
     {
        AL0_0_SInTUTTO_OK 
@@ -3416,9 +3416,9 @@ namespace v0449_shared
   }
 };
 
-#endregion
+    #endregion
 #elif v0470
-#region allarmi 0470
+    #region allarmi 0470
     public enum Wa00
     {
        SnIeTUTT1_OK
@@ -3795,11 +3795,11 @@ namespace v0449_shared
   }
 };
 
-#endregion
+    #endregion
 
 #endif
-#region Fasi e Cicli
-#region CicliPtr
+    #region Fasi e Cicli
+    #region CicliPtr
     public enum ptrFaseFrigo
     {
       _00_Init                     = 00 ,
@@ -3896,19 +3896,19 @@ namespace v0449_shared
 
 
 
-#endregion
-#endregion
-#endregion
+    #endregion
+    #endregion
+    #endregion
 
 #elif v0387
 
-#region def
+    #region def
 
-#region Canali analogici
+    #region Canali analogici
 
-#region AI chNames Siemens
+    #region AI chNames Siemens
 
-#region AI1
+    #region AI1
 
     public enum chNoS7ai1
     {
@@ -3958,9 +3958,9 @@ namespace v0449_shared
 
       };
 
-#endregion
+    #endregion
 
-#region AI1 label short Siemens
+    #region AI1 label short Siemens
 
     public static string[] aiLabelShortS7 =
       {
@@ -3985,9 +3985,9 @@ namespace v0449_shared
 
       };
 
-#endregion
+    #endregion
 
-#region AI1 label Long Siemens
+    #region AI1 label Long Siemens
 
     public static string[] aiLabelLongS7 =
       {
@@ -4010,9 +4010,9 @@ namespace v0449_shared
       , " riserva                                    "
       , " posizione virtuale valvola raffreddamento  "
     };
-#endregion
+    #endregion
    
-#region AI2
+    #region AI2
 
      public enum chNoS7ai2
     {
@@ -4034,9 +4034,9 @@ namespace v0449_shared
 
       };
 
-#endregion
+    #endregion
 
-#region AI2 label short Siemens
+    #region AI2 label short Siemens
 
     public static string[] aiLabelShortS7 =
       {
@@ -4047,9 +4047,9 @@ namespace v0449_shared
       
       };
 
-#endregion
+    #endregion
 
-#region AI2 label Long Siemens
+    #region AI2 label Long Siemens
 
     public static string[] aiLabelLongS7 =
       {
@@ -4060,9 +4060,9 @@ namespace v0449_shared
       
       };
 
-#endregion
+    #endregion
 
-#region Ao channel names Siemens
+    #region Ao channel names Siemens
 
     public enum aoChNoS7
     {
@@ -4081,9 +4081,9 @@ namespace v0449_shared
         ,"s7ANoJ530RAFF"
         ,"s7ANoRiserva3"
       };
-#endregion
+    #endregion
 
-#region Ao label short Siemens
+    #region Ao label short Siemens
     public static string[] aoLabelShortS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -4092,9 +4092,9 @@ namespace v0449_shared
         ,"Comando drive raffreddamento"
         ,"Riserva canale 3"
       };
-#endregion
+    #endregion
 
-#region Ao label long Siemens
+    #region Ao label long Siemens
     public static string[] aoLabelLongS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -4103,12 +4103,12 @@ namespace v0449_shared
         ,"Comando drive raffreddamento"
         ,"Riserva canale 3"
       };
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
-#region I/O digitali
+    #region I/O digitali
 
     public enum Wexxx
     {
@@ -4130,9 +4130,9 @@ namespace v0449_shared
       , ac2
     }
 
-#region input
+    #region input
 
-#region We0
+    #region We0
     public enum We0
     {
        vWe000_MSeF130EME2 
@@ -4234,9 +4234,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region We1
+    #region We1
     public enum We1
     {
        vWe100_KMeR210RISC
@@ -4339,9 +4339,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region We2
+    #region We2
     public enum We2
     {
        vWe200_OPeV260MAND
@@ -4446,10 +4446,10 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#region We3
+    #region We3
     public enum We3
     {
        vWe300_
@@ -4554,15 +4554,15 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
 
-#region output
+    #region output
 
-#region Wu0
+    #region Wu0
     public enum Wu0
     {
        vWu000_CTuP120MAND
@@ -4664,9 +4664,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region Wu1
+    #region Wu1
     public enum Wu1
     {
        vWu100_YVuV370ChSc
@@ -4769,9 +4769,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region Wu2
+    #region Wu2
     public enum Wu2
     {
        vWu200_
@@ -4876,9 +4876,9 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#region Wu3
+    #region Wu3
     public enum Wu3
     {
        vWu300_RISERVA
@@ -4983,11 +4983,11 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
 
-#region flag e comandi DVP
+    #region flag e comandi DVP
     public enum Fp0
     {
       u000_iCmdPowerOn
@@ -5176,9 +5176,9 @@ namespace v0449_shared
       ,"u015_flIntRes15"
     };
 
-#endregion
+    #endregion
 
-#region flag e comandi S7
+    #region flag e comandi S7
     public enum S7flStat
     {
       u000_riempOk
@@ -5367,11 +5367,11 @@ namespace v0449_shared
       ,"u015_flIntRes15"
     };
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
     
-#region DIRITTI
+    #region DIRITTI
 
     public static string[] dirittiLabel =
     {
@@ -5394,11 +5394,11 @@ namespace v0449_shared
       Manutenzione = 0x0020,
       Test = 0x0040,
     }
-#endregion
+    #endregion
 
-#endregion
+    #endregion
 
-#region allarmi
+    #region allarmi
     public enum Wa00
     {
        AL0_0_MSaF130EME2
@@ -5767,10 +5767,10 @@ namespace v0449_shared
   }
 };
 
-#endregion
+    #endregion
 
-#region Fasi e Cicli
-#region CicliPtr
+    #region Fasi e Cicli
+    #region CicliPtr
     public enum ptrFaseFrigo
     {
       _00_Init                     = 00 ,
@@ -5867,10 +5867,10 @@ namespace v0449_shared
 
 
 
-#endregion
-#endregion
+    #endregion
+    #endregion
 
-
+    #endregion
 
 
 #endif
