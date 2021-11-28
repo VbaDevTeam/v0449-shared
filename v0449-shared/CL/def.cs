@@ -3907,7 +3907,7 @@ namespace v0449_shared
       , AItT280MAND 	//TEMP			temperatura ingresso UUT
       , AItT310RETU 	//TEMP			temperatura uscita UUT
       , AItT520INSE 	//TEMP			temperatura circuito intermedio
-      , AItTCellaSD		//NULL			riserva
+      , AItTCellaSD		//TEMP			temperatura cella 
       , AItRiserva5		//NULL			riserva
       , AItTSIC2101 	//TEMP			temperatura sicurezza riscaldatore 1
       , AItTSIC2102 	//TEMP			temperatura sicurezza riscaldatore 2
@@ -3934,7 +3934,7 @@ namespace v0449_shared
       , "AItT280MAND"    //TEMP	    temperatura ingresso UUT
       , "AItT310RETU"    //TEMP	    temperatura uscita UUT
       , "AItT520INSE"    //TEMP	    temperatura circuito intermedio
-      , "AItRiserva4"    //NULL	    riserva
+      , "AItTCellaSD"    //TEMP			temperatura cella 
       , "AItRiserva5"    //NULL	    riserva
       , "AItTSIC2101"    //TEMP	    temperatura sicurezza riscaldatore 1
       , "AItTSIC2102"    //TEMP	    temperatura sicurezza riscaldatore 2
