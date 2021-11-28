@@ -3903,11 +3903,11 @@ namespace v0449_shared
     {
       //SM1231 AI4 x HF, la seconda, Ai
         
-        AItT210CIRC 	//TEMP		  temperatura circolazione fluido
+        AItT210CIRC 	//TEMP		    temperatura circolazione fluido
       , AItT280MAND 	//TEMP			temperatura ingresso UUT
       , AItT310RETU 	//TEMP			temperatura uscita UUT
       , AItT520INSE 	//TEMP			temperatura circuito intermedio
-      , AItRiserva4		//NULL			riserva
+      , AItTCellaSD		//NULL			riserva
       , AItRiserva5		//NULL			riserva
       , AItTSIC2101 	//TEMP			temperatura sicurezza riscaldatore 1
       , AItTSIC2102 	//TEMP			temperatura sicurezza riscaldatore 2
@@ -4106,7 +4106,7 @@ namespace v0449_shared
      , vWe011_KMeP200CIRC 
      , vWe012_DReP200OK 	
      , vWe013_TEeR210RISC 
-     , vWe014_Riserva
+     , vWe014_SLeCICLAUTO
      , vWe015_Riserva
     }
 
@@ -4126,7 +4126,7 @@ namespace v0449_shared
         ,"vWe011.Contatto teleruttore Pompa circolazione  "
         ,"vWe012.Drive pompa circolazione OK  "
         ,"vWe013.Contatto int.Circuito Riscaldo  "
-        ,"vWe014.Riserva  "
+        ,"vWe014.Selettore auto/manuale  "
         ,"vWe015.Riserva  "
       };
 
@@ -4146,7 +4146,7 @@ namespace v0449_shared
         ,"vWe011_KMeP200CIRC  "
         ,"vWe012_DReP200OK 	  "
         ,"vWe013_TEeR210RISC  "
-        ,"vWe014_Riserva      "
+        ,"vWe014_SLeCICLAUTO  "
         ,"vWe015_Riserva      "
       };                      
 
@@ -4202,8 +4202,8 @@ namespace v0449_shared
      , vWe103_DReS230OK 	
      , vWe104_TSeR210OK 	
      , vWe105_SNeP400PAIR
-     , vWe106_PUeTASTFUN1
-     , vWe107_PUeTASTFUN2
+     , vWe106_PUeINDIETRO
+     , vWe107_PUeAVANTI
      , vWe108_TEeP530RAFF
      , vWe109_KMeP530RAFF
      , vWe110_DReP530__OK
@@ -4222,8 +4222,8 @@ namespace v0449_shared
         ,"vWe103.Drive enable siringa  "
         ,"vWe104.Termostato sicurezza  "
         ,"vWe105.Pressostato presenza aria  "
-        ,"vWe106.Riserva  "
-        ,"vWe107.Riserva  "
+        ,"vWe106.Pulsante Indietro  "
+        ,"vWe107.Pulsante Avanti "
         ,"vWe108.Contatto int.Pompa circolazione H2O  "
         ,"vWe109.Contatto teleruttore Pompa circolazione H2O  "
         ,"vWe110.Drive pompa circolazione OK H2O  "
@@ -4242,8 +4242,8 @@ namespace v0449_shared
         ,"vWe103_DReS230OK 	"
         ,"vWe104_TSeR210OK 	"
         ,"vWe105_SNeP400PAIR"
-        ,"vWe106_PUeTASTFUN1"
-        ,"vWe107_PUeTASTFUN2"
+        ,"vWe106_PUeINDIETRO"
+        ,"vWe107_PUeAVANTI"
         ,"vWe108_TEeP530RAFF"
         ,"vWe109_KMeP530RAFF"
         ,"vWe110_DReP530__OK"
@@ -4315,8 +4315,8 @@ namespace v0449_shared
      , vWe211_PUeSTOPAUTO
      , vWe212_PUeALARACKN
      , vWe213_PUeALARREST
-     , vWe214_SLeCICLAUTO
-     , vWe215_Riserva
+     , vWe214_SNeALLACHIL
+     , vWe215_SNeALLACIRC
     }
 
     public static string[] we2Descr =
@@ -4335,8 +4335,8 @@ namespace v0449_shared
         ,"vWe211.Riserva "
         ,"vWe212.Pulsante marcia ciclo automatico "
         ,"vWe213.pulsante arresto ciclo automatico "
-        ,"vWe214.Selettore virtuale ciclo automatico  "
-        ,"vWe215.Riserva  "
+        ,"vWe214.Segnale chiller in allarme  "
+        ,"vWe215.Segnale allarme circolazione  "
       };
 
     public static string[] we2Nick =
@@ -4355,8 +4355,8 @@ namespace v0449_shared
         ,"vWe211_PUeSTOPAUTO"
         ,"vWe212_PUeALARACKN"
         ,"vWe213_PUeALARREST"
-        ,"vWe214_SLeCICLAUTO"
-        ,"vWe215_Riserva"
+        ,"vWe214_SNeALLACHIL"
+        ,"vWe215_SNeALLACIRC"
       };
 
 
