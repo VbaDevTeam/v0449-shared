@@ -371,10 +371,11 @@ namespace v0449_shared
     public setPoint spTFlMan = new setPoint();
     public setPoint spPLavoroMan = new setPoint();
     public setPoint spPRiposoMan = new setPoint();
-    public setPoint spTRUp = new setPoint();
-    public setPoint spTUp = new setPoint();
-    public setPoint spTRDn = new setPoint();
-    public setPoint spTDn = new setPoint();
+    public setPoint spTRUp = new setPoint(); //Setpoint tempo rampa salita
+    public setPoint spTUp = new setPoint(); //Setpoint tempo mantenimento alto
+    public setPoint spTRDn = new setPoint(); //Setpoint tempo rampa discesa
+    public setPoint spTDn = new setPoint(); //Setpoint tempo mantenimento basso
+    public setPoint spFreq_M = new setPoint(); // Setpoint frequenza pulsazione
     public setPoint spQFlMan = new setPoint();
   }
   
