@@ -6,7 +6,6 @@ namespace v0449_shared
   {
 
 #if v0449ex
-
     #region def
 
 
@@ -2120,14 +2119,6 @@ namespace v0449_shared
     {
       _00_Init = 00,
       _10_InWorking = 10,
-      _20_avviamentoPompa = 20,
-      _30_attendeFlusso = 30,
-      _40_pronto_richiesta_freddo = 40,
-      _50_alimentazione_liquida = 50,
-      _60_funzione_Normale = 60,
-      _70_pump_down = 70,
-      _80_riposo_fermo = 80,
-      _90_pump_down = 90,
       _1000_NoRulesFUser = 1000,
       _1010_NoHeaderOnDb = 1010,
     };
@@ -4047,6 +4038,7 @@ namespace v0449_shared
     #endregion
 
     #region Ao label short Siemens
+
     public static string[] aoLabelShortS7 =
       { 
         //SM 1232 AQ4, la prima, AO
