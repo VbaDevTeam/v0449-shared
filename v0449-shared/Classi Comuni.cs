@@ -371,7 +371,10 @@ namespace v0449_shared
     public setPoint spTFlMan = new setPoint();
     public setPoint spPLavoroMan = new setPoint();
     public setPoint spPRiposoMan = new setPoint();
-    public setPoint spTRampaPMan = new setPoint();
+    public setPoint spTRUp = new setPoint();
+    public setPoint spTUp = new setPoint();
+    public setPoint spTRDn = new setPoint();
+    public setPoint spTDn = new setPoint();
     public setPoint spQFlMan = new setPoint();
   }
   
@@ -780,9 +783,13 @@ namespace v0449_shared
     public Int16 spTVasca_d { get; set; }
     public Int16 spTCeMan_d { get; set; }
     public Int16 spTFlMan_d { get; set; }
-    public Int16 spPLavMan_d { get; set; }
     public Int16 spPRipMan_d { get; set; }
-    public Int16 spTRampaPMan_c { get; set; }
+    public Int16 spPLavMan_d { get; set; }
+    public Int16 spTRUpMan_c{ get; set; }
+    public Int16 spTUpMan_c { get; set; }
+    public Int16 spTRDnMan_c{ get; set; }
+    public Int16 spTDnMan_c { get; set; }
+    public Int16 spFreq_m   { get; set; }
     public Int16 spQFlMan_c { get; set; }
     public Int16 spTCarico_c { get; set; }
     public Int16 spTScarco_c { get; set; }
@@ -790,7 +797,6 @@ namespace v0449_shared
     public Int16 comStatus { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
-
   }
 
 public class ComRt2Hmi
