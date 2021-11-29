@@ -12,6 +12,7 @@ namespace v0449_shared
         public int RhCdCaSetNo { get; set; }
         public int RhCodiceUtente { get; set; }
         public int RhState { get; set; }
+        public int RhNumCicli { get; set; }
         public string RhNomeProva { get; set; }
         public string RhSerialiItems { get; set; }
         public DateTime RhDate { get; set; }

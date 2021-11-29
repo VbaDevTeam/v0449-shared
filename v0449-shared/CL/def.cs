@@ -3903,7 +3903,7 @@ namespace v0449_shared
     {
       //SM1231 AI4 x HF, la seconda, Ai
         
-        AItT210CIRC 	//TEMP		    temperatura circolazione fluido
+        AItT210CIRC 	//TEMP		  temperatura circolazione fluido
       , AItT280MAND 	//TEMP			temperatura ingresso UUT
       , AItT310RETU 	//TEMP			temperatura uscita UUT
       , AItT520INSE 	//TEMP			temperatura circuito intermedio
