@@ -39,7 +39,7 @@ namespace v0449_shared
     ///rHeader.RhNomeProva --> Nome esteso della prova
     ///rHeader.RhSerialiItems --> Json contenente le stringe dei seriali prova
     ///rHeader.RhCdCaSetNo --> identificativo record confapp per dataconftest
-    ///rHeader.RhState --> stato della prova
+    ///rHeader.RhState --> stato della prova 
 
 
     public int idProva;

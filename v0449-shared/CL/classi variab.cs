@@ -8,7 +8,7 @@ namespace v0449_shared
 {
 
   public class IO
-  {
+  { 
     public PASSO passoCorrente;
 
     public int ptrPh1Frig;
