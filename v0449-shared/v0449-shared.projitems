@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpc.proto" />
+    <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpcCell.proto" />
     <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpcMicroS.proto" />
     <None Include="$(MSBuildThisFileDirectory)v0449-shared\v0449-shared.shproj.user" />
   </ItemGroup>
