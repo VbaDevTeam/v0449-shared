@@ -62,7 +62,10 @@ namespace v0449_shared
     public int cntRip;
     public double spTCeAut;
     public double spTFlAut;
+    public double spHCeAut;
+
     public double spPresFl;
+
     public int cntTmStep;
     public int cntCicStep;
     public int cntTmStepTot;

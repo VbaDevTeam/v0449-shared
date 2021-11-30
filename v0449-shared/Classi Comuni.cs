@@ -743,8 +743,9 @@ public class CXHmi
   public Int16 ptrStep { get; set; }//;
   public Int16 cntRip { get; set; }//;
   public Int16 spTCeAut_d { get; set; }//;
-  public Int16 spTFlAut_d { get; set; }//;
-  public Int16 spPresFl_d { get; set; }//;
+    public Int16 spTFlAut_d { get; set; }//;
+    public Int16 spHCeAut_d { get; set; }//;
+    public Int16 spPresFl_d { get; set; }//;
   public Int16 pidPwRisCe_d { get; set; }//;
   public Int16 pidPwRafCe_d { get; set; }//;
   public Int16 pidPwRisFl_d { get; set; }//;
