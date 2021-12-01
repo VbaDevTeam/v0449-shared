@@ -5,7 +5,7 @@ package v0449gRpcCell;
 
 service v0449gRpcCell {
   // Sends a ccommand to set setpoint in the cell
-	rpc setSetpoint(svcSetopintRequest) returns (svcSetpointResponse) {}
+	rpc setSetpoint(svcSetpointRequest) returns (svcSetpointResponse) {}
   // Send a Request to get a ProcessValue for the cell
 	rpc getProcessValue(svcProcessValueRequest) returns (svcProcessValueResponse) {}
 }
@@ -13,7 +13,7 @@ service v0449gRpcCell {
 
 
 // Request Setpoint 
-message svcSetopintRequest {
+message svcSetpointRequest {
 	//Word di comando
 	int64 cmdReq = 1;
 	//Setpoint Temperatura
