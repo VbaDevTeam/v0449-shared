@@ -226,11 +226,10 @@ namespace v0449_shared
       for (int n = 0; n < passiProva.Count; n++)
       {
         int tmCicloDura = 0;
+        int tmCicEqDura = 0;
         double tmCicloPulsa = 0;
         bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
         bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
-
-
 
         if (chkFineCiclo)
           tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());
