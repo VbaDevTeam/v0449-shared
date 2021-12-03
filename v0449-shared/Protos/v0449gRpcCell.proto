@@ -26,6 +26,8 @@ message svcSetpointRequest {
 message svcSetpointResponse {
 	//Word di risposta	
 	int64 cmdResponse = 1;
+	//Stringa di risposta
+	string message = 2;
 }
 
 // Request status cella
@@ -41,5 +43,11 @@ message svcProcessValueResponse {
 	int64 pvTemp = 2;
 	//ProcessValue umidit�
 	int64 pvUmid = 3;
+	//ProcessValue Temperatura
+	int64 pvSpTemp = 4;
+	//ProcessValue umidit�
+	int64 pvSpUmid = 5;
+	//Stringa di risposta
+	string message = 6;
 }
 
