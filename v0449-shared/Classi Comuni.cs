@@ -640,6 +640,9 @@ namespace v0449_shared
     public string passDb { get; set; }
     public string nameApp { get; set; }
 
+    public bool versSwMaster { get; set; }
+    public string typeSw { get; set; }
+
   }
 
 

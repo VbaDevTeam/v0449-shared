@@ -30,7 +30,9 @@ service v0449gRpcSvc {
   // Sends a greeting
   rpc getRtData (dataRequest) returns (dataAnswer) {}
   rpc xchRtData (data2Plc) returns (data2Hmi) {}
+  rpc xchRtDataSlave (slaveReq2Plc) returns (data2Hmi) {}
   rpc xchRtDataJs (data2PlcJs) returns (data2HmiJs) {}
+  rpc xchRtDataJsSlave (slaveReq2Plc) returns (data2HmiJs) {}
   rpc xchRtDataPb (data2PlcPb) returns (data2HmiPb) {}
 
   //rpc createReport
@@ -45,6 +47,10 @@ message dataRequest {
 //// The request message con comandi da scrivere
 message data2Plc {
   string xmlSer = 1;
+}
+
+message slaveReq2Plc {
+  int64 request = 1;
 }
 
 //// The request message con letture da leggere

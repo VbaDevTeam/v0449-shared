@@ -40,17 +40,29 @@ namespace v0449_shared
 
     public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
     {
-        v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
+      v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
 
-        //Utilizzo libreria Newtonsoft.Json
-        var options = new JsonSerializerOptions { WriteIndented = true };
+      //Utilizzo libreria Newtonsoft.Json
+      var options = new JsonSerializerOptions { WriteIndented = true };
 
-        string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
-        return Task.FromResult(new data2HmiJs { JsSer = jsonString });
-        }
+      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
+      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
     }
 
-    class v0449MicroSClient
+
+    public override Task<data2HmiJs> xchRtDataJsSlave(slaveReq2Plc request, ServerCallContext context)
+    {
+      //Utilizzo libreria Newtonsoft.Json
+      var options = new JsonSerializerOptions { WriteIndented = true };
+
+      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
+      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
+    }
+
+  }
+
+
+class v0449MicroSClient
     {
         public event getProgressRepo gProgressRepo;
         public event getEndGenerRepo gEndGenerRepo;
