@@ -39,7 +39,7 @@ namespace v0449_shared
     ///rHeader.RhNomeProva --> Nome esteso della prova
     ///rHeader.RhSerialiItems --> Json contenente le stringe dei seriali prova
     ///rHeader.RhCdCaSetNo --> identificativo record confapp per dataconftest
-    ///rHeader.RhState --> stato della prova
+    ///rHeader.RhState --> stato della prova 
 
 
     public int idProva;
@@ -371,7 +371,11 @@ namespace v0449_shared
     public setPoint spTFlMan = new setPoint();
     public setPoint spPLavoroMan = new setPoint();
     public setPoint spPRiposoMan = new setPoint();
-    public setPoint spTRampaPMan = new setPoint();
+    public setPoint spTRUp = new setPoint(); //Setpoint tempo rampa salita
+    public setPoint spTUp = new setPoint(); //Setpoint tempo mantenimento alto
+    public setPoint spTRDn = new setPoint(); //Setpoint tempo rampa discesa
+    public setPoint spTDn = new setPoint(); //Setpoint tempo mantenimento basso
+    public setPoint spFreq_M = new setPoint(); // Setpoint frequenza pulsazione
     public setPoint spQFlMan = new setPoint();
   }
   
@@ -625,113 +629,7 @@ namespace v0449_shared
     //}
   }
 
-  class v0449gRpcSvcImpl : v0449gRpcSvc.v0449gRpcSvcBase
-  {
-    V v = new();
-    public override Task<dataAnswer> getRtData(dataRequest request, ServerCallContext context)
-    {
-      return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
-    }
-
-    public override Task<data2Hmi> xchRtData(data2Plc request, ServerCallContext context)
-    {
-      TextReader reader = new StringReader(request.XmlSer);
-      XmlSerializer ser = new XmlSerializer(typeof(ComRt2Plc));
-      v.comRt2Plc = (ComRt2Plc)ser.Deserialize(reader);
-
-
-      StringWriter outApp = new StringWriter(new StringBuilder());
-      XmlSerializer serApp = new XmlSerializer(typeof(ComRt2Hmi));
-      serApp.Serialize(outApp, v.comRt2Hmi);
-      string appData = outApp.ToString();
-
-      return Task.FromResult(new data2Hmi { XmlSer = appData });
-    }
-
-    public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
-    {
-      v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
-
-      //Utilizzo libreria Newtonsoft.Json
-      var options = new JsonSerializerOptions { WriteIndented = true };
-      
-      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
-      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
-    }
-  }
-
-  class v0449MicroSClient
-  {
-    public event getProgressRepo gProgressRepo;
-    public event getEndGenerRepo gEndGenerRepo;
-
-    readonly v0449gRpcMicroS.v0449gRpcMicroSClient client;
-
-    public v0449MicroSClient(v0449gRpcMicroS.v0449gRpcMicroSClient client)
-    {
-      this.client = client;
-    }
-
-
-
-    //public async Task reqGen(string initDate, string endDate, int reportId, int userId, string path)
-    public svcReportResponse reqGen(string initDate, string endDate, int reportId, int userId, string path)
-    {
-      try
-      {
-        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
-        //    hiLon);
-
-        svcReportRequest request = new svcReportRequest
-        { 
-          InitRepo = initDate,
-          EndRepo = endDate,
-          IdReport = reportId, 
-          IdUser = userId,
-          PathToSave = path
-        };
-
-        svcReportResponse response = client.reqGen(request);
-
-        return response;
-      }
-      catch (RpcException e)
-      {
-        //Log("RPC failed " + e);
-        throw;
-      }
-    }
-
-
-    public svcReportResponse reqStatus(int cmdReq)
-    {
-      try
-      {
-        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
-        //    hiLon);
-
-        svcStatusRequest request = new svcStatusRequest
-        {
-          MyRequest = cmdReq,
-        };
-
-        svcReportResponse response = client.reqStatus(request);
-
-        return response;
-      }
-      catch (RpcException e)
-      {
-        //Log("RPC failed " + e);
-        throw;
-      }
-    }
-
-
-
-
-
-  }
-
+  
   public class configData
   {
     public string ipServer { get; set; }
@@ -787,9 +685,13 @@ namespace v0449_shared
     public Int16 spTVasca_d { get; set; }
     public Int16 spTCeMan_d { get; set; }
     public Int16 spTFlMan_d { get; set; }
-    public Int16 spPLavMan_d { get; set; }
     public Int16 spPRipMan_d { get; set; }
-    public Int16 spTRampaPMan_c { get; set; }
+    public Int16 spPLavMan_d { get; set; }
+    public Int16 spTRUpMan_c{ get; set; }
+    public Int16 spTUpMan_c { get; set; }
+    public Int16 spTRDnMan_c{ get; set; }
+    public Int16 spTDnMan_c { get; set; }
+    public Int16 spFreq_m   { get; set; }
     public Int16 spQFlMan_c { get; set; }
     public Int16 spTCarico_c { get; set; }
     public Int16 spTScarco_c { get; set; }
@@ -797,7 +699,6 @@ namespace v0449_shared
     public Int16 comStatus { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
-
   }
 
 
@@ -806,7 +707,7 @@ public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
-    AI = new short[18];
+    AI = new short[22];
     alarms = new ushort[5];
     c1 = new CXHmi();
     c2 = new CXHmi();
@@ -847,12 +748,19 @@ public class CXHmi
   public Int16 ptrPhRaffrCe { get; set; }//;
   public Int16 ptrPhCompCe { get; set; }//;
 
+  public Int16 pvTempCella { get; set;}
+
+  public Int16 pvRhCella { get;set;}
+
+  public Int16 stsCella { get;set;}
+
   public Int16 idNo { get; set; }//;
   public Int16 ptrStep { get; set; }//;
   public Int16 cntRip { get; set; }//;
   public Int16 spTCeAut_d { get; set; }//;
-  public Int16 spTFlAut_d { get; set; }//;
-  public Int16 spPresFl_d { get; set; }//;
+    public Int16 spTFlAut_d { get; set; }//;
+    public Int16 spHCeAut_d { get; set; }//;
+    public Int16 spPresFl_d { get; set; }//;
   public Int16 pidPwRisCe_d { get; set; }//;
   public Int16 pidPwRafCe_d { get; set; }//;
   public Int16 pidPwRisFl_d { get; set; }//;

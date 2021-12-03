@@ -8,7 +8,7 @@ namespace v0449_shared
 {
 
   public class IO
-  {
+  { 
     public PASSO passoCorrente;
 
     public int ptrPh1Frig;
@@ -20,7 +20,7 @@ namespace v0449_shared
     public BitInt[] We = new BitInt[4]; //Word di ingresso PLC
     public BitInt[] Wu = new BitInt[4]; //Word di uscita PLC
     public BitInt[] Wa = new BitInt[5]; //Word di 
-    public double[] analog = new double[18];
+    public double[] analog = new double[22];
     public BitInt[] Fp = new BitInt[4];
     public BitInt[] FpApp = new BitInt[4];
 
@@ -62,7 +62,10 @@ namespace v0449_shared
     public int cntRip;
     public double spTCeAut;
     public double spTFlAut;
+    public double spHCeAut;
+
     public double spPresFl;
+
     public int cntTmStep;
     public int cntCicStep;
     public int cntTmStepTot;
@@ -92,6 +95,9 @@ namespace v0449_shared
 
   public class NO_XML
   {
+
+   public v0449CellaClient clientCella;
+
     public string strNameDb = "";
 
 
@@ -223,11 +229,10 @@ namespace v0449_shared
       for (int n = 0; n < passiProva.Count; n++)
       {
         int tmCicloDura = 0;
+        int tmCicEqDura = 0;
         double tmCicloPulsa = 0;
         bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
         bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
-
-
 
         if (chkFineCiclo)
           tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());

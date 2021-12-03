@@ -5,8 +5,7 @@ namespace v0449_shared
   public class DEF
   {
 
-#if v0449
-
+#if v0449ex
     #region def
 
 
@@ -2120,14 +2119,6 @@ namespace v0449_shared
     {
       _00_Init = 00,
       _10_InWorking = 10,
-      _20_avviamentoPompa = 20,
-      _30_attendeFlusso = 30,
-      _40_pronto_richiesta_freddo = 40,
-      _50_alimentazione_liquida = 50,
-      _60_funzione_Normale = 60,
-      _70_pump_down = 70,
-      _80_riposo_fermo = 80,
-      _90_pump_down = 90,
       _1000_NoRulesFUser = 1000,
       _1010_NoHeaderOnDb = 1010,
     };
@@ -3900,17 +3891,15 @@ namespace v0449_shared
     #endregion
     #endregion
 
-#elif v0387
+#elif v0449
 
     #region def
 
     #region Canali analogici
 
-    #region AI chNames Siemens
-
     #region AI1
 
-    public enum chNoS7ai1
+    public enum chNoS7ai
     {
       //SM1231 AI4 x HF, la seconda, Ai
         
@@ -3918,7 +3907,7 @@ namespace v0449_shared
       , AItT280MAND 	//TEMP			temperatura ingresso UUT
       , AItT310RETU 	//TEMP			temperatura uscita UUT
       , AItT520INSE 	//TEMP			temperatura circuito intermedio
-      , AItRiserva4		//NULL			riserva
+      , AItTCellaSD		//TEMP			temperatura cella 
       , AItRiserva5		//NULL			riserva
       , AItTSIC2101 	//TEMP			temperatura sicurezza riscaldatore 1
       , AItTSIC2102 	//TEMP			temperatura sicurezza riscaldatore 2
@@ -3932,6 +3921,10 @@ namespace v0449_shared
       , AIqPRIMSALT		//NULL			riserva					
       , AIqMAINRAFF		//NULL			riserva
       , VPoRAFFMAIN 	//VOLT?			posizione virtuale valvola raffreddamento
+      , VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio
+      , MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento
+      , MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione
+      , MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio
 
     }
 
@@ -3941,7 +3934,7 @@ namespace v0449_shared
       , "AItT280MAND"    //TEMP	    temperatura ingresso UUT
       , "AItT310RETU"    //TEMP	    temperatura uscita UUT
       , "AItT520INSE"    //TEMP	    temperatura circuito intermedio
-      , "AItRiserva4"    //NULL	    riserva
+      , "AItTCellaSD"    //TEMP			temperatura cella 
       , "AItRiserva5"    //NULL	    riserva
       , "AItTSIC2101"    //TEMP	    temperatura sicurezza riscaldatore 1
       , "AItTSIC2102"    //TEMP	    temperatura sicurezza riscaldatore 2
@@ -3955,10 +3948,13 @@ namespace v0449_shared
       , "AIqPRIMSALT"    //NULL	    riserva					
       , "AIqMAINRAFF"    //NULL	    riserva
       , "VPoRAFFMAIN"    //VOLT?	  posizione virtuale valvola raffreddamento
+      , "VPoRAFFINTE" 	//VOLT?			posizione virtuale valvola circ. intermedio"
+      , "MPoALIMENTO" 	//VOLT?			velocità virtuale pompa alimento"
+      , "MPoCIRCPROV" 	//VOLT?			velocità virtuale pompa circolazione"
+      , "MPoRAFFINTE" 	//VOLT?			velocità virtuale pompa circ. intermedio"
 
       };
 
-    #endregion
 
     #region AI1 label short Siemens
 
@@ -3982,6 +3978,10 @@ namespace v0449_shared
       , " riserva					                           "
       , " riserva                                    "
       , " posizione virtuale valvola raffreddamento  "
+      , " posizione virtuale valvola circ. intermedio  "
+      , " velocità virtuale pompa alimento  "
+      , " velocità virtuale pompa circolazione  "
+      , " velocità virtuale pompa circ. intermedio  "
 
       };
 
@@ -4009,59 +4009,13 @@ namespace v0449_shared
       , " riserva					                           "
       , " riserva                                    "
       , " posizione virtuale valvola raffreddamento  "
+      , " posizione virtuale valvola circ. intermedio  "
+      , " velocità virtuale pompa alimento  "
+      , " velocità virtuale pompa circolazione  "
+      , " velocità virtuale pompa circ. intermedio  "
     };
     #endregion
-   
-    #region AI2
-
-     public enum chNoS7ai2
-    {
-      //SM1231 AI4 x HF, la seconda, Ai
-        
-        VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio
-      , MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento
-      , MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione
-      , MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio
-      
-    }
-
-    public static string[] aiChNamesS7 =
-      {
-        "VPoRAFFINTE 	//VOLT?			posizione virtuale valvola circ. intermedio"
-      , "MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento"
-      , "MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione"
-      , "MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio"
-
-      };
-
     #endregion
-
-    #region AI2 label short Siemens
-
-    public static string[] aiLabelShortS7 =
-      {
-        " posizione virtuale valvola circ. intermedio  "
-      , " velocità virtuale pompa alimento  "
-      , " velocità virtuale pompa circolazione  "
-      , " velocità virtuale pompa circ. intermedio  "
-      
-      };
-
-    #endregion
-
-    #region AI2 label Long Siemens
-
-    public static string[] aiLabelLongS7 =
-      {
-        " posizione virtuale valvola circ. intermedio  "
-      , " velocità virtuale pompa alimento  "
-      , " velocità virtuale pompa circolazione  "
-      , " velocità virtuale pompa circ. intermedio  "
-      
-      };
-
-    #endregion
-
     #region Ao channel names Siemens
 
     public enum aoChNoS7
@@ -4084,6 +4038,7 @@ namespace v0449_shared
     #endregion
 
     #region Ao label short Siemens
+
     public static string[] aoLabelShortS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -4106,6 +4061,7 @@ namespace v0449_shared
     #endregion
 
 
+
     #endregion
 
     #region I/O digitali
@@ -4115,19 +4071,20 @@ namespace v0449_shared
       ec0
       , ec1
       , ec2
-      , ec3
+//      , ec3
     }
     public enum Wuxxx
     {
       uc0
       , uc1
-      , uc2
+//      , uc2
     }
     public enum Waxxx
     {
       ac0
       , ac1
       , ac2
+      , ac3
     }
 
     #region input
@@ -4149,7 +4106,7 @@ namespace v0449_shared
      , vWe011_KMeP200CIRC 
      , vWe012_DReP200OK 	
      , vWe013_TEeR210RISC 
-     , vWe014_Riserva
+     , vWe014_SLeCICLAUTO
      , vWe015_Riserva
     }
 
@@ -4169,7 +4126,7 @@ namespace v0449_shared
         ,"vWe011.Contatto teleruttore Pompa circolazione  "
         ,"vWe012.Drive pompa circolazione OK  "
         ,"vWe013.Contatto int.Circuito Riscaldo  "
-        ,"vWe014.Riserva  "
+        ,"vWe014.Selettore auto/manuale  "
         ,"vWe015.Riserva  "
       };
 
@@ -4189,7 +4146,7 @@ namespace v0449_shared
         ,"vWe011_KMeP200CIRC  "
         ,"vWe012_DReP200OK 	  "
         ,"vWe013_TEeR210RISC  "
-        ,"vWe014_Riserva      "
+        ,"vWe014_SLeCICLAUTO  "
         ,"vWe015_Riserva      "
       };                      
 
@@ -4245,8 +4202,8 @@ namespace v0449_shared
      , vWe103_DReS230OK 	
      , vWe104_TSeR210OK 	
      , vWe105_SNeP400PAIR
-     , vWe106_PUeTASTFUN1
-     , vWe107_PUeTASTFUN2
+     , vWe106_PUeINDIETRO
+     , vWe107_PUeAVANTI
      , vWe108_TEeP530RAFF
      , vWe109_KMeP530RAFF
      , vWe110_DReP530__OK
@@ -4265,8 +4222,8 @@ namespace v0449_shared
         ,"vWe103.Drive enable siringa  "
         ,"vWe104.Termostato sicurezza  "
         ,"vWe105.Pressostato presenza aria  "
-        ,"vWe106.Riserva  "
-        ,"vWe107.Riserva  "
+        ,"vWe106.Pulsante Indietro  "
+        ,"vWe107.Pulsante Avanti "
         ,"vWe108.Contatto int.Pompa circolazione H2O  "
         ,"vWe109.Contatto teleruttore Pompa circolazione H2O  "
         ,"vWe110.Drive pompa circolazione OK H2O  "
@@ -4285,8 +4242,8 @@ namespace v0449_shared
         ,"vWe103_DReS230OK 	"
         ,"vWe104_TSeR210OK 	"
         ,"vWe105_SNeP400PAIR"
-        ,"vWe106_PUeTASTFUN1"
-        ,"vWe107_PUeTASTFUN2"
+        ,"vWe106_PUeINDIETRO"
+        ,"vWe107_PUeAVANTI"
         ,"vWe108_TEeP530RAFF"
         ,"vWe109_KMeP530RAFF"
         ,"vWe110_DReP530__OK"
@@ -4358,8 +4315,8 @@ namespace v0449_shared
      , vWe211_PUeSTOPAUTO
      , vWe212_PUeALARACKN
      , vWe213_PUeALARREST
-     , vWe214_Riserva
-     , vWe215_Riserva
+     , vWe214_SNeALLACHIL
+     , vWe215_SNeALLACIRC
     }
 
     public static string[] we2Descr =
@@ -4374,12 +4331,12 @@ namespace v0449_shared
         ,"vWe207.Valvola raffreddamento chiusa "
         ,"vWe208.Valvola inseguimento aperta "
         ,"vWe209.Valvola inseguimento chiusa "
-        ,"vWe210.Riserva "
-        ,"vWe211.Riserva "
-        ,"vWe212.Pulsante marcia ciclo automatico "
-        ,"vWe213.pulsante arresto ciclo automatico "
-        ,"vWe214.Riserva  "
-        ,"vWe215.Riserva  "
+        ,"vWe210.Pulsante marcia ciclo automatico  "
+        ,"vWe211.pulsante arresto ciclo automatico "
+        ,"vWe212.pulsante silenziamento allarmi"
+        ,"vWe213.pulsante reset allarmi"
+        ,"vWe214.Segnale chiller in allarme  "
+        ,"vWe215.Segnale allarme circolazione  "
       };
 
     public static string[] we2Nick =
@@ -4398,8 +4355,8 @@ namespace v0449_shared
         ,"vWe211_PUeSTOPAUTO"
         ,"vWe212_PUeALARACKN"
         ,"vWe213_PUeALARREST"
-        ,"vWe214_Riserva"
-        ,"vWe215_Riserva"
+        ,"vWe214_SNeALLACHIL"
+        ,"vWe215_SNeALLACIRC"
       };
 
 
@@ -4802,7 +4759,7 @@ namespace v0449_shared
         ,"??????"
         ,"??????"
         ,"??????"
-        ,"??????
+        ,"??????"
         ,"??????"
         ,"??????"
         ,"??????"
@@ -5541,7 +5498,7 @@ namespace v0449_shared
         ,"29 - anomalia comando chiusura valvola ritorno     "
         ,"30 - anomalia comando apertura valvola press       "
         ,"31 - anomalia comando chiusura valvola press       "
-      };                                                     "
+      };                                                     
 
     public static string[] wa1Nick =
       {
@@ -5712,59 +5669,59 @@ namespace v0449_shared
     public string[,] msgAll =
  {
    {
- "AL0.0 SInTUTTO_OK "
-,"AL0.1 FCn0PORTNOCH"
-,"AL0.2 TSn0RISCFLUI"
-,"AL0.3 TSn0TEMPCAME"
-,"AL0.4 LVn2FLUPROOK"
-,"AL0.5 LSn0TRAFFLUI"
-,"AL0.6 PSn0PRESARIA"
-,"AL0.7 LVn1OLIOBASS"
-,"AL0.8 PSn0HP_1FRIG"
-,"AL0.9 TSn0LT_1FRIG"
-,"AL0.a FLn0LQ_1FRIG"
-,"AL0.b FLn0GQ_2FRIG"
-,"AL0.c LVn0HG_1FRIG"
-,"AL0.d PSn0HP_2FRIG"
-,"AL0.e PSn0LP_2FRIG"
-,"AL0.f TEn0COMP1FRI"
+ "00 - anomalia misuratore portata       "
+,"01 - comandi inseriti                  "
+,"02 - termica pompa mandata             "
+,"03 - refr siringa                      "
+,"04 - readback tele pompa P120          "
+,"05 - raffr. rane                       "
+,"06 - anomaliza drive pompa mandata     "
+,"07 - refr. prta                        "
+,"08 - termica pompa circolazione        "
+,"09 - readback tele pompa circolazioner "
+,"10 - anom. drive pompa circolazione    "
+,"11 - termica potenza riscaldatore      "
+,"12 - readback tele riscaldatore        "
+,"13 - termica siringa                   "
+,"14 - readback siringa                  "
+,"15 - anomalia drive siringa            "
      },
    {
- "AL1.0 TEn0COMP2FRI"
-,"AL1.1 TEn0POMP1FRI"
-,"AL1.2 TEn0POMPCELL"
-,"AL1.3 TEn0POMPP1P2"
-,"AL1.4 TEn0POMP_P3_"
-,"AL1.5 TEn1POMP_P4_"
-,"AL1.6 TEn2MREGCIPR"
-,"AL1.7 TEn1VENTCELL"
-,"AL1.8 TEn0RISCCELL"
-,"AL1.9 SNn1FILTCECL"
-,"AL1.a SNn1FISER1CL"
-,"AL1.b SNn1FIVIBRCL"
-,"AL1.c SNn1FIPILOCL"
-,"AL1.d SNn0PROT_AUX"
-,"AL1.e SNn0PROTFIEL"
-,"AL1.f SNn0EMERRIPR"
+ "16 - termostato sicurezza riscaldatore             "
+,"17 - presenza aria                                 "
+,"18 - termica pompa raffreddamento                  "
+,"19 - readback tele pompa raffreddamento            "
+,"20 - anomalia drive pompa raffreddamento           "
+,"21 - serbatoio troppo pieno                        "
+,"22 - allarme mancanza fluido                       "
+,"23 - timeout spurgo aria                           "
+,"24 - anomalia comando apertura valvola svuotamento "
+,"25 - anomalia comando chiusura valvola svuotamento "
+,"26 - anomalia comando apertura valvola mandata     "
+,"27 - anomalia comando chiusura valvola mandata     "
+,"28 - anomalia comando apertura valvola ritorno     "
+,"29 - anomalia comando chiusura valvola ritorno     "
+,"30 - anomalia comando apertura valvola press       "
+,"31 - anomalia comando chiusura valvola press       "
   },
    {
- "AL1.0 SLn0AUTOMATI"
-,"AL1.1 SNn1DRIVFLOK"
-,"AL1.2 PSn0LOPRFRI1"
-,"AL1.3 SQnSTEPUNDF "
-,"AL1.4 SQnTESTLIVE "
-,"AL1.5 "
-,"AL1.6 "
-,"AL1.7 "
-,"AL1.8 "
-,"AL1.9 "
-,"AL1.a "
-,"AL1.b "
-,"AL1.c "
-,"AL1.d "
-,"AL1.e "
-,"AL1.f "
-  }
+ "32 - apertura valvola raffr "
+,"33 - chiusura valvola raffr"
+,"34 - apertura valvola inseguimento"
+,"35 - chiusura valvola inseguimento"
+,"36 - step indefinito"
+,"37 - prova attiva"
+,"38 - Riserva "
+,"39 - Riserva "
+,"40 - Riserva "
+,"41 - Riserva "
+,"42 - Riserva "
+,"43 - Riserva "
+,"44 - Riserva "
+,"45 - Riserva "
+,"46 - Riserva "
+,""
+      }
 };
 
     #endregion
@@ -5870,8 +5827,7 @@ namespace v0449_shared
     #endregion
     #endregion
 
-    #endregion
-
+    
 
 #endif
 

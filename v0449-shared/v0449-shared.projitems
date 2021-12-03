@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\comSharp7.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\Sharp7.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classi gRpc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Confapp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\ContextMini.cs" />
@@ -28,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpc.proto" />
+    <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpcCell.proto" />
     <None Include="$(MSBuildThisFileDirectory)Protos\v0449gRpcMicroS.proto" />
     <None Include="$(MSBuildThisFileDirectory)v0449-shared\v0449-shared.shproj.user" />
   </ItemGroup>

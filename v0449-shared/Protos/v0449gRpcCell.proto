@@ -1,0 +1,45 @@
+
+syntax = "proto3";
+
+package v0449gRpcCell;
+
+service v0449gRpcCell {
+  // Sends a ccommand to set setpoint in the cell
+	rpc setSetpoint(svcSetpointRequest) returns (svcSetpointResponse) {}
+  // Send a Request to get a ProcessValue for the cell
+	rpc getProcessValue(svcProcessValueRequest) returns (svcProcessValueResponse) {}
+}
+
+
+
+// Request Setpoint 
+message svcSetpointRequest {
+	//Word di comando
+	int64 cmdReq = 1;
+	//Setpoint Temperatura
+	int64 spTemp =2;
+	//Setpoint umidit�
+	int64 spUmid = 3;
+}
+
+//Response setpoint cella
+message svcSetpointResponse {
+	//Word di risposta	
+	int64 cmdResponse = 1;
+}
+
+// Request status cella
+message svcProcessValueRequest {
+	int64 stsRequest = 1;
+}
+
+// Response status cella
+message svcProcessValueResponse {
+	//Word Status  
+	int64 stsResponse = 1;
+	//ProcessValue Temperatura
+	int64 pvTemp = 2;
+	//ProcessValue umidit�
+	int64 pvUmid = 3;
+}
+
