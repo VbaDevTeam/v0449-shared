@@ -739,6 +739,12 @@ public class CXHmi
   public Int16 ptrPhRaffrCe { get; set; }//;
   public Int16 ptrPhCompCe { get; set; }//;
 
+  public Int16 pvTempCella { get; set;}
+
+  public Int16 pvRhCella { get;set;}
+
+  public Int16 stsCella { get;set;}
+
   public Int16 idNo { get; set; }//;
   public Int16 ptrStep { get; set; }//;
   public Int16 cntRip { get; set; }//;

@@ -5,6 +5,7 @@ using System.Text;
 using Grpc.Core;
 using V0449GRpc;
 using V0449GRpcMicroS;
+using V0449GRpcCell;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.IO;
@@ -106,4 +107,51 @@ namespace v0449_shared
             }
         }
     }
+
+
+  public class v0449CellaClient
+  {
+    readonly v0449gRpcCell.v0449gRpcCellClient client;
+
+    public v0449CellaClient(v0449gRpcCell.v0449gRpcCellClient client)
+    {
+      this.client = client;
+    }
+
+    public svcProcessValueResponse getProcessValue()
+    {
+      svcProcessValueRequest request = new svcProcessValueRequest
+      {
+        StsRequest = 1,
+      };
+
+      svcProcessValueResponse response = client.getProcessValue(request);
+      return response;
+    }
+
+    public svcSetpointResponse setSetpoint(int spTemp, int spUmid, int cmdReq)
+    {
+      try
+      {
+        svcSetpointRequest request = new svcSetpointRequest
+        {
+          CmdReq = cmdReq,
+          SpTemp = spTemp,
+          SpUmid = spUmid,
+        };
+        svcSetpointResponse response = client.setSetpoint(request);
+        return response;
+      }
+      catch (RpcException ex)
+      {
+        svcSetpointResponse response = new svcSetpointResponse();
+        return response;
+      }
+    }
+
+
+  }
+
+
+
 }

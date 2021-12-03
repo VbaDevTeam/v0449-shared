@@ -95,6 +95,9 @@ namespace v0449_shared
 
   public class NO_XML
   {
+
+   public v0449CellaClient clientCella;
+
     public string strNameDb = "";
 
 
