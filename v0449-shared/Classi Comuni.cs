@@ -645,6 +645,21 @@ namespace v0449_shared
 
   }
 
+  public class configDataRepo
+  {
+    public string portServer { get; set; }
+    public string ipServerDb { get; set; }
+    public string strDbName { get; set; }
+    public string userDb { get; set; }
+    public string passDb { get; set; }
+    public string nameApp { get; set; }
+    public string revSw { get; set; }
+    public string modelBasePath { get; set; }
+    public string modelName { get; set; }
+    public string basePathReport { get; set; }
+    public string defaultPathExport { get; set; }
+  }
+
 
 
 #if v0449

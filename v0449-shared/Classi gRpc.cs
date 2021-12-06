@@ -100,6 +100,33 @@ namespace v0449_shared
 
       }
     }
+    public svcReportResponse reqGen(int reportId, int userId, string path)
+    {
+      try
+      {
+        //Log("*** ListFeatures: lowLat={0} lowLon={1} hiLat={2} hiLon={3}", lowLat, lowLon, hiLat,
+        //    hiLon);
+
+        svcReportRequest request = new svcReportRequest
+        {
+          InitRepo = "06 / 12 / 1970 00:00:00",
+          EndRepo = "06 / 12 / 2099 00:00:00",
+          IdReport = reportId,
+          IdUser = userId,
+          PathToSave = path
+        };
+
+        svcReportResponse response = client.reqGen(request);
+
+        return response;
+      }
+      catch (RpcException e)
+      {
+        svcReportResponse response = new svcReportResponse { ActiveToken = "-errore", MyMessage = e.Message };
+        return response;
+
+      }
+    }
     public svcReportResponse reqStatus(int cmdReq)
     {
       try
