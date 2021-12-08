@@ -247,6 +247,14 @@ namespace v0449_shared
     public setPoint spHumidityCella = new setPoint();
     public setPoint spPressLow = new setPoint();
     public setPoint spPressHigh = new setPoint();
+    public bool abilSpTempCircuit = true;
+    public bool abilSpTempCella = true;
+    public bool abilSpHumidityCella = true;
+    public bool abilSpPressLow = true;
+    public bool abilSpPressHigh = true;
+
+
+
     public setPoint spPort = new setPoint();
     public setPoint spTsRUp = new setPoint();
     public setPoint spTsUp = new setPoint();
@@ -662,7 +670,7 @@ namespace v0449_shared
 
 
 
-#if v0449
+#if v0387
   public class ComRt2Plc
   {
     public ComRt2Plc()

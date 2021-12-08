@@ -3036,7 +3036,7 @@ namespace v0449_shared
     #endregion
 
 
-#if v0449
+#if v0387
     #region allarmi 0449
     public enum Wa00
     {
@@ -3891,7 +3891,7 @@ namespace v0449_shared
     #endregion
     #endregion
 
-#elif v0449
+#elif v0387
 
     #region def
 
