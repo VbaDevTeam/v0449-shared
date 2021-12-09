@@ -73,8 +73,8 @@ namespace v0449_shared
     public int CicliFatti { get => cicliFatti; set => cicliFatti = value; }
 
 
-    private int cicliRimanti;
-    public int CicliRimanti { get => cicliRimanti; set => cicliRimanti = value; }
+    private int cicliRimanenti;
+    public int CicliRimanenti { get => cicliRimanenti; set => cicliRimanenti = value; }
 
 
     //Dati da PLC
@@ -88,7 +88,7 @@ namespace v0449_shared
       {
         nCiclo = value;
         CicliFatti = nCiclo;
-        CicliRimanti = CicliTotali - CicliFatti;
+        CicliRimanenti = CicliTotali - CicliFatti;
       }
     }
 
@@ -670,7 +670,7 @@ namespace v0449_shared
 
 
 
-#if v0387
+#if v0387 || v0449
   public class ComRt2Plc
   {
     public ComRt2Plc()
@@ -900,5 +900,6 @@ public class CXHmi
   }
 #endif
 }
+
 
 
