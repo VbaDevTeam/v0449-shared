@@ -36,10 +36,20 @@ namespace v0449_shared
       , AItLOPRFRIG2        //TEMP      temperatura vapore frigo 2
       , QC1                 //PORT      portata fluido circuito 1 
       , QC2                 //PORT      portata fluido circuito 2 
+      , RISERVA_0           //PORT      portata fluido circuito 2 
+      , RISERVA_1           //PORT      portata fluido circuito 2 
+      , RISERVA_2                 //PORT      portata fluido circuito 2 
+      , RISERVA_3                 //PORT      portata fluido circuito 2 
+      , RISERVA_4                 //PORT      portata fluido circuito 2 
+      , RISERVA_5                 //PORT      portata fluido circuito 2 
+      , RISERVA_6                 //PORT      portata fluido circuito 2 
+      , RISERVA_7                 //PORT      portata fluido circuito 2 
+      , RISERVA_8                 //PORT      portata fluido circuito 2 
+      , RISERVA_9                 //PORT      portata fluido circuito 2 
 
-    }
+        }
 
-    public static string[] aiChNamesS7 =
+        public static string[] aiChNamesS7 =
       {
         "AIpFLUIPROV "        //PRESS		  pressione fluido circolante
       , "AItFLUIPROV "        //TEMP      temperatura fluido circolante
@@ -59,8 +69,17 @@ namespace v0449_shared
       , "AItLOPRFRIG2"        //TEMP      temperatura vapore frigo 2
       , "QC1"                 //PORT      portata fluido circuito 1 
       , "QC2"                 //PORT      portata fluido circuito 2 
-
-      };
+      , "RISERVA_0"
+      , "RISERVA_1"
+      , "RISERVA_2"
+      , "RISERVA_3"
+      , "RISERVA_4"
+      , "RISERVA_5"
+      , "RISERVA_6"
+      , "RISERVA_7"
+      , "RISERVA_8"
+      , "RISERVA_9"
+        };
 
     #endregion
 
@@ -86,6 +105,16 @@ namespace v0449_shared
       , " temperatura vapore frigo 2                "
       , " portata C1               "
       , " portata C2               "
+      , "RISERVA_0"
+      , "RISERVA_1"
+      , "RISERVA_2"
+      , "RISERVA_3"
+      , "RISERVA_4"
+      , "RISERVA_5"
+      , "RISERVA_6"
+      , "RISERVA_7"
+      , "RISERVA_8"
+      , "RISERVA_9"
 
       };
 
@@ -113,7 +142,17 @@ namespace v0449_shared
       , " temperatura vapore frigo 2                "
       , " portata C1               "
       , " portata C2               "
-    };
+      , "RISERVA_0"
+      , "RISERVA_1"
+      , "RISERVA_2"
+      , "RISERVA_3"
+      , "RISERVA_4"
+      , "RISERVA_5"
+      , "RISERVA_6"
+      , "RISERVA_7"
+      , "RISERVA_8"
+      , "RISERVA_9"
+        };
     #endregion
 
     #region Ao channel names Siemens
