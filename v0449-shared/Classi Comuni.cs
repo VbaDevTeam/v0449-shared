@@ -73,8 +73,8 @@ namespace v0449_shared
     public int CicliFatti { get => cicliFatti; set => cicliFatti = value; }
 
 
-    private int cicliRimanti;
-    public int CicliRimanti { get => cicliRimanti; set => cicliRimanti = value; }
+    private int cicliRimanenti;
+    public int CicliRimanenti { get => cicliRimanenti; set => cicliRimanenti = value; }
 
 
     //Dati da PLC
@@ -88,7 +88,7 @@ namespace v0449_shared
       {
         nCiclo = value;
         CicliFatti = nCiclo;
-        CicliRimanti = CicliTotali - CicliFatti;
+        CicliRimanenti = CicliTotali - CicliFatti;
       }
     }
 
@@ -171,7 +171,7 @@ namespace v0449_shared
     {
       lCMini = new ContextMini(mainAppParam.strConnDb);
       ContextMini appMini = new ContextMini(mainAppParam.strConnDb);
-      Context appContext = new Context();
+      Context appContext = new Context(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
       if (rHeader!=null)
@@ -247,6 +247,14 @@ namespace v0449_shared
     public setPoint spHumidityCella = new setPoint();
     public setPoint spPressLow = new setPoint();
     public setPoint spPressHigh = new setPoint();
+    public bool abilSpTempCircuit = true;
+    public bool abilSpTempCella = true;
+    public bool abilSpHumidityCella = true;
+    public bool abilSpPressLow = true;
+    public bool abilSpPressHigh = true;
+
+
+
     public setPoint spPort = new setPoint();
     public setPoint spTsRUp = new setPoint();
     public setPoint spTsUp = new setPoint();
@@ -662,7 +670,7 @@ namespace v0449_shared
 
 
 
-#if v0449
+#if v0387 || v0449
   public class ComRt2Plc
   {
     public ComRt2Plc()
@@ -716,7 +724,7 @@ public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
-    AI = new short[22];
+    AI = new short[25];
     alarms = new ushort[5];
     c1 = new CXHmi();
     c2 = new CXHmi();
@@ -892,5 +900,6 @@ public class CXHmi
   }
 #endif
 }
+
 
 

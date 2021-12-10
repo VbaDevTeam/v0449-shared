@@ -9,6 +9,7 @@ namespace v0449_shared
     public partial class Datalog
     {
         public int DlId { get; set; }
+        public int DlRhId { get; set; }
     public DateTime? DlTimeSt
     {
       get; set;
