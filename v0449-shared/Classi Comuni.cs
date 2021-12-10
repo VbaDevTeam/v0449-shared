@@ -171,7 +171,7 @@ namespace v0449_shared
     {
       lCMini = new ContextMini(mainAppParam.strConnDb);
       ContextMini appMini = new ContextMini(mainAppParam.strConnDb);
-      Context appContext = new Context();
+      Context appContext = new Context(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
       if (rHeader!=null)
