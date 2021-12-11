@@ -1621,7 +1621,7 @@ namespace v0449_shared
          "0.all. interv.prot.mot.compressore 2°st.gr.frigor."
         ,"0.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
         ,"0.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
-        ,"1 all interv. prot.mot.pompe P1-P2"
+        ,"1 all  interv. prot.mot.pompe P1-P2"
         ,"0.all. interv.prot.motore pompa P3"
         ,"1.all. interv.prot.motore pompa P4"
         ,"2.all. interv.prot.mot.regol.corsa cilindro pressione"
@@ -7784,14 +7784,7 @@ namespace v0449_shared
 
 #endregion
 #endregion
-    
-
+   
 #endif
-
-
-
-
-
-
   }
 }

@@ -668,10 +668,23 @@ namespace v0449_shared
     public string defaultPathExport { get; set; }
   }
 
+  public class VERSBANCO
+  {
+   
+    public bool Sel_Auto;
+    public bool Aux_Inseriti;
+    public bool Sil_Allarmi;
+    public bool Reset_Allarmi;
+    public bool Puls_Avanti;
+    public bool Puls_Indietro;
+    public bool Puls_Start;
+    public bool Puls_Stop;
+
+  }
 
 
 #if v0387 || v0449
-  public class ComRt2Plc
+    public class ComRt2Plc
   {
     public ComRt2Plc()
     {
@@ -758,6 +771,7 @@ public class CXHmi
   public UInt16 cmdStMan { get; set; }//;
   public UInt16 cmdSt { get; set; }//;
   public Int16 flVari { get; set; }//;
+
   public Int16 ptrPhTest { get; set; }//;
   public Int16 ptrPhPulsa { get; set; }//;
   public Int16 ptrPh1Frig { get; set; }//;

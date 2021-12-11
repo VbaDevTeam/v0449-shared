@@ -10,6 +10,7 @@ namespace v0449_shared
   public class IO
   { 
     public PASSO passoCorrente;
+    public VERSBANCO myBanco;
 
     public int ptrPh1Frig;
     public int ptrPhRiscCe;
