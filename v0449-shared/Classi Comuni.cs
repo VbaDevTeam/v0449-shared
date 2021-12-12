@@ -713,6 +713,7 @@ namespace v0449_shared
       cmdReq = new UInt16[1];
     }
     public UInt16[] cmdReq { get; set; }
+    public UInt16 flVari { get; set; }
 
     public Int16 spTVasca_d { get; set; }
     public Int16 spTCeMan_d { get; set; }
@@ -770,7 +771,8 @@ public class CXHmi
   public UInt16 cmdStAut { get; set; }//;
   public UInt16 cmdStMan { get; set; }//;
   public UInt16 cmdSt { get; set; }//;
-  public Int16 flVari { get; set; }//;
+  public Int16 flVari0 { get; set; }//;
+  public Int16 flVari1 { get; set; }//;
 
   public Int16 ptrPhTest { get; set; }//;
   public Int16 ptrPhPulsa { get; set; }//;
