@@ -680,6 +680,7 @@ namespace v0449_shared
     public bool Puls_Start;
     public bool Puls_Stop;
 
+  
   }
 
 
