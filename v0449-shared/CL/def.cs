@@ -3964,6 +3964,10 @@ namespace v0449_shared
       , MPoALIMENTO 	//VOLT?			velocità virtuale pompa alimento
       , MPoCIRCPROV 	//VOLT?			velocità virtuale pompa circolazione
       , MPoRAFFINTE 	//VOLT?			velocità virtuale pompa circ. intermedio
+      , tappo1
+      , tappo2
+      , tappo3
+      , tappo4
 
     }
 
@@ -3991,6 +3995,10 @@ namespace v0449_shared
       , "MPoALIMENTO" 	//VOLT?			velocità virtuale pompa alimento"
       , "MPoCIRCPROV" 	//VOLT?			velocità virtuale pompa circolazione"
       , "MPoRAFFINTE" 	//VOLT?			velocità virtuale pompa circ. intermedio"
+      , "tappo1"
+      , "tappo2"
+      , "tappo3"
+      , "tappo4"
 
       };
 
@@ -4021,6 +4029,10 @@ namespace v0449_shared
       , " velocità virtuale pompa alimento  "
       , " velocità virtuale pompa circolazione  "
       , " velocità virtuale pompa circ. intermedio  "
+      , "tappo1"
+      , "tappo1"
+      , "tappo1"
+      , "tappo1"
 
       };
 
@@ -4052,6 +4064,10 @@ namespace v0449_shared
       , " velocità virtuale pompa alimento  "
       , " velocità virtuale pompa circolazione  "
       , " velocità virtuale pompa circ. intermedio  "
+      , "tappo1"
+      , "tappo1"
+      , "tappo1"
+      , "tappo1"
     };
 #endregion
 #endregion

@@ -104,8 +104,8 @@ namespace v0449_shared
 
     public bool testDone = true;
     public bool recData = false;
-
-
+    public BitInt cmdToPlc = new();
+    
 
     public bool dbDtFromPlc = false;
 
