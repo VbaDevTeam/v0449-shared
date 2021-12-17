@@ -55,10 +55,8 @@ namespace v0449_shared
     public int ptrPhPulsa;
     public int idOnPlc = -1;
 
-    public BitInt flagPlc = new BitInt();
-    public bool flTestAlive;
-    public bool flAutRunning;
-    public bool flTestDone;
+    public BitInt flagPlc0 = new BitInt();
+    public BitInt flagPlc1 = new BitInt();
     public int ptrStep;
     public int cntRip;
     public double spTCeAut;

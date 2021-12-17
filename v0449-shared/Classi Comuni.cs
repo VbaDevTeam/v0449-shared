@@ -670,25 +670,33 @@ namespace v0449_shared
 
   public class VERSBANCO
   {
-   
-    public bool Sel_Auto;
-    public bool Aux_Inseriti;
-    public bool Sil_Allarmi;
-    public bool Reset_Allarmi;
-    public bool Puls_Avanti;
-    public bool Puls_Indietro;
-    public bool Puls_Start;
-    public bool Puls_Stop;
+    public bool flTestRdy;
+    public bool auModAut;
+    public bool auModMan;
+    public bool auModAutOk;
+    public bool auManRun;
+    public bool auAutRun;
+    public bool auAutSosp;
+    public bool flTestAlive;
+    public bool flTestDone;
+    public bool flAutRunning;
+    public bool flTestAlarm;
+    public bool stSelAuto;
+    public bool auxOn;
+    public bool lsAllarmi;
+    public bool lsAllBlink;
+    public bool lsPiupiu;
+    public bool auxComaAvan;
+    public bool auxComaIndi;
+    public bool auxStarAuto;
+    public bool auxStopAuto;
+    public bool auxPortChiuso;
 
-
-
-//modifica nuovca
-  
   }
 
 
 #if v0387 || v0449
-    public class ComRt2Plc
+  public class ComRt2Plc
   {
     public ComRt2Plc()
     {
