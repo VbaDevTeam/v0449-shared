@@ -73,8 +73,8 @@ namespace v0449_shared
     public int CicliFatti { get => cicliFatti; set => cicliFatti = value; }
 
 
-    private int cicliRimanti;
-    public int CicliRimanti { get => cicliRimanti; set => cicliRimanti = value; }
+    private int cicliRimanenti;
+    public int CicliRimanenti { get => cicliRimanenti; set => cicliRimanenti = value; }
 
 
     //Dati da PLC
@@ -88,7 +88,7 @@ namespace v0449_shared
       {
         nCiclo = value;
         CicliFatti = nCiclo;
-        CicliRimanti = CicliTotali - CicliFatti;
+        CicliRimanenti = CicliTotali - CicliFatti;
       }
     }
 
@@ -171,7 +171,7 @@ namespace v0449_shared
     {
       lCMini = new ContextMini(mainAppParam.strConnDb);
       ContextMini appMini = new ContextMini(mainAppParam.strConnDb);
-      Context appContext = new Context();
+      Context appContext = new Context(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
       if (rHeader!=null)
@@ -247,6 +247,14 @@ namespace v0449_shared
     public setPoint spHumidityCella = new setPoint();
     public setPoint spPressLow = new setPoint();
     public setPoint spPressHigh = new setPoint();
+    public bool abilSpTempCircuit = true;
+    public bool abilSpTempCella = true;
+    public bool abilSpHumidityCella = true;
+    public bool abilSpPressLow = true;
+    public bool abilSpPressHigh = true;
+
+
+
     public setPoint spPort = new setPoint();
     public setPoint spTsRUp = new setPoint();
     public setPoint spTsUp = new setPoint();
@@ -645,13 +653,42 @@ namespace v0449_shared
 
   }
 
+  public class configDataRepo
+  {
+    public string portServer { get; set; }
+    public string ipServerDb { get; set; }
+    public string strDbName { get; set; }
+    public string userDb { get; set; }
+    public string passDb { get; set; }
+    public string nameApp { get; set; }
+    public string revSw { get; set; }
+    public string modelBasePath { get; set; }
+    public string modelName { get; set; }
+    public string basePathReport { get; set; }
+    public string defaultPathExport { get; set; }
+  }
+
+  public class VERSBANCO
+  {
+   
+    public bool Sel_Auto;
+    public bool Aux_Inseriti;
+    public bool Sil_Allarmi;
+    public bool Reset_Allarmi;
+    public bool Puls_Avanti;
+    public bool Puls_Indietro;
+    public bool Puls_Start;
+    public bool Puls_Stop;
 
 
-#if v0449
+
+//modifica nuovca
+  
+  }
 
 
-
-  public class ComRt2Plc
+#if v0387 || v0449
+    public class ComRt2Plc
   {
     public ComRt2Plc()
     {
@@ -684,6 +721,7 @@ namespace v0449_shared
       cmdReq = new UInt16[1];
     }
     public UInt16[] cmdReq { get; set; }
+    public UInt16 flVari { get; set; }
 
     public Int16 spTVasca_d { get; set; }
     public Int16 spTCeMan_d { get; set; }
@@ -710,7 +748,7 @@ public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
-    AI = new short[22];
+    AI = new short[25];
     alarms = new ushort[5];
     c1 = new CXHmi();
     c2 = new CXHmi();
@@ -743,7 +781,9 @@ public class CXHmi
   public UInt16 cmdStAut { get; set; }//;
   public UInt16 cmdStMan { get; set; }//;
   public UInt16 cmdSt { get; set; }//;
-  public Int16 flVari { get; set; }//;
+  public Int16 flVari0 { get; set; }//;
+  public Int16 flVari1 { get; set; }//;
+
   public Int16 ptrPhTest { get; set; }//;
   public Int16 ptrPhPulsa { get; set; }//;
   public Int16 ptrPh1Frig { get; set; }//;
@@ -775,7 +815,7 @@ public class CXHmi
   public int cmdRespSrv { get; set; }//;
   public bool recDataOn { get; set; }//;
 
- } 
+} 
 
 #elif v0470
 
@@ -886,5 +926,6 @@ public class CXHmi
   }
 #endif
 }
+
 
 

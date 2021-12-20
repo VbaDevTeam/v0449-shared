@@ -10,6 +10,7 @@ namespace v0449_shared
   public class IO
   { 
     public PASSO passoCorrente;
+    public VERSBANCO myBanco;
 
     public int ptrPh1Frig;
     public int ptrPhRiscCe;
@@ -20,7 +21,7 @@ namespace v0449_shared
     public BitInt[] We = new BitInt[4]; //Word di ingresso PLC
     public BitInt[] Wu = new BitInt[4]; //Word di uscita PLC
     public BitInt[] Wa = new BitInt[5]; //Word di 
-    public double[] analog = new double[22];
+    public double[] analog = new double[25];
     public BitInt[] Fp = new BitInt[4];
     public BitInt[] FpApp = new BitInt[4];
 
@@ -103,8 +104,8 @@ namespace v0449_shared
 
     public bool testDone = true;
     public bool recData = false;
-
-
+    public BitInt cmdToPlc = new();
+    
 
     public bool dbDtFromPlc = false;
 

@@ -121,6 +121,8 @@ namespace v0449_shared
             .HasMaxLength(45)
             .HasColumnName("dlNote");
 
+        entity.Property(e => e.DlRhId).HasColumnName("dlRhId");
+
         entity.Property(e => e.DlOrd).HasColumnName("dlOrd");
 
         entity.Property(e => e.DlPrIn).HasColumnName("dlPrIn");
