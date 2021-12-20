@@ -109,8 +109,8 @@ namespace v0449_shared
 
         svcReportRequest request = new svcReportRequest
         {
-          InitRepo = "06 / 12 / 1970 00:00:00",
-          EndRepo = "06 / 12 / 2099 00:00:00",
+          InitRepo = "2099-12-09 00:00:00",
+          EndRepo = "1970-12-09 00:00:00",
           IdReport = reportId,
           IdUser = userId,
           PathToSave = path
