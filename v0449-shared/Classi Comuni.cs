@@ -686,12 +686,13 @@ namespace v0449_shared
     public bool lsAllarmi;
     public bool lsAllBlink;
     public bool lsPiupiu;
+    public bool lsPuRun;
+    public bool lsPuStop;
     public bool auxComaAvan;
     public bool auxComaIndi;
     public bool auxStarAuto;
     public bool auxStopAuto;
     public bool auxPortChiuso;
-
   }
 
 
@@ -756,7 +757,7 @@ public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
-    AI = new short[25];
+    AI = new short[31];
     alarms = new ushort[5];
     c1 = new CXHmi();
     c2 = new CXHmi();

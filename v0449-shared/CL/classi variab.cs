@@ -21,7 +21,7 @@ namespace v0449_shared
     public BitInt[] We = new BitInt[4]; //Word di ingresso PLC
     public BitInt[] Wu = new BitInt[4]; //Word di uscita PLC
     public BitInt[] Wa = new BitInt[5]; //Word di 
-    public double[] analog = new double[25];
+    public double[] analog = new double[31];
     public BitInt[] Fp = new BitInt[4];
     public BitInt[] FpApp = new BitInt[4];
 

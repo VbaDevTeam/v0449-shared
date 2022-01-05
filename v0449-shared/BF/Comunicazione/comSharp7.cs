@@ -393,7 +393,7 @@ namespace v0449_shared
     {
       return 0;
     }
-    
+
     protected virtual void unPackRead()
     {
 
