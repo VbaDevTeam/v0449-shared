@@ -400,6 +400,7 @@ namespace v0449_shared
     public string nomeProva;
     public int tipoProva;
     public string serialeMezzo;
+    public string TipoCella;
   }
 
   public class parControls
