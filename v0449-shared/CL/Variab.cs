@@ -141,6 +141,32 @@ namespace v0449_shared
       }
     }
 
+    private static ComAcs2Hmi _comAcs2Hmi = new ComAcs2Hmi();
+    public ComAcs2Hmi comAcs2Hmi
+    {
+      get
+      {
+        return V._comAcs2Hmi;
+      }
+      set
+      {
+        V._comAcs2Hmi = value;
+      }
+    }
+
+    private static ComHmi2Acs _comHmi2Acs = new ComHmi2Acs();
+    public ComHmi2Acs comHmi2Acs
+    {
+      get
+      {
+        return V._comHmi2Acs;
+      }
+      set
+      {
+        V._comHmi2Acs = value;
+      }
+    }
+
     public static string user;
     public static string mezzo;
     public static bool initDone = false;
