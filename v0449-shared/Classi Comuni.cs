@@ -971,6 +971,45 @@ public class CXHmi
     public int cmdRespSrv { get; set; }//;
     public bool recDataOn { get; set; }//;
   }
+  
+  
+  #region Acs 
+  public class ComHmi2Acs
+  {
+    public ComHmi2Acs()
+    {
+    }
+
+  }
+
+  public class ComAcs2Hmi
+  {
+    public ComAcs2Hmi()
+    {
+    }
+    public double pvt_TempDb { get; set; }
+    public double pvt_TempWb { get; set; }
+    public double pvt_PtUsr0 { get; set; }
+    public double pvt_PtUsr1 { get; set; }
+    public double pvt_PtUsr2 { get; set; }
+    public double pvt_PtUsr3 { get; set; }
+    public double pvp_LsLp { get; set; }
+    public double pvp_LsHp { get; set; }
+    public double pvp_HsLp { get; set; }
+    public double pvp_HsHp { get; set; }
+    public double pvx_AiUsr0 { get; set; }
+    public double pvx_AiUsr1 { get; set; }
+    public double pvx_AiUsr2 { get; set; }
+    public double pvx_AiUsr3 { get; set; }
+    public double pvx_AiUsr4 { get; set; }
+    public double pvx_AiUsr5 { get; set; }
+    public double pvTempCh { get; set; }
+    public double pvhRh { get; set; }
+    public double pvhAh { get; set; }
+  }
+  #endregion
+  
+  
 #endif
 }
 
