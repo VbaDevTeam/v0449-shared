@@ -636,8 +636,6 @@ namespace v0449_shared
           " ORDER BY caId DESC;";
       }
 
-
-
       connessioneDB.Open();
 
       MySqlCommand comandoDB = new MySqlCommand();
