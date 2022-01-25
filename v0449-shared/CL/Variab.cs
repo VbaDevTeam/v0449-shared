@@ -23,8 +23,8 @@ namespace v0449_shared
     public static System.Globalization.NumberFormatInfo ni = null;
     public event Loaded myLoad;
 
-    public ILogger ioLog;
-    public ILogger evtLog;
+    public static ILogger ioLog;
+    public static ILogger evtLog;
     
     public V()
     {
