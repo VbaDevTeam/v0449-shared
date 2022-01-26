@@ -9,152 +9,163 @@ namespace v0449_shared
     #region def
 
 
+
     #region Canali analogici
 
-    #region AI chNames Siemens
-
+    #region AI1
 
     public enum chNoS7ai
     {
-      //SM1231 AI4 x HF, la seconda, Ai
-        
-        AIpFLUIPROV         //PRESS		  pressione fluido circolante
-      , AItFLUIPROV         //TEMP      temperatura fluido circolante
-      , AItRISCFLPR         //TEMP      temperat.riscaldatore fluido circolante
-      , AItCELLCLIM         //TEMP      temperatura cella climatica
-      , AItVASCFRI1         //TEMP      temperatura vasca 1°stadio
-      , AIcESCUVIBR         //VOLT      escursione vibratore
-      , AIaACCEVIBR         //VOLT      accelerazione vibratore
-      , AItCENTOLIO         //TEMP      temperatura centralina olio
-      , AIpHIPRFRIG1        //PRESS     alta pressione frigo 1
-      , AIpLOPRFRIG1        //PRESS     bassa pressione frigo 1
-      , AIpHIPRFRIG2        //PRESS     alta pressione frigo 2
-      , AIpLOPRFRIG2        //PRESS     bassa pressione frigo 2
-      , AItHIPRFRIG1        //TEMP      temperatura liquido frigo 1
-      , AItLOPRFRIG1        //TEMP      temperatura vapore frigo 1
-      , AItHIPRFRIG2        //TEMP      temperatura liquido frigo 2
-      , AItLOPRFRIG2        //TEMP      temperatura vapore frigo 2
-      , QC1                 //PORT      portata fluido circuito 1 
-      , QC2                 //PORT      portata fluido circuito 2 
-      , RISERVA_0           //PORT      portata fluido circuito 2 
-      , RISERVA_1           //PORT      portata fluido circuito 2 
-      , RISERVA_2                 //PORT      portata fluido circuito 2 
-      , RISERVA_3                 //PORT      portata fluido circuito 2 
-      , RISERVA_4                 //PORT      portata fluido circuito 2 
-      , RISERVA_5                 //PORT      portata fluido circuito 2 
-      , RISERVA_6                 //PORT      portata fluido circuito 2 
-      , RISERVA_7                 //PORT      portata fluido circuito 2 
-      , RISERVA_8                 //PORT      portata fluido circuito 2 
-      , RISERVA_9                 //PORT      portata fluido circuito 2 
+      pPrInternal_c      // Press. interno banco
+      , tAusiliaria_d      // 
+      , tVascaFrigo_d      // Temp. vasca frigo
+      , tCentrOleod_d      // Temp. olio centralina
+      , pHpChiller1_c      // HP frigo 1
+      , pLpChiller1_c      // LP frigo 1
+      , pHpChiller2_c      // HP frigo 2
+      , pLpChiller2_c      // LP frigo 2
+      , tHpChiller1_d      // Temp. liq. frigo 1
+      , tLpChiller1_d      // Temp. vap. frigo 1
+      , tHpChiller2_d      // Temp. liq. frigo 2
+      , tLpChiller2_d      // Temp. vap. frigo 2
+      , qRfrSecSalt_d      // Port. refr. scamb. secondo salto
+      , qRfrPriSalt_d      // Port. refr. scamb. primo salto
+      , qRfrMainRaf_d      // Port. refr. scamb. principale
+      , mpAlimento_00      // Perc. veloc. pompa alimento
+      , mpRafInter_00      // Perc. veloc. pompa circ. interm.
 
-        }
+      , pProvaMonte_c      // Press.monte UUT
+      , pProvaValle_c      // Press.valle UUT
+      , tProvaMonte_d      // Temp.monte UUT
+      , tProvaValle_d      // Temp.valle UUT
+      , tCellaProva_d      // Temp.cella
+      , qFluidProva_c      // Portata fluido prova
+      , vEscursione_x      // Escursione vibrazione
+      , vAccelerazi_x      // Accelerazione vibrazione
+      , tRisc1Fluid_d      // Temp. risc. fluido 1
+      , tRisc2Fluid_d      // Temp. risc. fluido 2
+      , tCircInterm_d      // Temp. circ. intermedio raffr.
+      , vpRaffMain_00      // Pos. virt. valv. raff. princ.
+      , vpRaffInte_00      // Pos. virt. valv. raff. II salto
+      , mpCircProv_00      // Perc. veloc. pompa circolazione
+    }
 
-        public static string[] aiChNamesS7 =
+    public static string[] aiChNamesS7 =
       {
-        "AIpFLUIPROV "        //PRESS		  pressione fluido circolante
-      , "AItFLUIPROV "        //TEMP      temperatura fluido circolante
-      , "AItRISCFLPR "        //TEMP      temperat.riscaldatore fluido circolante
-      , "AItCELLCLIM "        //TEMP      temperatura cella climatica
-      , "AItVASCFRI1 "        //TEMP      temperatura vasca 1°stadio
-      , "AIcESCUVIBR "        //VOLT      escursione vibratore
-      , "AIaACCEVIBR "        //VOLT      accelerazione vibratore
-      , "AItCENTOLIO "        //TEMP      temperatura centralina olio
-      , "AIpHIPRFRIG1"        //PRESS     alta pressione frigo 1
-      , "AIpLOPRFRIG1"        //PRESS     bassa pressione frigo 1
-      , "AIpHIPRFRIG2"        //PRESS     alta pressione frigo 2
-      , "AIpLOPRFRIG2"        //PRESS     bassa pressione frigo 2
-      , "AItHIPRFRIG1"        //TEMP      temperatura liquido frigo 1
-      , "AItLOPRFRIG1"        //TEMP      temperatura vapore frigo 1
-      , "AItHIPRFRIG2"        //TEMP      temperatura liquido frigo 2
-      , "AItLOPRFRIG2"        //TEMP      temperatura vapore frigo 2
-      , "QC1"                 //PORT      portata fluido circuito 1 
-      , "QC2"                 //PORT      portata fluido circuito 2 
-      , "RISERVA_0"
-      , "RISERVA_1"
-      , "RISERVA_2"
-      , "RISERVA_3"
-      , "RISERVA_4"
-      , "RISERVA_5"
-      , "RISERVA_6"
-      , "RISERVA_7"
-      , "RISERVA_8"
-      , "RISERVA_9"
-        };
+       "pPrInternal_c"
+      ,"tAusiliaria_d"
+      ,"tVascaFrigo_d"
+      ,"tCentrOleod_d"
+      ,"pHpChiller1_c"
+      ,"pLpChiller1_c"
+      ,"pHpChiller2_c"
+      ,"pHpChiller3_c"
+      ,"tHpChiller1_d"
+      ,"tLpChiller1_d"
+      ,"tHpChiller2_d"
+      ,"tLpChiller2_d"
+      ,"qRfrSecSalt_d"
+      ,"qRfrPriSalt_d"
+      ,"qRfrMainRaf_d"
+      ,"mpAlimento_00"
+      ,"mpRafInter_00"
 
-    #endregion
+      ,"pProvaMonte_c"
+      ,"pProvaValle_c"
+      ,"tProvaMonte_d"
+      ,"tProvaValle_d"
+      ,"tCellaProva_d"
+      ,"qFluidProva_c"
+      ,"vEscursione_x"
+      ,"vAccelerazi_x"
+      ,"tRisc1Fluid_d"
+      ,"tRisc2Fluid_d"
+      ,"tCircInterm_d"
+      ,"vpRaffMain_00"
+      ,"vpRaffInte_00"
+      ,"mpCircProv_00"
+      };
 
-    #region AI label short Siemens
+
+    #region AI1 label short Siemens
 
     public static string[] aiLabelShortS7 =
       {
-        " pressione fluido circolante               "
-      , " temperatura fluido circolante             "
-      , " temperat.riscaldatore fluido circolante   "
-      , " temperatura cella climatica               "
-      , " temperatura vasca 1°stadio                "
-      , " escursione vibratore                      "
-      , " accelerazione vibratore                   "
-      , " temperatura centralina olio               "
-      , " alta pressione frigo 1                    "
-      , " bassa pressione frigo 1                   "
-      , " alta pressione frigo 2                    "
-      , " bassa pressione frigo 2                   "
-      , " temperatura liquido frigo 1               "
-      , " temperatura vapore frigo 1                "
-      , " temperatura liquido frigo 2               "
-      , " temperatura vapore frigo 2                "
-      , " portata C1               "
-      , " portata C2               "
-      , "RISERVA_0"
-      , "RISERVA_1"
-      , "RISERVA_2"
-      , "RISERVA_3"
-      , "RISERVA_4"
-      , "RISERVA_5"
-      , "RISERVA_6"
-      , "RISERVA_7"
-      , "RISERVA_8"
-      , "RISERVA_9"
+        "Press. interno banco             "
+      , "                                 "
+      , "Temp. vasca frigo                "
+      , "Temp. olio centralina            "
+      , "HP frigo 1                       "
+      , "LP frigo 1                       "
+      , "HP frigo 2                       "
+      , "LP frigo 2                       "
+      , "Temp. liq. frigo 1               "
+      , "Temp. vap. frigo 1               "
+      , "Temp. liq. frigo 2               "
+      , "Temp. vap. frigo 2               "
+      , "Port. refr. scamb. secondo salto "
+      , "Port. refr. scamb. primo salto   "
+      , "Port. refr. scamb. principale    "
+      , "Perc. veloc. pompa alimento      "
+      , "Perc. veloc. pompa circ. interm. "
 
+      , "Press.monte UUT                  "
+      , "Press.valle UUT                  "
+      , "Temp.monte UUT                   "
+      , "Temp.valle UUT                   "
+      , "Temp.cella                       "
+      , "Portata fluido prova             "
+      , "Escursione vibrazione            "
+      , "Accelerazione vibrazione         "
+      , "Temp. risc. fluido 1             "
+      , "Temp. risc. fluido 2             "
+      , "Temp. circ. intermedio raffr.    "
+      , "Pos. virt. valv. raff. princ.    "
+      , "Pos. virt. valv. raff. II salto  "
+      , "Perc. veloc. pompa circolazione  "
       };
 
     #endregion
 
-    #region AI label Long Siemens
+    #region AI1 label Long Siemens
 
     public static string[] aiLabelLongS7 =
       {
-        " pressione fluido circolante               "
-      , " temperatura fluido circolante             "
-      , " temperat.riscaldatore fluido circolante   "
-      , " temperatura cella climatica               "
-      , " temperatura vasca 1°stadio                "
-      , " escursione vibratore                      "
-      , " accelerazione vibratore                   "
-      , " temperatura centralina olio               "
-      , " alta pressione frigo 1                    "
-      , " bassa pressione frigo 1                   "
-      , " alta pressione frigo 2                    "
-      , " bassa pressione frigo 2                   "
-      , " temperatura liquido frigo 1               "
-      , " temperatura vapore frigo 1                "
-      , " temperatura liquido frigo 2               "
-      , " temperatura vapore frigo 2                "
-      , " portata C1               "
-      , " portata C2               "
-      , "RISERVA_0"
-      , "RISERVA_1"
-      , "RISERVA_2"
-      , "RISERVA_3"
-      , "RISERVA_4"
-      , "RISERVA_5"
-      , "RISERVA_6"
-      , "RISERVA_7"
-      , "RISERVA_8"
-      , "RISERVA_9"
-        };
-    #endregion
+        "Press. interno banco             "
+      , "                                 "
+      , "Temp. vasca frigo                "
+      , "Temp. olio centralina            "
+      , "HP frigo 1                       "
+      , "LP frigo 1                       "
+      , "HP frigo 2                       "
+      , "LP frigo 2                       "
+      , "Temp. liq. frigo 1               "
+      , "Temp. vap. frigo 1               "
+      , "Temp. liq. frigo 2               "
+      , "Temp. vap. frigo 2               "
+      , "Port. refr. scamb. secondo salto "
+      , "Port. refr. scamb. primo salto   "
+      , "Port. refr. scamb. principale    "
+      , "Perc. veloc. pompa alimento      "
+      , "Perc. veloc. pompa circ. interm. "
 
+      , "Press.monte UUT                  "
+      , "Press.valle UUT                  "
+      , "Temp.monte UUT                   "
+      , "Temp.valle UUT                   "
+      , "Temp.cella                       "
+      , "Portata fluido prova             "
+      , "Escursione vibrazione            "
+      , "Accelerazione vibrazione         "
+      , "Temp. risc. fluido 1             "
+      , "Temp. risc. fluido 2             "
+      , "Temp. circ. intermedio raffr.    "
+      , "Pos. virt. valv. raff. princ.    "
+      , "Pos. virt. valv. raff. II salto  "
+      , "Perc. veloc. pompa circolazione  "
+    };
+    #endregion
+    #endregion
     #region Ao channel names Siemens
 
     public enum aoChNoS7
@@ -177,6 +188,7 @@ namespace v0449_shared
     #endregion
 
     #region Ao label short Siemens
+
     public static string[] aoLabelShortS7 =
       { 
         //SM 1232 AQ4, la prima, AO
@@ -197,6 +209,7 @@ namespace v0449_shared
         ,"Riserva canale 3"
       };
     #endregion
+
 
 
     #endregion

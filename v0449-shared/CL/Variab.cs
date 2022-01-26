@@ -6,6 +6,7 @@ using System.Collections;
 using System.Text;
 using System.IO;
 using VbaLib;
+using Serilog;
 
 namespace v0449_shared
 {
@@ -21,6 +22,9 @@ namespace v0449_shared
     public System.Globalization.CultureInfo ci;
     public static System.Globalization.NumberFormatInfo ni = null;
     public event Loaded myLoad;
+    public static ILogger ioLog;
+    public static ILogger evtLog;
+
     public V()
     {
       if (!initDone)

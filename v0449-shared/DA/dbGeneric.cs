@@ -144,9 +144,9 @@ namespace v0449_shared
       {
         comandoDB.ExecuteNonQuery();
       }
-      catch
+      catch (Exception ex)
       {
-
+        V.evtLog.Information("dbGeneric - Anomalia log BOT {@ex}", ex);
       }
       //if (comandoDB.ExecuteNonQuery() != 0)
       //  result = -1;
