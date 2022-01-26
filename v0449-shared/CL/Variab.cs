@@ -22,9 +22,10 @@ namespace v0449_shared
     public System.Globalization.CultureInfo ci;
     public static System.Globalization.NumberFormatInfo ni = null;
     public event Loaded myLoad;
+
     public static ILogger ioLog;
     public static ILogger evtLog;
-
+    
     public V()
     {
       if (!initDone)
@@ -310,7 +311,7 @@ namespace v0449_shared
       // l'operazione di deserializzazione sostituisce gli oggetti inizializzati.
       // dovendo aggiungere oggetti durante lo sviluppo, vanno aggiunti dopo il loadData, va fatto un giro con salvataggio e
       // quindi spostato il loadData alla fine del costruttore, in modo che resti la traccia ma non sovrascriva.
-      // 20100614 - le analogiche e i pid godono della proprietà di autorigenerazione. La definizione di un nuovo oggetto
+      // 20100614 - le analogiche e i pid godono della proprietï¿½ di autorigenerazione. La definizione di un nuovo oggetto
       // o il riordino ne causa la rigenerazione. ATTENZIONE: si perdono tutte le impostazioni
       this.DataAppl.aio = new analIo();
       this.DataAppl.aio.Ai = new List<AnCh>();
@@ -420,7 +421,7 @@ namespace v0449_shared
 #endregion
 
 
-      //se qualcosa è stato rigenerato, salva il nuovo set di parametri
+      //se qualcosa ï¿½ stato rigenerato, salva il nuovo set di parametri
       if (salva != 0)
       {
         string msg = "Alterazione banco.applicazione - cod. " + salva;
@@ -438,7 +439,7 @@ namespace v0449_shared
       // l'operazione di deserializzazione sostituisce gli oggetti inizializzati.
       // dovendo aggiungere oggetti durante lo sviluppo, vanno aggiunti dopo il loadData, va fatto un giro con salvataggio e
       // quindi spostato il loadData alla fine del costruttore, in modo che resti la traccia ma non sovrascriva.
-      // 20100614 - le analogiche e i pid godono della proprietà di autorigenerazione. La definizione di un nuovo oggetto
+      // 20100614 - le analogiche e i pid godono della proprietï¿½ di autorigenerazione. La definizione di un nuovo oggetto
       // o il riordino ne causa la rigenerazione. ATTENZIONE: si perdono tutte le impostazioni
       this.dataConfTest.passiProva = new List<PASSO>();
 
