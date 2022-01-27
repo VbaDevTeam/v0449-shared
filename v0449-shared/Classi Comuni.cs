@@ -21,6 +21,32 @@ namespace v0449_shared
 
 
 
+  public class DLogRecHs
+  {
+    public double spPr   ;
+    public double pvPUp  ;
+    public double pvPDn  ;
+    public double pvvEs  ;
+    public double pvvAc  ;
+    public int ctNPu     ;
+    public int ctTmS     ;
+  }
+  
+  public class dLogRecLs
+  {
+    public double spTFl  ;
+    public double pvTUp  ;
+    public double pvTDn  ;
+    public double spTCe  ;
+    public double pvTCe  ;
+    public double spQFl  ;
+    public double pvqFl  ;
+    public double spR1   ;
+    public double pvtR1  ;
+    public double pvtR2  ;
+    public double pvtCi  ;
+  }
+
   public class PROVA
   {
     private ContextMini lCMini;
@@ -641,8 +667,9 @@ namespace v0449_shared
   
   public class configData
   {
-    public string ipServer { get; set; }
-    public string portServer { get; set; }
+    public string ipServerPlc { get; set; }
+    public string ipServerGRpc { get; set; }
+    public string portGrpc { get; set; }
     public string ipServerDb { get; set; }
     public string strDbName { get; set; }
     public string userDb { get; set; }
