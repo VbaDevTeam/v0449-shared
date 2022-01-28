@@ -23,28 +23,28 @@ namespace v0449_shared
 
   public class dLogRecHs
   {
-    public double spPr   ;
-    public double pvPUp  ;
-    public double pvPDn  ;
-    public double pvvEs  ;
-    public double pvvAc  ;
-    public int ctNPu     ;
-    public int ctTmS     ;
+    public double spPr    { get; set; }
+    public double pvPUp   { get; set; }
+    public double pvPDn   { get; set; }
+    public double pvvEs   { get; set; }
+    public double pvvAc   { get; set; }
+    public int ctNPu      { get; set; }
+    public int ctTmS { get; set; }
   }
   
   public class dLogRecLs
   {
-    public double spTFl  ;
-    public double pvTUp  ;
-    public double pvTDn  ;
-    public double spTCe  ;
-    public double pvTCe  ;
-    public double spQFl  ;
-    public double pvqFl  ;
-    public double spR1   ;
-    public double pvtR1  ;
-    public double pvtR2  ;
-    public double pvtCi  ;
+    public double spTFl   { get; set; }
+    public double pvTUp   { get; set; }
+    public double pvTDn   { get; set; }
+    public double spTCe   { get; set; }
+    public double pvTCe   { get; set; }
+    public double spQFl   { get; set; }
+    public double pvqFl   { get; set; }
+    public double spR1    { get; set; }
+    public double pvtR1   { get; set; }
+    public double pvtR2   { get; set; }
+    public double pvtCi { get; set; }
   }
 
   public class PROVA
