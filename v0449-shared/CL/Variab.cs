@@ -25,7 +25,9 @@ namespace v0449_shared
 
     public static ILogger ioLog;
     public static ILogger evtLog;
-    
+    public static ILogger dataLogLs;
+    public static ILogger dataLogHs;
+
     public V()
     {
       if (!initDone)

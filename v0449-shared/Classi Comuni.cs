@@ -21,7 +21,7 @@ namespace v0449_shared
 
 
 
-  public class DLogRecHs
+  public class dLogRecHs
   {
     public double spPr   ;
     public double pvPUp  ;
