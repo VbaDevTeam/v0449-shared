@@ -47,26 +47,31 @@ namespace v0449_shared
     public double pvtCi { get; set; }
   }
 
+
+  //
+  /// <summary>
+  /// Struttura ReportHeader
+  /// </summary>
+  /// 
+  ///rHeader.RhId --> Identificativo Prova
+  ///rHeader.RhCodiceUtente --> Identificativo Utente
+  ///rHeader.RhCdId --> Identificativo Codice Disegno
+  ///rHeader.RhNomeProva --> Nome esteso della prova
+  ///rHeader.RhSerialiItems --> Json contenente le stringe dei seriali prova
+  ///rHeader.RhCdCaSetNo --> identificativo record confapp per dataconftest
+  ///rHeader.RhState --> stato della prova 
+
+
   public class PROVA
   {
     private ContextMini lCMini;
 
+    //Configurazione della prova (passi)
+    //Qua dentro ci sono i metodi per estrarre durata totale e cicli totali
     public DATA_CONF_TEST myConfTest;
+
+    //Identificativo della prova sul database 
     public Reportheader rHeader;
-
-    //
-    /// <summary>
-    /// Struttura ReportHeader
-    /// </summary>
-    /// 
-    ///rHeader.RhId --> Identificativo Prova
-    ///rHeader.RhCodiceUtente --> Identificativo Utente
-    ///rHeader.RhCdId --> Identificativo Codice Disegno
-    ///rHeader.RhNomeProva --> Nome esteso della prova
-    ///rHeader.RhSerialiItems --> Json contenente le stringe dei seriali prova
-    ///rHeader.RhCdCaSetNo --> identificativo record confapp per dataconftest
-    ///rHeader.RhState --> stato della prova 
-
 
     public int idProva;
     public int versioneRicetta;
@@ -77,8 +82,8 @@ namespace v0449_shared
     public DateTime dataCreazione;
     public DateTime dataInizio;
 
- 
 
+    //Da valorizzare con metodo myConfTest .getDurataTot
     private int durataTotale;
     public int DurataTotale {
       get => durataTotale; 
@@ -92,12 +97,12 @@ namespace v0449_shared
       }
     }
 
+    //Da valorizzare con metodo myConfTest .getCicliTot
     private int cicliTotali;
     public int CicliTotali { get => cicliTotali; set => cicliTotali = value; }
 
     private int cicliFatti;
     public int CicliFatti { get => cicliFatti; set => cicliFatti = value; }
-
 
     private int cicliRimanenti;
     public int CicliRimanenti { get => cicliRimanenti; set => cicliRimanenti = value; }
@@ -117,8 +122,6 @@ namespace v0449_shared
         CicliRimanenti = CicliTotali - CicliFatti;
       }
     }
-
-
 
 
     private int nRipetizione;
@@ -234,11 +237,12 @@ namespace v0449_shared
       {
         myConfTest = (DATA_CONF_TEST)serializer.Deserialize(ddsreader);
       }
-
+      //myConfTest.getDurataTot();
+      //myConfTest.getCicliTot();
       nomeProva = rHeader.RhNomeProva;
       nomeRicetta = lCMini.Tblcodicidisegnis.ToList().Where(e => e.CdId == rHeader.RhCdId).First().CdName;
-      DurataTotale = myConfTest.durataTotale;
-      CicliTotali = myConfTest.cicliTotale;
+      DurataTotale = myConfTest.DurataTotale;
+      CicliTotali = myConfTest.CicliTotale;
 
     }
 

@@ -206,15 +206,23 @@ namespace v0449_shared
     public int loops;
     public List<PASSO> passiProva;
     public string numeroDisegno;
-    public int durataTotale;
-    public int cicliTotale;
+    
+
+    //Ore mancanti
+    private int durataTotale;
+    public int DurataTotale { get => getDurataTot();}
+
+
+    private int cicliTotale;
+    public int CicliTotale { get => getCicliTot();}
+
 
     public DATA_CONF_TEST()
     {
     }
 
 
-    public int getCicliTot()
+    public int getCicliTotOld()
     {
       for (int n = 0; n < passiProva.Count; n++)
         cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
@@ -222,7 +230,18 @@ namespace v0449_shared
       return cicliTotale;
     }
 
-    public int getDurataTot()
+    public int getCicliTot()
+    {
+      for (int n = 0; n < passiProva.Count; n++)
+      {
+        if ((bool)passiProva[n].abilPuls.ValOut)
+          cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
+      }
+      cicliTotale *= (loops + 1);
+      return cicliTotale;
+    }
+
+    public int getDurataTotOld()
     {
       int appDurata = 0;
 
@@ -258,10 +277,58 @@ namespace v0449_shared
           appDurata += (int)tmCicloPulsa;
         }
       }
-      durataTotale = appDurata * loops;
+      durataTotale = appDurata * (loops + 1);
       return durataTotale;
     }
 
+
+
+    public int getDurataTot()
+    {
+      int appDurata = 0;
+
+      for (int n = 0; n < passiProva.Count; n++)
+      {
+        //durata passo impostata
+        int tmCicloDura = 0;
+        //durata equivalente n.cicli*durata ciclo
+        //nel caso debba aspettare fine pulsazione
+        int tmCicEqDura = 0;
+
+        double tmCicloPulsa = 0;
+        bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
+        bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
+
+        //se richiesta attesa fine tempo, inizializzo appoggio
+        if (chkFineCiclo)
+          tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());
+
+        //se richiesta attesa fine cicli pulsazione, calcolo durata ciclo pulsazione
+        if (chkFinePulsa)
+        {
+          double app = double.Parse(passiProva[n].tmSalita.ValOut.ToString());
+          tmCicloPulsa = app;
+          app = double.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
+          tmCicloPulsa += app;
+          app = double.Parse(passiProva[n].tmDisces.ValOut.ToString());
+          tmCicloPulsa += app;
+          app = double.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+          tmCicloPulsa += app;
+        }
+
+        //scelgo il più lungo tra i due
+        if (tmCicloDura > tmCicloPulsa)
+        {
+          appDurata += tmCicloDura;
+        }
+        else
+        {
+          appDurata += (int)tmCicloPulsa;
+        }
+      }
+      durataTotale = appDurata * (loops + 1);
+      return durataTotale;
+    }
 
 
   }
