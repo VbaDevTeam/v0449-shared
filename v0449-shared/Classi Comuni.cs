@@ -19,8 +19,6 @@ namespace v0449_shared
   //prova commit
   [Serializable()]
 
-
-
   public class dLogRecHs
   {
     public double spPr    { get; set; }
@@ -752,9 +750,6 @@ namespace v0449_shared
     //public C2Plc c2 { get; set; }
   }
 
-
-
-
   public class C2Plc
   {
     public C2Plc()
@@ -782,8 +777,6 @@ namespace v0449_shared
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
   }
-
-
 
 public class ComRt2Hmi
 {

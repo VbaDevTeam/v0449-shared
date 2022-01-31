@@ -281,8 +281,6 @@ namespace v0449_shared
       return durataTotale;
     }
 
-
-
     public int getDurataTot()
     {
       int appDurata = 0;
