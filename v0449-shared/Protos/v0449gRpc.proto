@@ -28,15 +28,20 @@ package v0449gRpc;
 //}
 service v0449gRpcSvc {
   // Sends a greeting
-  rpc getRtData (dataRequest) returns (dataAnswer) {}
-  rpc xchRtData (data2Plc) returns (data2Hmi) {}
-  rpc xchRtDataSlave (slaveReq2Plc) returns (data2Hmi) {}
+  //rpc getRtData (dataRequest) returns (dataAnswer) {}
+
+  //richiesta da terminale a server Master
+  //rpc xchRtData (data2Plc) returns (data2Hmi) {}
+
+  //richiesta da terminale a server Slave
+  //rpc xchRtDataSlave (slaveReq2Plc) returns (data2Hmi) {}
+
+  //richiesta da terminale a server Master
   rpc xchRtDataJs (data2PlcJs) returns (data2HmiJs) {}
+
+  //richiesta da terminale a server Slave
   rpc xchRtDataJsSlave (slaveReq2Plc) returns (data2HmiJs) {}
-  rpc xchRtDataPb (data2PlcPb) returns (data2HmiPb) {}
-
-  //rpc createReport
-
+  
 }
 
 //// The request message containing the user's name.
@@ -72,40 +77,6 @@ message data2HmiJs {
 message data2PlcPb {
   
   string xmlSer = 1;
-}
-
-//// The request message con letture da leggere
-message data2HmiPb {
-  sint32 di0 = 1; 
-  sint32 di1 = 2; 
-  sint32 di2 = 3; 
-  sint32 do0 = 4; 
-  sint32 do1 = 5; 
-  sint32 do2 = 6; 
-  sint32 al0 = 7; 
-  sint32 al1 = 8; 
-  sint32 al2 = 9; 
-  sint32 al3 = 10; 
-  sint32 al4 = 11; 
-  sint32 ai0 = 12;
-  sint32 ai1 = 13;
-  sint32 ai2 = 14;
-  sint32 ai3 = 15;
-  sint32 ai4 = 16;
-  sint32 ai5 = 17;
-  sint32 ai6 = 18;
-  sint32 ai7 = 19;
-  sint32 ai8 = 20;
-  sint32 ai9 = 21;
-  sint32 ai10 = 22;
-  sint32 ai11 = 23;
-  sint32 ai12 = 24;
-  sint32 ai13 = 25;
-  sint32 ai14 = 26;
-  sint32 ai15 = 27;
-  sint32 ai16 = 28;
-  sint32 ai17 = 29;
-  string xmlSer = 30;
 }
 
 //// The response message containing the greetings

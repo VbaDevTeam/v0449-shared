@@ -727,6 +727,8 @@ namespace v0449_shared
 
 
 #if v0387 || v0449
+  
+  //Definizione delle classi di interscambio dati 
   public class ComRt2Plc
   {
     public ComRt2Plc()
@@ -747,6 +749,9 @@ namespace v0449_shared
     public Int16 wDogCli { get; set; }
 
     public C2Plc c1 { get; set; }
+    
+    public string interCom { get; set; }
+    
     //public C2Plc c2 { get; set; }
   }
 
@@ -776,9 +781,9 @@ namespace v0449_shared
     public Int16 comStatus { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
-  }
-
-public class ComRt2Hmi
+  } 
+  
+  public class ComRt2Hmi
 {
   public ComRt2Hmi()
   {
@@ -803,8 +808,10 @@ public class ComRt2Hmi
   public bool comunicOn { get; set; }//;
   public CXHmi c1 { get; set; }
   public CXHmi c2 { get; set; }
+  
+  public string interCom { get; set; }
 }
-public class CXHmi
+  public class CXHmi
 {
   public CXHmi()
   {
@@ -850,7 +857,6 @@ public class CXHmi
   public bool recDataOn { get; set; }//;
 
 }
-
 
   #region Acs 
   public class ComHmi2Acs

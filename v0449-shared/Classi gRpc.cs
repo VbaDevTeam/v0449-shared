@@ -18,37 +18,35 @@ namespace v0449_shared
   class v0449gRpcSvcImpl : v0449gRpcSvc.v0449gRpcSvcBase
   {
     V v = new();
-    public override Task<dataAnswer> getRtData(dataRequest request, ServerCallContext context)
-    {
-      return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
-    }
-
-    public override Task<data2Hmi> xchRtData(data2Plc request, ServerCallContext context)
-    {
-      TextReader reader = new StringReader(request.XmlSer);
-      XmlSerializer ser = new XmlSerializer(typeof(ComRt2Plc));
-      v.comRt2Plc = (ComRt2Plc)ser.Deserialize(reader);
-
-
-      StringWriter outApp = new StringWriter(new StringBuilder());
-      XmlSerializer serApp = new XmlSerializer(typeof(ComRt2Hmi));
-      serApp.Serialize(outApp, v.comRt2Hmi);
-      string appData = outApp.ToString();
-
-      return Task.FromResult(new data2Hmi { XmlSer = appData });
-    }
-
-    public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
-    {
-      v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
-
-      //Utilizzo libreria Newtonsoft.Json
-      var options = new JsonSerializerOptions { WriteIndented = true };
-
-      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
-      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
-    }
-
+    // public override Task<dataAnswer> getRtData(dataRequest request, ServerCallContext context)
+    // {
+    //   return Task.FromResult(new dataAnswer { Message = "Adesso puoi andare affanculo, " + request.Name });
+    // }
+    //
+    // public override Task<data2Hmi> xchRtData(data2Plc request, ServerCallContext context)
+    // {
+    //   TextReader reader = new StringReader(request.XmlSer);
+    //   XmlSerializer ser = new XmlSerializer(typeof(ComRt2Plc));
+    //   v.comRt2Plc = (ComRt2Plc)ser.Deserialize(reader);
+    //
+    //
+    //   StringWriter outApp = new StringWriter(new StringBuilder());
+    //   XmlSerializer serApp = new XmlSerializer(typeof(ComRt2Hmi));
+    //   serApp.Serialize(outApp, v.comRt2Hmi);
+    //   string appData = outApp.ToString();
+    //
+    //   return Task.FromResult(new data2Hmi { XmlSer = appData });
+    // }
+    //
+    // public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
+    // {
+    //   v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
+    //
+    //   //Utilizzo libreria Newtonsoft.Json
+    //   var options = new JsonSerializerOptions { WriteIndented = true };
+    //
+    //   string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
+    //   return Task.FromResult(new data2HmiJs { JsSer = jsonString });
 
     public override Task<data2HmiJs> xchRtDataJsSlave(slaveReq2Plc request, ServerCallContext context)
     {
@@ -60,7 +58,6 @@ namespace v0449_shared
     }
 
   }
-
 
   class v0449MicroSClient
   {
@@ -147,7 +144,6 @@ namespace v0449_shared
       }
     }
   }
-
 
   public class v0449CellaClient
   {
