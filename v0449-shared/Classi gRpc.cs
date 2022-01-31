@@ -38,15 +38,16 @@ namespace v0449_shared
     //   return Task.FromResult(new data2Hmi { XmlSer = appData });
     // }
     //
-    // public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
-    // {
-    //   v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
-    //
-    //   //Utilizzo libreria Newtonsoft.Json
-    //   var options = new JsonSerializerOptions { WriteIndented = true };
-    //
-    //   string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
-    //   return Task.FromResult(new data2HmiJs { JsSer = jsonString });
+    public override Task<data2HmiJs> xchRtDataJs(data2PlcJs request, ServerCallContext context)
+    {
+      v.comRt2Plc = System.Text.Json.JsonSerializer.Deserialize<ComRt2Plc>(request.JsSer);
+
+      //Utilizzo libreria Newtonsoft.Json
+      var options = new JsonSerializerOptions { WriteIndented = true };
+
+      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
+      return Task.FromResult(new data2HmiJs { JsSer = jsonString });
+    }
 
     public override Task<data2HmiJs> xchRtDataJsSlave(slaveReq2Plc request, ServerCallContext context)
     {
