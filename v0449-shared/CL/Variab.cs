@@ -23,10 +23,10 @@ namespace v0449_shared
     public static System.Globalization.NumberFormatInfo ni = null;
     public event Loaded myLoad;
 
-    public static ILogger ioLog;
-    public static ILogger evtLog;
-    public static ILogger dataLogLs;
-    public static ILogger dataLogHs;
+    public static Serilog.ILogger ioLog;
+    public static Serilog.ILogger evtLog;
+    public static Serilog.ILogger dataLogLs;
+    public static Serilog.ILogger dataLogHs;
 
     public V()
     {
