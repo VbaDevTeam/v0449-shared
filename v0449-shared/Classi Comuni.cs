@@ -795,7 +795,6 @@ namespace v0449_shared
   }
 
 
-#if v0387 || v0449
   
   //Definizione delle classi di interscambio dati 
   public class ComRt2Plc
@@ -963,7 +962,7 @@ namespace v0449_shared
   }
   #endregion
 
-#elif v0470
+#if v0470zzz
 
   public class ComRt2Plc
   {
@@ -1017,8 +1016,8 @@ namespace v0449_shared
     {
       AI = new short[18];
       alarms = new ushort[5];
-      c1 = new C2Hmi();
-      c2 = new C2Hmi();
+      c1 = new CXHmi();
+      c2 = new CXHmi();
     }
     public UInt16 di0 { get; set; }
     public UInt16 di1 { get; set; }//;
@@ -1033,12 +1032,16 @@ namespace v0449_shared
     public DateTime tmSync { get; set; }//;
     public int cmdRespSrv { get; set; }//;
     public bool recDataOn { get; set; }//;
-    public C2Hmi c1 { get; set; }
-    public C2Hmi c2 { get; set; }
+    public bool comunicOn { get; set; }//;
+    public CXHmi c1 { get; set; }
+    public CXHmi c2 { get; set; }
+    
+    public string interCom { get; set; }
+
   }
-  public class C2Hmi
+  public class CXHmi
   {
-    public C2Hmi()
+    public CXHmi()
     {
     }
     public Int16 comStatus { get; set; }//;
@@ -1047,7 +1050,8 @@ namespace v0449_shared
     public UInt16 cmdStAut { get; set; }//;
     public UInt16 cmdStMan { get; set; }//;
     public UInt16 cmdSt { get; set; }//;
-    public Int16 flVari { get; set; }//;
+    public Int16 flVari0 { get; set; }//;
+    public Int16 flVari1 { get; set; }//;
     public Int16 ptrPhTest { get; set; }//;
     public Int16 ptrPhPulsa { get; set; }//;
     public Int16 ptrPh1Frig { get; set; }//;
@@ -1061,6 +1065,8 @@ namespace v0449_shared
     public Int16 spTCeAut_d { get; set; }//;
     public Int16 spTFlAut_d { get; set; }//;
     public Int16 spPresFl_d { get; set; }//;
+    public Int16 pidPwRisCe_d { get; set; }//;
+    public Int16 pidPwRafCe_d { get; set; }//;
     public Int16 pidPwRisFl_d { get; set; }//;
     public Int16 pidPwRafFl_d { get; set; }//;
     public Int16 cntTmStep { get; set; }//;

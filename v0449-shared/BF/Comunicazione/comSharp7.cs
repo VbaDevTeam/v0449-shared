@@ -155,7 +155,8 @@ namespace v0449_shared
     #endregion
 
     #region datiRemoto
-    private datiRemoto drTerminale;
+
+    private datiRemoto drTerminale { get; set; }
     public datiRemoto DrTerminale
     {
       get { return drTerminale; }
@@ -370,8 +371,8 @@ namespace v0449_shared
         drTerminale = new datiRemoto(ipAddress);
         dialogo = new Thread(new ThreadStart(runServer));
         dialogo.Start();
-        Console.WriteLine(ipAddress.ToString());
-        Console.WriteLine(drTerminale.ToString());
+        V.evtLog.Information("PLC address: {ipAddress} drTerminale:{@drTerminale}", ipAddress, drTerminale);
+
       }
     }
 

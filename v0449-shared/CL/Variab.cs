@@ -18,6 +18,8 @@ namespace v0449_shared
 
   public class V
   {
+    public static string targetSel;
+
     public static DEF Def = new DEF();
     public System.Globalization.CultureInfo ci;
     public static System.Globalization.NumberFormatInfo ni = null;
