@@ -270,16 +270,14 @@ namespace v0449_shared
     public int stepNum { get; set; }
     public string stepDescr { get; set; }
 
-    private setPoint spTempCircuit; 
-    public setPoint SpTempCircuit
-    {
-      get => spTempCircuit;
-      set
-      {
-        spTempCircuit = new setPoint();
-      }
-    }
+    public setPoint spTempCircuit { get; set; }
     
+    public PASSO()
+		{
+      spTempCircuit = new setPoint();
+    }
+
+
     public setPoint spTempCella = new setPoint();
     public setPoint spHumidityCella = new setPoint();
     public setPoint spPressLow = new setPoint();
