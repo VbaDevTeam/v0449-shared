@@ -271,64 +271,118 @@ namespace v0449_shared
     public string stepDescr { get; set; }
 
     public setPoint spTempCircuit { get; set; }
-    
-    public PASSO()
-		{
-      spTempCircuit = new setPoint();
-    }
+    public setPoint spTempCella { get; set; }
+    public setPoint spHumidityCella{ get; set; }
+    public setPoint spPressLow{ get; set; }
+    public setPoint spPressHigh{ get; set; }
+    public bool abilSpHumidityCella { get; set; }
+    public bool abilSpTempCircuit { get; set; }
+    public bool abilSpTempCella { get; set; }
+    public bool abilSpPressLow { get; set; }
+    public bool abilSpPressHigh { get; set; }
 
+    public setPoint spPort { get; set; }
+    public setPoint spTsRUp { get; set; }
+    public setPoint spTsUp { get; set; }
+    public setPoint spTsRDn { get; set; }
+    public setPoint spTsDn { get; set; }
+    public setPoint frequency { get; set; }
 
-    public setPoint spTempCella = new setPoint();
-    public setPoint spHumidityCella = new setPoint();
-    public setPoint spPressLow = new setPoint();
-    public setPoint spPressHigh = new setPoint();
-    public bool abilSpTempCircuit = true;
-    public bool abilSpTempCella = true;
-    public bool abilSpHumidityCella = true;
-    public bool abilSpPressLow = true;
-    public bool abilSpPressHigh = true;
-
-
-
-    public setPoint spPort = new setPoint();
-    public setPoint spTsRUp = new setPoint();
-    public setPoint spTsUp = new setPoint();
-    public setPoint spTsRDn = new setPoint();
-    public setPoint spTsDn = new setPoint();
-    public setPoint frequency = new setPoint();
-
-    private List<ParametroVba> tmp1 = new List<ParametroVba>();
-    private List<ParametroVba> tmp2 = new List<ParametroVba>();
-    private List<ParametroVba> tmp3 = new List<ParametroVba>();
+    private List<ParametroVba> tmp1 { get; set; }
+    private List<ParametroVba> tmp2 { get; set; }
+    private List<ParametroVba> tmp3 { get; set; }
 
 
 
     //Generali
-    public ParametroVba durataPasso = new ParametroVba(1, 60, "Durata passo [s]");
-    public ParametroVba blFineCiclo = new ParametroVba(1, true, "Attendi fine tempo");
-    public ParametroVba blFinePulsa = new ParametroVba(1, true, "Attendi fine N° pulsazione");
-    public ParametroVba abilVibrazi = new ParametroVba(1, true, "Abilitazione vibrazione");
-    public ParametroVba blEsclRisc = new ParametroVba(1, true, "Esclusione circolazione nel riscaldatore");
-    public ParametroVba setPortata = new ParametroVba(1, 0, "Setpoint portata circolazione [Lt/Min]");
+    public ParametroVba durataPasso { get; set; }
+    public ParametroVba blFineCiclo { get; set; }
+    public ParametroVba blFinePulsa { get; set; }
+    public ParametroVba abilVibrazi { get; set; }
+    public ParametroVba blEsclRisc { get; set; }
+    public ParametroVba setPortata { get; set; }
 
     //Pulsazione
-    public ParametroVba abilPuls = new ParametroVba(1, true, "Abilitazione pulsazione");
-    public ParametroVba numePuls = new ParametroVba(1, 60, "N° cicli pulsazione");
-    public ParametroVba abilSinu = new ParametroVba(2, true, "Abilitazione sinusoide");
-    public ParametroVba frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]");
-    public ParametroVba tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]");
-    public ParametroVba tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]");
-    public ParametroVba tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]");
-    public ParametroVba tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]");
+    public ParametroVba abilPuls { get; set; }
+    public ParametroVba numePuls { get; set; }
+    public ParametroVba abilSinu { get; set; }
+    public ParametroVba frPulsaS { get; set; }
+    public ParametroVba tmSalita { get; set; }
+    public ParametroVba tmAltaSt { get; set; }
+    public ParametroVba tmDisces { get; set; }
+    public ParametroVba tmBassaS { get; set; }
 
     //Acquisizione
-    public ParametroVba abilAcqu = new ParametroVba(1, true, "Abilitazione acquisizione");
-    public ParametroVba frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)");
-    public ParametroVba frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)");
-    public ParametroVba prAcqAlt = new ParametroVba(2, 500, "Perioro alta freq. [s]");
-    public ParametroVba tmAcqAlt = new ParametroVba(2, 500, "Tempo   alta freq. [s]");
+    public ParametroVba abilAcqu { get; set; }
+    public ParametroVba frAcqBas { get; set; }
+    public ParametroVba frAcqAlt { get; set; }
+    public ParametroVba prAcqAlt { get; set; }
+    public ParametroVba tmAcqAlt { get; set; }
 
-    public BitInt bitCmd = new BitInt();
+    public BitInt bitCmd { get; set; }
+
+    
+    
+    
+    public PASSO()
+		{
+      spTempCircuit = new setPoint();
+      spTempCella = new setPoint();
+      spHumidityCella = new setPoint();
+      spPressLow = new setPoint();
+      spPressHigh = new setPoint();
+      abilSpHumidityCella = true;
+      abilSpTempCircuit = true;
+      abilSpTempCella = true;
+      abilSpPressLow = true;
+      abilSpPressHigh = true;
+      
+    spPort = new setPoint();
+    spTsRUp = new setPoint();
+    spTsUp = new setPoint();
+    spTsRDn = new setPoint();
+    spTsDn = new setPoint();
+    frequency = new setPoint();
+
+    tmp1 = new List<ParametroVba>();
+    tmp2 = new List<ParametroVba>();
+    tmp3 = new List<ParametroVba>();
+
+
+
+    //Generali
+    durataPasso = new ParametroVba(1, 60, "Durata passo [s]");
+    blFineCiclo = new ParametroVba(1, true, "Attendi fine tempo");
+    blFinePulsa = new ParametroVba(1, true, "Attendi fine N° pulsazione");
+    abilVibrazi = new ParametroVba(1, true, "Abilitazione vibrazione");
+    blEsclRisc = new ParametroVba(1, true, "Esclusione circolazione nel riscaldatore");
+    setPortata = new ParametroVba(1, 0, "Setpoint portata circolazione [Lt/Min]");
+
+    //Pulsazione
+    abilPuls = new ParametroVba(1, true, "Abilitazione pulsazione");
+    numePuls = new ParametroVba(1, 60, "N° cicli pulsazione");
+    abilSinu = new ParametroVba(2, true, "Abilitazione sinusoide");
+    frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]");
+    tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]");
+    tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]");
+    tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]");
+    tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]");
+
+    //Acquisizione
+    abilAcqu = new ParametroVba(1, true, "Abilitazione acquisizione");
+    frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)");
+    frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)");
+    prAcqAlt = new ParametroVba(2, 500, "Perioro alta freq. [s]");
+    tmAcqAlt = new ParametroVba(2, 500, "Tempo   alta freq. [s]");
+
+    bitCmd = new BitInt();
+
+      
+    }
+    
+
+
+
 
 
     public object Clone()
