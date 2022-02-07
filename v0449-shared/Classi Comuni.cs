@@ -267,10 +267,19 @@ namespace v0449_shared
 
   public class PASSO
   {
-    public int stepNum;
-    public string stepDescr;
+    public int stepNum { get; set; }
+    public string stepDescr { get; set; }
 
-    public setPoint spTempCircuit = new setPoint();
+    private setPoint spTempCircuit; 
+    public setPoint SpTempCircuit
+    {
+      get => spTempCircuit;
+      set
+      {
+        spTempCircuit = new setPoint();
+      }
+    }
+    
     public setPoint spTempCella = new setPoint();
     public setPoint spHumidityCella = new setPoint();
     public setPoint spPressLow = new setPoint();
@@ -506,7 +515,15 @@ namespace v0449_shared
     /// Nome del set point.
     /// Stringa utilizzata per la nomenclatura del controllo cntSetPoint
     /// </summary>
-    public string Name = "Sp";
+    ///
+
+
+    public string Name
+    {
+      get;
+      set;
+    }
+      
 
     double sp;
     /// <summary>

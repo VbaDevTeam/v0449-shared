@@ -200,12 +200,12 @@ namespace v0449_shared
 
   public class DATA_CONF_TEST
   {
-    public int testId;
-    public string testName;
-    public string testNote;
-    public int loops;
-    public List<PASSO> passiProva;
-    public string numeroDisegno;
+    public int testId { get; set; }
+    public string testName { get; set; }
+    public string testNote { get; set; }
+    public int loops { get; set; }
+    public List<PASSO> passiProva { get; set; }
+    public string numeroDisegno { get; set; }
     
 
     //Ore mancanti
