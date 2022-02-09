@@ -7120,7 +7120,7 @@ namespace v0449_shared
      , AL2_3_CLaV520INSE
      , AL2_4_SQaSTEPUNDF
      , AL2_5_SQaTESTLIVE
-     , AL2_6_Riserva
+     , AL2_6_SBaSCOPTUBO
      , AL2_7_Riserva
      , AL2_8_Riserva
      , AL2_9_Riserva
@@ -7141,7 +7141,7 @@ namespace v0449_shared
         ,"35 - chiusura valvola inseguimento"
         ,"36 - step indefinito"
         ,"37 - prova attiva"
-        ,"38 - Riserva "
+        ,"38 - Anomalia pulsazione, scoppio tubo "
         ,"39 - Riserva "
         ,"40 - Riserva "
         ,"41 - Riserva "
@@ -7157,10 +7157,10 @@ namespace v0449_shared
          "OPaV360RAFF "
         ,"CLaV360RAFF "
         ,"OPaV520INSE "
-        ,"CLaV520INSE"
-        ,"SQaSTEPUNDF"
+        ,"CLaV520INSE "
+        ,"SQaSTEPUNDF "
         ,"SQaTESTLIVE "
-        ,"Riserva "
+        ,"SBaSCOPTUBO "
         ,"Riserva "
         ,"Riserva "
         ,"Riserva "
