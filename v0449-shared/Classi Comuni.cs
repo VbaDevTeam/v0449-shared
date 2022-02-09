@@ -638,6 +638,7 @@ namespace v0449_shared
       {
         lcs = value;
         tollSup = lcs - sp;
+
         if ((lcs + lci) / 2 == sp)
         {
           Tolleranza = tollSup;
