@@ -468,14 +468,17 @@ namespace v0449_shared
     public setPoint spTFlMan = new setPoint();
     public setPoint spPLavoroMan = new setPoint();
     public setPoint spPRiposoMan = new setPoint();
-    public setPoint spTRUp = new setPoint(); //Setpoint tempo rampa salita
-    public setPoint spTUp = new setPoint(); //Setpoint tempo mantenimento alto
-    public setPoint spTRDn = new setPoint(); //Setpoint tempo rampa discesa
-    public setPoint spTDn = new setPoint(); //Setpoint tempo mantenimento basso
-    public setPoint spFreq_M = new setPoint(); // Setpoint frequenza pulsazione
+    public setPoint spTRUp = new setPoint();        //Setpoint tempo rampa salita
+    public setPoint spTUp = new setPoint();         //Setpoint tempo mantenimento alto
+    public setPoint spTRDn = new setPoint();        //Setpoint tempo rampa discesa
+    public setPoint spTDn = new setPoint();         //Setpoint tempo mantenimento basso
+    public setPoint spFreq_M = new setPoint();      // Setpoint frequenza pulsazione
     public setPoint spQFlMan = new setPoint();
+    public setPoint spRipErr = new setPoint();      //Setpoint ripetizioni errori per scoppio tubo
+    public setPoint spScopTubo = new setPoint();    //Setpoint limite controllo scoppio tubo
+    public setPoint spEnScTubo = new setPoint();    //Setpoint Enable controllo scoppio tubo
   }
-  
+
   public class parametriMacchina
   {
     public int spOverPerc = 0;
@@ -848,6 +851,9 @@ namespace v0449_shared
     public Int16 spTScarco_c { get; set; }
     public Int16 spOverpPerc { get; set; }
     public Int16 comStatus { get; set; }
+    public Int16 spRipErr { get; set; }
+    public Int16 spScopTubo { get; set; }
+    public Int16 spEnScTubo { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
   } 
