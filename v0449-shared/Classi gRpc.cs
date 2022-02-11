@@ -62,8 +62,8 @@ namespace v0449_shared
 
   class v0449MicroSClient
   {
-    public event getProgressRepo gProgressRepo;
-    public event getEndGenerRepo gEndGenerRepo;
+    //public event getProgressRepo gProgressRepo;
+    //public event getEndGenerRepo gEndGenerRepo;
     readonly v0449gRpcMicroS.v0449gRpcMicroSClient client;
 
     public v0449MicroSClient(v0449gRpcMicroS.v0449gRpcMicroSClient client)
@@ -181,6 +181,7 @@ namespace v0449_shared
       }
       catch (RpcException ex)
       {
+        V.evtLog.Error("ClassigRpc.cs, 184 - {@ex}", ex);
         svcSetpointResponse response = new svcSetpointResponse();
         return response;
       }

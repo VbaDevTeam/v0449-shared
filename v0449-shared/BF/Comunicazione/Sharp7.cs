@@ -957,8 +957,9 @@ namespace v0449_shared
       {
         return new DateTime(Year, Month, Day, Hour, Min, Sec, MSec);
       }
-      catch (System.ArgumentOutOfRangeException e)
+      catch (System.ArgumentOutOfRangeException ex)
       {
+        V.evtLog.Error("Sharp7.cs, 962 - {@ex}", ex);
         return new DateTime(0);
       }
     }

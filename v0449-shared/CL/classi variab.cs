@@ -248,7 +248,7 @@ namespace v0449_shared
       for (int n = 0; n < passiProva.Count; n++)
       {
         int tmCicloDura = 0;
-        int tmCicEqDura = 0;
+        //int tmCicEqDura = 0;
         double tmCicloPulsa = 0;
         bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
         bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
@@ -291,7 +291,7 @@ namespace v0449_shared
         int tmCicloDura = 0;
         //durata equivalente n.cicli*durata ciclo
         //nel caso debba aspettare fine pulsazione
-        int tmCicEqDura = 0;
+        //int tmCicEqDura = 0;
 
         double tmCicloPulsa = 0;
         bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;

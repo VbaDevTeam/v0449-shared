@@ -715,8 +715,9 @@ namespace v0449_shared
             if (loaded != null)
               loaded((int)V.saveType.TestConf);
           }
-          catch (System.InvalidOperationException e)
+          catch (System.InvalidOperationException ex)
           {
+            V.evtLog.Error("Variab.cs, 720 - {@ex}", ex);
 
           }
         }

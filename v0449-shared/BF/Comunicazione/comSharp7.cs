@@ -308,9 +308,7 @@ namespace v0449_shared
       int ResultB = 5310089;
       int ptrErr = 0;
 
-      int ptr = 0;
-
-      short[] tmpSh;
+      //short[] tmpSh;
 
       ResultB = Client.WriteArea(S7Consts.S7AreaDB, DBNoWr, 70, Amount, S7Consts.S7WLByte, bufWr, ref SizeWrB);
 

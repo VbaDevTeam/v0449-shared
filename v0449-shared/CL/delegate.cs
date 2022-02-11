@@ -1,7 +1,7 @@
 ﻿namespace v0449_shared
 {
-  public delegate void getProgressRepo(string msg);
-  public delegate void getEndGenerRepo(string msg);
+  //public delegate void getProgressRepo(string msg);
+  //public delegate void getEndGenerRepo(string msg);
   public delegate void GotFocus(object sender, string msg);
   public delegate void syncStep(argSyncStep e);
   public delegate void Loaded(int what);

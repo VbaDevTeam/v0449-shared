@@ -228,6 +228,7 @@ namespace v0449_shared
       }
       catch (Exception ex)
       {
+        V.evtLog.Error("ClassiComuni.cs, 231 - {@ex}", ex);
         reader = lCMini.Confapps.ToList().Where(a => a.CaType == "TestConf").Max().ToString();
       }
       var serializer = new XmlSerializer(typeof(DATA_CONF_TEST));
@@ -253,6 +254,7 @@ namespace v0449_shared
       }
       catch(Exception ex)
       {
+        V.evtLog.Error("ClassiComuni.cs, 257 - {@ex}", ex);
         return false;
       }
     }
@@ -854,11 +856,9 @@ namespace v0449_shared
     public Int16 spTScarco_c { get; set; }
     public Int16 spOverpPerc { get; set; }
     public Int16 comStatus { get; set; }
-    public Int16 spRipErr { get; set; }
-    public Int16 spScopTubo { get; set; }
-    public Int16 spEnScTubo { get; set; }
-    public Int16 spTOpValScaDis { get; set; }
-    public Int16 spTOpValScaBas { get; set; }
+    public Int16 spCntNumErr { get; set; }
+    public Int16 spKCalcLimRott { get; set; }
+    public Int16 spLimSumErr { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
     public Int16[] auxPar{get; set; }
