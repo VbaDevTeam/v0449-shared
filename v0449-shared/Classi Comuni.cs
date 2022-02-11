@@ -832,6 +832,7 @@ namespace v0449_shared
     public C2Plc()
     {
       cmdReq = new UInt16[1];
+      auxPar = new UInt16[10];
     }
     public UInt16[] cmdReq { get; set; }
     public UInt16 flVari { get; set; }
@@ -856,6 +857,7 @@ namespace v0449_shared
     public Int16 spEnScTubo { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
+    public Int16[] auxPar{get; set; }
   } 
   
   public class ComRt2Hmi
@@ -887,51 +889,53 @@ namespace v0449_shared
   public string interCom { get; set; }
 }
   public class CXHmi
-{
-  public CXHmi()
   {
-  }
-  public Int16 comStatus { get; set; }//;
-  public Int16 runStatus { get; set; }//;
-  public Int16 spTCeMan_d { get; set; }//;
-  public UInt16 cmdStAut { get; set; }//;
-  public UInt16 cmdStMan { get; set; }//;
-  public UInt16 cmdSt { get; set; }//;
-  public Int16 flVari0 { get; set; }//;
-  public Int16 flVari1 { get; set; }//;
+    public CXHmi()
+    {
+      auxPar = new short[10];
+    }
+    public Int16 comStatus { get; set; }//;
+    public Int16 runStatus { get; set; }//;
+    public Int16 spTCeMan_d { get; set; }//;
+    public UInt16 cmdStAut { get; set; }//;
+    public UInt16 cmdStMan { get; set; }//;
+    public UInt16 cmdSt { get; set; }//;
+    public Int16 flVari0 { get; set; }//;
+    public Int16 flVari1 { get; set; }//;
 
-  public Int16 ptrPhTest { get; set; }//;
-  public Int16 ptrPhPulsa { get; set; }//;
-  public Int16 ptrPh1Frig { get; set; }//;
-  public Int16 ptrPhRiscCe { get; set; }//;
-  public Int16 ptrPhRaffrCe { get; set; }//;
-  public Int16 ptrPhCompCe { get; set; }//;
+    public Int16 ptrPhTest { get; set; }//;
+    public Int16 ptrPhPulsa { get; set; }//;
+    public Int16 ptrPh1Frig { get; set; }//;
+    public Int16 ptrPhRiscCe { get; set; }//;
+    public Int16 ptrPhRaffrCe { get; set; }//;
+    public Int16 ptrPhCompCe { get; set; }//;
 
-  public Int16 pvTempCella { get; set;}
+    public Int16 pvTempCella { get; set; }
 
-  public Int16 pvRhCella { get;set;}
+    public Int16 pvRhCella { get; set; }
 
-  public Int16 stsCella { get;set;}
+    public Int16 stsCella { get; set; }
 
-  public Int16 idNo { get; set; }//;
-  public Int16 ptrStep { get; set; }//;
-  public Int16 cntRip { get; set; }//;
-  public Int16 spTCeAut_d { get; set; }//;
+    public Int16 idNo { get; set; }//;
+    public Int16 ptrStep { get; set; }//;
+    public Int16 cntRip { get; set; }//;
+    public Int16 spTCeAut_d { get; set; }//;
     public Int16 spTFlAut_d { get; set; }//;
     public Int16 spHCeAut_d { get; set; }//;
     public Int16 spPresFl_d { get; set; }//;
-  public Int16 pidPwRisCe_d { get; set; }//;
-  public Int16 pidPwRafCe_d { get; set; }//;
-  public Int16 pidPwRisFl_d { get; set; }//;
-  public Int16 pidPwRafFl_d { get; set; }//;
-  public int cntTmStep { get; set; }//;
-  public int cntCicStep { get; set; }//;
-  public int cntTmTest { get; set; }//;
-  public int cntCicTest { get; set; }//;
-  public int cmdRespSrv { get; set; }//;
-  public bool recDataOn { get; set; }//;
+    public Int16 pidPwRisCe_d { get; set; }//;
+    public Int16 pidPwRafCe_d { get; set; }//;
+    public Int16 pidPwRisFl_d { get; set; }//;
+    public Int16 pidPwRafFl_d { get; set; }//;
+    public int cntTmStep { get; set; }//;
+    public int cntCicStep { get; set; }//;
+    public int cntTmTest { get; set; }//;
+    public int cntCicTest { get; set; }//;
+    public int cmdRespSrv { get; set; }//;
+    public bool recDataOn { get; set; }//;
+    public Int16[] auxPar { get; set; }
 
-}
+  }
 
   #region Acs 
   public class ComHmi2Acs
