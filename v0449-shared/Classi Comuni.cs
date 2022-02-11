@@ -477,6 +477,8 @@ namespace v0449_shared
     public setPoint spRipErr = new setPoint();      //Setpoint ripetizioni errori per scoppio tubo
     public setPoint spScopTubo = new setPoint();    //Setpoint limite controllo scoppio tubo
     public setPoint spEnScTubo = new setPoint();    //Setpoint Enable controllo scoppio tubo
+    public setPoint spTOpValScaDis = new setPoint();         //Setpoint Tempo apertura valvola scarico rampa discesa
+    public setPoint spTOpValScaBas = new setPoint();    //Setpoint Tempo apertura valvola scarico mantenimento basso
   }
 
   public class parametriMacchina
@@ -832,7 +834,7 @@ namespace v0449_shared
     public C2Plc()
     {
       cmdReq = new UInt16[1];
-      auxPar = new UInt16[10];
+      auxPar = new Int16[10];
     }
     public UInt16[] cmdReq { get; set; }
     public UInt16 flVari { get; set; }
@@ -855,6 +857,8 @@ namespace v0449_shared
     public Int16 spRipErr { get; set; }
     public Int16 spScopTubo { get; set; }
     public Int16 spEnScTubo { get; set; }
+    public Int16 spTOpValScaDis { get; set; }
+    public Int16 spTOpValScaBas { get; set; }
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
     public Int16[] auxPar{get; set; }
