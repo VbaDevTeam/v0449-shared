@@ -717,7 +717,7 @@ namespace v0449_shared
           }
           catch (System.InvalidOperationException ex)
           {
-            V.evtLog.Error("Variab.cs, 720 - {@ex}", ex);
+            Log.Logger.Error("Variab.cs, 720 - {@ex}", ex);
 
           }
         }
