@@ -6913,16 +6913,16 @@ namespace v0449_shared
      , AL0_3_MSaF230RSIG
      , AL0_4_KMaP120MAND
      , AL0_5_MSaF340RANE
-     , AL0_6_DRaP120OK
+     , AL0_6_DRaP120_OK_
      , AL0_7_MSaF250PRTA
      , AL0_8_TEaP200CIRC
      , AL0_9_KMaP200CIRC
-     , AL0_a_DRaP200OK
+     , AL0_a_DRaP200_OK_
      , AL0_b_TEaR210RISC
      , AL0_c_KMaR210RISC
      , AL0_d_TEaS230EROG
      , AL0_e_KMaS230EROG
-     , AL0_f_DRaS230OK
+     , AL0_f_DRaS230_OK_
     }
 
     public static string[] wa0Descr =
@@ -7010,11 +7010,11 @@ namespace v0449_shared
 
     public enum Wa01
     {
-       AL1_0_TSaR210OK
+       AL1_0_TSaR210_OK_
      , AL1_1_SNaP400PAIR
      , AL1_2_TEaP530RAFF
      , AL1_3_KMaP530RAFF
-     , AL1_4_DRaP530__OK
+     , AL1_4_DRaP530_OK_
      , AL1_5_LSaSERBNOHI
      , AL1_6_LSaSERBNOLO
      , AL1_7_LSaSPUNOAIR
@@ -7121,15 +7121,15 @@ namespace v0449_shared
      , AL2_4_SQaSTEPUNDF
      , AL2_5_SQaTESTLIVE
      , AL2_6_SBaSCOPTUBO
-     , AL2_7_Riserva
-     , AL2_8_Riserva
-     , AL2_9_Riserva
-     , AL2_a_Riserva
-     , AL2_b_Riserva
-     , AL2_c_Riserva
-     , AL2_d_Riserva
-     , AL2_e_Riserva
-     , AL2_f_Riserva
+     , AL2_7_All_Riserva
+     , AL2_8_All_Riserva
+     , AL2_9_All_Riserva
+     , AL2_a_All_Riserva
+     , AL2_b_All_Riserva
+     , AL2_c_All_Riserva
+     , AL2_d_All_Riserva
+     , AL2_e_All_Riserva
+     , AL2_f_All_Riserva
     }
 
 
@@ -7224,7 +7224,7 @@ namespace v0449_shared
 ,"03 - refr siringa                      "
 ,"04 - readback tele pompa P120          "
 ,"05 - raffr. rane                       "
-,"06 - anomaliza drive pompa mandata     "
+,"06 - anomalia drive pompa mandata      "
 ,"07 - refr. prta                        "
 ,"08 - termica pompa circolazione        "
 ,"09 - readback tele pompa circolazioner "
@@ -7260,7 +7260,7 @@ namespace v0449_shared
 ,"35 - chiusura valvola inseguimento"
 ,"36 - step indefinito"
 ,"37 - prova attiva"
-,"38 - Riserva "
+,"38 - Anomalia pulsazione, scoppio tubo "
 ,"39 - Riserva "
 ,"40 - Riserva "
 ,"41 - Riserva "

@@ -476,9 +476,9 @@ namespace v0449_shared
     public setPoint spTDn = new setPoint();         //Setpoint tempo mantenimento basso
     public setPoint spFreq_M = new setPoint();      // Setpoint frequenza pulsazione
     public setPoint spQFlMan = new setPoint();
-    public setPoint spRipErr = new setPoint();      //Setpoint ripetizioni errori per scoppio tubo
-    public setPoint spScopTubo = new setPoint();    //Setpoint limite controllo scoppio tubo
-    public setPoint spEnScTubo = new setPoint();    //Setpoint Enable controllo scoppio tubo
+    public setPoint spCntNumErr = new setPoint();      //Setpoint ripetizioni errori per scoppio tubo
+    public setPoint spKCalcLimRott = new setPoint();    //Setpoint limite controllo scoppio tubo
+    public setPoint spEnScTubo= new setPoint();    //Setpoint Enable controllo scoppio tubo
     public setPoint spTOpValScaDis = new setPoint();         //Setpoint Tempo apertura valvola scarico rampa discesa
     public setPoint spTOpValScaBas = new setPoint();    //Setpoint Tempo apertura valvola scarico mantenimento basso
   }
