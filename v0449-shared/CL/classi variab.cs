@@ -100,6 +100,8 @@ namespace v0449_shared
 
     public string strNameDb = "";
 
+    public int testIdNo = 0;
+    public string testLogName = "";
 
     public bool testDone = true;
     public bool recData = false;

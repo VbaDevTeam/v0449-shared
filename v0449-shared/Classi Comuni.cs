@@ -32,6 +32,12 @@ namespace v0449_shared
   
   public class dLogRecLs
   {
+    public int cntCicliStep   { get; set; }
+    public int cntCicliTot   { get; set; }
+    public int cntSecStep   { get; set; }
+    public int cntSecTot   { get; set; }
+    public int ptrStep   { get; set; }
+    public int ptrRip   { get; set; }
     public double spTFl   { get; set; }
     public double pvTUp   { get; set; }
     public double pvTDn   { get; set; }
