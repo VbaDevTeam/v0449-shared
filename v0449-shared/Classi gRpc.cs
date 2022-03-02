@@ -12,6 +12,7 @@ using System.IO;
 using System.Text.Json;
 using System.Linq;
 using Newtonsoft.Json;
+using VPHRepo;
 
 namespace v0449_shared
 {
@@ -60,6 +61,20 @@ namespace v0449_shared
 
   }
 
+  class VPHRepoGest : VPHRepo.VPH_Repo.VPH_RepoBase
+  {
+    V v = new();
+    public override Task<svcResponse> reqTestGeneric(svcRequest request, ServerCallContext context)
+    {
+      var options = new JsonSerializerOptions { WriteIndented = true };
+      string jsonString = System.Text.Json.JsonSerializer.Serialize(v.comRt2Hmi, options);
+      return Task.FromResult(new svcResponse {MyRes = jsonString});
+    }
+  }
+  
+
+  
+  
   class v0449MicroSClient
   {
     //public event getProgressRepo gProgressRepo;
