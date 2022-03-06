@@ -189,7 +189,7 @@ namespace v0449_shared
 
     #endregion
 
-#if v0449
+#if v0449 || v0449b
      
     #region def
 
@@ -1724,9 +1724,9 @@ namespace v0449_shared
      , AL2_2_PSn0LOPRFRI1
      , AL2_3_SQnSTEPUNDF 
      , AL2_4_SQnTESTLIVE 
-     , AL2_5_
-     , AL2_6_
-     , AL2_7_
+     , AL2_5_SBaSCOPTUBO 
+     , AL2_6_WDaCOM_SERV 
+     , AL2_7_WDaCOM_CLIE 
      , AL2_8_
      , AL2_9_
      , AL2_a_
@@ -1743,11 +1743,11 @@ namespace v0449_shared
          "0.all. selettore comandi automatici"
         ,"1.all. nessuna anomalia inverter pompa circolaz."
         ,"0 all alta pressione primo stadio"
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
+        ,"36 - step indefinito"
+        ,"37 - prova attiva"
+        ,"38 - Anomalia pulsazione, scoppio tubo "
+        ,"39 - Mancanza comunicazione server "
+        ,"40 - Mancanza comunicazione client "
         ,"                                                "
         ,"                                                "
         ,"                                                "
@@ -1765,9 +1765,9 @@ namespace v0449_shared
         ,"PSn0LOPRFRI1 "
         ,"SQnSTEPUNDF "
         ,"SQnTESTLIVE "
-        ," "
-        ," "
-        ," "
+        ,"SBaSCOPTUBO "
+        ,"WDaCOM_SERV "
+        ,"WDaCOM_CLIE "
         ," "
         ," "
         ," "
@@ -1863,11 +1863,11 @@ namespace v0449_shared
  "AL1.0 SLn0AUTOMATI"
 ,"AL1.1 SNn1DRIVFLOK"
 ,"AL1.2 PSn0LOPRFRI1"
-,"AL1.3 SQnSTEPUNDF "
-,"AL1.4 SQnTESTLIVE "
-,"AL1.5 "
-,"AL1.6 "
-,"AL1.7 "
+,"AL1.3 35 - step indefinito"
+,"AL1.4 36 - prova attiva"
+,"AL1.5 37 - Anomalia pulsazione, scoppio tubo "
+,"AL1.6 38 - Mancanza comunicazione server "
+,"AL1.7 39 - Mancanza comunicazione client "
 ,"AL1.8 "
 ,"AL1.9 "
 ,"AL1.a "
@@ -7121,8 +7121,8 @@ namespace v0449_shared
      , AL2_4_SQaSTEPUNDF
      , AL2_5_SQaTESTLIVE
      , AL2_6_SBaSCOPTUBO
-     , AL2_7_All_Riserva
-     , AL2_8_All_Riserva
+     , AL2_7_WDaCOM_SERV
+     , AL2_8_WDaCOM_CLIE
      , AL2_9_All_Riserva
      , AL2_a_All_Riserva
      , AL2_b_All_Riserva
@@ -7142,8 +7142,8 @@ namespace v0449_shared
         ,"36 - step indefinito"
         ,"37 - prova attiva"
         ,"38 - Anomalia pulsazione, scoppio tubo "
-        ,"39 - Riserva "
-        ,"40 - Riserva "
+        ,"39 - Mancanza comunicazione server "
+        ,"40 - Mancanza comunicazione client "
         ,"41 - Riserva "
         ,"42 - Riserva "
         ,"43 - Riserva "
@@ -7161,8 +7161,8 @@ namespace v0449_shared
         ,"SQaSTEPUNDF "
         ,"SQaTESTLIVE "
         ,"SBaSCOPTUBO "
-        ,"Riserva "
-        ,"Riserva "
+        ,"WDaCOM_SERV "
+        ,"WDaCOM_CLIE "
         ,"Riserva "
         ,"Riserva "
         ,"Riserva "
@@ -7261,8 +7261,8 @@ namespace v0449_shared
 ,"36 - step indefinito"
 ,"37 - prova attiva"
 ,"38 - Anomalia pulsazione, scoppio tubo "
-,"39 - Riserva "
-,"40 - Riserva "
+,"39 - Mancanza comunicazione server  "
+,"40 - Mancanza comunicazione client  "
 ,"41 - Riserva "
 ,"42 - Riserva "
 ,"43 - Riserva "
