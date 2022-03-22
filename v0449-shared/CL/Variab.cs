@@ -499,9 +499,11 @@ namespace v0449_shared
       //=============================
       if (what == (int)V.saveType.TestConf)
       {
-        Type[] tipiLoc = new Type[2];
+        Type[] tipiLoc = new Type[3];
         tipiLoc[0] = typeof(ParametroVba);
         tipiLoc[1] = typeof(setPoint);
+        tipiLoc[2] = typeof(System.Text.Json.JsonElement);
+        
         StringWriter strWriter = new StringWriter(new StringBuilder());
         XmlSerializer xSerizer = new XmlSerializer(typeof(DATA_CONF_TEST), tipiLoc);
         xSerizer.Serialize(strWriter, this.dataConfTest);
