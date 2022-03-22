@@ -212,12 +212,12 @@ namespace v0449_shared
 
     //Ore mancanti
     private int durataTotale;
-    public int DurataTotale { get => getDurataTot();}
-
+    // public int DurataTotale { get => getDurataTot();}
+    public int DurataTotale { get; set; }
 
     private int cicliTotale;
-    public int CicliTotale { get => getCicliTot();}
-
+    // public int CicliTotale { get => getCicliTot();}
+    public int CicliTotale { get; set; }
 
     public DATA_CONF_TEST()
     {
@@ -236,7 +236,7 @@ namespace v0449_shared
     {
       for (int n = 0; n < passiProva.Count; n++)
       {
-        if ((bool)passiProva[n].abilPuls.ValOut)
+        if (Convert.ToBoolean(passiProva[n].abilPuls.ValOut.ToString()))
           cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
       }
       cicliTotale *= (loops + 1);
@@ -296,8 +296,11 @@ namespace v0449_shared
         //int tmCicEqDura = 0;
 
         double tmCicloPulsa = 0;
-        bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
-        bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
+        
+
+        
+        bool chkFineCiclo = Convert.ToBoolean(passiProva[n].blFineCiclo.ValOut.ToString());
+        bool chkFinePulsa = Convert.ToBoolean(passiProva[n].blFinePulsa.ValOut.ToString());
 
         //se richiesta attesa fine tempo, inizializzo appoggio
         if (chkFineCiclo)
