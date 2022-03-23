@@ -1,1 +1,8 @@
-﻿
+﻿20220306 vrb
+	* aggiunto !storico
+	- aggiunto flag comando salto passo
+	+ aggiunto allarmi scoppio tubo e comunicazione server e client
+	+ allineato allarmi su 387, 449,b, non 511
+
+20220323 vrb
+	- aggiornato/aggiunto def di e dq 470

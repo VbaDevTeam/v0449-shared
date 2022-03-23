@@ -38,6 +38,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)!storico.txt" />
     <Content Include="$(MSBuildThisFileDirectory)codice da tenere1.txt" />
     <Content Include="$(MSBuildThisFileDirectory)Protos\VPH_Repo.proto" />
   </ItemGroup>

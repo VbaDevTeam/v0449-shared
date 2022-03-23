@@ -2081,32 +2081,32 @@ namespace v0449_shared
     #region We0
     public enum We0
     {
-       iFT1410_port_C_1_
-     , iFT2410_port_C_2_
-     , i_0_2_Pu_e_Avanti
-     , i03_Pu_e_Indietro
-     , i0_4_R_i_s_e_r_ve
-     , i0_5_R_i_s_e_r_va
-     , i0_6_R_i_s_e_r_ve
-     , i0_7_R_i_s_e_r_va
-     , iPS310__pres_Aria
-     , iRstA_l_l_a_r_m_i
-     , iSlM_a_r_c_i_a_C1
-     , iSlM_a_r_c_i_a_C2
-     , SIeTUTTO_C_1_O_K_
-     , SIeTUTTO_C_2_O_K_
-     , inesistente1_6
-     , inesistente1_7
+      iFT1410_port_C1
+    , iFT2410_port_C2
+    , iPulsanteAva_C1
+    , iPulsanteInd_C1
+    , iPulsanteAva_C2
+    , iPulsanteInd_C2
+    , i0_6_RiserveFut
+    , i0_7_RiserveFut
+    , iPS310_presAria
+    , iReset_Allarmi_
+    , iSelettoMarcia1
+    , iSelettoMarcia2
+    , SIeTUTT1_OK_Aux
+    , SIeTUTT2_OK_Aux
+    , iRBK1220pmpAlim
+    , iRBK1130pmpRefr
     }
 
     public static string[] we0Descr =
       {
          "Impulsi misuratore portata C1"
         ,"Impulsi misuratore portata C2"
-        ,"Pulsante avanti              "
-        ,"Pulsante indietro            "
-        ,"i0_4Riserve                  "
-        ,"i0_5Riserva                  "
+        ,"Pulsante avanti C1           "
+        ,"Pulsante indietro C1         "
+        ,"Pulsante avanti C2           "
+        ,"Pulsante indietro C2         "
         ,"i0_6Riserve                  "
         ,"i0_7Riserva                  "
         ,"Pressostato generale aria    "
@@ -2115,28 +2115,28 @@ namespace v0449_shared
         ,"Selettore marcia C2          "
         ,"Comandi inseriti C1          "
         ,"Comandi inseriti C2          "
-        ,"                             "
-        ,"                             "
+        ,"Readback pompa alim. C1      "
+        ,"Readback pompa refr. C1      "
       };
 
     public static string[] we0Nick =
       {
-         "iFT1410_port_C_1_"
-        ,"iFT2410_port_C_2_"
-        ,"i_0_2_Pu_e_Avanti"
-        ,"i03_Pu_e_Indietro"
-        ,"i0_4_R_i_s_e_r_ve"
-        ,"i0_5_R_i_s_e_r_va"
-        ,"i0_6_R_i_s_e_r_ve"
-        ,"i0_7_R_i_s_e_r_va"
-        ,"iPS310__pres_Aria"
-        ,"iRstA_l_l_a_r_m_i"
-        ,"iSlM_a_r_c_i_a_C1"
-        ,"iSlM_a_r_c_i_a_C2"
-        ,"SIeTUTTO_C_1_O_K_"
-        ,"SIeTUTTO_C_2_O_K_"
-        ,""
-        ,""
+         "iFT1410_port_C1"
+        ,"iFT2410_port_C2"
+        ,"iPulsanteAva_C1"
+        ,"iPulsanteInd_C1"
+        ,"iPulsanteAva_C2"
+        ,"iPulsanteInd_C2"
+        ,"i0_6_RiserveFut"
+        ,"i0_7_RiserveFut"
+        ,"iPS310_presAria"
+        ,"iReset_Allarmi_"
+        ,"iSelettoMarcia1"
+        ,"iSelettoMarcia2"
+        ,"SIeTUTT1_OK_Aux"
+        ,"SIeTUTT2_OK_Aux"
+        ,"iRBK1220pmpAlim"
+        ,"iRBK1130pmpRefr"
       };
 
     public static Dictionary<int, string> faseGenReport = new Dictionary<int, string>(){
@@ -2211,63 +2211,63 @@ namespace v0449_shared
     #region We1
     public enum We1
     {
-       iRBK1220_pompAlim
-     , iRBK1130_pompRefr
-     , iRBK1160_riscFlui
-     , iRBK1400_pompCirc
-     , iLHH1470_lvAlAlto
-     , iLVH1470_lvWaAlto
-     , iLVL1470_lvWaBass
-     , iLLL1470_lvAlBass
-     , iRBK2220_pompAlim
-     , iRBK2130_pompRefr
-     , iRBK2160_riscFlui
-     , iRBK2400_pompCirc
-     , iLHH2470_lvAlAlto
-     , iLVH2470_lvWaAlto
-     , iLVL2470_lvWaBass
-     , iLLL2470_lvAlBass
+      iRBK1160risFlui
+    , iRBK1400pmpCirc
+    , iLHH1470lvAlAlt
+    , iLVH1470lvWaAlt
+    , iLVL1470lvWaBas
+    , iLLL1470lvAlBas
+    , iRBK2220pmpAlim
+    , iRBK2130pmpRefr
+    , iRBK2160risFlui
+    , iRBK2400pmpCirc
+    , iLHH2470lvAlAlt
+    , iLVH2470lvWaAlt
+    , iLVL2470lvWaBas
+    , iLLL2470lvAlBas
+    , riserva14
+    , riserva15
     }
 
     public static string[] we1Descr =
-      {
-         "Readback pompa alimento C1      "
-        ,"Readback pompa refrigerante C1  "
-        ,"Readback riscaldatore fluido C1 "
-        ,"Readback pompa circolazione C1  "
-        ,"Livello allarme alto C1         "
-        ,"Livello attenzione alto C1      "
-        ,"Livello attenzione basso C1     "
-        ,"Livello allarme basso C1        "
-        ,"Readback pompa alimento C2      "
-        ,"Readback pompa refrigerante C2  "
-        ,"Readback riscaldatore fluido C2 "
-        ,"Readback pompa circolazione C2  "
-        ,"Livello allarme alto C2         "
-        ,"Livello attenzione alto C2      "
-        ,"Livello attenzione basso C2     "
-        ,"Livello allarme basso C2        "
-      };
+    {
+       "Readback riscaldatore fluido C1 "
+      ,"Readback pompa circolazione C1  "
+      ,"Livello allarme alto C1         "
+      ,"Livello attenzione alto C1      "
+      ,"Livello attenzione basso C1     "
+      ,"Livello allarme basso C1        "
+      ,"Readback pompa alimento C2      "
+      ,"Readback pompa refrigerante C2  "
+      ,"Readback riscaldatore fluido C2 "
+      ,"Readback pompa circolazione C2  "
+      ,"Livello allarme alto C2         "
+      ,"Livello attenzione alto C2      "
+      ,"Livello attenzione basso C2     "
+      ,"Livello allarme basso C2        "
+      ,"Riserva 14                      "
+      ,"Riserva 15                      "
+    };
 
     public static string[] we1Nick =
-  {
-         "iRBK1220_pompAlim"
-        ,"iRBK1130_pompRefr"
-        ,"iRBK1160_riscFlui"
-        ,"iRBK1400_pompCirc"
-        ,"iLHH1470_lvAlAlto"
-        ,"iLVH1470_lvWaAlto"
-        ,"iLVL1470_lvWaBass"
-        ,"iLLL1470_lvAlBass"
-        ,"iRBK2220_pompAlim"
-        ,"iRBK2130_pompRefr"
-        ,"iRBK2160_riscFlui"
-        ,"iRBK2400_pompCirc"
-        ,"iLHH2470_lvAlAlto"
-        ,"iLVH2470_lvWaAlto"
-        ,"iLVL2470_lvWaBass"
-        ,"iLLL2470_lvAlBass"
-      };
+    {
+        "iRBK1160risFlui"
+      , "iRBK1400pmpCirc"
+      , "iLHH1470lvAlAlt"
+      , "iLVH1470lvWaAlt"
+      , "iLVL1470lvWaBas"
+      , "iLLL1470lvAlBas"
+      , "iRBK2220pmpAlim"
+      , "iRBK2130pmpRefr"
+      , "iRBK2160risFlui"
+      , "iRBK2400pmpCirc"
+      , "iLHH2470lvAlAlt"
+      , "iLVH2470lvWaAlt"
+      , "iLVL2470lvWaBas"
+      , "iLLL2470lvAlBas"
+      , "riserva14      "
+      , "riserva15      "
+    };
 
 
     public static string[] we1Plc =
@@ -2536,85 +2536,85 @@ namespace v0449_shared
     #region Wu0
     public enum Wu0
     {
-       vWu000_q0_0Riserva
-     , vWu001_q0_1Riserva
-     , vWu002_q0_2Riserva
-     , vWu003_q0_3Riserva
-     , vWu004_q0_4Riserva
-     , vWu005_q0_5Riserva
-     , vWu006_q0_6Riserva
-     , vWu007_q0_7Riserva
-     , vWu008_uLampAllarme
-     , vWu009_uLampRegolare
-     , vWu010_
-     , vWu011_
-     , vWu012_
-     , vWu013_
-     , vWu014_
-     , vWu015_
+        q0_0UscitaRiserva
+      , q0_1UscitaRiserva
+      , q0_2UscitaRiserva
+      , q0_3UscitaRiserva
+      , q0_4UscitaRiserva
+      , q0_5UscitaRiserva
+      , q0_6UscitaRiserva
+      , q0_7UscitaRiserva
+      , qLampSegn_Allarme
+      , qLampSegnRegolare
+      , qKM1220__pompalim
+      , qKM1130__pomprefr
+      , qKM1160__riscflui
+      , qKM1400__pompcirc
+      , q2_4UscitaRiserva
+      , q2_5UscitaRiserva
     }
 
     public static string[] wu0Descr =
-      {
-         "vWu000_0.                                     "
-        ,"vWu001_0.                                     "
-        ,"vWu002_0.                                     "
-        ,"vWu003_0.                                     "
-        ,"vWu004_0.                                     "
-        ,"vWu005_0.                                     "
-        ,"vWu006_0.                                     "
-        ,"vWu007_0.Lampada segnalazione anomalia        "                                     
-        ,"vWu008_1.Lampada segnalazione funz. regolare  "                                     
-        ,"vWu009_0.                                     "
-        ,"vWu010_0.                                     "
-        ,"vWu011_1.                                     "
-        ,"vWu012_2.                                     "
-        ,"vWu013_2.                                     "
-        ,"vWu014_2.                                     "
-        ,"vWu015_0.                                     "
+    {
+        "q0_0UscitaRiserva"
+      , "q0_1UscitaRiserva"
+      , "q0_2UscitaRiserva"
+      , "q0_3UscitaRiserva"
+      , "q0_4UscitaRiserva"
+      , "q0_5UscitaRiserva"
+      , "q0_6UscitaRiserva"
+      , "q0_7UscitaRiserva"
+      , "qLampSegn_Allarme"
+      , "qLampSegnRegolare"
+      , "qKM1220__pompalim"
+      , "qKM1130__pomprefr"
+      , "qKM1160__riscflui"
+      , "qKM1400__pompcirc"
+      , "q2_4UscitaRiserva"
+      , "q2_5UscitaRiserva"
 
-      };
+    };
 
     public static string[] wu0Nick =
-      {
-         "vWu000_q0_0Riserva      "
-        ,"vWu001_q0_1Riserva      "
-        ,"vWu002_q0_2Riserva      "
-        ,"vWu003_q0_3Riserva      "
-        ,"vWu004_q0_4Riserva      "
-        ,"vWu005_q0_5Riserva      "
-        ,"vWu006_q0_6Riserva      "
-        ,"vWu007_q0_7Riserva      "
-        ,"vWu008_uLampAllarme     "
-        ,"vWu009_uLampRegolare    "
-        ,"vWu010_                 "
-        ,"vWu011_                 "
-        ,"vWu012_                 "
-        ,"vWu013_                 "
-        ,"vWu014_                 "
-        ,"vWu015_                 "
-      };
+    {
+        "q0_0UscitaRiserva"
+      , "q0_1UscitaRiserva"
+      , "q0_2UscitaRiserva"
+      , "q0_3UscitaRiserva"
+      , "q0_4UscitaRiserva"
+      , "q0_5UscitaRiserva"
+      , "q0_6UscitaRiserva"
+      , "q0_7UscitaRiserva"
+      , "qLampSegn_Allarme"
+      , "qLampSegnRegolare"
+      , "qKM1220__pompalim"
+      , "qKM1130__pomprefr"
+      , "qKM1160__riscflui"
+      , "qKM1400__pompcirc"
+      , "q2_4UscitaRiserva"
+      , "q2_5UscitaRiserva"
+    };
 
 
     public static string[] wu0Plc =
-  {
-         "vWu000q0_0Riserva      "
-        ,"vWu001q0_1Riserva      "
-        ,"vWu002q0_2Riserva      "
-        ,"vWu003q0_3Riserva      "
-        ,"vWu004q0_4Riserva      "
-        ,"vWu005q0_5Riserva      "
-        ,"vWu006q0_6Riserva      "
-        ,"vWu007q0_7Riserva      "
-        ,"vWu008uLampAllarme     "
-        ,"vWu009uLampRegolare    "
-        ,"vWu010                 "
-        ,"vWu011                 "
-        ,"vWu012                 "
-        ,"vWu013                 "
-        ,"vWu014                 "
-        ,"vWu015                 "
-      };
+    {
+        "q0_0UscitaRiserva"
+      , "q0_1UscitaRiserva"
+      , "q0_2UscitaRiserva"
+      , "q0_3UscitaRiserva"
+      , "q0_4UscitaRiserva"
+      , "q0_5UscitaRiserva"
+      , "q0_6UscitaRiserva"
+      , "q0_7UscitaRiserva"
+      , "qLampSegn_Allarme"
+      , "qLampSegnRegolare"
+      , "qKM1220__pompalim"
+      , "qKM1130__pomprefr"
+      , "qKM1160__riscflui"
+      , "qKM1400__pompcirc"
+      , "q2_4UscitaRiserva"
+      , "q2_5UscitaRiserva"
+    };
 
 
     public static string[] wu0Comp =
@@ -2641,84 +2641,84 @@ namespace v0449_shared
     #region Wu1
     public enum Wu1
     {
-       vWu100_uKM1220_pompalim	
-     , vWu101_uKM1130_pomprefr	
-     , vWu102_uKM1160_riscflui	
-     , vWu103_uKM1400_pompcirc	
-     , vWu104_q2_4Riserva	     
-     , vWu105_q2_5Riserva	     
-     , vWu106_q2_6Riserva	     
-     , vWu107_q2_7Riserva	     
-     , vWu108_uYV1230__alimScar
-     , vWu109_uYV1420__mandProv
-     , vWu110_uYV1430__ritoProv
-     , vWu111_uYV1440__scarLive
-     , vWu112_uYV1330A_aumePres
-     , vWu113_uYV1330B_dimiPres
-     , vWu114_uRST1160_moduRisc
-     , vWu115_uEN1400__abilCirc
+        q2_6UscitaRiserva
+      , q2_7UscitaRiserva
+      , qYV1230__alimScar
+      , qYV1420__mandProv
+      , qYV1430__ritoProv
+      , qYV1440__scarLive
+      , qYV1330A_aumePres
+      , qYV1330B_dimiPres
+      , qRST1160_moduRisc
+      , qEN1400__abilCirc
+      , qKM2220__pompalim
+      , qKM2130__pomprefr
+      , qKM2160__riscflui
+      , qKM2400__pompcirc
+      , q4_4UscitaRiserva
+      , q4_5UscitaRiserva
     }
 
     public static string[] wu1Descr =
-      {
-         "vWu100_0.Potenza pompa alimento C1         "
-        ,"vWu101_0.Potenza pompa refrigerante C1     "
-        ,"vWu102_0.Potenza riscaldatore C1           "
-        ,"vWu103_1.Potenza pompa circolazione C1     "
-        ,"vWu104_1.                                  "
-        ,"vWu105_1.                                  "
-        ,"vWu106_1.                                  "
-        ,"vWu107_1.                                  "
-        ,"vWu108_1.Valvola alimento/scarico C1       "
-        ,"vWu109_1.Valvola mandata prova C1          "
-        ,"vWu110_1.Valvola ritorno prova C1          "
-        ,"vWu111_0.Valvola scarico press./livello C1 "
-        ,"vWu112_0.Valvola pneum. aumento P C1       "
-        ,"vWu113_0.Valvola pneum. diminuzione P C1   "
-        ,"vWu114_0.Rel� statico riscaldatore C1      "
-        ,"vWu115_0.Consenso marcia circolazione C1   "
-      };
+    {
+        "q2_6UscitaRiserva"
+      , "q2_7UscitaRiserva"
+      , "qYV1230__alimScar"
+      , "qYV1420__mandProv"
+      , "qYV1430__ritoProv"
+      , "qYV1440__scarLive"
+      , "qYV1330A_aumePres"
+      , "qYV1330B_dimiPres"
+      , "qRST1160_moduRisc"
+      , "qEN1400__abilCirc"
+      , "qKM2220__pompalim"
+      , "qKM2130__pomprefr"
+      , "qKM2160__riscflui"
+      , "qKM2400__pompcirc"
+      , "q4_4UscitaRiserva"
+      , "q4_5UscitaRiserva"
+    };
 
     public static string[] wu1Nick =
-  {
-         "vWu100_uKM1220_pompalim	"
-        ,"vWu101_uKM1130_pomprefr	"
-        ,"vWu102_uKM1160_riscflui	"
-        ,"vWu103_uKM1400_pompcirc	"
-        ,"vWu104_q2_4Riserva	    " 
-        ,"vWu105_q2_5Riserva	    " 
-        ,"vWu106_q2_6Riserva	    " 
-        ,"vWu107_q2_7Riserva	    " 
-        ,"vWu108_uYV1230__alimScar"
-        ,"vWu109_uYV1420__mandProv"
-        ,"vWu110_uYV1430__ritoProv"
-        ,"vWu111_uYV1440__scarLive"
-        ,"vWu112_uYV1330A_aumePres"
-        ,"vWu113_uYV1330B_dimiPres"
-        ,"vWu114_uRST1160_moduRisc"
-        ,"vWu115_uEN1400__abilCirc"
-      };
+    {
+        "q2_6UscitaRiserva"
+      , "q2_7UscitaRiserva"
+      , "qYV1230__alimScar"
+      , "qYV1420__mandProv"
+      , "qYV1430__ritoProv"
+      , "qYV1440__scarLive"
+      , "qYV1330A_aumePres"
+      , "qYV1330B_dimiPres"
+      , "qRST1160_moduRisc"
+      , "qEN1400__abilCirc"
+      , "qKM2220__pompalim"
+      , "qKM2130__pomprefr"
+      , "qKM2160__riscflui"
+      , "qKM2400__pompcirc"
+      , "q4_4UscitaRiserva"
+      , "q4_5UscitaRiserva"
+    };
 
 
     public static string[] wu1Plc =
-  {
-         "vWu100uKM1220_pompalim	"
-        ,"vWu101uKM1130_pomprefr	"
-        ,"vWu102uKM1160_riscflui	"
-        ,"vWu103uKM1400_pompcirc	"
-        ,"vWu104q2_4Riserva	      "
-        ,"vWu105q2_5Riserva	      "
-        ,"vWu106q2_6Riserva	      "
-        ,"vWu107q2_7Riserva	      "
-        ,"vWu108uYV1230__alimScar "
-        ,"vWu109uYV1420__mandProv "
-        ,"vWu110uYV1430__ritoProv "
-        ,"vWu111uYV1440__scarLive "
-        ,"vWu112uYV1330A_aumePres "
-        ,"vWu113uYV1330B_dimiPres "
-        ,"vWu114uRST1160_moduRisc "
-        ,"vWu115uEN1400__abilCirc "
-      };
+    {
+        "q2_6UscitaRiserva"
+      , "q2_7UscitaRiserva"
+      , "qYV1230__alimScar"
+      , "qYV1420__mandProv"
+      , "qYV1430__ritoProv"
+      , "qYV1440__scarLive"
+      , "qYV1330A_aumePres"
+      , "qYV1330B_dimiPres"
+      , "qRST1160_moduRisc"
+      , "qEN1400__abilCirc"
+      , "qKM2220__pompalim"
+      , "qKM2130__pomprefr"
+      , "qKM2160__riscflui"
+      , "qKM2400__pompcirc"
+      , "q4_4UscitaRiserva"
+      , "q4_5UscitaRiserva"
+    };
 
 
     public static string[] wu1Comp =
@@ -2746,84 +2746,84 @@ namespace v0449_shared
     #region Wu2
     public enum Wu2
     {
-       uKM2220_pompalim	
-     , uKM2130_pomprefr	
-     , uKM2160_riscflui	
-     , uKM2400_pompcirc	
-     , q4_4Riserva	      
-     , q4_5Riserva	      
-     , q4_6Riserva	      
-     , q4_7Riserva	      
-     , uYV2230__alimScar	
-     , uYV2420__mandProv	
-     , uYV2430__ritoProv	
-     , uYV2440__scarLive	
-     , uYV2330A_aumePres	
-     , uYV2330B_dimiPres	
-     , uRST2160_moduRisc	
-     , uEN2400__abilCirc	
+        q4_6UscitaRiserva
+      , q4_7UscitaRiserva
+      , qYV2230__alimScar
+      , qYV2420__mandProv
+      , qYV2430__ritoProv
+      , qYV2440__scarLive
+      , qYV2330A_aumePres
+      , qYV2330B_dimiPres
+      , qRST2160_moduRisc
+      , qEN2400__abilCirc
+      , ris42
+      , ris43
+      , ris44
+      , ris45
+      , ris46
+      , ris47
     }
 
     public static string[] wu2Descr =
-      {
-         "Potenza pompa alimento C2         "
-        ,"Potenza pompa refrigerante C2     "
-        ,"Potenza riscaldatore C2           "
-        ,"Potenza pompa circolazione C2     "
-        ,"                                  "
-        ,"                                  "
-        ,"                                  "
-        ,"                                  "
-        ,"Valvola alimento/scarico C2       "
-        ,"Valvola mandata prova C2          "
-        ,"Valvola ritorno prova C2          "
-        ,"Valvola scarico press./livello C2 "
-        ,"Valvola pneum. aumento P C2       "
-        ,"Valvola pneum. diminuzione P C2   "
-        ,"Rel� statico riscaldatore C2      "
-        ,"Consenso marcia circolazione C2   "
-      };
+    {
+       "q4_6UscitaRiserva"
+      ,"q4_7UscitaRiserva"
+      ,"qYV2230__alimScar"
+      ,"qYV2420__mandProv"
+      ,"qYV2430__ritoProv"
+      ,"qYV2440__scarLive"
+      ,"qYV2330A_aumePres"
+      ,"qYV2330B_dimiPres"
+      ,"qRST2160_moduRisc"
+      ,"qEN2400__abilCirc"
+      ,"ris42            "
+      ,"ris43            "
+      ,"ris44            "
+      ,"ris45            "
+      ,"ris46            "
+      ,"ris47            "
+    };
 
     public static string[] wu2Nick =
-{
-         "vWu200_uKM2220_pompalim	"
-        ,"vWu201_uKM2130_pomprefr	"
-        ,"vWu202_uKM2160_riscflui	"
-        ,"vWu203_uKM2400_pompcirc	"
-        ,"vWu204_q4_4Riserva	    "  
-        ,"vWu205_q4_5Riserva	    "  
-        ,"vWu206_q4_6Riserva	    "  
-        ,"vWu207_q4_7Riserva	    "  
-        ,"vWu208_uYV2230__alimScar"	
-        ,"vWu209_uYV2420__mandProv"	
-        ,"vWu210_uYV2430__ritoProv"	
-        ,"vWu211_uYV2440__scarLive"	
-        ,"vWu212_uYV2330A_aumePres"	
-        ,"vWu213_uYV2330B_dimiPres"	
-        ,"vWu214_uRST2160_moduRisc"	
-        ,"vWu215_uEN2400__abilCirc"	
-      };
+    {
+       "q4_6UscitaRiserva"
+      ,"q4_7UscitaRiserva"
+      ,"qYV2230__alimScar"
+      ,"qYV2420__mandProv"
+      ,"qYV2430__ritoProv"
+      ,"qYV2440__scarLive"
+      ,"qYV2330A_aumePres"
+      ,"qYV2330B_dimiPres"
+      ,"qRST2160_moduRisc"
+      ,"qEN2400__abilCirc"
+      ,"ris42            "
+      ,"ris43            "
+      ,"ris44            "
+      ,"ris45            "
+      ,"ris46            "
+      ,"ris47            "
+    };
 
 
     public static string[] wu2Plc =
-  {
-         "vWu200_uKM2220_pompalim	"
-        ,"vWu201_uKM2130_pomprefr	"
-        ,"vWu202_uKM2160_riscflui	"
-        ,"vWu203_uKM2400_pompcirc	"
-        ,"vWu204_q4_4Riserva	    "  
-        ,"vWu205_q4_5Riserva	    "  
-        ,"vWu206_q4_6Riserva	    "  
-        ,"vWu207_q4_7Riserva	    "  
-        ,"vWu208_uYV2230__alimScar"	
-        ,"vWu209_uYV2420__mandProv"	
-        ,"vWu210_uYV2430__ritoProv"	
-        ,"vWu211_uYV2440__scarLive"	
-        ,"vWu212_uYV2330A_aumePres"	
-        ,"vWu213_uYV2330B_dimiPres"	
-        ,"vWu214_uRST2160_moduRisc"	
-        ,"vWu215_uEN2400__abilCirc"	
-      };
+    {
+       "q4_6UscitaRiserva"
+      ,"q4_7UscitaRiserva"
+      ,"qYV2230__alimScar"
+      ,"qYV2420__mandProv"
+      ,"qYV2430__ritoProv"
+      ,"qYV2440__scarLive"
+      ,"qYV2330A_aumePres"
+      ,"qYV2330B_dimiPres"
+      ,"qRST2160_moduRisc"
+      ,"qEN2400__abilCirc"
+      ,"ris42            "
+      ,"ris43            "
+      ,"ris44            "
+      ,"ris45            "
+      ,"ris46            "
+      ,"ris47            "
+    };
 
 
     public static string[] wu2Comp =
