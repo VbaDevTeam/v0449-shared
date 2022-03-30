@@ -6,3 +6,8 @@
 
 20220323 vrb
 	- aggiornato/aggiunto def di e dq 470
+
+20220330 vnd vba
+	- aggiornato descr. allarmi 449
+20220330 vrb trRem
+	- aggiornato nick in e out 449
