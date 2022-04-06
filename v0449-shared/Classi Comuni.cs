@@ -275,6 +275,7 @@ namespace v0449_shared
 
   public class PASSO
   {
+    public string id { get; set; }
     public int stepNum { get; set; }
     public string stepDescr { get; set; }
 
@@ -398,6 +399,7 @@ namespace v0449_shared
       return new PASSO
       {
         stepNum = this.stepNum + 1,
+        id = this.stepNum.ToString(),
         stepDescr = this.stepDescr,
         spTempCircuit = this.spTempCircuit,
         spTempCella = this.spTempCella,
