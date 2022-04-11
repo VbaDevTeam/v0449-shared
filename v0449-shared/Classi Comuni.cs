@@ -275,6 +275,7 @@ namespace v0449_shared
 
   public class PASSO
   {
+    public string id { get; set; }
     public int stepNum { get; set; }
     public string stepDescr { get; set; }
 
@@ -397,6 +398,7 @@ namespace v0449_shared
     {
       return new PASSO
       {
+        id = this.stepNum.ToString(),
         stepNum = this.stepNum + 1,
         stepDescr = this.stepDescr,
         spTempCircuit = this.spTempCircuit,
@@ -535,8 +537,51 @@ namespace v0449_shared
     private string descrizione;
     public string Descrizione { get { return descrizione; } set { descrizione = value; } }
 
-    private object valOut;
-    public object ValOut { get { return valOut; } set { valOut = value; } }
+    private object? valOut;
+    public object? ValOut
+    {
+      get
+      {
+        JsonElement tmp = new JsonElement();
+        try
+        {
+          tmp = (JsonElement) valOut;
+          JsonValueKind appType = tmp.ValueKind;
+
+          switch (appType)
+          {
+            case JsonValueKind.String:
+              string? appiccica = tmp.GetString();
+              try
+              {
+                valOut = double.Parse(appiccica);
+              }
+              catch (Exception e)
+              {
+                Console.WriteLine(e);
+                valOut = appiccica;
+              }
+              break;
+            case JsonValueKind.Number:
+              valOut = tmp.GetDouble();
+              break;
+            case JsonValueKind.False:
+            case JsonValueKind.True:
+              valOut = tmp.GetBoolean();
+              break;
+          }
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e);
+        }
+        return valOut;
+      }
+      set
+      {
+        valOut = value;
+      }
+    }
 
     private string typeNameOut;
     public string TypeNameOut { get { return typeNameOut; } set { typeNameOut = value; } }
@@ -547,7 +592,7 @@ namespace v0449_shared
     public ParametroVba()
     {
     }
-    public ParametroVba(int ord, object value, string descr)
+    public ParametroVba(int ord, object? value, string descr)
     {
       orderVis = ord;
       descrizione = descr;
