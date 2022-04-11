@@ -50,7 +50,7 @@ namespace v0449_shared
     {
       get; set;
     }
-#if !NET6_0
+// #if !NET6_0
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       if (!optionsBuilder.IsConfigured)
@@ -59,7 +59,7 @@ namespace v0449_shared
          optionsBuilder.UseMySQL(myConnDb);
       }
     }
-#endif
+// #endif
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<Confapp>(entity => {
