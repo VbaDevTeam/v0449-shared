@@ -68,7 +68,7 @@ namespace v0449_shared
 
   public class PROVA
   {
-    private ContextMini lCMini;
+    private Context lCMini;
 
     //Configurazione della prova (passi)
     //Qua dentro ci sono i metodi per estrarre durata totale e cicli totali
@@ -195,16 +195,14 @@ namespace v0449_shared
 
     public PROVA(Reportheader lrHeader)
     {
-      lCMini = new ContextMini(mainAppParam.strConnDb);
+      lCMini = new Context(mainAppParam.strConnDb);
       creaHeaderTest(lrHeader);
       initInternal(lrHeader);
     }
 
     public PROVA(int idProvaC)
     {
-      lCMini = new ContextMini(mainAppParam.strConnDb);
-      ContextMini appMini = new ContextMini(mainAppParam.strConnDb);
-      Context appContext = new Context(mainAppParam.strConnDb);
+      lCMini = new Context(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
       if (rHeader!=null)
