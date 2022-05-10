@@ -758,6 +758,7 @@ namespace v0449_shared
     public string ipServerGRpc { get; set; }
     public string portGrpc { get; set; }
     public string ipServerDb { get; set; }
+    public string portServerDb { get; set; }
     public string strDbName { get; set; }
     public string userDb { get; set; }
     public string passDb { get; set; }
