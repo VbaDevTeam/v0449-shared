@@ -221,6 +221,33 @@ namespace v0449_shared
       }
     }
 
+    public string[] recapTest(PROVA myProva)
+    {
+      string[] result = new string[2];
+      result[0] = myProva.idProva + " " + myProva.nomeProva + " " + DateTime.Now.ToString(); 
+      result[1] = "<b>Riepilogo avanzamento test " + myProva.idProva + " " + myProva.nomeProva +
+                  "</b><br>" +
+                  "<b>CICLI TOTALI  : </b>" + myProva.CicliTotali.ToString() + " " + 
+                  "<b>CICLI FATTI   : </b>" + myProva.CicliFatti.ToString() + " " + 
+                  "<b>CICLI MANCANTI: </b>" + myProva.CicliRimanenti.ToString() + " " +
+                  "<br><hr><br>" + 
+                  "<b>TEMPO TOTALE   : </b>" + 
+                  myProva.GgTotali.ToString() + " gg - " +
+                  myProva.OreTotali.ToString() + " hh - " +
+                  myProva.MmTotali.ToString() + " mm" +
+                  "<b>TEMPO MANCANTE   : </b>" + 
+                  myProva.GgMancanti.ToString() + " gg - " +
+                  myProva.OreMancanti.ToString() + " hh - " +
+                  myProva.MmMancanti.ToString() + " mm" +
+                  "<b>TEMPO TRASCORSO   : </b>" + 
+                  myProva.GgTrascorsi.ToString() + " gg - " +
+                  myProva.OreTrascorse.ToString() + " hh - " +
+                  myProva.MmTrascorsi.ToString() + " mm" +
+                  "<br><hr><br>" + 
+                  "";
+      return result;
+    }
+    
     public void initInternal(Reportheader lrHeader)
     {
 

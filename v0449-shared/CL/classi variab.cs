@@ -95,7 +95,7 @@ namespace v0449_shared
 
   public class NO_XML
   {
-
+    public DATA_CONF_TEST myDataConfTest;
    public v0449CellaClient clientCella;
 
     public string strNameDb = "";

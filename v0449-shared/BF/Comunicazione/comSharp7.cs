@@ -229,16 +229,13 @@ namespace v0449_shared
               //v.NoXml.cDiagnAnal.cycle("call");
               //elaborazione logica, aggiornamento calcoli
               //plc.Cycle();
-
-
-              polling();
-
               //gestione allarmi
               //gesAll();
 
               pack2write();
 
               write();
+              gestController();
 
 
               if (cntErr > 5)
@@ -281,6 +278,7 @@ namespace v0449_shared
           appScanTime = DateTime.Now.Ticks;
 
           symRead();
+          gestController();
           //symPolling();
           //symWrite();
           wait = 50;
@@ -379,10 +377,6 @@ namespace v0449_shared
       dialogo.Interrupt();
     }
 
-    protected virtual void polling()
-    {
-    }
-
     protected virtual int symRead()
     {
       return -1;
@@ -395,12 +389,10 @@ namespace v0449_shared
 
     protected virtual void unPackRead()
     {
-
     }
 
     protected virtual void pack2write()
     { 
-    
     }
 
     protected virtual int write()
@@ -442,6 +434,13 @@ namespace v0449_shared
 
     }
 
+
+    protected virtual int gestController()
+    {
+      return 1;
+    }
+    
+    
     #region modData
     private int bufShortToByte(short[] bSh, int nSh, Byte[] bBy)
     {
@@ -481,14 +480,12 @@ namespace v0449_shared
       result = (int)(value[0] + (value[1] << 16));
       return result;
     }
-
     private uint shortsToUint(short[] value)
     {
       uint result = 0;
       result = (uint)(value[0] + (value[1] << 16));
       return result;
     }
-
     private void changeBitIntState(ref BitInt bInt, int ndxBit, bool status)
     {
       if (status)
