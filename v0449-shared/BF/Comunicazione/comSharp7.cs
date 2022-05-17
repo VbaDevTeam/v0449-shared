@@ -226,16 +226,12 @@ namespace v0449_shared
               }
 
               unPackRead();
-              //v.NoXml.cDiagnAnal.cycle("call");
-              //elaborazione logica, aggiornamento calcoli
-              //plc.Cycle();
-              //gestione allarmi
-              //gesAll();
-
-              pack2write();
-
-              write();
               gestController();
+              gestRecData();
+              pack2write();
+              write();
+
+              
 
 
               if (cntErr > 5)
@@ -279,6 +275,8 @@ namespace v0449_shared
 
           symRead();
           gestController();
+          gestRecData();
+
           //symPolling();
           //symWrite();
           wait = 50;
@@ -296,57 +294,6 @@ namespace v0449_shared
       return Result;
     }
 
-
-
-    private int WriteRecipe()
-    {
-      // Declaration separated from the code for readability
-      int Amount=10;
-      int SizeWrB = 0;
-      int ResultB = 5310089;
-      int ptrErr = 0;
-
-      //short[] tmpSh;
-
-      ResultB = Client.WriteArea(S7Consts.S7AreaDB, DBNoWr, 70, Amount, S7Consts.S7WLByte, bufWr, ref SizeWrB);
-
-      if (v.NoXml.mbErrRd != 0)
-      {
-        ptrErr++;
-      }
-      else
-      {
-        //Richiedo azzeramento comando
-        v.comRt2Hmi.cmdRespSrv = 2;
-        v.NoXml.sendRecipe = false;
-      }
-      ShowResult(ResultB);
-      return ResultB;
-    }
-
-
-    private void recData()
-    {
-      Datalog dLog = new Datalog();
-
-      //dLog.DlOrd = numPassi++;
-      //dLog.DlPrIn = v.Io.analog[(int)DEF.chNoS7ai.AIpFLUIPROV];
-      //dLog.DlPrOut = 0;
-      //dLog.DlTflIn = v.Io.analog[(int)DEF.chNoS7ai.AItFLUIPROV];
-      //dLog.DlTflOut = DateTime.Now.Millisecond;
-      //dLog.DlTcella = v.Io.analog[(int)DEF.chNoS7ai.AItCELLCLIM];
-      //dLog.DlRhCella = 0;
-      //dLog.DlQfl = 0;
-      //dLog.DlTimeSt = DateTime.Now;
-      ////dataContext.Datalogs.Add(dLog);
-      //dataContext.Datalogs.Add(dLog);
-      ////dataContext.Datalogs.Append(dLog);
-      ////if (numPassi > 5000)
-      ////  numPassi = 0;
-      
-      
-      
-    }
 
     protected void ShowResult(int Result)
     {
@@ -440,6 +387,12 @@ namespace v0449_shared
       return 1;
     }
     
+
+    protected virtual int gestRecData() 
+    {
+      return 1;
+    }
+
     
     #region modData
     private int bufShortToByte(short[] bSh, int nSh, Byte[] bBy)

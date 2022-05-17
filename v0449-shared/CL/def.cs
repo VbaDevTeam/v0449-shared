@@ -9342,9 +9342,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region We1
+    #region We1
     public enum We1
     {
        vWe100_PSe0HP_2FRIGex
@@ -9447,9 +9447,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region We2
+    #region We2
     public enum We2
     {
        vWe200_SNe1FISER1CL
@@ -9554,10 +9554,10 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#region We3
+    #region We3
     public enum We3
     {
        vWe300_PSe0HP_1FRIG
@@ -9662,15 +9662,15 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
 
-#region output
+    #region output
 
-#region Wu0
+    #region Wu0
     public enum Wu0
     {
        vWu000_KMuP1020MAN
@@ -9779,9 +9779,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region Wu1
+    #region Wu1
     public enum Wu1
     {
        vWu100_SNu0CONS_RUN
@@ -9884,9 +9884,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region Wu2
+    #region Wu2
     public enum Wu2
     {
        vWu200_EVu0CONDFRI2
@@ -9991,9 +9991,9 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#region Wu3
+    #region Wu3
     public enum Wu3
     {
        vWu300_RISERVA
@@ -10098,12 +10098,12 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
 
 
-#region flag e comandi S7
+    #region flag e comandi S7
     public enum S7flStat
     {
       u000_riempOk
@@ -10292,13 +10292,13 @@ namespace v0449_shared
       ,"u015_flIntRes15"
     };
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
     
-#endregion
+    #endregion
 
-#region allarmi
+    #region allarmi
     public enum Wa00
     {
        SInTUTTO_OK
@@ -10668,10 +10668,10 @@ namespace v0449_shared
   }
 };
 
-#endregion
+    #endregion
 
-#region Fasi e Cicli
-#region CicliPtr
+    #region Fasi e Cicli
+    #region CicliPtr
     public enum ptrFaseFrigo
     {
       _00_Init                     = 00 ,
@@ -10768,10 +10768,1847 @@ namespace v0449_shared
 
 
 
-#endregion
-#endregion
+    #endregion
+    #endregion
    
+#elif v0496
+
+    #region def
+    //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+    //public const string strConnDb = @"Database=v0387_hosestress;Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+
+    public const string strDbName = "v0496_HutchUreaP";
+    //    public const string strConnDb = @"Database="+ strDbName + ";Data Source=mysqlsrv;User Id=root;Password=mysqlpwd";
+    public const string strDbTableData = strDbName + ".datalog";
+
+    //definizione percorso generale modelli report prove
+    public const string strReport_ModelBasePath = @"D:\dataapplications\v0449\Report\Modello\";
+    public const string strReport_ModelName = "v0449_model.xlsx";
+    public const string strReportEx_BasePath = @"D:\dataapplications\v0449\Report\";
+
+    #region Canali analogici
+
+    #region Ao channel names Siemens
+
+    public enum aoChNoS7
+    {
+      //SM 1232 AQ4, la prima, AO
+      s7ANoJ120MAND
+        , s7ANoJ200CIRC
+        , s7ANoJ530RAFF
+        , s7ANoRiserva3
+    };
+
+    public static string[] aoChNamesS7 =
+      { 
+        //SM 1232 AQ4, la prima, AO
+        " s7ANoJ120MAND"              //21 - 0
+        ,"s7ANoJ200CIRC"
+        ,"s7ANoJ530RAFF"
+        ,"s7ANoRiserva3"
+      };
+
+    #region Ao label short Siemens
+    public static string[] aoLabelShortS7 =
+      { 
+        //SM 1232 AQ4, la prima, AO
+        " Comando drive riempimento"
+        ,"Comando drive circolazione"
+        ,"Comando drive raffreddamento"
+        ,"Riserva canale 3"
+      };
+    #endregion
+
+    #region Ao label long Siemens
+    public static string[] aoLabelLongS7 =
+      { 
+        //SM 1232 AQ4, la prima, AO
+        " Comando drive riempimento"
+        ,"Comando drive circolazione"
+        ,"Comando drive raffreddamento"
+        ,"Riserva canale 3"
+      };
+    #endregion
+    #endregion
+
+
+    #endregion
+
+    #region allarmi
+    public enum Wa00
+    {
+      AL0_0_SInTUTTO_OK
+     , AL0_1_FCn0PORTNOCH
+     , AL0_2_TSn0RISCFLUI
+     , AL0_3_TSn0TEMPCAME
+     , AL0_4_LVn2FLUPROOK
+     , AL0_5_LSn0TRAFFLUI
+     , AL0_6_PSn0PRESARIA
+     , AL0_7_LVn1OLIOBASS
+     , AL0_8_PSn0HP_1FRIG
+     , AL0_9_TSn0LT_1FRIG
+     , AL0_a_FLn0LQ_1FRIG
+     , AL0_b_FLn0GQ_2FRIG
+     , AL0_c_LVn0HG_1FRIG
+     , AL0_d_PSn0HP_2FRIG
+     , AL0_e_PSn0LP_2FRIG
+     , AL0_f_TEn0COMP1FRI
+    }
+
+    public static string[] wa0Descr =
+  {
+         "0.all. circuiti ausiliari non inseriti "
+        ,"0.all. porta cella non chiusa "
+        ,"0.all. termostato sicurezza riscaldatore fluido "
+        ,"0.all. termostato sicurezza cella climatica "
+        ,"2.all. livello fluido prova sufficiente "
+        ,"0.all. trafilamento fluido da elementi in prova "
+        ,"0.all. pressione aria sufficiente "
+        ,"1.all. livello olio centralina insufficiente "
+        ,"0.all. sovrapressione 1° stadio gr.frigorifero "
+        ,"0.all. termostato di minima 1° stadio gr.frigorifero "
+        ,"0.all. flussostato 1° stadio gruppo frigorifero "
+        ,"0.all. fl circ.fl. in cella da 1° st./fl cond. 2° st "
+        ,"0.all. livello fluido vasca 1° stadio gr.frigorifero "
+        ,"0.all. sovrapressione 2° stadio gr.frigorifero "
+        ,"0.all. insufficiente pressione 2° st.gr.frigorifero "
+        ,"0.all. interv.prot.mot.compressore 1°st.gr.frigor. "
+      };
+
+    public static string[] wa0Nick =
+      {
+         "SInTUTTO_OK  "
+        ,"FCn0PORTNOCH "
+        ,"TSn0RISCFLUI "
+        ,"TSn0TEMPCAME "
+        ,"LVn2FLUPROOK "
+        ,"LSn0TRAFFLUI "
+        ,"PSn0PRESARIA "
+        ,"LVn1OLIOBASS "
+        ,"PSn0HP_1FRIG "
+        ,"TSn0LT_1FRIG "
+        ,"FLn0LQ_1FRIG "
+        ,"FLn0GQ_2FRIG "
+        ,"LVn0HG_1FRIG "
+        ,"PSn0HP_2FRIG "
+        ,"PSn0LP_2FRIG "
+        ,"TEn0COMP1FRI "
+      };
+
+
+    public static string[] wa0Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa0Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public enum Wa01
+    {
+      AL1_0_TEn0COMP2FRI
+     , AL1_1_TEn0POMP1FRI
+     , AL1_2_TEn0POMPCELL
+     , AL1_3_TEn0POMPP1P2
+     , AL1_4_TEn0POMP_P3_
+     , AL1_5_TEn1POMP_P4_
+     , AL1_6_TEn2MREGCIPR
+     , AL1_7_TEn1VENTCELL
+     , AL1_8_TEn0RISCCELL
+     , AL1_9_SNn1FILTCECL
+     , AL1_a_SNn1FISER1CL
+     , AL1_b_SNn1FIVIBRCL
+     , AL1_c_SNn1FIPILOCL
+     , AL1_d_SNn0PROT_AUX
+     , AL1_e_SNn0PROTFIEL
+     , AL1_f_SNn0EMERRIPR
+    }
+
+
+    public static string[] wa1Descr =
+  {
+         "0.all. interv.prot.mot.compressore 2°st.gr.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
+        ,"1 all  interv. prot.mot.pompe P1-P2"
+        ,"0.all. interv.prot.motore pompa P3"
+        ,"1.all. interv.prot.motore pompa P4"
+        ,"2.all. interv.prot.mot.regol.corsa cilindro pressione"
+        ,"1.all. interv.prot.motore ventola cella"
+        ,"0.all. interv.prot.riscaldatore cella"
+        ,"1.all. filtro principale centralina intasato"
+        ,"1.all. filtro servizio cilindro 1 intasato"
+        ,"1.all. filtro servizio vibratore intasato"
+        ,"1.all. filtro servizio pilotaggio cil.1 intasato"
+        ,"0.all. interv.prot.circuiti 24Vdc"
+        ,"0.all. intervento protez.filtro elettrostatico"
+        ,"0.all. emergenza ripristinata"
+      };
+
+    public static string[] wa1Nick =
+      {
+         "TEn0COMP2FRI"
+        ,"TEn0POMP1FRI"
+        ,"TEn0POMPCELL"
+        ,"TEn0POMPP1P2"
+        ,"TEn0POMP_P3_"
+        ,"TEn1POMP_P4_"
+        ,"TEn2MREGCIPR"
+        ,"TEn1VENTCELL"
+        ,"TEn0RISCCELL"
+        ,"SNn1FILTCECL"
+        ,"SNn1FISER1CL"
+        ,"SNn1FIVIBRCL"
+        ,"SNn1FIPILOCL"
+        ,"SNn0PROT_AUX"
+        ,"SNn0PROTFIEL"
+        ,"SNn0EMERRIPR"
+      };
+
+
+    public static string[] wa1Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa1Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public enum Wa02
+    {
+      AL2_0_SLn0AUTOMATI
+     , AL2_1_SNn1DRIVFLOK
+     , AL2_2_PSn0LOPRFRI1
+     , AL2_3_SQnSTEPUNDF
+     , AL2_4_SQnTESTLIVE
+     , AL2_5_SBaSCOPTUBO
+     , AL2_6_WDaCOM_SERV
+     , AL2_7_WDaCOM_CLIE
+     , AL2_8_
+     , AL2_9_
+     , AL2_a_
+     , AL2_b_
+     , AL2_c_
+     , AL2_d_
+     , AL2_e_
+     , AL2_f_
+    }
+
+
+    public static string[] wa2Descr =
+  {
+         "0.all. selettore comandi automatici"
+        ,"1.all. nessuna anomalia inverter pompa circolaz."
+        ,"0 all alta pressione primo stadio"
+        ,"36 - step indefinito"
+        ,"37 - prova attiva"
+        ,"38 - Anomalia pulsazione, scoppio tubo "
+        ,"39 - Mancanza comunicazione server "
+        ,"40 - Mancanza comunicazione client "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+      };
+
+    public static string[] wa2Nick =
+      {
+         "SLn0AUTOMATI "
+        ,"SNn1DRIVFLOK "
+        ,"PSn0LOPRFRI1 "
+        ,"SQnSTEPUNDF "
+        ,"SQnTESTLIVE "
+        ,"SBaSCOPTUBO "
+        ,"WDaCOM_SERV "
+        ,"WDaCOM_CLIE "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+      };
+
+
+    public static string[] wa2Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa2Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public string[,] msgAll =
+ {
+   {
+ "circuiti ausiliari non inseriti "
+,"porta cella non chiusa "
+,"termostato sicurezza riscaldatore fluido "
+,"termostato sicurezza cella climatica "
+,"livello fluido prova insufficiente "
+,"trafilamento fluido da elementi in prova "
+,"mancanza pressione aria "
+,"livello olio centralina insufficiente "
+,"sovrapressione 1° stadio gr.frigorifero "
+,"termostato di minima 1° stadio gr.frigorifero"
+,"flussostato 1° stadio gruppo frigorifero "
+,"fl circ.fl. in cella da 1° st./fl cond. 2° st"
+,"livello fluido vasca 1° stadio gr.frigorifero"
+,"sovrapressione 2° stadio gr.frigorifero "
+,"insufficiente pressione 2° st.gr.frigorifero "
+,"interv.prot.mot.compressore 1°st.gr.frigor. "
+     },
+   {
+ "interv.prot.mot.compressore 2°st.gr.frigor."
+,"interv.prot.mot.pompa raffr.vasca 1°st.frigor."
+,"interv.prot.mot.pompa raffr.cella da 1° stadio"
+,"interv. prot.mot.pompe P1-P2"
+,"interv.prot.motore pompa P3"
+,"interv.prot.motore pompa P4"
+,"interv.prot.mot.regol.corsa cilindro pressione"
+,"interv.prot.motore ventola cella"
+,"interv.prot.riscaldatore cella"
+,"filtro principale centralina intasato"
+,"filtro servizio cilindro 1 intasato"
+,"filtro servizio vibratore intasato"
+,"filtro servizio pilotaggio cil.1 intasato"
+,"interv.prot.circuiti 24Vdc"
+,"intervento protez.filtro elettrostatico"
+,"emergenza non ripristinata"
+  },
+   {
+ "selettore comandi automatici"
+,"anomalia inverter pompa circolaz."
+,"alta pressione primo stadio"
+,"step indefinito"
+,"prova attiva"
+,"Anomalia pulsazione, scoppio tubo "
+,"Mancanza comunicazione server "
+,"Mancanza comunicazione client "
+,"AL1.8 "
+,"AL1.9 "
+,"AL1.a "
+,"AL1.b "
+,"AL1.c "
+,"AL1.d "
+,"AL1.e "
+,"AL1.f "
+  }
+};
+
+    #endregion
+
+    #region I/O digitali
+
+    public enum Wexxx
+    {
+      ec0
+      , ec1
+      , ec2
+      , ec3
+    }
+    public enum Wuxxx
+    {
+      uc0
+      , uc1
+      , uc2
+    }
+    public enum Waxxx
+    {
+      ac0
+      , ac1
+      , ac2
+    }
+
+    public enum ptrFaseGenRepo
+    {
+      _00_Init = 00,
+      _10_InWorking = 10,
+      _1000_NoRulesFUser = 1000,
+      _1010_NoHeaderOnDb = 1010,
+    };
+
+    public static Dictionary<int, string> faseGenReport = new Dictionary<int, string>(){
+     {0  , "Attesa richieste				                         "}
+    ,{1  , "Verifica diritti utente                          "}
+    ,{2  , "Verifica esistenza database                      "}
+    ,{3  , "Attesa richieste				                         "}
+    ,{4  , "Attesa richieste				                         "}
+    ,{10 , "In lavorazione                                   "}
+    ,{20 , "Recupero dati da database                        "}
+    ,{30 , "Analisi dati                                     "}
+    ,{40 , "Apertura modello report                          "}
+    ,{50 , "Scrittura dati su modello                        "}
+    ,{60 , "Salvataggio temporaneo                           "}
+    ,{70 , "pump down                                        "}
+    ,{80 , "riposo da fermo (antiripetizione)                "}
+    ,{500 , "Attenzione! La selezione non racchiude dati sul Database!    "}
+    ,{510 , "Attenzione! attesa arresto flusso                            "}
+    ,{520 , "Attenzione! attesa arresto flusso                            "}
+    ,{530 , "Attenzione! attesa arresto flusso                            "}
+    ,{540 , "Attenzione! attesa arresto flusso                            "}
+    ,{1000, "Errore! Utente con diritti insufficienti, Contattare l'amministratore "}
+    ,{1010, "Errore! Identificativo prova non trovato sul Database!        "}
+    ,{1020, "Errore! Database irragiungibile!                "}
+    ,{1030, "Errore! Identificativo prova non trovato        "}
+    ,{1040, "Errore! Identificativo prova non trovato        "}
+    ,{1050, "Errore! Timount il server non rispode.          "}
+  };
+
+
+
+    #region input
+
+    #region We0
+    public enum We0
+    {
+      SIeTUTTO_OK
+    , iPSpresAria
+    , iLVallBass
+    , TEeRISCFLUI
+    , TEeRISCIRED
+    , TEePWRPPULS
+    , SNeDRVPPULS
+    , TEePOMPRICI
+    , Element_1
+    , SNeALLAALLA
+    , PUeAVANTI
+    , PUeINDIETRO
+    , PUeMARCIA
+    , PUeARRESTO
+    , SLeAUTO
+    , PUeReseAlla
+    }
+
+
+    public static string[] we0Descr =
+      {
+         "Ausiliari inseriti            "
+        ,"Pressostato presenza aria     "
+        ,"Livello fluido sufficiente    "
+        ,"Termica riscaldo fluido       "
+        ,"Termica riscaldo infrarosso   "
+        ,"Termica pompa circopulsazione "
+        ,"Drive OK pompa circopulsazione"
+        ,"Termica pompa ricircolo       "
+        ,"Riserva                       "
+        ,"Livello allarme allagamento   "
+        ,"Pulsante comando avanti       "
+        ,"Pulsante comando indietro     "
+        ,"Pulsante comando marcia       "
+        ,"Pulsante comando arresto      "
+        ,"Selettore modale: automatico  "
+        ,"Pulsante reset allarmi        "
+      };
+
+    public static string[] we0Nick =
+      {
+         "Ausiliari inseriti            "
+        ,"Pressostato presenza aria     "
+        ,"Livello fluido sufficiente    "
+        ,"Termica riscaldo fluido       "
+        ,"Termica riscaldo infrarosso   "
+        ,"Termica pompa circopulsazione "
+        ,"Drive OK pompa circopulsazione"
+        ,"Termica pompa ricircolo       "
+        ,"Riserva                       "
+        ,"Livello allarme allagamento   "
+        ,"Pulsante comando avanti       "
+        ,"Pulsante comando indietro     "
+        ,"Pulsante comando marcia       "
+        ,"Pulsante comando arresto      "
+        ,"Selettore modale: automatico  "
+        ,"Pulsante reset allarmi        "
+      };
+
+    public static string[] we0Plc =
+  {
+         "vWe000"
+        ,"vWe001"
+        ,"vWe002"
+        ,"vWe003"
+        ,"vWe004"
+        ,"vWe005"
+        ,"vWe006"
+        ,"vWe007"
+        ,"vWe008"
+        ,"vWe009"
+        ,"vWe010"
+        ,"vWe011"
+        ,"vWe012"
+        ,"vWe013"
+        ,"vWe014"
+        ,"vWe015"
+      };
+
+
+    public static string[] we0Comp =
+  {
+         "????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+      };
+    #endregion
+
+    #region We1
+    public enum We1
+    {
+      SNePORTOPEN
+    , SNeEMERPRES
+    , riserva2
+    , riserva3
+    , riserva4
+    , riserva5
+    , riserva6
+    , riserva7
+    , riserva8
+    , riserva9
+    , riserva10
+    , riserva11
+    , riserva12
+    , riserva13
+    , riserva14
+    , riserva15
+    }
+
+    public static string[] we1Descr =
+    {
+       "Segnale portellone cella aperto "
+      ,"Segnale emergenza premuta       "
+      ,"Riserva 2                       "
+      ,"Riserva 3                       "
+      ,"Riserva 4                       "
+      ,"Riserva 5                       "
+      ,"Riserva 6                       "
+      ,"Riserva 7                       "
+      ,"Riserva 8                       "
+      ,"Riserva 9                       "
+      ,"Riserva A                       "
+      ,"Riserva B                       "
+      ,"Riserva C                       "
+      ,"Riserva D                       "
+      ,"Riserva E                       "
+      ,"Riserva F                       "
+    };
+
+    public static string[] we1Nick =
+    {
+        "Segnale portellone cella aperto "
+      , "Segnale emergenza premuta       "
+      , "Riserva 2                       "
+      , "Riserva 3                       "
+      , "Riserva 4                       "
+      , "Riserva 5                       "
+      , "Riserva 6                       "
+      , "Riserva 7                       "
+      , "Riserva 8                       "
+      , "Riserva 9                       "
+      , "Riserva A                       "
+      , "Riserva B                       "
+      , "Riserva C                       "
+      , "Riserva D                       "
+      , "Riserva E                       "
+      , "Riserva F                       "
+    };
+
+
+    public static string[] we1Plc =
+  {
+         "vWe100 we1plc"
+        ,"vWe101"
+        ,"vWe102"
+        ,"vWe103"
+        ,"vWe104"
+        ,"vWe105"
+        ,"vWe106"
+        ,"vWe107"
+        ,"vWe108"
+        ,"vWe109"
+        ,"vWe110"
+        ,"vWe111"
+        ,"vWe112"
+        ,"vWe113"
+        ,"vWe114"
+        ,"vWe115"
+      };
+
+
+    public static string[] we1Comp =
+  {
+         "?????? we1comp"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+      };
+
+    #endregion
+
+    #region We2
+    public enum We2
+    {
+      vWe200_RISERVA
+     , vWe201_RISERVA
+     , vWe202_RISERVA
+     , vWe203_RISERVA
+     , vWe204_RISERVA
+     , vWe205_RISERVA
+     , vWe206_RISERVA
+     , vWe207_RISERVA
+     , vWe208_RISERVA
+     , vWe209_RISERVA
+     , vWe210_RISERVA
+     , vWe211_RISERVA
+     , vWe212_RISERVA
+     , vWe213_RISERVA
+     , vWe214_RISERVA
+     , vWe215_RISERVA
+    }
+
+    public static string[] we2Descr =
+      {
+         "vWe200_RISERVA"
+        ,"vWe201_RISERVA"
+        ,"vWe202_RISERVA"
+        ,"vWe203_RISERVA"
+        ,"vWe204_RISERVA"
+        ,"vWe205_RISERVA"
+        ,"vWe206_RISERVA"
+        ,"vWe207_RISERVA"
+        ,"vWe208_RISERVA"
+        ,"vWe209_RISERVA"
+        ,"vWe210_RISERVA"
+        ,"vWe211_RISERVA"
+        ,"vWe212_RISERVA"
+        ,"vWe213_RISERVA"
+        ,"vWe214_RISERVA"
+        ,"vWe215_RISERVA"
+      };
+
+    public static string[] we2Nick =
+{
+         "vWe200_RISERVA"
+        ,"vWe201_RISERVA"
+        ,"vWe202_RISERVA"
+        ,"vWe203_RISERVA"
+        ,"vWe204_RISERVA"
+        ,"vWe205_RISERVA"
+        ,"vWe206_RISERVA"
+        ,"vWe207_RISERVA"
+        ,"vWe208_RISERVA"
+        ,"vWe209_RISERVA"
+        ,"vWe210_RISERVA"
+        ,"vWe211_RISERVA"
+        ,"vWe212_RISERVA"
+        ,"vWe213_RISERVA"
+        ,"vWe214_RISERVA"
+        ,"vWe215_RISERVA"
+      };
+
+
+    public static string[] we2Plc =
+  {
+         "vWe200"
+        ,"vWe201"
+        ,"vWe202"
+        ,"vWe203"
+        ,"vWe204"
+        ,"vWe205"
+        ,"vWe206"
+        ,"vWe207"
+        ,"vWe208"
+        ,"vWe209"
+        ,"vWe210"
+        ,"vWe211"
+        ,"vWe212"
+        ,"vWe213"
+        ,"vWe214"
+        ,"vWe215"
+      };
+
+
+    public static string[] we2Comp =
+  {
+         "??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+      };
+
+
+
+    #endregion
+
+    #region We3
+    public enum We3
+    {
+      vWe300_RISERVA
+     , vWe301_RISERVA
+     , vWe302_RISERVA
+     , vWe303_RISERVA
+     , vWe304_RISERVA
+     , vWe305_RISERVA
+     , vWe306_RISERVA
+     , vWe307_RISERVA
+     , vWe308_RISERVA
+     , vWe309_RISERVA
+     , vWe310_RISERVA
+     , vWe311_RISERVA
+     , vWe312_RISERVA
+     , vWe313_RISERVA
+     , vWe314_RISERVA
+     , vWe315_RISERVA
+    }
+
+    public static string[] we3Descr =
+      {
+         "vWe300_RISERVA"
+        ,"vWe301_RISERVA"
+        ,"vWe302_RISERVA"
+        ,"vWe303_RISERVA"
+        ,"vWe304_RISERVA"
+        ,"vWe305_RISERVA"
+        ,"vWe306_RISERVA"
+        ,"vWe307_RISERVA"
+        ,"vWe308_RISERVA"
+        ,"vWe309_RISERVA"
+        ,"vWe310_RISERVA"
+        ,"vWe311_RISERVA"
+        ,"vWe312_RISERVA"
+        ,"vWe313_RISERVA"
+        ,"vWe314_RISERVA"
+        ,"vWe315_RISERVA"
+      };
+
+    public static string[] we3Nick =
+{
+         "vWe300_RISERVA"
+        ,"vWe301_RISERVA"
+        ,"vWe302_RISERVA"
+        ,"vWe303_RISERVA"
+        ,"vWe304_RISERVA"
+        ,"vWe305_RISERVA"
+        ,"vWe306_RISERVA"
+        ,"vWe307_RISERVA"
+        ,"vWe308_RISERVA"
+        ,"vWe309_RISERVA"
+        ,"vWe310_RISERVA"
+        ,"vWe311_RISERVA"
+        ,"vWe312_RISERVA"
+        ,"vWe313_RISERVA"
+        ,"vWe314_RISERVA"
+        ,"vWe315_RISERVA"
+      };
+
+
+    public static string[] we3Plc =
+  {
+         "vWe300"
+        ,"vWe301"
+        ,"vWe302"
+        ,"vWe303"
+        ,"vWe304"
+        ,"vWe305"
+        ,"vWe306"
+        ,"vWe307"
+        ,"vWe308"
+        ,"vWe309"
+        ,"vWe310"
+        ,"vWe311"
+        ,"vWe312"
+        ,"vWe313"
+        ,"vWe314"
+        ,"vWe315"
+      };
+
+
+    public static string[] we3Comp =
+  {
+         "??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+      };
+
+
+
+    #endregion
+
+
+    #endregion
+
+
+    #region output
+
+    #region Wu0
+    public enum Wu0
+    {
+      CTuPWRRFLUI
+      , CTuPWRRIRED
+      , CTuPWRPPULS
+      , CTuPWRPRICI
+      , RSuMODRFLUI
+      , RSuMODRIRED
+      , SNuENAPPULS
+      , Element_1
+      , uLampAllarme
+      , uLampAuto
+      , uLampStart
+      , uLampStop
+      , Element_2
+      , Element_3
+      , Element_4
+      , SNuAPREPORT
+    }
+
+    public static string[] wu0Descr =
+    {
+        "Contattore risc. fluido          "
+      , "Contattore risc. infrarosso      "
+      , "Contattore alim. drive p.pulsaz. "
+      , "Contattore pompa ricircolo       "
+      , "Relè statico risc. fluido        "
+      , "Relè statico risc. infrarosso    "
+      , "Comando abilitazione drive p.circ"
+      , "Riserva 7                        "
+      , "Spia allarmi                     "
+      , "Spia automatico                  "
+      , "Spia marcia                      "
+      , "Spia arresto                     "
+      , "Riserva C                        "
+      , "Riserva D                        "
+      , "Riserva E                        "
+      , "Comando sblocco portellone cella "
+
+    };
+
+    public static string[] wu0Nick =
+    {
+        "Contattore risc. fluido          "
+      , "Contattore risc. infrarosso      "
+      , "Contattore alim. drive p.pulsaz. "
+      , "Contattore pompa ricircolo       "
+      , "Relè statico risc. fluido        "
+      , "Relè statico risc. infrarosso    "
+      , "Comando abilitazione drive p.circ"
+      , "Riserva 7                        "
+      , "Spia allarmi                     "
+      , "Spia automatico                  "
+      , "Spia marcia                      "
+      , "Spia arresto                     "
+      , "Riserva C                        "
+      , "Riserva D                        "
+      , "Riserva E                        "
+      , "Comando sblocco portellone cella "
+    };
+
+
+    public static string[] wu0Plc =
+    {
+        "q0_0UscitaRiserva"
+      , "q0_1UscitaRiserva"
+      , "q0_2UscitaRiserva"
+      , "q0_3UscitaRiserva"
+      , "q0_4UscitaRiserva"
+      , "q0_5UscitaRiserva"
+      , "q0_6UscitaRiserva"
+      , "q0_7UscitaRiserva"
+      , "qLampSegn_Allarme"
+      , "qLampSegnRegolare"
+      , "qKM1220__pompalim"
+      , "qKM1130__pomprefr"
+      , "qKM1160__riscflui"
+      , "qKM1400__pompcirc"
+      , "q2_4UscitaRiserva"
+      , "q2_5UscitaRiserva"
+    };
+
+
+    public static string[] wu0Comp =
+  {
+         "????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+        ,"????"
+      };
+    #endregion
+
+    #region Wu1
+    public enum Wu1
+    {
+      EVuSPURCIRC1
+      , EVuSPURCIRC2
+      , EVuALIMPROV
+      , EVuRIPODIRE
+      , EVuRIPOREGO
+      , EVuRIPRDIRE
+      , EVuRIPRREGO
+      , EVuRAFFFLUI
+      , Element_5
+      , Element_6
+      , Element_7
+      , Element_8
+      , Element_9
+      , Element_10
+      , Element_11
+      , Element_12
+    }
+
+    public static string[] wu1Descr =
+    {
+        "EV 1 spurgo circuito         "
+      , "EV 2 spurgo circuito         "
+      , "EV alimentazione circ. prova "
+      , "EV ritorno bypass diretto    "
+      , "EV ritorno bypass regolato   "
+      , "EV ritorno prova diretto     "
+      , "EV ritorno prova regolato    "
+      , "EV raffreddamento fluido     "
+      , "Element_5                    "
+      , "Element_6                    "
+      , "Element_7                    "
+      , "Element_8                    "
+      , "Element_9                    "
+      , "Element_10                   "
+      , "Element_11                   "
+      , "Element_12                   "
+    };
+
+    public static string[] wu1Nick =
+    {
+        "EV 1 spurgo circuito         "
+      , "EV 2 spurgo circuito         "
+      , "EV alimentazione circ. prova "
+      , "EV ritorno bypass diretto    "
+      , "EV ritorno bypass regolato   "
+      , "EV ritorno prova diretto     "
+      , "EV ritorno prova regolato    "
+      , "EV raffreddamento fluido     "
+      , "Element_5                    "
+      , "Element_6                    "
+      , "Element_7                    "
+      , "Element_8                    "
+      , "Element_9                    "
+      , "Element_10                   "
+      , "Element_11                   "
+      , "Element_12                   "
+    };
+
+
+    public static string[] wu1Plc =
+    {
+        "EVuSPURCIRC1"
+      , "EVuSPURCIRC2"
+      , "EVuALIMPROV"
+      , "EVuRIPODIRE"
+      , "EVuRIPOREGO"
+      , "EVuRIPRDIRE"
+      , "EVuRIPRREGO"
+      , "EVuRAFFFLUI"
+      , "Element_5"
+      , "Element_6"
+      , "Element_7"
+      , "Element_8"
+      , "Element_9"
+      , "Element_10"
+      , "Element_11"
+      , "Element_12"
+    };
+
+
+    public static string[] wu1Comp =
+  {
+         "??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+        ,"??????"
+      };
+
+    #endregion
+
+    #region Wu2
+    public enum Wu2
+    {
+      ris32
+      , ris33
+      , ris34
+      , ris35
+      , ris36
+      , ris37
+      , ris38
+      , ris39
+      , ris40
+      , ris41
+      , ris42
+      , ris43
+      , ris44
+      , ris45
+      , ris46
+      , ris47
+    }
+
+    public static string[] wu2Descr =
+    {
+       "ris32"
+      ,"ris33"
+      ,"ris34"
+      ,"ris35"
+      ,"ris36"
+      ,"ris37"
+      ,"ris38"
+      ,"ris39"
+      ,"ris40"
+      ,"ris41"
+      ,"ris42"
+      ,"ris43"
+      ,"ris44"
+      ,"ris45"
+      ,"ris46"
+      ,"ris47"
+    };
+
+    public static string[] wu2Nick =
+    {
+       "ris32"
+      ,"ris33"
+      ,"ris34"
+      ,"ris35"
+      ,"ris36"
+      ,"ris37"
+      ,"ris38"
+      ,"ris39"
+      ,"ris40"
+      ,"ris41"
+      ,"ris42"
+      ,"ris43"
+      ,"ris44"
+      ,"ris45"
+      ,"ris46"
+      ,"ris47"
+    };
+
+
+    public static string[] wu2Plc =
+    {
+       "ris32"
+      ,"ris33"
+      ,"ris34"
+      ,"ris35"
+      ,"ris36"
+      ,"ris37"
+      ,"ris38"
+      ,"ris39"
+      ,"ris40"
+      ,"ris41"
+      ,"ris42"
+      ,"ris43"
+      ,"ris44"
+      ,"ris45"
+      ,"ris46"
+      ,"ris47"
+    };
+
+
+    public static string[] wu2Comp =
+  {
+         " ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+      };
+
+
+
+    #endregion
+
+    #region Wu3
+    public enum Wu3
+    {
+      vWu300_RISERVA
+     , vWu301_RISERVA
+     , vWu302_RISERVA
+     , vWu303_RISERVA
+     , vWu304_RISERVA
+     , vWu305_RISERVA
+     , vWu306_RISERVA
+     , vWu307_RISERVA
+     , vWu308_RISERVA
+     , vWu309_RISERVA
+     , vWu310_RISERVA
+     , vWu311_RISERVA
+     , vWu312_RISERVA
+     , vWu313_RISERVA
+     , vWu314_RISERVA
+     , vWu315_RISERVA
+    }
+
+    public static string[] wu3Descr =
+      {
+         "  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+        ,"  riserva  "
+      };
+
+    public static string[] wu3Nick =
+{
+         "vWu300_RISERVA "
+        ,"vWu301_RISERVA "
+        ,"vWu302_RISERVA "
+        ,"vWu303_RISERVA "
+        ,"vWu304_RISERVA "
+        ,"vWu305_RISERVA "
+        ,"vWu306_RISERVA "
+        ,"vWu307_RISERVA "
+        ,"vWu308_RISERVA "
+        ,"vWu309_RISERVA      "
+        ,"vWu310_RISERVA      "
+        ,"vWu311_RISERVA      "
+        ,"vWu312_RISERVA      "
+        ,"vWu313_RISERVA      "
+        ,"vWu314_RISERVA      "
+        ,"vWu315_RISERVA      "
+      };
+
+
+    public static string[] wu3Plc =
+  {
+         "vWu300_"
+        ,"vWu301_"
+        ,"vWu302_"
+        ,"vWu303_"
+        ,"vWu304_"
+        ,"vWu305_"
+        ,"vWu306_"
+        ,"vWu307_"
+        ,"vWu308_"
+        ,"vWu309_"
+        ,"vWu310_"
+        ,"vWu311_"
+        ,"vWu312_"
+        ,"vWu313_"
+        ,"vWu314_"
+        ,"vWu315_"
+      };
+
+
+    public static string[] wu3Comp =
+  {
+         " ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ?????? "
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+        ," ??????"
+      };
+
+
+
+    #endregion
+
+    #endregion
+    #endregion
+
+
+
+
+
+#if v0387
+    #region allarmi 0449
+    public enum Wa00
+    {
+       AL0_0_SInTUTTO_OK 
+     , AL0_1_FCn0PORTNOCH
+     , AL0_2_TSn0RISCFLUI
+     , AL0_3_TSn0TEMPCAME
+     , AL0_4_LVn2FLUPROOK
+     , AL0_5_LSn0TRAFFLUI
+     , AL0_6_PSn0PRESARIA
+     , AL0_7_LVn1OLIOBASS
+     , AL0_8_PSn0HP_1FRIG
+     , AL0_9_TSn0LT_1FRIG
+     , AL0_a_FLn0LQ_1FRIG
+     , AL0_b_FLn0GQ_2FRIG
+     , AL0_c_LVn0HG_1FRIG
+     , AL0_d_PSn0HP_2FRIG
+     , AL0_e_PSn0LP_2FRIG
+     , AL0_f_TEn0COMP1FRI
+    }
+
+    public static string[] wa0Descr =
+  {
+         "0.all. circuiti ausiliari inseriti "
+        ,"0.all. porta cella non chiusa "
+        ,"0.all. termostato sicurezza riscaldatore fluido "
+        ,"0.all. termostato sicurezza cella climatica "
+        ,"2.all. livello fluido prova sufficiente "
+        ,"0.all. trafilamento fluido da elementi in prova "
+        ,"0.all. pressione aria sufficiente "
+        ,"1.all. livello olio centralina insufficiente "
+        ,"0.all. sovrapressione 1� stadio gr.frigorifero "
+        ,"0.all. termostato di minima 1� stadio gr.frigorifero "
+        ,"0.all. flussostato 1� stadio gruppo frigorifero "
+        ,"0.all. fl circ.fl. in cella da 1� st./fl cond. 2� st "
+        ,"0.all. livello fluido vasca 1� stadio gr.frigorifero "
+        ,"0.all. sovrapressione 2� stadio gr.frigorifero "
+        ,"0.all. insufficiente pressione 2� st.gr.frigorifero "
+        ,"0.all. interv.prot.mot.compressore 1�st.gr.frigor. "
+      };
+
+    public static string[] wa0Nick =
+      {
+         "SInTUTTO_OK  "
+        ,"FCn0PORTNOCH "
+        ,"TSn0RISCFLUI "
+        ,"TSn0TEMPCAME "
+        ,"LVn2FLUPROOK "
+        ,"LSn0TRAFFLUI "
+        ,"PSn0PRESARIA "
+        ,"LVn1OLIOBASS "
+        ,"PSn0HP_1FRIG "
+        ,"TSn0LT_1FRIG "
+        ,"FLn0LQ_1FRIG "
+        ,"FLn0GQ_2FRIG "
+        ,"LVn0HG_1FRIG "
+        ,"PSn0HP_2FRIG "
+        ,"PSn0LP_2FRIG "
+        ,"TEn0COMP1FRI "
+      };
+
+
+    public static string[] wa0Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa0Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public enum Wa01
+    {
+       AL1_0_TEn0COMP2FRI
+     , AL1_1_TEn0POMP1FRI
+     , AL1_2_TEn0POMPCELL
+     , AL1_3_TEn0POMPP1P2
+     , AL1_4_TEn0POMP_P3_
+     , AL1_5_TEn1POMP_P4_
+     , AL1_6_TEn2MREGCIPR
+     , AL1_7_TEn1VENTCELL
+     , AL1_8_TEn0RISCCELL
+     , AL1_9_SNn1FILTCECL
+     , AL1_a_SNn1FISER1CL
+     , AL1_b_SNn1FIVIBRCL
+     , AL1_c_SNn1FIPILOCL
+     , AL1_d_SNn0PROT_AUX
+     , AL1_e_SNn0PROTFIEL
+     , AL1_f_SNn0EMERRIPR
+    }
+
+
+    public static string[] wa1Descr =
+  {
+         "0.all. interv.prot.mot.compressore 2�st.gr.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.vasca 1�st.frigor."
+        ,"0.all. interv.prot.mot.pompa raffr.cella da 1� stadio"
+        ,"1 all interv. prot.mot.pompe P1-P2"
+        ,"0.all. interv.prot.motore pompa P3"
+        ,"1.all. interv.prot.motore pompa P4"
+        ,"2.all. interv.prot.mot.regol.corsa cilindro pressione"
+        ,"1.all. interv.prot.motore ventola cella"
+        ,"0.all. interv.prot.riscaldatore cella"
+        ,"1.all. filtro principale centralina intasato"
+        ,"1.all. filtro servizio cilindro 1 intasato"
+        ,"1.all. filtro servizio vibratore intasato"
+        ,"1.all. filtro servizio pilotaggio cil.1 intasato"
+        ,"0.all. interv.prot.circuiti 24Vdc"
+        ,"0.all. intervento protez.filtro elettrostatico"
+        ,"0.all. emergenza ripristinata"
+      };
+
+    public static string[] wa1Nick =
+      {
+         "TEn0COMP2FRI"
+        ,"TEn0POMP1FRI"
+        ,"TEn0POMPCELL"
+        ,"TEn0POMPP1P2"
+        ,"TEn0POMP_P3_"
+        ,"TEn1POMP_P4_"
+        ,"TEn2MREGCIPR"
+        ,"TEn1VENTCELL"
+        ,"TEn0RISCCELL"
+        ,"SNn1FILTCECL"
+        ,"SNn1FISER1CL"
+        ,"SNn1FIVIBRCL"
+        ,"SNn1FIPILOCL"
+        ,"SNn0PROT_AUX"
+        ,"SNn0PROTFIEL"
+        ,"SNn0EMERRIPR"
+      };
+
+
+    public static string[] wa1Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa1Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public enum Wa02
+    {
+       AL2_0_SLn0AUTOMATI
+     , AL2_1_SNn1DRIVFLOK
+     , AL2_2_PSn0LOPRFRI1
+     , AL2_3_SQnSTEPUNDF 
+     , AL2_4_SQnTESTLIVE 
+     , AL2_5_
+     , AL2_6_
+     , AL2_7_
+     , AL2_8_
+     , AL2_9_
+     , AL2_a_
+     , AL2_b_
+     , AL2_c_
+     , AL2_d_
+     , AL2_e_
+     , AL2_f_
+    }
+
+
+    public static string[] wa2Descr =
+  {
+         "0.all. selettore comandi automatici"
+        ,"1.all. nessuna anomalia inverter pompa circolaz."
+        ,"0 all alta pressione primo stadio"
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+        ,"                                                "
+      };
+
+    public static string[] wa2Nick =
+      {
+         "SLn0AUTOMATI "
+        ,"SNn1DRIVFLOK "
+        ,"PSn0LOPRFRI1 "
+        ,"SQnSTEPUNDF "
+        ,"SQnTESTLIVE "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+        ," "
+      };
+
+
+    public static string[] wa2Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa2Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public string[,] msgAll =
+ {
+   {
+ "AL0.0 SInTUTTO_OK "
+,"AL0.1 FCn0PORTNOCH"
+,"AL0.2 TSn0RISCFLUI"
+,"AL0.3 TSn0TEMPCAME"
+,"AL0.4 LVn2FLUPROOK"
+,"AL0.5 LSn0TRAFFLUI"
+,"AL0.6 PSn0PRESARIA"
+,"AL0.7 LVn1OLIOBASS"
+,"AL0.8 PSn0HP_1FRIG"
+,"AL0.9 TSn0LT_1FRIG"
+,"AL0.a FLn0LQ_1FRIG"
+,"AL0.b FLn0GQ_2FRIG"
+,"AL0.c LVn0HG_1FRIG"
+,"AL0.d PSn0HP_2FRIG"
+,"AL0.e PSn0LP_2FRIG"
+,"AL0.f TEn0COMP1FRI"
+     },
+   {
+ "AL1.0 TEn0COMP2FRI"
+,"AL1.1 TEn0POMP1FRI"
+,"AL1.2 TEn0POMPCELL"
+,"AL1.3 TEn0POMPP1P2"
+,"AL1.4 TEn0POMP_P3_"
+,"AL1.5 TEn1POMP_P4_"
+,"AL1.6 TEn2MREGCIPR"
+,"AL1.7 TEn1VENTCELL"
+,"AL1.8 TEn0RISCCELL"
+,"AL1.9 SNn1FILTCECL"
+,"AL1.a SNn1FISER1CL"
+,"AL1.b SNn1FIVIBRCL"
+,"AL1.c SNn1FIPILOCL"
+,"AL1.d SNn0PROT_AUX"
+,"AL1.e SNn0PROTFIEL"
+,"AL1.f SNn0EMERRIPR"
+  },
+   {
+ "AL1.0 SLn0AUTOMATI"
+,"AL1.1 SNn1DRIVFLOK"
+,"AL1.2 PSn0LOPRFRI1"
+,"AL1.3 SQnSTEPUNDF "
+,"AL1.4 SQnTESTLIVE "
+,"AL1.5 "
+,"AL1.6 "
+,"AL1.7 "
+,"AL1.8 "
+,"AL1.9 "
+,"AL1.a "
+,"AL1.b "
+,"AL1.c "
+,"AL1.d "
+,"AL1.e "
+,"AL1.f "
+  }
+};
+
+    #endregion
 
 #endif
+    #region Fasi e Cicli
+    #region CicliPtr
+    public enum ptrFaseFrigo
+    {
+      _00_Init = 00,
+      _10_attesaStart = 10,
+      _20_avviamentoPompa = 20,
+      _30_attendeFlusso = 30,
+      _40_pronto_richiesta_freddo = 40,
+      _50_alimentazione_liquida = 50,
+      _60_funzione_Normale = 60,
+      _70_pump_down = 70,
+      _80_riposo_fermo = 80,
+      _90_pump_down = 90,
+      _1000_gestione_fault = 1000,
+      _1001_rientro_reset = 1001,
+    };
+
+
+    public static string[] ptrFaseFrigoLbl =
+    {
+      "00 - Reset ciclo"
+      ,"10 - Attesa comandi"
+      ,"20 - Riempimento impianto"
+      ,"30 - Caratterizzazione"
+      ,"40 - Verifica prestazioni"
+      ,"50 - Esecuzione passo prova"
+      ,"60 - Svuotamento impianto"
+      ,"100 - Fine"
+    };
+
+    public static Dictionary<int, string> faseFrigo = new Dictionary<int, string>(){
+     {0  , "init: in teoria solo al power on plc				     "}
+    ,{10 , "attesa richiesta marcia                          "}
+    ,{20 , "avviamento pompa circolazione                    "}
+    ,{30 , "attende flusso                                   "}
+    ,{40 , "pronto alla marcia - attesa richiesta freddo     "}
+    ,{50 , "Alimentazione liquida                            "}
+    ,{60 , "Funzionamento normale                            "}
+    ,{70 , "pump down                                        "}
+    ,{80 , "riposo da fermo (antiripetizione)                "}
+    ,{90 , "attesa arresto flusso                            "}
+    ,{1000, "gestione fault                                  "}
+    ,{1001, "rientro reset                                   "}
+  };
+
+    public static Dictionary<int, string> riscaldoCella = new Dictionary<int, string>(){
+     {0  , "init: in teoria solo al power on plc				     "}
+    ,{10 , "attesa richiesta marcia                          "}
+    ,{20 , "                                                 "}
+    ,{30 , "                                                 "}
+    ,{40 , "pronto alla marcia - attesa richiesta caldo      "}
+    ,{50 , "Regimazione ventilatore                          "}
+    ,{60 , "Funzionamento normale                            "}
+    ,{70 , "Spegnimento riscaldo                             "}
+    ,{80 , "Arresto ventilatore                              "}
+    ,{90 , "                                                 "}
+    ,{1000, "gestione fault                                  "}
+    ,{1001, "rientro reset                                   "}
+  };
+
+    public static Dictionary<int, string> raffreddamentoCella = new Dictionary<int, string>(){
+     {0  , "init: in teoria solo al power on plc				     "}
+    ,{10 , "attesa richiesta marcia                          "}
+    ,{20 , "                    "}
+    ,{30 , ""}
+    ,{40 , "pronto alla marcia - attesa richiesta freddo     "}
+    ,{50 , ""}
+    ,{60 , ""}
+    ,{70 , ""}
+    ,{80 , ""}
+    ,{90 , ""}
+    ,{100, "Raffreddamento a glicole"}
+    ,{110, "Da glicole a freon, svuotamento a tempo"}
+    ,{200, "Raffreddamento freon, espansione diretta"}
+    ,{400, "Conclusione fase raffreddamento"}
+    ,{1000, "gestione fault                                  "}
+    ,{1001, "rientro reset                                   "}
+  };
+
+    //  public static Dictionary<int, string> faseFrigo = new Dictionary<int, string>(){
+    //   {0  , "init: in teoria solo al power on plc				     "}
+    //  ,{10 , "attesa richiesta marcia                          "}
+    //  ,{20 , "avviamento pompa circolazione                    "}
+    //  ,{30 , "attende flusso                                   "}
+    //  ,{40 , "pronto alla marcia - attesa richiesta freddo     "}
+    //  ,{50 , "Alimentazione liquida                            "}
+    //  ,{60 , "Funzionamento normale                            "}
+    //  ,{70 , "pump down                                        "}
+    //  ,{80 , "riposo da fermo (antiripetizione)                "}
+    //  ,{90 , "attesa arresto flusso                            "}
+    //  ,{1000, "gestione fault                                  "}
+    //  ,{1001, "rientro reset                                   "}
+    //};
+
+
+
+
+    #endregion
+    #endregion
+    #endregion
+
+
+
+#endif
+
+
+
+
   }
 }

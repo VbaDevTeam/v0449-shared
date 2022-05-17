@@ -29,6 +29,7 @@ message mailRequest{
 //Message contenente i dati della configurazione test
 message dataRecipeRequest{
   string requestJsConfTest = 1;
+  int32 requestHeaderTest = 2;
 }
 
 //Richiesta generica
