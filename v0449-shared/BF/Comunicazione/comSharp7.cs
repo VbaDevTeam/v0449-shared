@@ -187,7 +187,7 @@ namespace v0449_shared
       {
         do
         {
-          Thread.Sleep(9);
+          Thread.Sleep(1);
           realScanTime = (DateTime.Now.Ticks - appScanTime) / 1e4;
 
           switch (mbStatus)
