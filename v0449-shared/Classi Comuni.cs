@@ -271,8 +271,10 @@ namespace v0449_shared
       //myConfTest.getCicliTot();
       nomeProva = rHeader.RhNomeProva;
       nomeRicetta = lCMini.Tblcodicidisegnis.ToList().Where(e => e.CdId == rHeader.RhCdId).First().CdName;
-      DurataTotale = myConfTest.DurataTotale;
-      CicliTotali = myConfTest.CicliTotale;
+      DurataTotale = myConfTest.getDurataTot();
+      myConfTest.DurataTotale = DurataTotale;
+      CicliTotali = myConfTest.getCicliTot();
+      myConfTest.CicliTotale = CicliTotali;
 
     }
 
