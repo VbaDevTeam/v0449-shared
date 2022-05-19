@@ -567,42 +567,42 @@ namespace v0449_shared
     private object? valOut;
     public object? ValOut
     {
-      get
-      {
-        JsonElement tmp = new JsonElement();
-        try
-        {
-          tmp = (JsonElement) valOut;
-          JsonValueKind appType = tmp.ValueKind;
+			get
+			{
+				//  JsonElement tmp = new JsonElement();
+				//  try
+				//  {
+				//    tmp = (JsonElement) valOut;
+				//    JsonValueKind appType = tmp.ValueKind;
 
-          switch (appType)
-          {
-            case JsonValueKind.String:
-              string? appiccica = tmp.GetString();
-              try
-              {
-                valOut = double.Parse(appiccica);
-              }
-              catch (Exception e)
-              {
-                Console.WriteLine(e);
-                valOut = appiccica;
-              }
-              break;
-            case JsonValueKind.Number:
-              valOut = tmp.GetDouble();
-              break;
-            case JsonValueKind.False:
-            case JsonValueKind.True:
-              valOut = tmp.GetBoolean();
-              break;
-          }
-        }
-        catch (Exception e)
-        {
-          Console.WriteLine(e);
-        }
-        return valOut;
+				//    switch (appType)
+				//    {
+				//      case JsonValueKind.String:
+				//        string? appiccica = tmp.GetString();
+				//        try
+				//        {
+				//          valOut = double.Parse(appiccica);
+				//        }
+				//        catch (Exception e)
+				//        {
+				//          Console.WriteLine(e);
+				//          valOut = appiccica;
+				//        }
+				//        break;
+				//      case JsonValueKind.Number:
+				//        valOut = tmp.GetDouble();
+				//        break;
+				//      case JsonValueKind.False:
+				//      case JsonValueKind.True:
+				//        valOut = tmp.GetBoolean();
+				//        break;
+				//    }
+				//  }
+				//  catch (Exception e)
+				//  {
+				//    Console.WriteLine(e);
+				//  }
+				return valOut;
       }
       set
       {
