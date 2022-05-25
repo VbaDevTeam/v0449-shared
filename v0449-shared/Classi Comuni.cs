@@ -387,29 +387,29 @@ namespace v0449_shared
 
 
     //Generali
-    durataPasso = new ParametroVba(1, 60, "Durata passo [s]");
-    blFineCiclo = new ParametroVba(1, true, "Attendi fine tempo");
-    blFinePulsa = new ParametroVba(1, true, "Attendi fine N° pulsazione");
-    abilVibrazi = new ParametroVba(1, true, "Abilitazione vibrazione");
-    blEsclRisc = new ParametroVba(1, true, "Esclusione circolazione nel riscaldatore");
-    setPortata = new ParametroVba(1, 0, "Setpoint portata circolazione [Lt/Min]");
+    durataPasso = new ParametroVba(1, 60.0, "Durata passo [s]", typeof(Double).ToString());
+    blFineCiclo = new ParametroVba(1, 1, "Attendi fine tempo", typeof(Boolean).ToString());
+    blFinePulsa = new ParametroVba(1, 1, "Attendi fine N° pulsazione", typeof(Boolean).ToString());
+    abilVibrazi = new ParametroVba(1, 1, "Abilitazione vibrazione", typeof(Boolean).ToString());
+    blEsclRisc = new ParametroVba(1, 1, "Esclusione circolazione nel riscaldatore", typeof(Boolean).ToString());
+    setPortata = new ParametroVba(1, 0.0, "Setpoint portata circolazione [Lt/Min]", typeof(Double).ToString());
 
     //Pulsazione
-    abilPuls = new ParametroVba(1, true, "Abilitazione pulsazione");
-    numePuls = new ParametroVba(1, 60, "N° cicli pulsazione");
-    abilSinu = new ParametroVba(2, true, "Abilitazione sinusoide");
-    frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]");
-    tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]");
-    tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]");
-    tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]");
-    tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]");
+    abilPuls = new ParametroVba(1, 1, "Abilitazione pulsazione", typeof(Boolean).ToString());
+    numePuls = new ParametroVba(1, 60.0, "N° cicli pulsazione", typeof(Double).ToString());
+    abilSinu = new ParametroVba(2, 1, "Abilitazione sinusoide", typeof(Boolean).ToString());
+    frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]", typeof(Int32).ToString());
+    tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]", typeof(Double).ToString());
+    tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]", typeof(Double).ToString());
+    tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]", typeof(Double).ToString());
+    tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]", typeof(Double).ToString());
 
     //Acquisizione
-    abilAcqu = new ParametroVba(1, true, "Abilitazione acquisizione");
-    frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)");
-    frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)");
-    prAcqAlt = new ParametroVba(2, 500, "Perioro alta freq. [s]");
-    tmAcqAlt = new ParametroVba(2, 500, "Tempo   alta freq. [s]");
+    abilAcqu = new ParametroVba(1, 1, "Abilitazione acquisizione", typeof(Boolean).ToString());
+    frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)", typeof(Double).ToString());
+    frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)", typeof(Double).ToString());
+    prAcqAlt = new ParametroVba(2, 500.0, "Perioro alta freq. [s]", typeof(Double).ToString());
+    tmAcqAlt = new ParametroVba(2, 500.0, "Tempo   alta freq. [s]", typeof(Double).ToString());
 
     bitCmd = new BitInt();
 
@@ -550,8 +550,19 @@ namespace v0449_shared
     private int orderVis;
     public int OrderVis { get { return orderVis; } set { orderVis = value; } }
 
-    private int valInt;
-    public int ValInt { get { return valInt; } set { valInt = value; } }
+    private double private_value;
+    public double Value { get { return private_value; } set { private_value = value; } }
+
+    private string private_type;
+    public string string_Type { get { return private_type; } set { private_type = value; } }
+
+    private bool active;
+    public bool Active { get { return active; } set { active = value; } }
+    private string descrizione;
+    public string Descrizione { get { return descrizione; } set { descrizione = value; } }
+
+
+
 
     private double valDouble;
     public double ValDouble { get { return valDouble; } set { valDouble = value; } }
@@ -559,91 +570,75 @@ namespace v0449_shared
     public DateTime ValDatetime { get { return valDatetime; } set { valDatetime = value; } }
     private bool valBool;
     public bool ValBool { get { return valBool; } set { valBool = value; } }
-    private bool active;
-    public bool Active { get { return active; } set { active = value; } }
-    private string descrizione;
-    public string Descrizione { get { return descrizione; } set { descrizione = value; } }
 
-    private object? valOut;
-    public object? ValOut
-    {
-			get
-			{
-				//  JsonElement tmp = new JsonElement();
-				//  try
-				//  {
-				//    tmp = (JsonElement) valOut;
-				//    JsonValueKind appType = tmp.ValueKind;
 
-				//    switch (appType)
-				//    {
-				//      case JsonValueKind.String:
-				//        string? appiccica = tmp.GetString();
-				//        try
-				//        {
-				//          valOut = double.Parse(appiccica);
-				//        }
-				//        catch (Exception e)
-				//        {
-				//          Console.WriteLine(e);
-				//          valOut = appiccica;
-				//        }
-				//        break;
-				//      case JsonValueKind.Number:
-				//        valOut = tmp.GetDouble();
-				//        break;
-				//      case JsonValueKind.False:
-				//      case JsonValueKind.True:
-				//        valOut = tmp.GetBoolean();
-				//        break;
-				//    }
-				//  }
-				//  catch (Exception e)
-				//  {
-				//    Console.WriteLine(e);
-				//  }
-				return valOut;
-      }
-      set
-      {
-        valOut = value;
-      }
-    }
 
-    private string typeNameOut;
+    // private object? valOut;
+    // public object? ValOut
+    // {
+    //get
+    //{
+    //	//  JsonElement tmp = new JsonElement();
+    //	//  try
+    //	//  {
+    //	//    tmp = (JsonElement) valOut;
+    //	//    JsonValueKind appType = tmp.ValueKind;
+
+    //	//    switch (appType)
+    //	//    {
+    //	//      case JsonValueKind.String:
+    //	//        string? appiccica = tmp.GetString();
+    //	//        try
+    //	//        {
+    //	//          valOut = double.Parse(appiccica);
+    //	//        }
+    //	//        catch (Exception e)
+    //	//        {
+    //	//          Console.WriteLine(e);
+    //	//          valOut = appiccica;
+    //	//        }
+    //	//        break;
+    //	//      case JsonValueKind.Number:
+    //	//        valOut = tmp.GetDouble();
+    //	//        break;
+    //	//      case JsonValueKind.False:
+    //	//      case JsonValueKind.True:
+    //	//        valOut = tmp.GetBoolean();
+    //	//        break;
+    //	//    }
+    //	//  }
+    //	//  catch (Exception e)
+    //	//  {
+    //	//    Console.WriteLine(e);
+    //	//  }
+    //	return valOut;
+    //   }
+    //   set
+    //   {
+    //     valOut = value;
+    //   }
+  //}
+
+  private string typeNameOut;
     public string TypeNameOut { get { return typeNameOut; } set { typeNameOut = value; } }
 
-    private Type typeOut;
-    public Type TypeOut { get { return typeOut; } set { typeOut = value; } }
+
 
     public ParametroVba()
     {
     }
-    public ParametroVba(int ord, object? value, string descr)
+    public ParametroVba(int ord, double value, string descr, string typeString)
     {
       orderVis = ord;
       descrizione = descr;
-      //typeOut = value.GetType();
-      //typeNameOut = typeOut.Name;
-      valOut = value;
-
-      //switch (typeOut.Name)
-      //{
-      //  case "int":
-      //    valInt = (int)value;
-      //    break;
-      //  case "double":
-      //    valDouble = (double)value;
-      //    break;
-      //  case "bool":
-      //    valBool = (bool)value;
-      //    break;
-      //  case "Datetime":
-      //    valDatetime = (DateTime)value;
-      //    break;
-      //}
+      private_value = value;
+      private_type = typeString;
     }
   }
+
+
+
+
 
   [Serializable()]
   public class setPoint
