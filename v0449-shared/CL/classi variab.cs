@@ -126,6 +126,7 @@ namespace v0449_shared
     public bool pcPlcCommWr;
     public ushort pcPlcComm;
     public ushort plcPcComm;
+    public bool cliSrvComm;
     public BitInt gestBool;
 
     public int mbErrWr;
