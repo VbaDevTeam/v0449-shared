@@ -12,7 +12,7 @@ namespace v0449_shared
 {
   class dbGeneric
   {
-    ContextMini dataContext = new ContextMini(mainAppParam.strConnDb);
+    Context dataContext = new Context(mainAppParam.strConnDb);
     public V v = new();
 
     public enum dbDlCn

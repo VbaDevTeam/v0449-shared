@@ -95,7 +95,7 @@ namespace v0449_shared
 
   public class NO_XML
   {
-
+    public DATA_CONF_TEST myDataConfTest;
    public v0449CellaClient clientCella;
 
     public string strNameDb = "";
@@ -126,6 +126,7 @@ namespace v0449_shared
     public bool pcPlcCommWr;
     public ushort pcPlcComm;
     public ushort plcPcComm;
+    public bool cliSrvComm;
     public BitInt gestBool;
 
     public int mbErrWr;
@@ -158,6 +159,7 @@ namespace v0449_shared
 
     public bool systemAlarms;
 
+    public bool abilSaveRecipe = false;
 
     #region DVP
     public int sysTime;
@@ -212,12 +214,12 @@ namespace v0449_shared
 
     //Ore mancanti
     private int durataTotale;
-    public int DurataTotale { get => getDurataTot();}
-
+    // public int DurataTotale { get => getDurataTot();}
+    public int DurataTotale { get; set; }
 
     private int cicliTotale;
-    public int CicliTotale { get => getCicliTot();}
-
+    // public int CicliTotale { get => getCicliTot();}
+    public int CicliTotale { get; set; }
 
     public DATA_CONF_TEST()
     {
@@ -227,7 +229,7 @@ namespace v0449_shared
     public int getCicliTotOld()
     {
       for (int n = 0; n < passiProva.Count; n++)
-        cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
+        cicliTotale += int.Parse(passiProva[n].numePuls.Value.ToString());
 
       return cicliTotale;
     }
@@ -236,8 +238,8 @@ namespace v0449_shared
     {
       for (int n = 0; n < passiProva.Count; n++)
       {
-        if ((bool)passiProva[n].abilPuls.ValOut)
-          cicliTotale += int.Parse(passiProva[n].numePuls.ValOut.ToString());
+        if (Convert.ToBoolean(passiProva[n].abilPuls.Value))
+          cicliTotale += int.Parse(passiProva[n].numePuls.Value.ToString());
       }
       cicliTotale *= (loops + 1);
       return cicliTotale;
@@ -252,21 +254,21 @@ namespace v0449_shared
         int tmCicloDura = 0;
         //int tmCicEqDura = 0;
         double tmCicloPulsa = 0;
-        bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
-        bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
+        bool chkFineCiclo = Convert.ToBoolean(passiProva[n].blFineCiclo.Value);
+        bool chkFinePulsa = Convert.ToBoolean(passiProva[n].blFinePulsa.Value);
 
         if (chkFineCiclo)
-          tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());
+          tmCicloDura = (int)passiProva[n].durataPasso.Value;
         
         if (chkFinePulsa)
         {
-          double app = double.Parse(passiProva[n].tmSalita.ValOut.ToString());
+          double app = (double)passiProva[n].tmSalita.Value / 100.0;
           tmCicloPulsa = app;
-          app = double.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
+          app = (double)passiProva[n].tmAltaSt.Value / 100.0;
           tmCicloPulsa += app;
-          app = double.Parse(passiProva[n].tmDisces.ValOut.ToString());
+          app = (double)passiProva[n].tmDisces.Value / 100.0;
           tmCicloPulsa += app;
-          app = double.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+          app = (double)passiProva[n].tmBassaS.Value / 100.0;
           tmCicloPulsa += app;
         }
 
@@ -287,47 +289,57 @@ namespace v0449_shared
     {
       int appDurata = 0;
 
-      for (int n = 0; n < passiProva.Count; n++)
+      try
       {
-        //durata passo impostata
-        int tmCicloDura = 0;
-        //durata equivalente n.cicli*durata ciclo
-        //nel caso debba aspettare fine pulsazione
-        //int tmCicEqDura = 0;
+        for (int n = 0; n < passiProva.Count; n++)
+        {
+          //durata passo impostata
+          int tmCicloDura = 0;
+          //durata equivalente n.cicli*durata ciclo
+          //nel caso debba aspettare fine pulsazione
+          //int tmCicEqDura = 0;
 
         double tmCicloPulsa = 0;
-        bool chkFineCiclo = (bool)passiProva[n].blFineCiclo.ValOut;
-        bool chkFinePulsa = (bool)passiProva[n].blFinePulsa.ValOut;
+        
+
+        
+        bool chkFineCiclo = Convert.ToBoolean(passiProva[n].blFineCiclo.Value);
+        bool chkFinePulsa = Convert.ToBoolean(passiProva[n].blFinePulsa.Value);
 
         //se richiesta attesa fine tempo, inizializzo appoggio
         if (chkFineCiclo)
-          tmCicloDura = int.Parse(passiProva[n].durataPasso.ValOut.ToString());
+          tmCicloDura = (int)passiProva[n].durataPasso.Value;
 
         //se richiesta attesa fine cicli pulsazione, calcolo durata ciclo pulsazione
         if (chkFinePulsa)
         {
-          double app = double.Parse(passiProva[n].tmSalita.ValOut.ToString());
+          double app = (double)passiProva[n].tmSalita.Value / 100.0;
           tmCicloPulsa = app;
-          app = double.Parse(passiProva[n].tmAltaSt.ValOut.ToString());
+          app = (double)passiProva[n].tmAltaSt.Value / 100.0;
           tmCicloPulsa += app;
-          app = double.Parse(passiProva[n].tmDisces.ValOut.ToString());
+          app = (double)passiProva[n].tmDisces.Value / 100.0;
           tmCicloPulsa += app;
-          app = double.Parse(passiProva[n].tmBassaS.ValOut.ToString());
+          app = (double)passiProva[n].tmBassaS.Value / 100.0;
           tmCicloPulsa += app;
         }
 
-        //scelgo il più lungo tra i due
-        if (tmCicloDura > tmCicloPulsa)
-        {
-          appDurata += tmCicloDura;
+          //scelgo il più lungo tra i due
+          if (tmCicloDura > tmCicloPulsa)
+          {
+            appDurata += tmCicloDura;
+          }
+          else
+          {
+            appDurata += (int)tmCicloPulsa;
+          }
         }
-        else
-        {
-          appDurata += (int)tmCicloPulsa;
-        }
+        durataTotale = appDurata * (loops + 1);
+        return durataTotale;
       }
-      durataTotale = appDurata * (loops + 1);
-      return durataTotale;
+      catch (Exception ex)
+      {
+        return -1;
+      }
     }
 
 

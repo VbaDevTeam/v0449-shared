@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classi gRpc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Confapp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\ContextMini.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Context.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Datalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Eventlog.cs" />
