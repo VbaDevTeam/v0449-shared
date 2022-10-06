@@ -2639,22 +2639,22 @@ namespace v0449_shared
     #region Wu1
     public enum Wu1
     {
-       vWu100_uKM1220_pompalim	
-     , vWu101_uKM1130_pomprefr	
-     , vWu102_uKM1160_riscflui	
-     , vWu103_uKM1400_pompcirc	
+       qKM1220_pompalim	
+     , qKM1130_pomprefr	
+     , qKM1160_riscflui	
+     , qKM1400_pompcirc	
      , vWu104_q2_4Riserva	     
      , vWu105_q2_5Riserva	     
      , vWu106_q2_6Riserva	     
      , vWu107_q2_7Riserva	     
-     , vWu108_uYV1230__alimScar
-     , vWu109_uYV1420__mandProv
-     , vWu110_uYV1430__ritoProv
-     , vWu111_uYV1440__scarLive
-     , vWu112_uYV1330A_aumePres
-     , vWu113_uYV1330B_dimiPres
-     , vWu114_uRST1160_moduRisc
-     , vWu115_uEN1400__abilCirc
+     , qYV1230__alimScar
+     , qYV1420__mandProv
+     , qYV1430__ritoProv
+     , qYV1440__scarLive
+     , qYV1330A_aumePres
+     , qYV1330B_dimiPres
+     , qRST1160_moduRisc
+     , qEN1400__abilCirc
     }
 
     public static string[] wu1Descr =
@@ -12120,7 +12120,6 @@ namespace v0449_shared
     #endregion
     #endregion
 
-#endregion
 #endregion
    
 
