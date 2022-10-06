@@ -159,6 +159,7 @@ namespace v0449_shared
 
     public bool systemAlarms;
 
+    public bool abilSaveRecipe = false;
 
     #region DVP
     public int sysTime;
