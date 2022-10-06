@@ -427,6 +427,7 @@ namespace v0449_shared
       {
         id = this.stepNum.ToString(),
         stepNum = this.stepNum + 1,
+        id = this.stepNum.ToString(),
         stepDescr = this.stepDescr,
         spTempCircuit = this.spTempCircuit,
         spTempCella = this.spTempCella,

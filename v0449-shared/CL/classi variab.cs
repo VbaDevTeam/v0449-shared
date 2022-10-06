@@ -289,13 +289,15 @@ namespace v0449_shared
     {
       int appDurata = 0;
 
-      for (int n = 0; n < passiProva.Count; n++)
+      try
       {
-        //durata passo impostata
-        int tmCicloDura = 0;
-        //durata equivalente n.cicli*durata ciclo
-        //nel caso debba aspettare fine pulsazione
-        //int tmCicEqDura = 0;
+        for (int n = 0; n < passiProva.Count; n++)
+        {
+          //durata passo impostata
+          int tmCicloDura = 0;
+          //durata equivalente n.cicli*durata ciclo
+          //nel caso debba aspettare fine pulsazione
+          //int tmCicEqDura = 0;
 
         double tmCicloPulsa = 0;
         
@@ -321,18 +323,23 @@ namespace v0449_shared
           tmCicloPulsa += app;
         }
 
-        //scelgo il più lungo tra i due
-        if (tmCicloDura > tmCicloPulsa)
-        {
-          appDurata += tmCicloDura;
+          //scelgo il più lungo tra i due
+          if (tmCicloDura > tmCicloPulsa)
+          {
+            appDurata += tmCicloDura;
+          }
+          else
+          {
+            appDurata += (int)tmCicloPulsa;
+          }
         }
-        else
-        {
-          appDurata += (int)tmCicloPulsa;
-        }
+        durataTotale = appDurata * (loops + 1);
+        return durataTotale;
       }
-      durataTotale = appDurata * (loops + 1);
-      return durataTotale;
+      catch (Exception ex)
+      {
+        return -1;
+      }
     }
 
 
