@@ -187,7 +187,7 @@ namespace v0449_shared
       {
         do
         {
-          Thread.Sleep(9);
+          Thread.Sleep(1);
           realScanTime = (DateTime.Now.Ticks - appScanTime) / 1e4;
 
           switch (mbStatus)
@@ -226,19 +226,12 @@ namespace v0449_shared
               }
 
               unPackRead();
-              //v.NoXml.cDiagnAnal.cycle("call");
-              //elaborazione logica, aggiornamento calcoli
-              //plc.Cycle();
-
-
-              polling();
-
-              //gestione allarmi
-              //gesAll();
-
+              gestController();
+              gestRecData();
               pack2write();
-
               write();
+
+              
 
 
               if (cntErr > 5)
@@ -281,6 +274,9 @@ namespace v0449_shared
           appScanTime = DateTime.Now.Ticks;
 
           symRead();
+          gestController();
+          gestRecData();
+
           //symPolling();
           //symWrite();
           wait = 50;
@@ -298,57 +294,6 @@ namespace v0449_shared
       return Result;
     }
 
-
-
-    private int WriteRecipe()
-    {
-      // Declaration separated from the code for readability
-      int Amount=10;
-      int SizeWrB = 0;
-      int ResultB = 5310089;
-      int ptrErr = 0;
-
-      //short[] tmpSh;
-
-      ResultB = Client.WriteArea(S7Consts.S7AreaDB, DBNoWr, 70, Amount, S7Consts.S7WLByte, bufWr, ref SizeWrB);
-
-      if (v.NoXml.mbErrRd != 0)
-      {
-        ptrErr++;
-      }
-      else
-      {
-        //Richiedo azzeramento comando
-        v.comRt2Hmi.cmdRespSrv = 2;
-        v.NoXml.sendRecipe = false;
-      }
-      ShowResult(ResultB);
-      return ResultB;
-    }
-
-
-    private void recData()
-    {
-      Datalog dLog = new Datalog();
-
-      //dLog.DlOrd = numPassi++;
-      //dLog.DlPrIn = v.Io.analog[(int)DEF.chNoS7ai.AIpFLUIPROV];
-      //dLog.DlPrOut = 0;
-      //dLog.DlTflIn = v.Io.analog[(int)DEF.chNoS7ai.AItFLUIPROV];
-      //dLog.DlTflOut = DateTime.Now.Millisecond;
-      //dLog.DlTcella = v.Io.analog[(int)DEF.chNoS7ai.AItCELLCLIM];
-      //dLog.DlRhCella = 0;
-      //dLog.DlQfl = 0;
-      //dLog.DlTimeSt = DateTime.Now;
-      ////dataContext.Datalogs.Add(dLog);
-      //dataContext.Datalogs.Add(dLog);
-      ////dataContext.Datalogs.Append(dLog);
-      ////if (numPassi > 5000)
-      ////  numPassi = 0;
-      
-      
-      
-    }
 
     protected void ShowResult(int Result)
     {
@@ -379,10 +324,6 @@ namespace v0449_shared
       dialogo.Interrupt();
     }
 
-    protected virtual void polling()
-    {
-    }
-
     protected virtual int symRead()
     {
       return -1;
@@ -395,12 +336,10 @@ namespace v0449_shared
 
     protected virtual void unPackRead()
     {
-
     }
 
     protected virtual void pack2write()
     { 
-    
     }
 
     protected virtual int write()
@@ -442,6 +381,19 @@ namespace v0449_shared
 
     }
 
+
+    protected virtual int gestController()
+    {
+      return 1;
+    }
+    
+
+    protected virtual int gestRecData() 
+    {
+      return 1;
+    }
+
+    
     #region modData
     private int bufShortToByte(short[] bSh, int nSh, Byte[] bBy)
     {
@@ -481,14 +433,12 @@ namespace v0449_shared
       result = (int)(value[0] + (value[1] << 16));
       return result;
     }
-
     private uint shortsToUint(short[] value)
     {
       uint result = 0;
       result = (uint)(value[0] + (value[1] << 16));
       return result;
     }
-
     private void changeBitIntState(ref BitInt bInt, int ndxBit, bool status)
     {
       if (status)
