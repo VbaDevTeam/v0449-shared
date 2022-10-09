@@ -1000,6 +1000,7 @@ namespace v0449_shared
     public Int16 cntRip { get; set; }//;
     public Int16 spTCeAut_d { get; set; }//;
     public Int16 spTFlAut_d { get; set; }//;
+    public Int16 spQFlAut_d { get; set; }//;
     public Int16 spHCeAut_d { get; set; }//;
     public Int16 spPresFl_d { get; set; }//;
     public Int16 pidPwRisCe_d { get; set; }//;
