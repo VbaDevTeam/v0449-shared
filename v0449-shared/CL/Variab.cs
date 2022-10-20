@@ -30,8 +30,13 @@ namespace v0449_shared
     public static Serilog.ILogger dataLogLs;
     public static Serilog.ILogger dataLogHs;
 
+    public static string cfgBenchId = "";
+    public static string cfgNameBase = "";
     public static string logNameBase = "";
     public static string logDataTest = "";
+
+    public static bool end7;
+    public static bool endCella;
 
     public V()
     {
