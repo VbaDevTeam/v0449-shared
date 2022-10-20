@@ -11,6 +11,8 @@ service v0449gRpcSvc {
   //richiesta da client Slave a Server
   //Lettura
   rpc xchRtDataJsSlave (genericRequest) returns (data2HmiJs) {}
+
+  rpc xchRtDataJsBothWays (stream data2PlcJs) returns (stream data2HmiJs) {}
   
   //Richiesta da Client invio Mail.
   rpc reqSendMail (mailRequest) returns (genericResponse){}
@@ -18,7 +20,7 @@ service v0449gRpcSvc {
   //Richiesta scrittura Ricetta a Server
   rpc reqSendRecipe (dataRecipeRequest) returns (genericResponse){}
 
-  rpc StreamingBothWays (stream data2PlcJs) returns (stream data2HmiJs);
+
 
   
 }
