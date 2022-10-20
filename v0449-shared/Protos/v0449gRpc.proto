@@ -17,7 +17,9 @@ service v0449gRpcSvc {
   
   //Richiesta scrittura Ricetta a Server
   rpc reqSendRecipe (dataRecipeRequest) returns (genericResponse){}
-  
+
+  rpc StreamingBothWays (stream data2PlcJs) returns (stream data2HmiJs);
+
   
 }
 
