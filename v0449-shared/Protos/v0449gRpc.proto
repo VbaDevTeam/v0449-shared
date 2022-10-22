@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package v0449gRpc;
+import "google/protobuf/timestamp.proto";
 
 service v0449gRpcSvc {
 
@@ -13,16 +14,29 @@ service v0449gRpcSvc {
   rpc xchRtDataJsSlave (genericRequest) returns (data2HmiJs) {}
 
   rpc xchRtDataJsBothWays (stream data2PlcJs) returns (stream data2HmiJs) {}
+
+  rpc sendMessage (stream ClientToServerMessage) returns (stream ServerToClientMessage){}
   
   //Richiesta da Client invio Mail.
   rpc reqSendMail (mailRequest) returns (genericResponse){}
   
   //Richiesta scrittura Ricetta a Server
   rpc reqSendRecipe (dataRecipeRequest) returns (genericResponse){}
-
+  
+  
 
 
   
+}
+
+
+message ClientToServerMessage{
+  string text = 1;
+}
+
+message ServerToClientMessage{
+  string text = 1;
+  google.protobuf.Timestamp timestamp = 2;
 }
 
 //Richiesta invio mail
