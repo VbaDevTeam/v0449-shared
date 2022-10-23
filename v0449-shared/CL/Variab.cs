@@ -34,6 +34,7 @@ namespace v0449_shared
     public static string cfgNameBase = "";
     public static string logNameBase = "";
     public static string logDataTest = "";
+    public static configData srvConfPar;
 
     public static bool end7;
     public static bool endCella;
