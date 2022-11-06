@@ -7,6 +7,7 @@ using System.Text;
 using System.IO;
 using VbaLib;
 using Serilog;
+using System.Threading;
 
 namespace v0449_shared
 {
@@ -35,6 +36,8 @@ namespace v0449_shared
     public static string logNameBase = "";
     public static string logDataTest = "";
     public static configData srvConfPar;
+    public static List<Thread> dialogo;
+
 
     public static bool end7;
     public static bool endCella;
