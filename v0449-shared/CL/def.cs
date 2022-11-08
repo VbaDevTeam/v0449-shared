@@ -43,6 +43,7 @@ namespace v0449_shared
       , vpRaffMain_00      // Pos. virt. valv. raff. princ.
       , vpRaffInte_00      // Pos. virt. valv. raff. II salto
       , mpCircProv_00      // Perc. veloc. pompa circolazione
+      , tIrradiator_d      // Temp. cartuccia irraggiamento (496)
     }
 
     public static string[] aiChNamesS7 =
@@ -79,7 +80,8 @@ namespace v0449_shared
       ,"vpRaffMain_00"
       ,"vpRaffInte_00"
       ,"mpCircProv_00"
-      };
+      ,"tIrradiator_d"
+    };
 
 
     #region AI1 label short Siemens
@@ -118,6 +120,7 @@ namespace v0449_shared
       , "Pos. virt. valv. raff. princ.    "
       , "Pos. virt. valv. raff. II salto  "
       , "Perc. veloc. pompa circolazione  "
+      , "Temp. irradiatore                "
       };
 
     #endregion
@@ -158,6 +161,7 @@ namespace v0449_shared
       , "Pos. virt. valv. raff. princ.    "
       , "Pos. virt. valv. raff. II salto  "
       , "Perc. veloc. pompa circolazione  "
+      , "Temp. irradiatore                "
     };
     #endregion
     #endregion
