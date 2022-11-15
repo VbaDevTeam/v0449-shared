@@ -14,6 +14,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classi gRpc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\classi variab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\anChCom.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0387lastOriginale_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0387_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0449b_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0449__v0449b_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0470_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0496_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\benches\v0511_dio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\rights.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\wBitInt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Confapp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Context.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Datalog.cs" />
@@ -21,7 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Reportheader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Tblcodicidisegni.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\Utenti.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CL\def.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CL\DEF\def.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\Variab.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DA\dbGeneric.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CL\delegate.cs" />
@@ -33,7 +43,6 @@
     <None Include="$(MSBuildThisFileDirectory)v0449-shared\v0449-shared.shproj.user" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)CL\" />
     <Folder Include="$(MSBuildThisFileDirectory)DA\DataObjects\Models\" />
   </ItemGroup>
   <ItemGroup>

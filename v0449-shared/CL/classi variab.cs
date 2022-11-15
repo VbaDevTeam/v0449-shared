@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using VbaLib;
 using Serilog;
-
+//using v0449_shared.CL.DEF.benches;
 
 
 namespace v0449_shared
@@ -18,6 +18,7 @@ namespace v0449_shared
     public int ptrPhRaffrCe;
     public int ptrPhCompCe;
 
+    //public _0496dio _0496Dio = new _0496dio();
 
     public BitInt[] We = new BitInt[4]; //Word di ingresso PLC
     public BitInt[] Wu = new BitInt[4]; //Word di uscita PLC

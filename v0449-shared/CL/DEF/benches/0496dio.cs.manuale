@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using v0449_shared.CL.DEF;
+
+namespace v0449_shared.CL.DEF.benches
+{
+  public class _0496dio
+  {
+    public wBitInt[] we = new wBitInt[]
+    {
+      new wBitInt((int)wBitInt.types.we, 0, "WE0", "WE0", new lBitInt[]
+      {
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+      }),
+      new wBitInt((int)wBitInt.types.we, 1, "WE1", "WE1", new lBitInt[]
+      {
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+        new lBitInt(0, "SIeTUTTO_OK", "Ausiliari inseriti"),
+      })
+    };
+  }
+}

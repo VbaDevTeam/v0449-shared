@@ -21,33 +21,33 @@ namespace v0449_shared
 
   public class dLogRecHs
   {
-    public double spPr    { get; set; }
-    public double pvPUp   { get; set; }
-    public double pvPDn   { get; set; }
-    public double pvvEs   { get; set; }
-    public double pvvAc   { get; set; }
-    public int ctNPu      { get; set; }
+    public double spPr { get; set; }
+    public double pvPUp { get; set; }
+    public double pvPDn { get; set; }
+    public double pvvEs { get; set; }
+    public double pvvAc { get; set; }
+    public int ctNPu { get; set; }
     public int ctTmS { get; set; }
   }
-  
+
   public class dLogRecLs
   {
-    public int cntCicliStep   { get; set; }
-    public int cntCicliTot   { get; set; }
-    public int cntSecStep   { get; set; }
-    public int cntSecTot   { get; set; }
-    public int ptrStep   { get; set; }
-    public int ptrRip   { get; set; }
-    public double spTFl   { get; set; }
-    public double pvTUp   { get; set; }
-    public double pvTDn   { get; set; }
-    public double spTCe   { get; set; }
-    public double pvTCe   { get; set; }
-    public double spQFl   { get; set; }
-    public double pvqFl   { get; set; }
-    public double spR1    { get; set; }
-    public double pvtR1   { get; set; }
-    public double pvtR2   { get; set; }
+    public int cntCicliStep { get; set; }
+    public int cntCicliTot { get; set; }
+    public int cntSecStep { get; set; }
+    public int cntSecTot { get; set; }
+    public int ptrStep { get; set; }
+    public int ptrRip { get; set; }
+    public double spTFl { get; set; }
+    public double pvTUp { get; set; }
+    public double pvTDn { get; set; }
+    public double spTCe { get; set; }
+    public double pvTCe { get; set; }
+    public double spQFl { get; set; }
+    public double pvqFl { get; set; }
+    public double spR1 { get; set; }
+    public double pvtR1 { get; set; }
+    public double pvtR2 { get; set; }
     public double pvtCi { get; set; }
   }
 
@@ -81,7 +81,7 @@ namespace v0449_shared
     public int versioneRicetta;
     public string nomeRicetta;
     public string nomeProva;
-   
+
     public List<string> serialiProva = new List<string>();
     public DateTime dataCreazione;
     public DateTime dataInizio;
@@ -89,9 +89,10 @@ namespace v0449_shared
 
     //Da valorizzare con metodo myConfTest .getDurataTot
     private int durataTotale;
-    public int DurataTotale {
-      get => durataTotale; 
-      set 
+    public int DurataTotale
+    {
+      get => durataTotale;
+      set
       {
         durataTotale = value;
         GgTotali = ((durataTotale / 3600) / 24);
@@ -133,13 +134,15 @@ namespace v0449_shared
 
 
     private int tempoTrascorso;
-    public int TempoTrascorso { 
-      get => tempoTrascorso; 
-      set { 
+    public int TempoTrascorso
+    {
+      get => tempoTrascorso;
+      set
+      {
         tempoTrascorso = value;
 
         //Inizializzazione Trascorsi
-        GgTrascorsi =  ((tempoTrascorso / 3600) / 24);
+        GgTrascorsi = ((tempoTrascorso / 3600) / 24);
         OreTrascorse = (tempoTrascorso / 3600) % 24;
         int appOreTrascorse = (tempoTrascorso / 3600);
         MmTrascorsi = (tempoTrascorso - (appOreTrascorse * 3600)) / 60;
@@ -188,7 +191,7 @@ namespace v0449_shared
     //Ore mancanti
     private int oreMancanti;
     public int OreMancanti { get => oreMancanti; set => oreMancanti = value; }
-    
+
     //minuti mancanti
     private int mmMancanti;
     public int MmMancanti { get => mmMancanti; set => mmMancanti = value; }
@@ -205,7 +208,7 @@ namespace v0449_shared
       lCMini = new Context(mainAppParam.strConnDb);
       idProva = idProvaC;
       rHeader = lCMini.Reportheaders.Find(idProvaC);
-      if (rHeader!=null)
+      if (rHeader != null)
       {
         initInternal(rHeader);
 
@@ -224,30 +227,30 @@ namespace v0449_shared
     public string[] recapTest(PROVA myProva)
     {
       string[] result = new string[2];
-      result[0] = myProva.idProva + " " + myProva.nomeProva + " " + DateTime.Now.ToString(); 
+      result[0] = myProva.idProva + " " + myProva.nomeProva + " " + DateTime.Now.ToString();
       result[1] = "<b>Riepilogo avanzamento test " + myProva.idProva + " " + myProva.nomeProva +
                   "</b><br>" +
-                  "<b>CICLI TOTALI  : </b>" + myProva.CicliTotali.ToString() + " " + 
-                  "<b>CICLI FATTI   : </b>" + myProva.CicliFatti.ToString() + " " + 
+                  "<b>CICLI TOTALI  : </b>" + myProva.CicliTotali.ToString() + " " +
+                  "<b>CICLI FATTI   : </b>" + myProva.CicliFatti.ToString() + " " +
                   "<b>CICLI MANCANTI: </b>" + myProva.CicliRimanenti.ToString() + " " +
-                  "<br><hr><br>" + 
-                  "<b>TEMPO TOTALE   : </b>" + 
+                  "<br><hr><br>" +
+                  "<b>TEMPO TOTALE   : </b>" +
                   myProva.GgTotali.ToString() + " gg - " +
                   myProva.OreTotali.ToString() + " hh - " +
                   myProva.MmTotali.ToString() + " mm" +
-                  "<b>TEMPO MANCANTE   : </b>" + 
+                  "<b>TEMPO MANCANTE   : </b>" +
                   myProva.GgMancanti.ToString() + " gg - " +
                   myProva.OreMancanti.ToString() + " hh - " +
                   myProva.MmMancanti.ToString() + " mm" +
-                  "<b>TEMPO TRASCORSO   : </b>" + 
+                  "<b>TEMPO TRASCORSO   : </b>" +
                   myProva.GgTrascorsi.ToString() + " gg - " +
                   myProva.OreTrascorse.ToString() + " hh - " +
                   myProva.MmTrascorsi.ToString() + " mm" +
-                  "<br><hr><br>" + 
+                  "<br><hr><br>" +
                   "";
       return result;
     }
-    
+
     public void initInternal(Reportheader lrHeader)
     {
 
@@ -285,7 +288,7 @@ namespace v0449_shared
         lCMini.Reportheaders.Add(lrHeader);
         return true;
       }
-      catch(Exception ex)
+      catch (Exception ex)
       {
         V.evtLog.Error("ClassiComuni.cs, 257 - {@ex}", ex);
         return false;
@@ -308,9 +311,11 @@ namespace v0449_shared
 
     public setPoint spTempCircuit { get; set; }
     public setPoint spTempCella { get; set; }
-    public setPoint spHumidityCella{ get; set; }
-    public setPoint spPressLow{ get; set; }
-    public setPoint spPressHigh{ get; set; }
+    public setPoint spHumidityCella { get; set; }
+    //variante Hutch, sp risc. infrarosso
+    public setPoint spTIr { get; set; }
+    public setPoint spPressLow { get; set; }
+    public setPoint spPressHigh { get; set; }
     public bool abilSpHumidityCella { get; set; }
     public bool abilSpTempCircuit { get; set; }
     public bool abilSpTempCella { get; set; }
@@ -357,14 +362,15 @@ namespace v0449_shared
 
     public BitInt bitCmd { get; set; }
 
-    
-    
-    
+
+
+
     public PASSO()
-		{
+    {
       spTempCircuit = new setPoint();
       spTempCella = new setPoint();
       spHumidityCella = new setPoint();
+      spTIr = new setPoint();
       spPressLow = new setPoint();
       spPressHigh = new setPoint();
       abilSpHumidityCella = true;
@@ -372,50 +378,50 @@ namespace v0449_shared
       abilSpTempCella = true;
       abilSpPressLow = true;
       abilSpPressHigh = true;
-      
-    spPort = new setPoint();
-    spTsRUp = new setPoint();
-    spTsUp = new setPoint();
-    spTsRDn = new setPoint();
-    spTsDn = new setPoint();
-    frequency = new setPoint();
 
-    tmp1 = new List<ParametroVba>();
-    tmp2 = new List<ParametroVba>();
-    tmp3 = new List<ParametroVba>();
+      spPort = new setPoint();
+      spTsRUp = new setPoint();
+      spTsUp = new setPoint();
+      spTsRDn = new setPoint();
+      spTsDn = new setPoint();
+      frequency = new setPoint();
+
+      tmp1 = new List<ParametroVba>();
+      tmp2 = new List<ParametroVba>();
+      tmp3 = new List<ParametroVba>();
 
 
 
-    //Generali
-    durataPasso = new ParametroVba(1, 60.0, "Durata passo [s]", typeof(Double).ToString());
-    blFineCiclo = new ParametroVba(1, 1, "Attendi fine tempo", typeof(Boolean).ToString());
-    blFinePulsa = new ParametroVba(1, 1, "Attendi fine N° pulsazione", typeof(Boolean).ToString());
-    abilVibrazi = new ParametroVba(1, 1, "Abilitazione vibrazione", typeof(Boolean).ToString());
-    blEsclRisc = new ParametroVba(1, 1, "Esclusione circolazione nel riscaldatore", typeof(Boolean).ToString());
-    setPortata = new ParametroVba(1, 0.0, "Setpoint portata circolazione [Lt/Min]", typeof(Double).ToString());
+      //Generali
+      durataPasso = new ParametroVba(1, 60.0, "Durata passo [s]", typeof(Double).ToString());
+      blFineCiclo = new ParametroVba(1, 1, "Attendi fine tempo", typeof(Boolean).ToString());
+      blFinePulsa = new ParametroVba(1, 1, "Attendi fine N° pulsazione", typeof(Boolean).ToString());
+      abilVibrazi = new ParametroVba(1, 1, "Abilitazione vibrazione", typeof(Boolean).ToString());
+      blEsclRisc = new ParametroVba(1, 1, "Esclusione circolazione nel riscaldatore", typeof(Boolean).ToString());
+      setPortata = new ParametroVba(1, 0.0, "Setpoint portata circolazione [Lt/Min]", typeof(Double).ToString());
 
-    //Pulsazione
-    abilPuls = new ParametroVba(1, 1, "Abilitazione pulsazione", typeof(Boolean).ToString());
-    numePuls = new ParametroVba(1, 60.0, "N° cicli pulsazione", typeof(Double).ToString());
-    abilSinu = new ParametroVba(2, 1, "Abilitazione sinusoide", typeof(Boolean).ToString());
-    frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]", typeof(Int32).ToString());
-    tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]", typeof(Double).ToString());
-    tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]", typeof(Double).ToString());
-    tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]", typeof(Double).ToString());
-    tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]", typeof(Double).ToString());
+      //Pulsazione
+      abilPuls = new ParametroVba(1, 1, "Abilitazione pulsazione", typeof(Boolean).ToString());
+      numePuls = new ParametroVba(1, 60.0, "N° cicli pulsazione", typeof(Double).ToString());
+      abilSinu = new ParametroVba(2, 1, "Abilitazione sinusoide", typeof(Boolean).ToString());
+      frPulsaS = new ParametroVba(3, 2, "Frequenza pulsazione [Hz]", typeof(Int32).ToString());
+      tmSalita = new ParametroVba(4, 60.0, "Durata salita [s]", typeof(Double).ToString());
+      tmAltaSt = new ParametroVba(5, 60.0, "Durata alta [s]", typeof(Double).ToString());
+      tmDisces = new ParametroVba(6, 60.0, "Durata discesa [s]", typeof(Double).ToString());
+      tmBassaS = new ParametroVba(7, 60.0, "Durata bassa [s]", typeof(Double).ToString());
 
-    //Acquisizione
-    abilAcqu = new ParametroVba(1, 1, "Abilitazione acquisizione", typeof(Boolean).ToString());
-    frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)", typeof(Double).ToString());
-    frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)", typeof(Double).ToString());
-    prAcqAlt = new ParametroVba(2, 500.0, "Perioro alta freq. [s]", typeof(Double).ToString());
-    tmAcqAlt = new ParametroVba(2, 500.0, "Tempo   alta freq. [s]", typeof(Double).ToString());
+      //Acquisizione
+      abilAcqu = new ParametroVba(1, 1, "Abilitazione acquisizione", typeof(Boolean).ToString());
+      frAcqBas = new ParametroVba(2, 5.0, "Bassa Freq. (Hz)", typeof(Double).ToString());
+      frAcqAlt = new ParametroVba(2, 30.0, "Alta  Freq. (Hz)", typeof(Double).ToString());
+      prAcqAlt = new ParametroVba(2, 500.0, "Perioro alta freq. [s]", typeof(Double).ToString());
+      tmAcqAlt = new ParametroVba(2, 500.0, "Tempo   alta freq. [s]", typeof(Double).ToString());
 
-    bitCmd = new BitInt();
+      bitCmd = new BitInt();
 
-      
+
     }
-    
+
 
 
 
@@ -431,6 +437,7 @@ namespace v0449_shared
         spTempCircuit = this.spTempCircuit,
         spTempCella = this.spTempCella,
         spHumidityCella = this.spHumidityCella,
+        spTIr = this.spTIr,
         spPressHigh = this.spPressHigh,
         spPressLow = this.spPressLow,
         frequency = this.frequency,
@@ -503,6 +510,7 @@ namespace v0449_shared
     public setPoint spTVasca = new setPoint();
     public setPoint spTCeMan = new setPoint();
     public setPoint spTFlMan = new setPoint();
+    public setPoint spTIrMan = new setPoint();
     public setPoint spPLavoroMan = new setPoint();
     public setPoint spPRiposoMan = new setPoint();
     public setPoint spTRUp = new setPoint();        //Setpoint tempo rampa salita
@@ -513,7 +521,7 @@ namespace v0449_shared
     public setPoint spQFlMan = new setPoint();
     public setPoint spCntNumErr = new setPoint();      //Setpoint ripetizioni errori per scoppio tubo
     public setPoint spKCalcLimRott = new setPoint();    //Setpoint limite controllo scoppio tubo
-    public setPoint spEnScTubo= new setPoint();    //Setpoint Enable controllo scoppio tubo
+    public setPoint spEnScTubo = new setPoint();    //Setpoint Enable controllo scoppio tubo
     public setPoint spTOpValScaDis = new setPoint();         //Setpoint Tempo apertura valvola scarico rampa discesa
     public setPoint spTOpValScaBas = new setPoint();    //Setpoint Tempo apertura valvola scarico mantenimento basso
   }
@@ -543,7 +551,7 @@ namespace v0449_shared
     public string myText = "";
     public Type mytype;
   }
-  
+
   [Serializable()]
   public class ParametroVba
   {
@@ -617,9 +625,9 @@ namespace v0449_shared
     //   {
     //     valOut = value;
     //   }
-  //}
+    //}
 
-  private string typeNameOut;
+    private string typeNameOut;
     public string TypeNameOut { get { return typeNameOut; } set { typeNameOut = value; } }
 
 
@@ -655,7 +663,7 @@ namespace v0449_shared
       get;
       set;
     }
-      
+
 
     double sp;
     /// <summary>
@@ -816,7 +824,7 @@ namespace v0449_shared
     //}
   }
 
-  
+
   public class configData
   {
     public string ipServerPlc { get; set; }
@@ -880,7 +888,7 @@ namespace v0449_shared
   }
 
 
-  
+
   //Definizione delle classi di interscambio dati 
   public class ComRt2Plc
   {
@@ -891,8 +899,9 @@ namespace v0449_shared
       doFs = new UInt16[4];
       doFv = new UInt16[4];
       c1 = new();
-//      c2 = new();
+      //      c2 = new();
     }
+    //inizio buffer PLC comune
     public UInt16[] diFs { get; set; }
     public UInt16[] diFv { get; set; }
     public UInt16[] doFs { get; set; }
@@ -900,9 +909,11 @@ namespace v0449_shared
     public Int16 selCircB { get; set; }
     public Int16 wDogSrv { get; set; }
     public Int16 wDogCli { get; set; }
+    //inizio buffer PLC
 
     public C2Plc c1 { get; set; }
-    
+    //fine buffer PLC
+
     public string interCom { get; set; }
 
     //public C2Plc c2 { get; set; }
@@ -915,19 +926,21 @@ namespace v0449_shared
       cmdReq = new UInt16[1];
       auxPar = new Int16[10];
     }
+
+    //inizio buffer circuito
     public UInt16[] cmdReq { get; set; }
     public UInt16 flVari { get; set; }
-
     public Int16 spTVasca_d { get; set; }
     public Int16 spTCeMan_d { get; set; }
     public Int16 spTFlMan_d { get; set; }
+    public Int16 spTIrMan_d { get; set; }
     public Int16 spPRipMan_d { get; set; }
     public Int16 spPLavMan_d { get; set; }
-    public Int16 spTRUpMan_c{ get; set; }
+    public Int16 spTRUpMan_c { get; set; }
     public Int16 spTUpMan_c { get; set; }
-    public Int16 spTRDnMan_c{ get; set; }
+    public Int16 spTRDnMan_c { get; set; }
     public Int16 spTDnMan_c { get; set; }
-    public Int16 spFreq_m   { get; set; }
+    public Int16 spFreq_m { get; set; }
     public Int16 spQFlMan_c { get; set; }
     public Int16 spTCarico_c { get; set; }
     public Int16 spTScarco_c { get; set; }
@@ -936,55 +949,63 @@ namespace v0449_shared
     public Int16 spCntNumErr { get; set; }
     public Int16 spKCalcLimRott { get; set; }
     public Int16 spLimSumErr { get; set; }
+    public Int16[] auxPar { get; set; }
+    //fine buffer circuito, segue ricetta (test header e steps)
+
     public int cmdReqCli { get; set; }
     public int testNoToSend { get; set; }
-    public Int16[] auxPar{get; set; }
-  } 
-  
-  public class ComRt2Hmi
-{
-  public ComRt2Hmi()
-  {
-    AI = new short[31];
-    alarms = new ushort[5];
-    c1 = new CXHmi();
-    c2 = new CXHmi();
   }
-  public UInt16 di0 { get; set; }
-  public UInt16 di1 { get; set; }//;
-  public UInt16 di2 { get; set; }//;
-  public UInt16 di3 { get; set; }//;
-  public UInt16 do0 { get; set; }//;
-  public UInt16 do1 { get; set; }//;
-  public UInt16 do2 { get; set; }//;
-  public UInt16 do3 { get; set; }//;
-  public Int16[] AI { get; set; }//;
-  public UInt16[] alarms { get; set; }//;
-  public DateTime tmSync { get; set; }//;
-  public int cmdRespSrv { get; set; }//;
-  public bool recDataOn { get; set; }//;
-  public bool comunicOn { get; set; }//;
-  public Int16 wDogCli { get; set; }
-  public CXHmi c1 { get; set; }
-  public CXHmi c2 { get; set; }
-  
-  public string interCom { get; set; }
-}
+
+  public class ComRt2Hmi
+  {
+    public ComRt2Hmi()
+    {
+      AI = new short[31];
+      alarms = new ushort[5];
+      c1 = new CXHmi();
+      c2 = new CXHmi();
+    }
+
+    //membri accessori
+    public int cmdRespSrv { get; set; }//;
+    public bool recDataOn { get; set; }//;
+    public bool comunicOn { get; set; }//;
+    public Int16 wDogCli { get; set; }
+
+    //membri mappa comunicazione PLC
+    public UInt16 di0 { get; set; }
+    public UInt16 di1 { get; set; }//;
+    public UInt16 di2 { get; set; }//;
+    public UInt16 di3 { get; set; }//;
+    public UInt16 do0 { get; set; }//;
+    public UInt16 do1 { get; set; }//;
+    public UInt16 do2 { get; set; }//;
+    public UInt16 do3 { get; set; }//;
+    public UInt16[] alarms { get; set; }//;
+    public Int16[] AI { get; set; }// buffer per TUTTI i canali, comuni e di circuito;
+    public DateTime tmSync { get; set; }//;
+    public CXHmi c1 { get; set; }
+    public CXHmi c2 { get; set; }
+
+    public string interCom { get; set; }
+  }
   public class CXHmi
   {
+    //costruttore (inizializza solo i compar)
     public CXHmi()
     {
       auxPar = new short[10];
     }
-    public Int16 comStatus { get; set; }//;
-    public Int16 runStatus { get; set; }//;
-    public Int16 spTCeMan_d { get; set; }//;
+
+    //public Int16[] AI { get; set; }// buffer per TUTTI i canali, comuni e di circuito (qui ripreso come segnaposto);
     public UInt16 cmdStAut { get; set; }//;
     public UInt16 cmdStMan { get; set; }//;
     public UInt16 cmdSt { get; set; }//;
     public Int16 flVari0 { get; set; }//;
     public Int16 flVari1 { get; set; }//;
-
+    public Int16 comStatus { get; set; }//;
+    public Int16 runStatus { get; set; }//;
+    public Int16 spTCeMan_d { get; set; }//;
     public Int16 ptrPhTest { get; set; }//;
     public Int16 ptrPhPulsa { get; set; }//;
     public Int16 ptrPh1Frig { get; set; }//;
@@ -992,18 +1013,11 @@ namespace v0449_shared
     public Int16 ptrPhRaffrCe { get; set; }//;
     public Int16 ptrPhCompCe { get; set; }//;
 
-    public Int16 pvTempCella { get; set; }
-
-    public Int16 pvRhCella { get; set; }
-
-    public Int16 stsCella { get; set; }
-
     public Int16 idNo { get; set; }//;
     public Int16 ptrStep { get; set; }//;
     public Int16 cntRip { get; set; }//;
     public Int16 spTCeAut_d { get; set; }//;
     public Int16 spTFlAut_d { get; set; }//;
-    public Int16 spQFlAut_d { get; set; }//;
     public Int16 spHCeAut_d { get; set; }//;
     public Int16 spPresFl_d { get; set; }//;
     public Int16 pidPwRisCe_d { get; set; }//;
@@ -1014,9 +1028,17 @@ namespace v0449_shared
     public int cntCicStep { get; set; }//;
     public int cntTmTest { get; set; }//;
     public int cntCicTest { get; set; }//;
+    public Int16[] auxPar { get; set; }
+
+
+
+    // Parametri inutilizzati (da sopprimere?)
+    public Int16 pvTempCella { get; set; }
+    public Int16 pvRhCella { get; set; }
+    //public Int16 stsCella { get; set; }
+    //public Int16 spQFlAut_d { get; set; }//;
     public int cmdRespSrv { get; set; }//;
     public bool recDataOn { get; set; }//;
-    public Int16[] auxPar { get; set; }
 
   }
 

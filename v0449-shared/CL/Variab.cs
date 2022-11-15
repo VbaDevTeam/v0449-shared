@@ -8,6 +8,7 @@ using System.IO;
 using VbaLib;
 using Serilog;
 using System.Threading;
+using v0449_shared.CL.DEF;
 
 namespace v0449_shared
 {
@@ -342,16 +343,16 @@ namespace v0449_shared
 
               AnCh tempAi;
 
-              if (DataAppl.aio.Ai.Count < DEF.aiChNamesS7.Length)
+              if (DataAppl.aio.Ai.Count < DefAiCh.aiChNamesS7.Length)
               {
                 salva = (int)confCheck.aiQuantita;
                 DataAppl.aio.Ai.Clear();
-                for (int n = 0; n < DEF.aiChNamesS7.Length; n++)
+                for (int n = 0; n < DefAiCh.aiChNamesS7.Length; n++)
                 {
                   tempAi = new AnCh();
-                  tempAi.Name = DEF.aiChNamesS7[n];
-                  tempAi.LabelLong = DEF.aiLabelShortS7[n];
-                  tempAi.LabelShort = DEF.aiLabelLongS7[n];
+                  tempAi.Name = DefAiCh.aiChNamesS7[n];
+                  tempAi.LabelLong = DefAiCh.aiLabelShortS7[n];
+                  tempAi.LabelShort = DefAiCh.aiLabelLongS7[n];
                   tempAi.ChNo = n;
                   tempAi.Tmist = 0;
                   tempAi.Tmast = 100;
@@ -362,18 +363,18 @@ namespace v0449_shared
               }
 
               //se il canale ha nome diverso, lo riassegno
-              for (int p = 0; p < DEF.aiChNamesS7.Length; p++)
+              for (int p = 0; p < DefAiCh.aiChNamesS7.Length; p++)
               {
-                if (DataAppl.aio.Ai[p].Name != DEF.aiChNamesS7[p])
+                if (DataAppl.aio.Ai[p].Name != DefAiCh.aiChNamesS7[p])
                 {
                   salva = (int)confCheck.aiNomi;
                   DataAppl.aio.Ai.Clear();
-                  for (int n = 0; n < DEF.aiChNamesS7.Length; n++)
+                  for (int n = 0; n < DefAiCh.aiChNamesS7.Length; n++)
                   {
                     tempAi = new AnCh();
-                    tempAi.Name = DEF.aiChNamesS7[n];
-                    tempAi.LabelLong = DEF.aiLabelShortS7[n];
-                    tempAi.LabelShort = DEF.aiLabelLongS7[n];
+                    tempAi.Name = DefAiCh.aiChNamesS7[n];
+                    tempAi.LabelLong = DefAiCh.aiLabelShortS7[n];
+                    tempAi.LabelShort = DefAiCh.aiLabelLongS7[n];
                     tempAi.ChNo = n;
                     tempAi.Tmist = 0;
                     tempAi.Tmast = 100;
