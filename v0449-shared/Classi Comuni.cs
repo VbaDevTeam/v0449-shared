@@ -960,7 +960,7 @@ namespace v0449_shared
   {
     public ComRt2Hmi()
     {
-      AI = new short[31];
+      AI = new short[32];
       alarms = new ushort[5];
       c1 = new CXHmi();
       c2 = new CXHmi();
