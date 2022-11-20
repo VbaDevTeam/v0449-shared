@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
 using System.Collections.Generic;
 
 namespace v0449_shared
@@ -10671,42 +10672,42 @@ namespace v0449_shared
 
     public static string[] wa0Descr =
   {
-         "0.all. circuiti ausiliari non inseriti "
-        ,"0.all. porta cella non chiusa "
-        ,"0.all. termostato sicurezza riscaldatore fluido "
-        ,"0.all. termostato sicurezza cella climatica "
-        ,"2.all. livello fluido prova sufficiente "
-        ,"0.all. trafilamento fluido da elementi in prova "
-        ,"0.all. pressione aria sufficiente "
-        ,"1.all. livello olio centralina insufficiente "
-        ,"0.all. sovrapressione 1° stadio gr.frigorifero "
-        ,"0.all. termostato di minima 1° stadio gr.frigorifero "
-        ,"0.all. flussostato 1° stadio gruppo frigorifero "
-        ,"0.all. fl circ.fl. in cella da 1° st./fl cond. 2° st "
-        ,"0.all. livello fluido vasca 1° stadio gr.frigorifero "
-        ,"0.all. sovrapressione 2° stadio gr.frigorifero "
-        ,"0.all. insufficiente pressione 2° st.gr.frigorifero "
-        ,"0.all. interv.prot.mot.compressore 1°st.gr.frigor. "
+         "00.all. circuiti ausiliari non inseriti "
+        ,"01.all. porta cella non chiusa "
+        ,"02.all. termostato sicurezza riscaldatore fluido "
+        ,"03.all. termostato sicurezza cella climatica "
+        ,"04.all. livello fluido prova sufficiente "
+        ,"05.all. trafilamento fluido da elementi in prova "
+        ,"06.all. pressione aria sufficiente "
+        ,"07.all. livello olio centralina insufficiente "
+        ,"08.all. sovrapressione 1° stadio gr.frigorifero "
+        ,"09.all. termostato di minima 1° stadio gr.frigorifero "
+        ,"0a.all. flussostato 1° stadio gruppo frigorifero "
+        ,"0b.all. fl circ.fl. in cella da 1° st./fl cond. 2° st "
+        ,"0c.all. livello fluido vasca 1° stadio gr.frigorifero "
+        ,"0d.all. sovrapressione 2° stadio gr.frigorifero "
+        ,"0e.all. insufficiente pressione 2° st.gr.frigorifero "
+        ,"0f.all. interv.prot.mot.compressore 1°st.gr.frigor. "
       };
 
     public static string[] wa0Nick =
       {
-         "SInTUTTO_OK  "
-        ,"FCn0PORTNOCH "
-        ,"TSn0RISCFLUI "
-        ,"TSn0TEMPCAME "
-        ,"LVn2FLUPROOK "
-        ,"LSn0TRAFFLUI "
-        ,"PSn0PRESARIA "
-        ,"LVn1OLIOBASS "
-        ,"PSn0HP_1FRIG "
-        ,"TSn0LT_1FRIG "
-        ,"FLn0LQ_1FRIG "
-        ,"FLn0GQ_2FRIG "
-        ,"LVn0HG_1FRIG "
-        ,"PSn0HP_2FRIG "
-        ,"PSn0LP_2FRIG "
-        ,"TEn0COMP1FRI "
+         "00.SInTUTTO_OK  "
+        ,"01.FCn0PORTNOCH "
+        ,"02.TSn0RISCFLUI "
+        ,"03.TSn0TEMPCAME "
+        ,"04.LVn2FLUPROOK "
+        ,"05.LSn0TRAFFLUI "
+        ,"06.PSn0PRESARIA "
+        ,"07.LVn1OLIOBASS "
+        ,"08.PSn0HP_1FRIG "
+        ,"09.TSn0LT_1FRIG "
+        ,"0a.FLn0LQ_1FRIG "
+        ,"0b.FLn0GQ_2FRIG "
+        ,"0c.LVn0HG_1FRIG "
+        ,"0d.PSn0HP_2FRIG "
+        ,"0e.PSn0LP_2FRIG "
+        ,"0f.TEn0COMP1FRI "
       };
 
 
@@ -10775,42 +10776,42 @@ namespace v0449_shared
 
     public static string[] wa1Descr =
   {
-         "0.all. interv.prot.mot.compressore 2°st.gr.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
-        ,"0.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
-        ,"1 all  interv. prot.mot.pompe P1-P2"
-        ,"0.all. interv.prot.motore pompa P3"
-        ,"1.all. interv.prot.motore pompa P4"
-        ,"2.all. interv.prot.mot.regol.corsa cilindro pressione"
-        ,"1.all. interv.prot.motore ventola cella"
-        ,"0.all. interv.prot.riscaldatore cella"
-        ,"1.all. filtro principale centralina intasato"
-        ,"1.all. filtro servizio cilindro 1 intasato"
-        ,"1.all. filtro servizio vibratore intasato"
-        ,"1.all. filtro servizio pilotaggio cil.1 intasato"
-        ,"0.all. interv.prot.circuiti 24Vdc"
-        ,"0.all. intervento protez.filtro elettrostatico"
-        ,"0.all. emergenza ripristinata"
+         "10.all. interv.prot.mot.compressore 2°st.gr.frigor."
+        ,"11.all. interv.prot.mot.pompa raffr.vasca 1°st.frigor."
+        ,"12.all. interv.prot.mot.pompa raffr.cella da 1° stadio"
+        ,"13 all  interv. prot.mot.pompe P1-P2"
+        ,"14.all. interv.prot.motore pompa P3"
+        ,"15.all. interv.prot.motore pompa P4"
+        ,"16.all. interv.prot.mot.regol.corsa cilindro pressione"
+        ,"17.all. interv.prot.motore ventola cella"
+        ,"18.all. interv.prot.riscaldatore cella"
+        ,"19.all. filtro principale centralina intasato"
+        ,"1a.all. filtro servizio cilindro 1 intasato"
+        ,"1b.all. filtro servizio vibratore intasato"
+        ,"1c.all. filtro servizio pilotaggio cil.1 intasato"
+        ,"1d.all. interv.prot.circuiti 24Vdc"
+        ,"1e.all. intervento protez.filtro elettrostatico"
+        ,"1f.all. emergenza ripristinata"
       };
 
     public static string[] wa1Nick =
       {
-         "TEn0COMP2FRI"
-        ,"TEn0POMP1FRI"
-        ,"TEn0POMPCELL"
-        ,"TEn0POMPP1P2"
-        ,"TEn0POMP_P3_"
-        ,"TEn1POMP_P4_"
-        ,"TEn2MREGCIPR"
-        ,"TEn1VENTCELL"
-        ,"TEn0RISCCELL"
-        ,"SNn1FILTCECL"
-        ,"SNn1FISER1CL"
-        ,"SNn1FIVIBRCL"
-        ,"SNn1FIPILOCL"
-        ,"SNn0PROT_AUX"
-        ,"SNn0PROTFIEL"
-        ,"SNn0EMERRIPR"
+         "10TEn0COMP2FRI"
+        ,"11TEn0POMP1FRI"
+        ,"12TEn0POMPCELL"
+        ,"13TEn0POMPP1P2"
+        ,"14TEn0POMP_P3_"
+        ,"15TEn1POMP_P4_"
+        ,"16TEn2MREGCIPR"
+        ,"17TEn1VENTCELL"
+        ,"18TEn0RISCCELL"
+        ,"19SNn1FILTCECL"
+        ,"1aSNn1FISER1CL"
+        ,"1bSNn1FIVIBRCL"
+        ,"1cSNn1FIPILOCL"
+        ,"1dSNn0PROT_AUX"
+        ,"1eSNn0PROTFIEL"
+        ,"1fSNn0EMERRIPR"
       };
 
 
@@ -10858,7 +10859,7 @@ namespace v0449_shared
 
     public enum Wa02
     {
-      AL2_0_SLn0AUTOMATI
+       AL2_0_SLn0AUTOMATI
      , AL2_1_SNn1DRIVFLOK
      , AL2_2_PSn0LOPRFRI1
      , AL2_3_SQnSTEPUNDF
@@ -10866,36 +10867,38 @@ namespace v0449_shared
      , AL2_5_SBaSCOPTUBO
      , AL2_6_WDaCOM_SERV
      , AL2_7_WDaCOM_CLIE
-     , AL2_8_
-     , AL2_9_
-     , AL2_a_
-     , AL2_b_
-     , AL2_c_
-     , AL2_d_
-     , AL2_e_
-     , AL2_f_
+     , AL2_8_TEaPOMPPREP
+     , AL2_9_TEaRISCFLUI
+     , AL2_a_TTaRISCFLUI
+     , AL2_b_TTaRRISFLUI
+     , AL2_c_TTaRISCCELL
+     , AL2_d_TTaRISCIRED
+     , AL2_e_ALaRiserva46
+     , AL2_f_ALaRiserva47
     }
 
 
     public static string[] wa2Descr =
   {
-         "0.all. selettore comandi automatici"
-        ,"1.all. nessuna anomalia inverter pompa circolaz."
-        ,"0 all alta pressione primo stadio"
-        ,"36 - step indefinito"
-        ,"37 - prova attiva"
-        ,"38 - Anomalia pulsazione, scoppio tubo "
-        ,"39 - Mancanza comunicazione server "
-        ,"40 - Mancanza comunicazione client "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-        ,"                                                "
-      };
+         "20.all. selettore comandi automatici"
+        ,"21.all. nessuna anomalia inverter pompa circolaz."
+        ,"22.all. alta pressione primo stadio              "
+        ,"23.all. step indefinito                          "
+        ,"24.all. prova attiva                             "
+        ,"25.all. Anomalia pulsazione, scoppio tubo        "
+        ,"26.all. Mancanza comunicazione server            "
+        ,"27.all. Mancanza comunicazione client            "
+        ,"28.all. termica pompa preparazione fluido        "
+        ,"29.all. termica riscaldatore fluido              "
+        ,"2a.all. anomalia sonda risc.fluido               "
+        ,"2b.all. anomalia sonda risc.ferro fluido         "
+        ,"2c.all.anomalia sonda risc.cella                 "
+        ,"2d.all. anomalia sonda risc.infrar.              "
+        ,"2e                                               "
+        ,"2f                                               "
+    };
+
+
 
     public static string[] wa2Nick =
       {
@@ -10907,12 +10910,12 @@ namespace v0449_shared
         ,"SBaSCOPTUBO "
         ,"WDaCOM_SERV "
         ,"WDaCOM_CLIE "
-        ," "
-        ," "
-        ," "
-        ," "
-        ," "
-        ," "
+        ,"TEaPOMPPREP "
+        ,"TEaRISCFLUI "
+        ,"TTaRISCFLUI "
+        ,"TTaRRISFLUI "
+        ,"TTaRISCCELL "
+        ,"TTaRISCIRED "
         ," "
         ," "
       };
@@ -11007,14 +11010,14 @@ namespace v0449_shared
 ,"Anomalia pulsazione, scoppio tubo "
 ,"Mancanza comunicazione server "
 ,"Mancanza comunicazione client "
-,"AL1.8 "
-,"AL1.9 "
-,"AL1.a "
-,"AL1.b "
-,"AL1.c "
-,"AL1.d "
-,"AL1.e "
-,"AL1.f "
+,"28.all. termica pompa preparazione fluido        "
+,"29.all. termica riscaldatore fluido              "
+,"2a.all. anomalia sonda risc.fluido               "
+,"2b.all. anomalia sonda risc.ferro fluido         "
+,"2c.all.anomalia sonda risc.cella                 "
+,"2d.all. anomalia sonda risc.infrar.              "
+,"2e                                               "
+,"2f                                               "
   }
 };
 
