@@ -321,6 +321,7 @@ namespace v0449_shared
     public bool abilSpTempCella { get; set; }
     public bool abilSpPressLow { get; set; }
     public bool abilSpPressHigh { get; set; }
+    public bool abilSpTempIRed { get; set; }
 
     public setPoint spPort { get; set; }
     public setPoint spTsRUp { get; set; }
