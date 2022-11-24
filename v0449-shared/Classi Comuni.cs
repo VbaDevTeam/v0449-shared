@@ -342,6 +342,7 @@ namespace v0449_shared
     public ParametroVba blFinePulsa { get; set; }
     public ParametroVba abilVibrazi { get; set; }
     public ParametroVba blEsclRisc { get; set; }
+    public ParametroVba blTubiVuoti { get; set; }
     public ParametroVba setPortata { get; set; }
 
     //Pulsazione
@@ -399,6 +400,7 @@ namespace v0449_shared
       blFinePulsa = new ParametroVba(1, 1, "Attendi fine N° pulsazione", typeof(Boolean).ToString());
       abilVibrazi = new ParametroVba(1, 1, "Abilitazione vibrazione", typeof(Boolean).ToString());
       blEsclRisc = new ParametroVba(1, 1, "Esclusione circolazione nel riscaldatore", typeof(Boolean).ToString());
+      blTubiVuoti = new ParametroVba(1, 1, "Scarico e svuotamento tubi in prova", typeof(Boolean).ToString());
       setPortata = new ParametroVba(1, 0.0, "Setpoint portata circolazione [Lt/Min]", typeof(Double).ToString());
 
       //Pulsazione
@@ -446,6 +448,7 @@ namespace v0449_shared
         durataPasso = this.durataPasso,
         blFineCiclo = this.blFineCiclo,
         blFinePulsa = this.blFinePulsa,
+        blTubiVuoti = this.blTubiVuoti,
         blEsclRisc = this.blEsclRisc,
         abilVibrazi = this.abilVibrazi,
         setPortata = this.setPortata,
@@ -476,6 +479,7 @@ namespace v0449_shared
       tmp1.Add(blFineCiclo);
       tmp1.Add(blFinePulsa);
       tmp1.Add(blEsclRisc);
+      tmp1.Add(blTubiVuoti);
       tmp1.Add(abilVibrazi);
       tmp1.Add(setPortata);
       return tmp1;
@@ -961,7 +965,7 @@ namespace v0449_shared
   {
     public ComRt2Hmi()
     {
-      AI = new short[32];
+      AI = new short[33];
       alarms = new ushort[5];
       c1 = new CXHmi();
       c2 = new CXHmi();

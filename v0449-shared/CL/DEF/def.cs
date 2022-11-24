@@ -11629,7 +11629,7 @@ namespace v0449_shared
       , EVuRIPRDIRE
       , EVuRIPRREGO
       , EVuRAFFFLUI
-      , Element_5
+      , EVuBLOCRAFF
       , Element_6
       , Element_7
       , Element_8
@@ -11649,7 +11649,7 @@ namespace v0449_shared
       , "EV ritorno prova diretto     "
       , "EV ritorno prova regolato    "
       , "EV raffreddamento fluido     "
-      , "Element_5                    "
+      , "EV blocco raffr. (antiallag.)"
       , "Element_6                    "
       , "Element_7                    "
       , "Element_8                    "
@@ -11669,7 +11669,7 @@ namespace v0449_shared
       , "EV ritorno prova diretto     "
       , "EV ritorno prova regolato    "
       , "EV raffreddamento fluido     "
-      , "Element_5                    "
+      , "EV blocco raffr. (antiallag.)"
       , "Element_6                    "
       , "Element_7                    "
       , "Element_8                    "
@@ -11690,7 +11690,7 @@ namespace v0449_shared
       , "EVuRIPRDIRE"
       , "EVuRIPRREGO"
       , "EVuRAFFFLUI"
-      , "Element_5"
+      , "EVuBLOCRAFF"
       , "Element_6"
       , "Element_7"
       , "Element_8"
