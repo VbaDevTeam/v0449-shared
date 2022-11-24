@@ -41,10 +41,10 @@ namespace v0449_shared.CL.DEF
       , tRisc1Fluid_d      // Temp. risc. fluido 1
       , tRisc2Fluid_d      // Temp. risc. fluido 2
       , tCircInterm_d      // Temp. circ. intermedio raffr.
+      , tIrradiator_d      // Temp. cartuccia irraggiamento (496)
       , vpRaffMain_00      // Pos. virt. valv. raff. princ.
       , vpRaffInte_00      // Pos. virt. valv. raff. II salto
       , mpCircProv_00      // Perc. veloc. pompa circolazione
-      , tIrradiator_d      // Temp. cartuccia irraggiamento (496)
     }
 
     public static string[] aiChNamesS7 =
