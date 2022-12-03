@@ -10872,14 +10872,14 @@ namespace v0449_shared
      , AL2_b_TTaRRISFLUI
      , AL2_c_TTaRISCCELL
      , AL2_d_TTaRISCIRED
-     , AL2_e_ALaRiserva46
-     , AL2_f_ALaRiserva47
+     , AL2_e_TTeTERMIRED
+     , AL2_f_LVaALLAVASC
     }
 
 
     public static string[] wa2Descr =
   {
-         "20.all. selettore comandi automatici"
+         "20.all. selettore comandi automatici             "
         ,"21.all. nessuna anomalia inverter pompa circolaz."
         ,"22.all. alta pressione primo stadio              "
         ,"23.all. step indefinito                          "
@@ -10891,10 +10891,10 @@ namespace v0449_shared
         ,"29.all. termica riscaldatore fluido              "
         ,"2a.all. anomalia sonda risc.fluido               "
         ,"2b.all. anomalia sonda risc.ferro fluido         "
-        ,"2c.all.anomalia sonda risc.cella                 "
+        ,"2c.all. anomalia sonda risc.cella                "
         ,"2d.all. anomalia sonda risc.infrar.              "
-        ,"2e                                               "
-        ,"2f                                               "
+        ,"2e.all. anomalia termica risc.infrar.            "
+        ,"2f.all. allagamento vasca stillicidi             "
     };
 
 
@@ -10915,8 +10915,8 @@ namespace v0449_shared
         ,"TTaRRISFLUI "
         ,"TTaRISCCELL "
         ,"TTaRISCIRED "
-        ," "
-        ," "
+        ,"TTaTERMIRED "
+        ,"LVaALLAVASC "
       };
 
 
@@ -11009,14 +11009,14 @@ namespace v0449_shared
 ,"Anomalia pulsazione, scoppio tubo "
 ,"Mancanza comunicazione server "
 ,"Mancanza comunicazione client "
-,"28.all. termica pompa preparazione fluido        "
-,"29.all. termica riscaldatore fluido              "
-,"2a.all. anomalia sonda risc.fluido               "
-,"2b.all. anomalia sonda risc.ferro fluido         "
-,"2c.all.anomalia sonda risc.cella                 "
-,"2d.all. anomalia sonda risc.infrar.              "
-,"2e                                               "
-,"2f                                               "
+,"28.all. termica pompa preparazione fluido "
+,"29.all. termica riscaldatore fluido       "
+,"2a.all. anomalia sonda risc.fluido        "
+,"2b.all. anomalia sonda risc.ferro fluido  "
+,"2c.all. anomalia sonda risc.cella          "
+,"2d.all. anomalia sonda risc.infrar.       "
+,"2e.all. anomalia termica risc.infrar.     "
+,"2f.all. allagamento vasca stillicidi      "
   }
 };
 
