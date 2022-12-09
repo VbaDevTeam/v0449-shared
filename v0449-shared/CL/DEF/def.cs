@@ -10649,6 +10649,8 @@ namespace v0449_shared
     #endregion
 
     #region allarmi
+
+    #region wa00
     public enum Wa00
     {
       AL0_0_SInTUTTO_OK
@@ -10750,8 +10752,9 @@ namespace v0449_shared
         ,""
         ,""
       };
+    #endregion
 
-
+    #region wa01
     public enum Wa01
     {
       AL1_0_TEn0COMP2FRI
@@ -10854,11 +10857,12 @@ namespace v0449_shared
         ,""
         ,""
       };
+    #endregion
 
-
+    #region wa02
     public enum Wa02
     {
-       AL2_0_SLn0AUTOMATI
+      AL2_0_SLn0AUTOMATI
      , AL2_1_SNn1DRIVFLOK
      , AL2_2_PSn0LOPRFRI1
      , AL2_3_SQnSTEPUNDF
@@ -10960,7 +10964,119 @@ namespace v0449_shared
         ,""
         ,""
       };
+    #endregion
 
+    #region wa03
+    public enum Wa03
+    {
+       AL3_0_DOaOVRTCELL
+     , AL3_1_DOaOVRTFLUI
+     , AL3_2_DOaOVRTIRED
+     , AL3_3_DOaOVRPFLUI
+     , AL3_4_riserva
+     , AL3_5_riserva
+     , AL3_6_riserva
+     , AL3_7_riserva
+     , AL3_8_riserva
+     , AL3_9_riserva
+     , AL3_a_riserva
+     , AL3_b_riserva
+     , AL3_c_riserva
+     , AL3_d_riserva
+     , AL3_e_riserva
+     , AL3_f_riserva
+    }
+
+
+
+
+
+
+
+    public static string[] wa3Descr =
+  {
+         "30.all. blocco porta per sovratemp. cella "
+        ,"31.all. blocco porta per sovratemp. fluido "
+        ,"32.all. blocco porta per sovratemp. sim. catalizz. "
+        ,"33.all. blocco porta per sovrapress. fluido "
+        ,"34.all. riserva "
+        ,"35.all. riserva "
+        ,"36.all. riserva "
+        ,"37.all. riserva "
+        ,"38.all. riserva "
+        ,"39.all. riserva "
+        ,"3a.all. riserva "
+        ,"3b.all. riserva "
+        ,"3c.all. riserva "
+        ,"3d.all. riserva "
+        ,"3e.all. riserva "
+        ,"3f.all. riserva "
+    };
+
+
+
+    public static string[] wa3Nick =
+      {
+         "AL3_0_DOaOVRTCELL"
+        ,"AL3_1_DOaOVRTFLUI"
+        ,"AL3_2_DOaOVRTIRED"
+        ,"AL3_3_DOaOVRPFLUI"
+        ,"AL3_4_riserva"
+        ,"AL3_5_riserva"
+        ,"AL3_6_riserva"
+        ,"AL3_7_riserva"
+        ,"AL3_8_riserva"
+        ,"AL3_9_riserva"
+        ,"AL3_a_riserva"
+        ,"AL3_b_riserva"
+        ,"AL3_c_riserva"
+        ,"AL3_d_riserva"
+        ,"AL3_e_riserva"
+        ,"AL3_f_riserva"
+      };
+
+
+    public static string[] wa3Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa3Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+    #endregion
 
     public string[,] msgAll =
  {
@@ -11017,6 +11133,24 @@ namespace v0449_shared
 ,"2d.all. anomalia sonda risc.infrar.       "
 ,"2e.all. anomalia termica risc.infrar.     "
 ,"2f.all. allagamento vasca stillicidi      "
+  },
+   {
+ "30.all. blocco porta per sovratemp. cella "
+,"31.all. blocco porta per sovratemp. fluido "
+,"32.all. blocco porta per sovratemp. sim. catalizz. "
+,"33.all. blocco porta per sovrapress. fluido "
+,"34.all. riserva "
+,"35.all. riserva "
+,"36.all. riserva "
+,"37.all. riserva "
+,"38.all. riserva "
+,"39.all. riserva "
+,"3a.all. riserva "
+,"3b.all. riserva "
+,"3c.all. riserva "
+,"3d.all. riserva "
+,"3e.all. riserva "
+,"3f.all. riserva "
   }
 };
 
