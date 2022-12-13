@@ -17,6 +17,7 @@ namespace v0449_shared.CL.DEF
       ,"report        "
       ,"manutenzione  "
       ,"test"
+      ,"remoto"
     };
 
     public enum dirittiVal
@@ -28,6 +29,7 @@ namespace v0449_shared.CL.DEF
       Report = 0x0010,
       Manutenzione = 0x0020,
       Test = 0x0040,
+      Remoto = 0x0080
     }
     #endregion
 
