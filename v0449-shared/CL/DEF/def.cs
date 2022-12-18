@@ -246,7 +246,7 @@ namespace v0449_shared
       {
          "20.all. selettore comandi automatici             "
         ,"21.all. nessuna anomalia inverter pompa circolaz."
-        ,"22.all. alta pressione primo stadio              "
+        ,"22.all. bassa pressione primo stadio              "
         ,"23.all. step indefinito                          "
         ,"24.all. prova attiva                             "
         ,"25.all. Anomalia pulsazione, scoppio tubo        "
@@ -450,13 +450,13 @@ namespace v0449_shared
 ,"trafilamento fluido da elementi in prova "
 ,"mancanza pressione aria "
 ,"livello olio centralina insufficiente "
-,"sovrapressione 1° stadio gr.frigorifero "
+,"alta pressione 1° stadio gr.frigorifero "
 ,"termostato di minima 1° stadio gr.frigorifero"
 ,"flussostato 1° stadio gruppo frigorifero "
 ,"fl circ.fl. in cella da 1° st./fl cond. 2° st"
 ,"livello fluido vasca 1° stadio gr.frigorifero"
-,"sovrapressione 2° stadio gr.frigorifero "
-,"insufficiente pressione 2° st.gr.frigorifero "
+,"alta pressione 2° stadio gr.frigorifero "
+,"bassa pressione 2° st.gr.frigorifero "
 ,"interv.prot.mot.compressore 1°st.gr.frigor. "
      },
    {
@@ -480,7 +480,7 @@ namespace v0449_shared
    {
  "selettore comandi automatici"
 ,"anomalia inverter pompa circolaz."
-,"alta pressione primo stadio"
+,"bassa pressione primo stadio"
 ,"step indefinito"
 ,"prova attiva"
 ,"Anomalia pulsazione, scoppio tubo "
