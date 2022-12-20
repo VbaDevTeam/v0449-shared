@@ -96,7 +96,7 @@ namespace v0449_shared
 
   public class NO_XML
   {
-    public DATA_CONF_TEST myDataConfTest;
+    //public DATA_CONF_TEST myDataConfTest;
    public v0449CellaClient clientCella;
 
     public string strNameDb = "";
@@ -242,7 +242,7 @@ namespace v0449_shared
         if (Convert.ToBoolean(passiProva[n].abilPuls.Value))
           cicliTotale += int.Parse(passiProva[n].numePuls.Value.ToString());
       }
-      cicliTotale *= (loops + 1);
+      cicliTotale *= (loops > 0) ? loops : 1; ;
       return cicliTotale;
     }
 
@@ -314,15 +314,25 @@ namespace v0449_shared
         //se richiesta attesa fine cicli pulsazione, calcolo durata ciclo pulsazione
         if (chkFinePulsa)
         {
-          double app = (double)passiProva[n].tmSalita.Value / 100.0;
-          tmCicloPulsa = app;
-          app = (double)passiProva[n].tmAltaSt.Value / 100.0;
-          tmCicloPulsa += app;
-          app = (double)passiProva[n].tmDisces.Value / 100.0;
-          tmCicloPulsa += app;
-          app = (double)passiProva[n].tmBassaS.Value / 100.0;
-          tmCicloPulsa += app;
-        }
+            double app = (double)passiProva[n].tmSalita.Value ;
+            tmCicloPulsa = app;
+            app = (double)passiProva[n].tmAltaSt.Value ;
+            tmCicloPulsa += app;
+            app = (double)passiProva[n].tmDisces.Value ;
+            tmCicloPulsa += app;
+            app = (double)passiProva[n].tmBassaS.Value ;
+            tmCicloPulsa += app;
+            //double app = (double)passiProva[n].tmSalita.Value / 100.0;
+            //tmCicloPulsa = app;
+            //app = (double)passiProva[n].tmAltaSt.Value / 100.0;
+            //tmCicloPulsa += app;
+            //app = (double)passiProva[n].tmDisces.Value / 100.0;
+            //tmCicloPulsa += app;
+            //app = (double)passiProva[n].tmBassaS.Value / 100.0;
+            //tmCicloPulsa += app;
+            tmCicloPulsa *= (double)passiProva[n].numePuls.Value;
+          }
+
 
           //scelgo il più lungo tra i due
           if (tmCicloDura > tmCicloPulsa)
@@ -334,7 +344,7 @@ namespace v0449_shared
             appDurata += (int)tmCicloPulsa;
           }
         }
-        durataTotale = appDurata * (loops + 1);
+        durataTotale = appDurata * ((loops > 0) ? loops : 1);
         return durataTotale;
       }
       catch (Exception ex)
