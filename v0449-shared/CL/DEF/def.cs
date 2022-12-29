@@ -7,7 +7,7 @@ namespace v0449_shared
 
 
 
-#if v0449 || v0449b || v0496 || v0511
+#if v0449 || v0449b || v0496 || v0511 || v0387
 
         #region allarmi
 
@@ -330,48 +330,44 @@ namespace v0449_shared
         #region wa03
         public enum Wa03
         {
-            AL3_0_DOaOVRTCELL
+           AL3_0_DOaOVRTCELL
          , AL3_1_DOaOVRTFLUI
          , AL3_2_DOaOVRTIRED
          , AL3_3_DOaOVRPFLUI
-         , AL3_4_riserva
-         , AL3_5_riserva
-         , AL3_6_riserva
-         , AL3_7_riserva
-         , AL3_8_riserva
-         , AL3_9_riserva
-         , AL3_a_riserva
-         , AL3_b_riserva
-         , AL3_c_riserva
-         , AL3_d_riserva
-         , AL3_e_riserva
-         , AL3_f_riserva
+         , AL3_4_TEaP120MAND
+         , AL3_5_KMaP120MAND
+         , AL3_6_DRaP120__OK
+         , AL3_7_TEaP200CIRC
+         , AL3_8_KMaP200CIRC
+         , AL3_9_DRaP200__OK
+         , AL3_a_KMaR210RISC
+         , AL3_b_TEaP530RAFF
+         , AL3_c_KMaP530RAFF
+         , AL3_d_DRaP530__OK
+         , AL3_e_LSaSERBNOHI
+         , AL3_f_LSaSPUNOAIR
         }
-
-
-
-
 
 
 
         public static string[] wa3Descr =
       {
-         "30.all. blocco porta per sovratemp. cella "
-        ,"31.all. blocco porta per sovratemp. fluido "
-        ,"32.all. blocco porta per sovratemp. sim. catalizz. "
-        ,"33.all. blocco porta per sovrapress. fluido "
-        ,"34.all. riserva "
-        ,"35.all. riserva "
-        ,"36.all. riserva "
-        ,"37.all. riserva "
-        ,"38.all. riserva "
-        ,"39.all. riserva "
-        ,"3a.all. riserva "
-        ,"3b.all. riserva "
-        ,"3c.all. riserva "
-        ,"3d.all. riserva "
-        ,"3e.all. riserva "
-        ,"3f.all. riserva "
+         "30.all. blocco porta per sovratemp. cella           "
+        ,"31.all. blocco porta per sovratemp. fluido          "
+        ,"32.all. blocco porta per sovratemp. sim. catalizz.  "
+        ,"33.all. blocco porta per sovrapress. fluido         "
+        ,"34.all. termica pompa alimento                      "
+        ,"35.all. rdbk tele pompa alimento                    "
+        ,"36.all. drive alimento non ok                       "
+        ,"37.all. termica pompa circolazione                  "
+        ,"38.all. rdbk tele pompa circolazione                "
+        ,"39.all. drive circolazione non ok                   "
+        ,"3a.all. rdbk tele riscaldatore                      "
+        ,"3b.all. termica pompa refrigerante                  "
+        ,"3c.all. rdbk pompa refrigerante                     "
+        ,"3d.all. drive pompa refrigerante non ok             "
+        ,"3e.all. livello serbatoio massimo                   "
+        ,"3f.all. presenza aria da spurgare                   "
     };
 
 
@@ -382,18 +378,18 @@ namespace v0449_shared
         ,"AL3_1_DOaOVRTFLUI"
         ,"AL3_2_DOaOVRTIRED"
         ,"AL3_3_DOaOVRPFLUI"
-        ,"AL3_4_riserva"
-        ,"AL3_5_riserva"
-        ,"AL3_6_riserva"
-        ,"AL3_7_riserva"
-        ,"AL3_8_riserva"
-        ,"AL3_9_riserva"
-        ,"AL3_a_riserva"
-        ,"AL3_b_riserva"
-        ,"AL3_c_riserva"
-        ,"AL3_d_riserva"
-        ,"AL3_e_riserva"
-        ,"AL3_f_riserva"
+        ,"AL3_4_TEaP120MAND"
+        ,"AL3_5_KMaP120MAND"
+        ,"AL3_6_DRaP120__OK"
+        ,"AL3_7_TEaP200CIRC"
+        ,"AL3_8_KMaP200CIRC"
+        ,"AL3_9_DRaP200__OK"
+        ,"AL3_a_KMaR210RISC"
+        ,"AL3_b_TEaP530RAFF"
+        ,"AL3_c_KMaP530RAFF"
+        ,"AL3_d_DRaP530__OK"
+        ,"AL3_e_LSaSERBNOHI"
+        ,"AL3_f_LSaSPUNOAIR"
       };
 
 
@@ -437,9 +433,117 @@ namespace v0449_shared
         ,""
         ,""
       };
-        #endregion
+    #endregion
 
-        public string[,] msgAll =
+    #region wa04
+    public enum Wa04
+    {
+       AL4_0_OPaV260MAND
+     , AL4_1_CLaV260MAND
+     , AL4_2_OPaV320RITO
+     , AL4_3_CLaV320RITO
+     , AL4_4_OPaV450PRES
+     , AL4_5_CLaV450PRES
+     , AL4_6_riaserva70
+     , AL4_7_riaserva71
+     , AL4_8_
+     , AL4_9_
+     , AL4_a_
+     , AL4_b_
+     , AL4_c_
+     , AL4_d_
+     , AL4_e_
+     , AL4_f_
+    }
+
+    public static string[] wa4Descr =
+  {
+         "30.all.  rdbk valvola mandata prova   "
+        ,"31.all.  rdbk valvola mandata prova   "
+        ,"32.all.  rdbk valvola ritorno prova   "
+        ,"33.all.  rdbk valvola ritorno prova   "
+        ,"34.all.  rdbk valvola pressatura      "
+        ,"35.all.  rdbk valvola pressatura      "
+        ,"36.all.                               "
+        ,"37.all.                               "
+        ,"38.all.                               "
+        ,"39.all.                               "
+        ,"3a.all.                               "
+        ,"3b.all.                               "
+        ,"3c.all.                               "
+        ,"3d.all.                               "
+        ,"3e.all.                               "
+        ,"3f.all.                               "
+    };
+
+
+
+    public static string[] wa4Nick =
+      {
+         "AL3_0_AL4_0_OPaV260MAND "
+        ,"AL3_1_AL4_1_CLaV260MAND "
+        ,"AL3_2_AL4_2_OPaV320RITO "
+        ,"AL3_3_AL4_3_CLaV320RITO "
+        ,"AL3_4_AL4_4_OPaV450PRES "
+        ,"AL3_5_AL4_5_CLaV450PRES "
+        ,"AL3_6_AL4_6_riaserva70  "
+        ,"AL3_7_AL4_7_riaserva71  "
+        ,"AL3_8_AL4_8_            "
+        ,"AL3_9_AL4_9_            "
+        ,"AL3_a_AL4_a_            "
+        ,"AL3_b_AL4_b_            "
+        ,"AL3_c_AL4_c_            "
+        ,"AL3_d_AL4_d_            "
+        ,"AL3_e_AL4_e_            "
+        ,"AL3_f_AL4_f_            "
+      };
+
+
+    public static string[] wa4Plc =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+
+
+    public static string[] wa4Comp =
+  {
+         ""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+        ,""
+      };
+    #endregion
+
+
+
+    public string[,] msgAll =
      {
    {
  "circuiti ausiliari non inseriti "
@@ -495,23 +599,41 @@ namespace v0449_shared
 ,"2e.all. anomalia termica risc.infrar.     "
 ,"2f.all. allagamento vasca stillicidi      "
   },
-   {
- "30.all. blocco porta per sovratemp. cella "
-,"31.all. blocco porta per sovratemp. fluido "
-,"32.all. blocco porta per sovratemp. sim. catalizz. "
-,"33.all. blocco porta per sovrapress. fluido "
-,"34.all. riserva "
-,"35.all. riserva "
-,"36.all. riserva "
-,"37.all. riserva "
-,"38.all. riserva "
-,"39.all. riserva "
-,"3a.all. riserva "
-,"3b.all. riserva "
-,"3c.all. riserva "
-,"3d.all. riserva "
-,"3e.all. riserva "
-,"3f.all. riserva "
+  {
+ "30.all. blocco porta per sovratemp. cella           "
+,"31.all. blocco porta per sovratemp. fluido          "
+,"32.all. blocco porta per sovratemp. sim. catalizz.  "
+,"33.all. blocco porta per sovrapress. fluido         "
+,"34.all. termica pompa alimento                      "
+,"35.all. rdbk tele pompa alimento                    "
+,"36.all. drive alimento non ok                       "
+,"37.all. termica pompa circolazione                  "
+,"38.all. rdbk tele pompa circolazione                "
+,"39.all. drive circolazione non ok                   "
+,"3a.all. rdbk tele riscaldatore                      "
+,"3b.all. termica pompa refrigerante                  "
+,"3c.all. rdbk pompa refrigerante                     "
+,"3d.all. drive pompa refrigerante non ok             "
+,"3e.all. livello serbatoio massimo                   "
+,"3f.all. presenza aria da spurgare                   "
+  },
+  {
+ "40.all. rdbk valvola mandata prova   "
+,"41.all. rdbk valvola mandata prova   "
+,"42.all. rdbk valvola ritorno prova   "
+,"43.all. rdbk valvola ritorno prova   "
+,"44.all. rdbk valvola pressatura      "
+,"45.all. rdbk valvola pressatura      "
+,"46.all.                              "
+,"47.all.                              "
+,"48.all.                              "
+,"49.all.                              "
+,"4a.all.                              "
+,"4b.all.                              "
+,"4c.all.                              "
+,"4d.all.                              "
+,"4e.all.                              "
+,"4f.all.                              "
   }
 };
 
@@ -6859,9 +6981,9 @@ namespace v0449_shared
     #endregion
 
     #endregion
-    
 
 
+/*
     #region allarmi
     public enum Wa00
     {
@@ -7231,7 +7353,9 @@ namespace v0449_shared
       }
 };
 
+
     #endregion
+*/
 
     #region Fasi e Cicli
     #region CicliPtr
@@ -8926,9 +9050,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region We1
+    #region We1
     public enum We1
     {
        vWe100_PSe0HP_2FRIGex
@@ -9031,9 +9155,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region We2
+    #region We2
     public enum We2
     {
        vWe200_SNe1FISER1CL
@@ -9138,10 +9262,10 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#region We3
+    #region We3
     public enum We3
     {
        vWe300_PSe0HP_1FRIG
@@ -9246,15 +9370,15 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
 
-#endregion
+    #endregion
 
 
-#region output
+    #region output
 
-#region Wu0
+    #region Wu0
     public enum Wu0
     {
        vWu000_KMuP1020MAN
@@ -9363,9 +9487,9 @@ namespace v0449_shared
         ,"????"
         ,"????"
       };
-#endregion
+    #endregion
 
-#region Wu1
+    #region Wu1
     public enum Wu1
     {
        vWu100_SNu0CONS_RUN
@@ -9468,9 +9592,9 @@ namespace v0449_shared
         ,"??????"
       };
 
-#endregion
+    #endregion
 
-#region Wu2
+    #region Wu2
     public enum Wu2
     {
        vWu200_EVu0CONDFRI2
@@ -9575,9 +9699,9 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#region Wu3
+    #region Wu3
     public enum Wu3
     {
        vWu300_RISERVA
@@ -9682,12 +9806,12 @@ namespace v0449_shared
 
 
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
 
 
-#region flag e comandi S7
+    #region flag e comandi S7
     public enum S7flStat
     {
       u000_riempOk
@@ -9876,14 +10000,14 @@ namespace v0449_shared
       ,"u015_flIntRes15"
     };
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
     
-#endregion
+    #endregion
 
-#region Fasi e Cicli
-#region CicliPtr
+    #region Fasi e Cicli
+    #region CicliPtr
     public enum ptrFaseFrigo
     {
       _00_Init                     = 00 ,
