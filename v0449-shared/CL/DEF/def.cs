@@ -435,7 +435,7 @@ namespace v0449_shared
       };
     #endregion
 
-    #region wa04
+        #region wa04
     public enum Wa04
     {
        AL4_0_OPaV260MAND
@@ -6181,8 +6181,8 @@ namespace v0449_shared
      , vWu002_CTuP200CIRC
      , vWu003_ENuP200CIRC
      , vWu004_CTuR210RISC
-     , vWu005_RSuR210RISC
-     , vWu006_RSuS210RISC
+     , vWu005_SNuRICHCIRC
+     , vWu006_SNuRICHVALV
      , vWu007_RSuT210RISC
      , vWu008_CTuS230EROG
      , vWu009_SNuRISERV11
@@ -6201,8 +6201,8 @@ namespace v0449_shared
         ,"vWu002.Comando potenza drive circolazione  "
         ,"vWu003.Enable drive circolazione  "
         ,"vWu004.Comando potenza Riscaldo  "
-        ,"vWu005.Com.Relè statico fase R  "
-        ,"vWu006.Com.Relè statico fase S  "
+        ,"vWu005.Sn. rich. circ. acquind  "
+        ,"vWu006.Sn. rich. valv. acquind  "
         ,"vWu007.Com.Relè statico fase T  "
         ,"vWu008.Comando potenza azionamento siringa  "
         ,"vWu009.Riserva  "
@@ -6221,8 +6221,8 @@ namespace v0449_shared
         ,"vWu002_CTuP200CIRC"
         ,"vWu003_ENuP200CIRC"
         ,"vWu004_CTuR210RISC"
-        ,"vWu005_RSuR210RISC"
-        ,"vWu006_RSuS210RISC"
+        ,"vWu005_SNuRICHCIRC"
+        ,"vWu006_SNuRICHVALV"
         ,"vWu007_RSuT210RISC"
         ,"vWu008_CTuS230EROG"
         ,"vWu009_SNuRISERV11"
@@ -6983,379 +6983,379 @@ namespace v0449_shared
     #endregion
 
 
-/*
     #region allarmi
-    public enum Wa00
-    {
-       AL0_0_MSaF130EME2
-     , AL0_1_SIaTutto_Ok
-     , AL0_2_TEaP120MAND
-     , AL0_3_MSaF230RSIG
-     , AL0_4_KMaP120MAND
-     , AL0_5_MSaF340RANE
-     , AL0_6_DRaP120_OK_
-     , AL0_7_MSaF250PRTA
-     , AL0_8_TEaP200CIRC
-     , AL0_9_KMaP200CIRC
-     , AL0_a_DRaP200_OK_
-     , AL0_b_TEaR210RISC
-     , AL0_c_KMaR210RISC
-     , AL0_d_TEaS230EROG
-     , AL0_e_KMaS230EROG
-     , AL0_f_DRaS230_OK_
-    }
+    /*
+        public enum Wa00
+        {
+           AL0_0_MSaF130EME2
+         , AL0_1_SIaTutto_Ok
+         , AL0_2_TEaP120MAND
+         , AL0_3_MSaF230RSIG
+         , AL0_4_KMaP120MAND
+         , AL0_5_MSaF340RANE
+         , AL0_6_DRaP120_OK_
+         , AL0_7_MSaF250PRTA
+         , AL0_8_TEaP200CIRC
+         , AL0_9_KMaP200CIRC
+         , AL0_a_DRaP200_OK_
+         , AL0_b_TEaR210RISC
+         , AL0_c_KMaR210RISC
+         , AL0_d_TEaS230EROG
+         , AL0_e_KMaS230EROG
+         , AL0_f_DRaS230_OK_
+        }
 
-    public static string[] wa0Descr =
-  {
-         "00 - anomalia misuratore portata       "
-        ,"01 - comandi inseriti                  "
-        ,"02 - termica pompa mandata             "
-        ,"03 - refr siringa                      "
-        ,"04 - readback tele pompa P120          "
-        ,"05 - raffr. rane                       "
-        ,"06 - anomaliza drive pompa mandata     "
-        ,"07 - refr. prta                        "
-        ,"08 - termica pompa circolazione        "
-        ,"09 - readback tele pompa circolazioner "
-        ,"10 - anom. drive pompa circolazione    "
-        ,"11 - termica potenza riscaldatore      "
-        ,"12 - readback tele riscaldatore        "
-        ,"13 - termica siringa                   "
-        ,"14 - readback siringa                  "
-        ,"15 - anomalia drive siringa            "
-      };
-
-    public static string[] wa0Nick =
+        public static string[] wa0Descr =
       {
-         "AL0_0_MSaF130EME2 "
-        ,"AL0_1_SIaTutto_Ok "
-        ,"AL0_2_TEaP120MAND "
-        ,"AL0_3_MSaF230RSIG "
-        ,"AL0_4_KMaP120MAND "
-        ,"AL0_5_MSaF340RANE "
-        ,"AL0_6_DRaP120OK "
-        ,"AL0_7_MSaF250PRTA "
-        ,"AL0_8_TEaP200CIRC "
-        ,"AL0_9_KMaP200CIRC "
-        ,"AL0_a_DRaP200OK "
-        ,"AL0_b_TEaR210RISC "
-        ,"AL0_c_KMaR210RISC "
-        ,"AL0_d_TEaS230EROG "
-        ,"AL0_e_KMaS230EROG "
-        ,"AL0_f_DRaS230OK "
-      };
+             "00 - anomalia misuratore portata       "
+            ,"01 - comandi inseriti                  "
+            ,"02 - termica pompa mandata             "
+            ,"03 - refr siringa                      "
+            ,"04 - readback tele pompa P120          "
+            ,"05 - raffr. rane                       "
+            ,"06 - anomaliza drive pompa mandata     "
+            ,"07 - refr. prta                        "
+            ,"08 - termica pompa circolazione        "
+            ,"09 - readback tele pompa circolazioner "
+            ,"10 - anom. drive pompa circolazione    "
+            ,"11 - termica potenza riscaldatore      "
+            ,"12 - readback tele riscaldatore        "
+            ,"13 - termica siringa                   "
+            ,"14 - readback siringa                  "
+            ,"15 - anomalia drive siringa            "
+          };
+
+        public static string[] wa0Nick =
+          {
+             "AL0_0_MSaF130EME2 "
+            ,"AL0_1_SIaTutto_Ok "
+            ,"AL0_2_TEaP120MAND "
+            ,"AL0_3_MSaF230RSIG "
+            ,"AL0_4_KMaP120MAND "
+            ,"AL0_5_MSaF340RANE "
+            ,"AL0_6_DRaP120OK "
+            ,"AL0_7_MSaF250PRTA "
+            ,"AL0_8_TEaP200CIRC "
+            ,"AL0_9_KMaP200CIRC "
+            ,"AL0_a_DRaP200OK "
+            ,"AL0_b_TEaR210RISC "
+            ,"AL0_c_KMaR210RISC "
+            ,"AL0_d_TEaS230EROG "
+            ,"AL0_e_KMaS230EROG "
+            ,"AL0_f_DRaS230OK "
+          };
 
 
-    public static string[] wa0Plc =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
-
-
-    public static string[] wa0Comp =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
-
-
-    public enum Wa01
-    {
-       AL1_0_TSaR210_OK_
-     , AL1_1_SNaP400PAIR
-     , AL1_2_TEaP530RAFF
-     , AL1_3_KMaP530RAFF
-     , AL1_4_DRaP530_OK_
-     , AL1_5_LSaSERBNOHI
-     , AL1_6_LSaSERBNOLO
-     , AL1_7_LSaSPUNOAIR
-     , AL1_8_OPaV190SVUO
-     , AL1_9_CLaV190SVUO
-     , AL1_a_OPaV260MAND
-     , AL1_b_CLaV260MAND
-     , AL1_c_OPaV320RITO
-     , AL1_d_CLaV320RITO
-     , AL1_e_OPaV450PRES
-     , AL1_f_CLaV450PRES
-    }
-
-
-    public static string[] wa1Descr =
-  {
-         "16 - termostato sicurezza riscaldatore             "
-        ,"17 - presenza aria                                 "
-        ,"18 - termica pompa raffreddamento                  "
-        ,"19 - readback tele pompa raffreddamento            "
-        ,"20 - anomalia drive pompa raffreddamento           "
-        ,"21 - serbatoio troppo pieno                        "
-        ,"22 - allarme mancanza fluido                       "
-        ,"23 - timeout spurgo aria                           "
-        ,"24 - anomalia comando apertura valvola svuotamento "
-        ,"25 - anomalia comando chiusura valvola svuotamento "
-        ,"26 - anomalia comando apertura valvola mandata     "
-        ,"27 - anomalia comando chiusura valvola mandata     "
-        ,"28 - anomalia comando apertura valvola ritorno     "
-        ,"29 - anomalia comando chiusura valvola ritorno     "
-        ,"30 - anomalia comando apertura valvola press       "
-        ,"31 - anomalia comando chiusura valvola press       "
-      };                                                     
-
-    public static string[] wa1Nick =
+        public static string[] wa0Plc =
       {
-         "AL1_0_TSaR210OK"
-        ,"AL1_1_SNaP400PAIR"
-        ,"AL1_2_TEaP530RAFF"
-        ,"AL1_3_KMaP530RAFF"
-        ,"AL1_4_DRaP530__OK"
-        ,"AL1_5_LSaSERBNOHI"
-        ,"AL1_6_LSaSERBNOLO"
-        ,"AL1_7_LSaSPUNOAIR"
-        ,"AL1_8_OPaV190SVUO"
-        ,"AL1_9_CLaV190SVUO"
-        ,"AL1_a_OPaV260MAND"
-        ,"AL1_b_CLaV260MAND"
-        ,"AL1_c_OPaV320RITO"
-        ,"AL1_d_CLaV320RITO"
-        ,"AL1_e_OPaV450PRES"
-        ,"AL1_f_CLaV450PRES"
-      };
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
 
 
-    public static string[] wa1Plc =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
-
-
-    public static string[] wa1Comp =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
-
-
-    public enum Wa02
-    {
-       AL2_0_OPaV360RAFF
-     , AL2_1_CLaV360RAFF
-     , AL2_2_OPaV520INSE
-     , AL2_3_CLaV520INSE
-     , AL2_4_SQaSTEPUNDF
-     , AL2_5_SQaTESTLIVE
-     , AL2_6_SBaSCOPTUBO
-     , AL2_7_All_Riserva
-     , AL2_8_All_Riserva
-     , AL2_9_All_Riserva
-     , AL2_a_All_Riserva
-     , AL2_b_All_Riserva
-     , AL2_c_All_Riserva
-     , AL2_d_All_Riserva
-     , AL2_e_All_Riserva
-     , AL2_f_All_Riserva
-    }
-
-
-    public static string[] wa2Descr =
-  {
-         "32 - apertura valvola raffr "
-        ,"33 - chiusura valvola raffr"
-        ,"34 - apertura valvola inseguimento"
-        ,"35 - chiusura valvola inseguimento"
-        ,"36 - step indefinito"
-        ,"37 - prova attiva"
-        ,"38 - Anomalia pulsazione, scoppio tubo "
-        ,"39 - Riserva "
-        ,"40 - Riserva "
-        ,"41 - Riserva "
-        ,"42 - Riserva "
-        ,"43 - Riserva "
-        ,"44 - Riserva "
-        ,"45 - Riserva "
-        ,"46 - Riserva "
-      };
-
-    public static string[] wa2Nick =
+        public static string[] wa0Comp =
       {
-         "OPaV360RAFF "
-        ,"CLaV360RAFF "
-        ,"OPaV520INSE "
-        ,"CLaV520INSE "
-        ,"SQaSTEPUNDF "
-        ,"SQaTESTLIVE "
-        ,"SBaSCOPTUBO "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-        ,"Riserva "
-      };
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
 
 
-    public static string[] wa2Plc =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
+        public enum Wa01
+        {
+           AL1_0_TSaR210_OK_
+         , AL1_1_SNaP400PAIR
+         , AL1_2_TEaP530RAFF
+         , AL1_3_KMaP530RAFF
+         , AL1_4_DRaP530_OK_
+         , AL1_5_LSaSERBNOHI
+         , AL1_6_LSaSERBNOLO
+         , AL1_7_LSaSPUNOAIR
+         , AL1_8_OPaV190SVUO
+         , AL1_9_CLaV190SVUO
+         , AL1_a_OPaV260MAND
+         , AL1_b_CLaV260MAND
+         , AL1_c_OPaV320RITO
+         , AL1_d_CLaV320RITO
+         , AL1_e_OPaV450PRES
+         , AL1_f_CLaV450PRES
+        }
 
 
-    public static string[] wa2Comp =
-  {
-         ""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-        ,""
-      };
+        public static string[] wa1Descr =
+      {
+             "16 - termostato sicurezza riscaldatore             "
+            ,"17 - presenza aria                                 "
+            ,"18 - termica pompa raffreddamento                  "
+            ,"19 - readback tele pompa raffreddamento            "
+            ,"20 - anomalia drive pompa raffreddamento           "
+            ,"21 - serbatoio troppo pieno                        "
+            ,"22 - allarme mancanza fluido                       "
+            ,"23 - timeout spurgo aria                           "
+            ,"24 - anomalia comando apertura valvola svuotamento "
+            ,"25 - anomalia comando chiusura valvola svuotamento "
+            ,"26 - anomalia comando apertura valvola mandata     "
+            ,"27 - anomalia comando chiusura valvola mandata     "
+            ,"28 - anomalia comando apertura valvola ritorno     "
+            ,"29 - anomalia comando chiusura valvola ritorno     "
+            ,"30 - anomalia comando apertura valvola press       "
+            ,"31 - anomalia comando chiusura valvola press       "
+          };                                                     
+
+        public static string[] wa1Nick =
+          {
+             "AL1_0_TSaR210OK"
+            ,"AL1_1_SNaP400PAIR"
+            ,"AL1_2_TEaP530RAFF"
+            ,"AL1_3_KMaP530RAFF"
+            ,"AL1_4_DRaP530__OK"
+            ,"AL1_5_LSaSERBNOHI"
+            ,"AL1_6_LSaSERBNOLO"
+            ,"AL1_7_LSaSPUNOAIR"
+            ,"AL1_8_OPaV190SVUO"
+            ,"AL1_9_CLaV190SVUO"
+            ,"AL1_a_OPaV260MAND"
+            ,"AL1_b_CLaV260MAND"
+            ,"AL1_c_OPaV320RITO"
+            ,"AL1_d_CLaV320RITO"
+            ,"AL1_e_OPaV450PRES"
+            ,"AL1_f_CLaV450PRES"
+          };
 
 
-    public string[,] msgAll =
- {
-   {
- "00 - anomalia misuratore portata       "
-,"01 - comandi inseriti                  "
-,"02 - termica pompa mandata             "
-,"03 - refr siringa                      "
-,"04 - readback tele pompa P120          "
-,"05 - raffr. rane                       "
-,"06 - anomalia drive pompa mandata      "
-,"07 - refr. prta                        "
-,"08 - termica pompa circolazione        "
-,"09 - readback tele pompa circolazioner "
-,"10 - anom. drive pompa circolazione    "
-,"11 - termica potenza riscaldatore      "
-,"12 - readback tele riscaldatore        "
-,"13 - termica siringa                   "
-,"14 - readback siringa                  "
-,"15 - anomalia drive siringa            "
-     },
-   {
- "16 - termostato sicurezza riscaldatore             "
-,"17 - presenza aria                                 "
-,"18 - termica pompa raffreddamento                  "
-,"19 - readback tele pompa raffreddamento            "
-,"20 - anomalia drive pompa raffreddamento           "
-,"21 - serbatoio troppo pieno                        "
-,"22 - allarme mancanza fluido                       "
-,"23 - timeout spurgo aria                           "
-,"24 - anomalia comando apertura valvola svuotamento "
-,"25 - anomalia comando chiusura valvola svuotamento "
-,"26 - anomalia comando apertura valvola mandata     "
-,"27 - anomalia comando chiusura valvola mandata     "
-,"28 - anomalia comando apertura valvola ritorno     "
-,"29 - anomalia comando chiusura valvola ritorno     "
-,"30 - anomalia comando apertura valvola press       "
-,"31 - anomalia comando chiusura valvola press       "
-  },
-   {
- "32 - apertura valvola raffr "
-,"33 - chiusura valvola raffr"
-,"34 - apertura valvola inseguimento"
-,"35 - chiusura valvola inseguimento"
-,"36 - step indefinito"
-,"37 - prova attiva"
-,"38 - Anomalia pulsazione, scoppio tubo "
-,"39 - Riserva "
-,"40 - Riserva "
-,"41 - Riserva "
-,"42 - Riserva "
-,"43 - Riserva "
-,"44 - Riserva "
-,"45 - Riserva "
-,"46 - Riserva "
-,""
-      }
-};
+        public static string[] wa1Plc =
+      {
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
 
 
+        public static string[] wa1Comp =
+      {
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
+
+
+        public enum Wa02
+        {
+           AL2_0_OPaV360RAFF
+         , AL2_1_CLaV360RAFF
+         , AL2_2_OPaV520INSE
+         , AL2_3_CLaV520INSE
+         , AL2_4_SQaSTEPUNDF
+         , AL2_5_SQaTESTLIVE
+         , AL2_6_SBaSCOPTUBO
+         , AL2_7_All_Riserva
+         , AL2_8_All_Riserva
+         , AL2_9_All_Riserva
+         , AL2_a_All_Riserva
+         , AL2_b_All_Riserva
+         , AL2_c_All_Riserva
+         , AL2_d_All_Riserva
+         , AL2_e_All_Riserva
+         , AL2_f_All_Riserva
+        }
+
+
+        public static string[] wa2Descr =
+      {
+             "32 - apertura valvola raffr "
+            ,"33 - chiusura valvola raffr"
+            ,"34 - apertura valvola inseguimento"
+            ,"35 - chiusura valvola inseguimento"
+            ,"36 - step indefinito"
+            ,"37 - prova attiva"
+            ,"38 - Anomalia pulsazione, scoppio tubo "
+            ,"39 - Riserva "
+            ,"40 - Riserva "
+            ,"41 - Riserva "
+            ,"42 - Riserva "
+            ,"43 - Riserva "
+            ,"44 - Riserva "
+            ,"45 - Riserva "
+            ,"46 - Riserva "
+          };
+
+        public static string[] wa2Nick =
+          {
+             "OPaV360RAFF "
+            ,"CLaV360RAFF "
+            ,"OPaV520INSE "
+            ,"CLaV520INSE "
+            ,"SQaSTEPUNDF "
+            ,"SQaTESTLIVE "
+            ,"SBaSCOPTUBO "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+            ,"Riserva "
+          };
+
+
+        public static string[] wa2Plc =
+      {
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
+
+
+        public static string[] wa2Comp =
+      {
+             ""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+            ,""
+          };
+
+
+        public string[,] msgAll =
+     {
+       {
+     "00 - anomalia misuratore portata       "
+    ,"01 - comandi inseriti                  "
+    ,"02 - termica pompa mandata             "
+    ,"03 - refr siringa                      "
+    ,"04 - readback tele pompa P120          "
+    ,"05 - raffr. rane                       "
+    ,"06 - anomalia drive pompa mandata      "
+    ,"07 - refr. prta                        "
+    ,"08 - termica pompa circolazione        "
+    ,"09 - readback tele pompa circolazioner "
+    ,"10 - anom. drive pompa circolazione    "
+    ,"11 - termica potenza riscaldatore      "
+    ,"12 - readback tele riscaldatore        "
+    ,"13 - termica siringa                   "
+    ,"14 - readback siringa                  "
+    ,"15 - anomalia drive siringa            "
+         },
+       {
+     "16 - termostato sicurezza riscaldatore             "
+    ,"17 - presenza aria                                 "
+    ,"18 - termica pompa raffreddamento                  "
+    ,"19 - readback tele pompa raffreddamento            "
+    ,"20 - anomalia drive pompa raffreddamento           "
+    ,"21 - serbatoio troppo pieno                        "
+    ,"22 - allarme mancanza fluido                       "
+    ,"23 - timeout spurgo aria                           "
+    ,"24 - anomalia comando apertura valvola svuotamento "
+    ,"25 - anomalia comando chiusura valvola svuotamento "
+    ,"26 - anomalia comando apertura valvola mandata     "
+    ,"27 - anomalia comando chiusura valvola mandata     "
+    ,"28 - anomalia comando apertura valvola ritorno     "
+    ,"29 - anomalia comando chiusura valvola ritorno     "
+    ,"30 - anomalia comando apertura valvola press       "
+    ,"31 - anomalia comando chiusura valvola press       "
+      },
+       {
+     "32 - apertura valvola raffr "
+    ,"33 - chiusura valvola raffr"
+    ,"34 - apertura valvola inseguimento"
+    ,"35 - chiusura valvola inseguimento"
+    ,"36 - step indefinito"
+    ,"37 - prova attiva"
+    ,"38 - Anomalia pulsazione, scoppio tubo "
+    ,"39 - Riserva "
+    ,"40 - Riserva "
+    ,"41 - Riserva "
+    ,"42 - Riserva "
+    ,"43 - Riserva "
+    ,"44 - Riserva "
+    ,"45 - Riserva "
+    ,"46 - Riserva "
+    ,""
+          }
+    };
+
+
+    */
     #endregion
-*/
 
     #region Fasi e Cicli
     #region CicliPtr
