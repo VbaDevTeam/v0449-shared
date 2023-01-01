@@ -153,6 +153,9 @@ namespace v0449_shared
     }
 
     private static ComRt2Plc _comRt2Plc = new ComRt2Plc();
+    /// <summary>
+    /// Versione dei dati teoricamente scritti nel PLC
+    /// </summary>
     public ComRt2Plc comRt2Plc
     {
       get {
@@ -160,6 +163,35 @@ namespace v0449_shared
       }
       set {
         V._comRt2Plc = value;
+      }
+    }
+
+    private static ComRt2Plc _comRt2Plc_P = new ComRt2Plc();
+    
+    /// <summary>
+    /// versione dei dati riletta dal PLC
+    /// </summary>
+    public ComRt2Plc comRt2Plc_P
+    {
+      get {
+        return V._comRt2Plc_P;
+      }
+      set {
+        V._comRt2Plc_P = value;
+      }
+    }
+
+    private static ComRt2Plc _comRt2Plc_O = new ComRt2Plc();
+    /// <summary>
+    /// Versione dati scritta precedentemente nel PLC
+    /// </summary>
+    public ComRt2Plc comRt2Plc_O
+    {
+      get {
+        return V._comRt2Plc_O;
+      }
+      set {
+        V._comRt2Plc_O = value;
       }
     }
 
