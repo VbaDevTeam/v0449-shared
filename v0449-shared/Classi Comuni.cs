@@ -11,6 +11,7 @@ using System.IO;
 using System.Text.Json;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace v0449_shared
 {
@@ -195,6 +196,30 @@ namespace v0449_shared
     //minuti mancanti
     private int mmMancanti;
     public int MmMancanti { get => mmMancanti; set => mmMancanti = value; }
+
+    private DateTime eta;
+    public DateTime Eta 
+    {
+      get
+      {
+        var ETA = DateTime.Now.AddDays(GgMancanti);
+        ETA = ETA.AddHours(OreMancanti);
+        ETA = ETA.AddMinutes(MmMancanti);
+        return ETA;
+      }
+    }
+
+    private string etaXt;
+
+    public string EtaXt
+    { 
+      get
+      {
+        var data = Eta.ToString();
+        data = data.Substring(0, 16);
+        return Eta.ToString("ddd", new CultureInfo("it-IT")) + " " + data;
+      }
+    }
 
     public PROVA(Reportheader lrHeader)
     {
@@ -849,6 +874,9 @@ namespace v0449_shared
 
     public bool versSwMaster { get; set; }
     public string typeSw { get; set; }
+
+    public string botToken { get; set; }
+    public string botChatId { get; set; }
 
   }
 
