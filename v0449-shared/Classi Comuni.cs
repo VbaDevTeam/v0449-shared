@@ -999,6 +999,7 @@ namespace v0449_shared
       alarms = new ushort[5];
       c1 = new CXHmi();
       c2 = new CXHmi();
+      readPlcVals = new();
     }
 
     //membri accessori
@@ -1023,6 +1024,8 @@ namespace v0449_shared
     public CXHmi c2 { get; set; }
 
     public string interCom { get; set; }
+
+    public ComRt2Plc readPlcVals { get; set; }
   }
   public class CXHmi
   {

@@ -82,8 +82,6 @@ namespace v0449_shared
     public BitInt[] diCmd;
     public BitInt[] doCmd;
     static int cmdNo = 1;
-    public BitInt[] cmdBancoRequest = new BitInt[cmdNo];
-    public BitInt[] cmdBancoStatus = new BitInt[cmdNo];
     public BitInt[] cmdBancoStatusAut = new BitInt[cmdNo];
     public BitInt[] cmdBancoStatusMan = new BitInt[cmdNo];
 

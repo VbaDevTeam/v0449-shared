@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\comSharp7.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\s7Obj.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BF\Comunicazione\Sharp7.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classi Comuni.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classi gRpc.cs" />

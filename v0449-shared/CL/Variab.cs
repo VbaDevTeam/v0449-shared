@@ -221,6 +221,13 @@ namespace v0449_shared
       }
     }
 
+
+    private static s7com s7Com=new s7com();
+    public s7com S7Com { get => s7Com; set => s7Com = value; }
+
+
+
+
     public static string user;
     public static string mezzo;
     public static bool initDone = false;
@@ -317,10 +324,8 @@ namespace v0449_shared
 
 
 
-      for (t = 0; t < Io.cmdBancoRequest.Length; t++)
+      for (t = 0; t < Io.cmdBancoStatusAut.Length; t++)
       {
-        Io.cmdBancoRequest[t] = new BitInt();
-        Io.cmdBancoStatus[t] = new BitInt();
         Io.cmdBancoStatusAut[t] = new BitInt();
         Io.cmdBancoStatusMan[t] = new BitInt();
       }

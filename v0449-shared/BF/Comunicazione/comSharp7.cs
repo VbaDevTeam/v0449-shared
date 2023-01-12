@@ -348,15 +348,15 @@ namespace v0449_shared
       int ptrErr = 0;
 
       //trasmissione solo se qualche dato è cambiato
-      bool changed = false;
-      for (int n = 0; n < bufWrLen; n++)
-      {
-        changed |= (bufWr[n] != bufRtSent[n]);
-      }
+      //bool changed = false;
+      //for (int n = 0; n < bufWrLen; n++)
+      //{
+      //  changed |= (bufWr[n] != bufRtSent[n]);
+      //}
 
       durata[3] = (double)(System.DateTime.Now.Ticks - timestamp[1]) / 10000.0;
       timestamp[1] = System.DateTime.Now.Ticks;
-      if (changed)
+      //if (changed)
       {
         ResultB = Client.DBWrite(DBNoWr, bufWrStartPos, bufWrLen, bufWr);
         if (v.NoXml.mbErrRd == 0)
@@ -377,6 +377,30 @@ namespace v0449_shared
       }
 
       ShowResult(ResultB);
+      return ResultB;
+
+    }
+
+    protected virtual int writeUpd(int dbNo, s7Obj s7Obj)
+    {
+      int ResultB = 5310089;
+
+      if (s7Obj.UpdPlc)
+      {
+        if (s7Obj.Idx == 0)
+          s7Obj.Idx = s7Obj.Idx;
+        if (s7Obj.Idx == 0 && s7Obj.Val2plc == 0)
+          s7Obj.Idx = s7Obj.Idx;
+
+        durata[3] = (double)(System.DateTime.Now.Ticks - timestamp[1]) / 10000.0;
+        timestamp[1] = System.DateTime.Now.Ticks;
+
+        ResultB = Client.DBWrite(dbNo, s7Obj.Oft, s7Obj.Size, s7Obj.BufWr);
+        bool nano = ResultB == 0;
+        s7Obj.Written = nano;
+        int a = s7Obj.Idx;
+        durata[2] = (double)(System.DateTime.Now.Ticks - timestamp[1]) / 10000.0;
+      }
       return ResultB;
 
     }
