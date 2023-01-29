@@ -1077,6 +1077,62 @@ namespace v0449_shared
 
   }
 
+
+  //Classi chartDirector
+  public class cdBase
+  {
+    public string nome;
+    public string legend;
+    public int ndx;
+    public int color;
+    public bool enb;
+  }
+
+  public class cdSerieDati:cdBase
+  {
+    public int yAxNo;
+    public double[] bufData;
+    public static int buffLen = 100000;
+
+    public cdSerieDati(string nome, string legend, int ndx, int color, bool enb, int yAxNo, int buffLen)
+    {
+      this.nome = nome;
+      this.legend = legend;
+      this.ndx = ndx;
+      this.color = color;
+      this.enb = enb;
+      this.yAxNo = yAxNo;
+      cdSerieDati.buffLen = buffLen;
+      bufData = new double[cdSerieDati.buffLen];
+    }
+    public cdSerieDati(string nome, string legend, int ndx, int color, bool enb, int yAxNo)
+    {
+      this.nome = nome;
+      this.legend = legend;
+      this.ndx = ndx;
+      this.color = color;
+      this.enb = enb;
+      this.yAxNo = yAxNo;
+      bufData = new double[cdSerieDati.buffLen];
+    }
+  }
+  public class cdYAxis:cdBase
+  {
+    public double min;
+    public double max;
+
+    public cdYAxis(string nome, string legend, int ndx, int color, double min, double max, bool enb)
+    {
+      this.nome = nome;
+      this.legend = legend;
+      this.ndx = ndx;
+      this.color = color;
+      this.min = min;
+      this.max = max;
+      this.enb = enb;
+    }
+  }
+
   #region Acs 
   public class ComHmi2Acs
   {
