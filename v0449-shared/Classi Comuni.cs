@@ -1091,7 +1091,7 @@ namespace v0449_shared
   public class cdSerieDati:cdBase
   {
     public int yAxNo;
-    public double[] bufData;
+    //public double[] bufData;
     public static int buffLen = 100000;
 
     public cdSerieDati(string nome, string legend, int ndx, int color, bool enb, int yAxNo, int buffLen)
@@ -1103,7 +1103,7 @@ namespace v0449_shared
       this.enb = enb;
       this.yAxNo = yAxNo;
       cdSerieDati.buffLen = buffLen;
-      bufData = new double[cdSerieDati.buffLen];
+      //bufData = new double[cdSerieDati.buffLen];
     }
     public cdSerieDati(string nome, string legend, int ndx, int color, bool enb, int yAxNo)
     {
@@ -1113,7 +1113,12 @@ namespace v0449_shared
       this.color = color;
       this.enb = enb;
       this.yAxNo = yAxNo;
-      bufData = new double[cdSerieDati.buffLen];
+      //bufData = new double[cdSerieDati.buffLen];
+    }
+
+    public cdSerieDati()
+    {
+
     }
   }
   public class cdYAxis:cdBase
@@ -1130,6 +1135,11 @@ namespace v0449_shared
       this.min = min;
       this.max = max;
       this.enb = enb;
+    }
+
+    public cdYAxis() 
+    { 
+    
     }
   }
 
