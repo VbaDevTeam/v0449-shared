@@ -192,6 +192,9 @@ namespace v0449_shared
     public List<cdSerieDati> cdSDs = new List<cdSerieDati>();
     public List<cdYAxis> cdYAs = new List<cdYAxis>();
 
+    public List<cdSerieDati> cdSDsTp = new List<cdSerieDati>();
+    public List<cdYAxis> cdYAsTp = new List<cdYAxis>();
+
     public DATA_WORK()
     {
       spTFluido = new setPoint();
