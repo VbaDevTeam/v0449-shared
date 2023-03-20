@@ -266,7 +266,7 @@ namespace v0449_shared
     //ascolto, in attesa di cambiamenti da sopra o da sotto
     public void process()
     {
-      int debNo = 17;
+      int debNo = 25;
       if (idx == debNo)
         idx = idx;
 

@@ -385,9 +385,12 @@ namespace v0449_shared
     {
       int ResultB = 5310089;
 
+      if (s7Obj.Idx == 25)
+        s7Obj.Idx = s7Obj.Idx;
+
       if (s7Obj.UpdPlc)
       {
-        if (s7Obj.Idx == 0)
+        if (s7Obj.Idx == 25)
           s7Obj.Idx = s7Obj.Idx;
         if (s7Obj.Idx == 0 && s7Obj.Val2plc == 0)
           s7Obj.Idx = s7Obj.Idx;
