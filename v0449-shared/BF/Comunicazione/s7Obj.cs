@@ -58,6 +58,19 @@ namespace v0449_shared
       , 2   //s7word
     };
 
+    public enum types
+    {
+      s7int = 0
+      , s7uint = 1
+      , s7dint = 2
+      , s7udint = 3
+      , s7ushort = 4
+      , s7real = 5
+      , s7dtl = 6
+      , s7word = 7
+    }
+
+    //variabili ausiliarie per scambio dati
     private int a1, a2;
     private int b1, b2;
 
@@ -85,29 +98,44 @@ namespace v0449_shared
       , w = 4
     }
 
-    public enum types
-    {
-      s7int = 0
-      , s7uint = 1
-      , s7dint = 2
-      , s7udint = 3
-      , s7ushort = 4
-      , s7real = 5
-      , s7dtl = 6
-      , s7word = 7
-    }
-
+    /// <summary>
+    /// Indice dell'oggetto
+    /// </summary>
     public int Idx { get => idx; set => idx = value; }
+    /// <summary>
+    /// Offset della variabile rispetto all'entrypoint. In bytes?
+    /// </summary>
     public int Oft { get => oft + firstWReg; set => oft = value; }
+    /// <summary>
+    /// Entrypoint della scrittura nel buffer di scambio
+    /// </summary>
     public int FirstWReg { get => firstWReg; set => firstWReg = value; }
+    /// <summary>
+    /// Mnemonico per definire l'oggetto
+    /// </summary>
     public string Name { get => name; set => name = value; }
+    /// <summary>
+    /// Descrizione dell'oggetto
+    /// </summary>
     public string Desc { get => desc; set => desc = value; }
+    /// <summary>
+    /// Tipo dato del PLC (determina il modo di trattamento)
+    /// </summary>
     public types Type { get => type; set => type = value; }
+    /// <summary>
+    /// Direzione dell'oggetto (r, w, rw)
+    /// </summary>
     public dir F { get => f; set => f = value; }
+    /// <summary>
+    /// Copia valore aggiornato nel PLC
+    /// </summary>
     public double Val2hmi 
     {
       get => val2hmi;
     }
+    /// <summary>
+    /// Copia valore aggiornato da operatore (o hmi vph) per il PLC
+    /// </summary>
     public double Val2plc 
     { 
       get => val2plc; 
@@ -115,7 +143,9 @@ namespace v0449_shared
     }
 
 
-    //Determina la necessità di trasmissione a PLC
+    /// <summary>
+    /// Determina la necessità di trasmissione a PLC
+    /// </summary>
     public bool UpdPlc
     {
       get
@@ -124,6 +154,9 @@ namespace v0449_shared
       }
     }
 
+    /// <summary>
+    /// Determina la necessità di aggiornamento nell'HMI vph
+    /// </summary>
     public bool UpdHmi
     {
       get
@@ -133,7 +166,9 @@ namespace v0449_shared
     }
 
 
-
+    /// <summary>
+    /// Buffer dati di scambio dal PLC
+    /// </summary>
     public byte[] BufRd { get => bufRd; set => bufRd = value; }
     public int Size { get => size[(int)this.Type]; }
     public byte[] BufWr 
@@ -163,7 +198,7 @@ namespace v0449_shared
     {
       set
       {
-        written= value;
+        written = value;
       }
     }
 
@@ -190,7 +225,7 @@ namespace v0449_shared
     //estrae valore oggetto da buffer dati ricevuto da S7
     public void get()
     {
-      if (idx == 0)
+      if (idx == 17)
         idx = idx;
 
       switch (type) 
@@ -231,7 +266,7 @@ namespace v0449_shared
     //ascolto, in attesa di cambiamenti da sopra o da sotto
     public void process()
     {
-      int debNo = 1119;
+      int debNo = 17;
       if (idx == debNo)
         idx = idx;
 
@@ -257,6 +292,9 @@ namespace v0449_shared
 
         case ptrPh.remoteUpg:
           if (val == val2hmi && val == val2plc)
+            ph = ptrPh.chngWait;
+          //timeout, messo su per bug su wdServer, da verificare
+          if (elapsed > 2)
             ph = ptrPh.chngWait;
           break;
 

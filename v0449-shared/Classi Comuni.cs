@@ -964,27 +964,27 @@ namespace v0449_shared
 
     //inizio buffer circuito
     public UInt16[] cmdReq { get; set; }
-    public UInt16 flVari { get; set; }
-    public Int16 spTVasca_d { get; set; }
-    public Int16 spTCeMan_d { get; set; }
-    public Int16 spTFlMan_d { get; set; }
-    public Int16 spTIrMan_d { get; set; }
-    public Int16 spPRipMan_d { get; set; }
-    public Int16 spPLavMan_d { get; set; }
-    public Int16 spTRUpMan_c { get; set; }
-    public Int16 spTUpMan_c { get; set; }
-    public Int16 spTRDnMan_c { get; set; }
-    public Int16 spTDnMan_c { get; set; }
-    public Int16 spFreq_m { get; set; }
-    public Int16 spQFlMan_c { get; set; }
-    public Int16 spTCarico_c { get; set; }
-    public Int16 spTScarco_c { get; set; }
-    public Int16 spOverpPerc { get; set; }
-    public Int16 comStatus { get; set; }
-    public Int16 spCntNumErr { get; set; }
-    public Int16 spKCalcLimRott { get; set; }
-    public Int16 spLimSumErr { get; set; }
-    public Int16[] auxPar { get; set; }
+    public UInt16   flVari { get; set; }
+    public Int16    spTVasca_d { get; set; }
+    public Int16    spTCeMan_d { get; set; }
+    public Int16    spTFlMan_d { get; set; }
+    public Int16    spTIrMan_d { get; set; }
+    public Int16    spPRipMan_d { get; set; }
+    public Int16    spPLavMan_d { get; set; }
+    public Int16    spTRUpMan_c { get; set; }
+    public Int16    spTUpMan_c { get; set; }
+    public Int16    spTRDnMan_c { get; set; }
+    public Int16    spTDnMan_c { get; set; }
+    public Int16    spFreq_m { get; set; }
+    public Int16    spQFlMan_c { get; set; }
+    public Int16    spTCarico_c { get; set; }
+    public Int16    spTScarco_c { get; set; }
+    public Int16    spOverpPerc { get; set; }
+    public Int16    comStatus { get; set; }
+    public Int16    spCntNumErr { get; set; }
+    public Int16    spKCalcLimRott { get; set; }
+    public Int16    spLimSumErr { get; set; }
+    public Int16[]  auxPar { get; set; }
     //fine buffer circuito, segue ricetta (test header e steps)
 
     public int cmdReqCli { get; set; }
@@ -1000,6 +1000,7 @@ namespace v0449_shared
       c1 = new CXHmi();
       c2 = new CXHmi();
       readPlcVals = new();
+      comunicOn = false;
     }
 
     //membri accessori
