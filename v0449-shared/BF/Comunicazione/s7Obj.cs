@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Security.Cryptography;
@@ -85,6 +86,8 @@ namespace v0449_shared
     private double val;
     private double val2hmi;
     private double val2plc;
+    private double val2plcWk;
+
     private static byte[] bufRd;
     private byte[] bufWr=new byte[16];
     private bool updPlc;
@@ -234,6 +237,7 @@ namespace v0449_shared
 
           break;
         case types.s7int:
+        case types.s7uint:
           a2 = a1;
           a1 = S7.GetIntAt(bufRd, firstWReg + oft);
           val2hmi = a1;
@@ -280,22 +284,42 @@ namespace v0449_shared
       switch (ph)
       {
         //inizializzazione in avvio
+        //all'avvio del server vengono caricati tutti i valori correnti dal PLC
         case ptrPh.start:
           ph = ptrPh.plcReading;
           break;
 
         case ptrPh.plcReading:
           //suppongo che se son qua sia disponibile una lettura valida
+          //val: appoggio
+          //val2plc valore server -> plc
+          //val2hmi valore server -> hmi
+          //uguaglio tutto per acquisire lo stato del PLC come stato iniziale
+          // da mostrare nel client (fosse stato modificato qlc a server spento)
           val = val2plc = val2hmi;
           ph = ptrPh.remoteUpg;
           break;
 
         case ptrPh.remoteUpg:
           if (val == val2hmi && val == val2plc)
+          {
+            if (idx == debNo)
+            {
+              Log.Logger.Information("remoteUpg, == -           val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("remoteUpg, == -           val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
             ph = ptrPh.chngWait;
+          }
           //timeout, messo su per bug su wdServer, da verificare
-          if (elapsed > 2)
+          if (elapsed > 20)
+          {
+            if (idx == debNo)
+            {
+              Log.Logger.Information("remoteUpg, timeout -      val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("remoteUpg, timeout -      val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
             ph = ptrPh.chngWait;
+          }
           break;
 
         //------------------
@@ -305,13 +329,20 @@ namespace v0449_shared
           {
             ph = ptrPh.plcChanged;
             if (idx == debNo)
-              idx = idx;
+            {
+              Log.Logger.Information("chngWait, plcChanged -    val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("chngWait, plcChanged -    val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
           }
           if (val != val2plc)
           {
             ph = ptrPh.hmiChanged;
+            val2plcWk = val2plc;
             if (idx == debNo)
-              idx = idx;
+            {
+              Log.Logger.Information("chngWait, hmiChanged -    val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("chngWait, hmiChanged -    val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
           }
           break;
 
@@ -319,7 +350,10 @@ namespace v0449_shared
         //gest. cambiamento da PLC
         case ptrPh.plcChanged:
           if (idx == debNo)
-            idx = idx;
+          {
+            Log.Logger.Information("plcChanged -              val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+            Console.WriteLine("plcChanged -              val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+          }
           val = val2hmi;
           //val2plc = val2hmi;
           ph = ptrPh.remoteSend;
@@ -329,29 +363,45 @@ namespace v0449_shared
           if (val2plc == val2hmi)
           {
             if (idx == debNo)
-              idx = idx;
+            {
+              Log.Logger.Information("remoteSend - ==           val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("remoteSend - ==           val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
             ph = ptrPh.chngWait;
           }
 
           if (elapsed > 2)
+          {
+            if (idx == debNo)
+            {
+              Log.Logger.Information("remoteSend - timeOut      val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("remoteSend - timeOut      val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
             ph = ptrPh.chngWait;
+          }
           break;
 
         //------------------
         //gest. cambiamento da HMI (client)
         case ptrPh.hmiChanged:
           if (idx == debNo)
-            idx = idx;
-          val = val2plc;
+          {
+            Log.Logger.Information("hmiChanged -              val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+            Console.WriteLine("hmiChanged -              val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+          }
+          val = val2plcWk;
           updPlc = true;
           ph = ptrPh.plcSending;
           break;
 
         case ptrPh.plcSending:
-          if (written && val2hmi == val2plc)
+          if (written && val2hmi == val2plcWk)
           {
             if (idx == debNo)
-              idx = idx;
+            {
+              Log.Logger.Information("plcSending -              val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("plcSending -              val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
             updPlc = false;
             ph = ptrPh.plcSent;
           }

@@ -999,7 +999,7 @@ namespace v0449_shared
       alarms = new ushort[5];
       c1 = new CXHmi();
       c2 = new CXHmi();
-      readPlcVals = new();
+      currSetPoint = new();
       comunicOn = false;
     }
 
@@ -1007,6 +1007,7 @@ namespace v0449_shared
     public int cmdRespSrv { get; set; }//;
     public bool recDataOn { get; set; }//;
     public bool comunicOn { get; set; }//;
+    public long srvId { get; set; }//;
     public Int16 wDogCli { get; set; }
 
     //membri mappa comunicazione PLC
@@ -1026,7 +1027,7 @@ namespace v0449_shared
 
     public string interCom { get; set; }
 
-    public ComRt2Plc readPlcVals { get; set; }
+    public ComRt2Plc currSetPoint { get; set; }
   }
   public class CXHmi
   {
