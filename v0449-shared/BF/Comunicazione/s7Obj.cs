@@ -272,12 +272,20 @@ namespace v0449_shared
     {
       int debNo = 25;
       if (idx == debNo)
+      {
         idx = idx;
+      }
 
       if (ph != oldPh)
       {
-        oldPh = ph;
         tmIn = DateTime.Now.Ticks;
+        if (idx == debNo)
+        {
+          Log.Logger.Information("ChangePH, == -           ph = {ph}, oldPh = {oldPh}", ph, oldPh);
+          Console.WriteLine("ChangePH, == -           ph = " + ph + ", oldPh = " + oldPh);
+        }
+        oldPh = ph;
+
       }
       elapsed = (DateTime.Now.Ticks - tmIn) / 1e7;
 
@@ -334,10 +342,12 @@ namespace v0449_shared
               Console.WriteLine("chngWait, plcChanged -    val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
             }
           }
+
+          //Cambia il valore da client 
           if (val != val2plc)
           {
             ph = ptrPh.hmiChanged;
-            val2plcWk = val2plc;
+            //val2plcWk = val2plc;
             if (idx == debNo)
             {
               Log.Logger.Information("chngWait, hmiChanged -    val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
@@ -370,7 +380,7 @@ namespace v0449_shared
             ph = ptrPh.chngWait;
           }
 
-          if (elapsed > 2)
+          if (elapsed > 20)
           {
             if (idx == debNo)
             {
@@ -389,13 +399,13 @@ namespace v0449_shared
             Log.Logger.Information("hmiChanged -              val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
             Console.WriteLine("hmiChanged -              val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
           }
-          val = val2plcWk;
+          val = val2plc;
           updPlc = true;
           ph = ptrPh.plcSending;
           break;
 
         case ptrPh.plcSending:
-          if (written && val2hmi == val2plcWk)
+          if (written && val2hmi == val2plc)
           {
             if (idx == debNo)
             {
@@ -404,6 +414,15 @@ namespace v0449_shared
             }
             updPlc = false;
             ph = ptrPh.plcSent;
+          }
+          if (elapsed > 20)
+          {
+            if (idx == debNo)
+            {
+              Log.Logger.Information("remoteUpg, timeout -      val = {val}, val2hmi = {val2hmi}, val2plc = {val2plc}, val2plcWk = {val2plcWk}", val, val2hmi, val2plc, val2plcWk);
+              Console.WriteLine("remoteUpg, timeout -      val = " + val + " val2hmi = " + val2hmi + ", val2plc = " + val2plc + ", val2plcWk = " + val2plcWk);
+            }
+            ph = ptrPh.chngWait;
           }
 
           break;
