@@ -187,6 +187,12 @@ namespace v0449_shared
     public setPoint spTCella;
     public double dpMonte;
 
+    public List<cdSerieDati> cdSDs = new List<cdSerieDati>();
+    public List<cdYAxis> cdYAs = new List<cdYAxis>();
+
+    public List<cdSerieDati> cdSDsTp = new List<cdSerieDati>();
+    public List<cdYAxis> cdYAsTp = new List<cdYAxis>();
+
     public DATA_WORK()
     {
       spTFluido = new setPoint();
